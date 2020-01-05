@@ -1,0 +1,644 @@
+{
+	"一": { 
+		"en": "one"
+	},
+	"丨": { 
+		"en": "line"
+	},
+	"丶": { 
+		"en": "dot"
+	},
+	"丿": { 
+		"en": "slash"
+	},
+	"乙": { 
+		"en": "second"
+	},
+	"亅": { 
+		"en": "hook"
+	},
+	"二": { 
+		"en": "two"
+	},
+	"亠": { 
+		"en": "lid"
+	},
+	"人" : {
+		"en": "person"
+	},
+	"儿" : {
+		"en": "legs"
+	},
+	"入": {
+		"en": "enter"
+	},
+	"八": {
+		"en": "eight"
+	},
+	"冂": {
+		"en": "down box"
+	},	
+	"冖": {
+		"en": "cover"
+	},	
+	"冫": {
+		"en": "ice"
+	},	
+	"几": {
+		"en": "table"
+	},	
+	"凵": {
+		"en": "open box"
+	},
+	"刀": {
+		"en": "knife"
+	},
+	"力": {
+		"en": "power"
+	},	
+	"勹": {
+		"en": "wrap"
+	},		
+	"匕": {
+		"en": "ladle"
+	},	
+	"匚": {
+		"en": "right open box"
+	},	
+	"匸": {
+		"en": "hiding enclosure"
+	},	
+	"十": {
+		"en": "ten"
+	},	
+	"卜": {
+		"en": "divination"
+	},	
+	"卩": {
+		"en": "seal"
+	},	
+	"厂": {
+		"en": "cliff"
+	},	
+	"厶": {
+		"en": "private"
+	},		
+	"又": {
+		"en": "again"
+	},	
+	"口": {
+		"en": "mouth"
+	},		
+	"囗": {
+		"en": "enclosure"
+	},		
+	"土": {
+		"en": "earth"
+	},
+	"士": {
+		"en": "scholar"
+	},		
+	"夂": {
+		"en": "go"
+	},	
+	"夊": {
+		"en": "go slowly"
+	},	
+	"夕": {
+		"en": "night"
+	},	
+	"大": {
+		"en": "big"
+	},				
+	"女": {
+		"en": "woman"
+	},	
+	"子": {
+		"en": "child"
+	},	
+	"宀": {
+		"en": "roof"
+	},		
+	"寸": {
+		"en": "inch"
+	},	
+	"小": {
+		"en": "small"
+	},	
+	"尢": {
+		"en": "lame"
+	},	
+	"尸": {
+		"en": "corpse"
+	},		
+	"屮": {
+		"en": "sprout"
+	},	
+	"山": {
+		"en": "mountain"
+	},
+	"川": {
+		"en": "river"
+	},	
+	"工": {
+		"en": "work"
+	},		
+	"己": {
+		"en": "oneself"
+	},		
+	"巾": {
+		"en": "towel"
+	},	
+	"干": {
+		"en": "dry"
+	},		
+	"幺": {
+		"en": "thread"
+	},	
+	"广": {
+		"en": "shelter"
+	},		
+	"廴": {
+		"en": "stride"
+	},		
+	"廾": {
+		"en": "hands joined"
+	},
+	"弋": {
+		"en": "shoot with a bow"
+	},	
+	"弓": {
+		"en": "bow"
+	},	
+	"彐": {
+		"en": "snout"
+	},	
+	"彡": {
+		"en": "hair"
+	},		
+	"彳": {
+		"en": "step"
+	},		
+	"心": {
+		"en": "heart"
+	},	
+	"戈": {
+		"en": "spear"
+	},		
+	"户": {
+		"en": "door"
+	},		
+	"手": {
+		"en": "hand"
+	},
+	"支": {
+		"en": "branch"
+	},	
+	"攴": {
+		"en": "rap"
+	},	
+	"文": {
+		"en": "script"
+	},	
+	"斗": {
+		"en": "dipper"
+	},		
+	"斤": {
+		"en": "axe"
+	},	
+	"方": {
+		"en": "square"
+	},	
+	"无": {
+		"en": "not"
+	},			
+	"日": {
+		"en": "sun"
+	},	
+	"曰": {
+		"en": "say"
+	},		
+	"月": {
+		"en": "moon"
+	},	
+	"木": {
+		"en": "tree"
+	},		
+	"欠": {
+		"en": "lack"
+	},	
+	"止": {
+		"en": "stop"
+	},		
+	"歹": {
+		"en": "death"
+	},		
+	"殳": {
+		"en": "weapon"
+	},		
+	"母": {
+		"en": "mother"
+	},	
+	"比": {
+		"en": "compare"
+	},	
+	"毛": {
+		"en": "fur"
+	},		
+	"氏": {
+		"en": "clan"
+	},	
+	"气": {
+		"en": "steam"
+	},	
+	"水": {
+		"en": "water"
+	},	
+	"火": {
+		"en": "fire"
+	},	
+	"爪": {
+		"en": "claw"
+	},
+	"父": {
+		"en": "father"
+	},
+	"爻": {
+		"en": "lines on a trigram"
+	},
+	"爿": {
+		"en": "half of a tree trunk"
+	},
+	"片": {
+		"en": "slice"
+	},
+	"牙": {
+		"en": "tooth"
+	},
+	"牛": {
+		"en": "cow"
+	},
+	"犭": {
+		"en": "dog"
+	},	
+	"玄": {
+		"en": "profound"
+	},
+	"玉": {
+		"en": "jade"
+	},
+	"瓜": {
+		"en": "melon"
+	},
+	"瓦": {
+		"en": "tile"
+	},
+	"甘": {
+		"en": "sweet"
+	},
+	"生": {
+		"en": "life"
+	},
+	"用": {
+		"en": "use"
+	},	
+	"田": {
+		"en": "field"
+	},
+	"疋": {
+		"en": "cloth"
+	},
+	"疒": {
+		"en": "ill"
+	},	 
+	"癶": {
+		"en": "foot steps"
+	},	
+	"白": {
+		"en": "white"
+	},
+	"皮": {
+		"en": "skin"
+	},
+	"皿": {
+		"en": "dish"
+	},
+	"目": {
+		"en": "eye"
+	},	
+	"矛": {
+		"en": "spear"
+	},
+	"矢": {
+		"en": "arrow"
+	},
+	"石": {
+		"en": "stone"
+	},
+	"示": {
+		"en": "spirit"
+	},
+	"禸": {
+		"en": "track"
+	},
+	"禾": {
+		"en": "grain"
+	},
+	"穴": {
+		"en": "cave"
+	},
+	"立": {
+		"en": "stand"
+	},
+	"竹": {
+		"en": "bamboo"
+	},
+	"米": {
+		"en": "rice"
+	},
+	"纟": {
+		"en": "silk"
+	},
+	"缶": {
+		"en": "jar"
+	},	
+	"网": {
+		"en": "net"
+	},	
+	"羊": {
+		"en": "sheep"
+	},
+	"羽": {
+		"en": "feather"
+	},	
+	"老": {
+		"en": "old"
+	},	
+	"而": {
+		"en": "and"
+	},	
+	"耒": {
+		"en": "plow"
+	},
+	"耳": {
+		"en": "ear"
+	},	
+	"聿": {
+		"en": "brush"
+	},
+	"肉": {
+		"en": "meat"
+	},
+	"臣": {
+		"en": "minister"
+	},
+	"自": {
+		"en": "oneself"
+	},	
+	"至": {
+		"en": "arrive"
+	},
+	"臼": {
+		"en": "mortar"
+	},	
+	"舌": {
+		"en": "tongue"
+	},
+	"舛": {
+		"en": "contrary"
+	},
+	"舟": {
+		"en": "boat"
+	},
+	"艮": {
+		"en": "mountain"
+	},
+	"色": {
+		"en": "color"
+	},
+	"艹": {
+		"en": "grass"
+	},
+	"虍": {
+		"en": "tiger"
+	},	
+	"虫": {
+		"en": "insect"
+	},	
+	"血": {
+		"en": "blood"
+	},	
+	"行": {
+		"en": "walk"
+	},
+	"衣": {
+		"en": "clothes"
+	},	
+	"西": {
+		"en": "west"
+	},
+	"见": {
+		"en": "see"
+	},	
+	"角": {
+		"en": "horn"
+	},
+	"讠": {
+		"en": "speech"
+	},	
+	"谷": {
+		"en": "valley"
+	},	
+	"豆": {
+		"en": "bean"
+	},
+	"豕": {
+		"en": "pig"
+	},	
+	"豸": {
+		"en": "badger"
+	},	
+	"贝": {
+		"en": "shell"
+	},	
+	"赤": {
+		"en": "red"
+	},	
+	"走": {
+		"en": "walk"
+	},
+	"足": {
+		"en": "foot"
+	},
+	"身": {
+		"en": "body"
+	},
+	"车": {
+		"en": "cart"
+	},
+	"辛": {
+		"en": "bitter"
+	},	
+	"辰": {
+		"en": "morning"
+	},	
+	"辶": {
+		"en": "walk"
+	},
+	"邑": {
+		"en": "city"
+	},
+	"酉": {
+		"en": "wine"
+	},
+	"釆": {
+		"en": "distinguish"
+	},	
+	"里": {
+		"en": "village"
+	},	
+	"钅": {
+		"en": "metal"
+	},	
+	"长": {
+		"en": "long"
+	},
+	"门": {
+		"en": "gate"
+	},
+	"阜": {
+		"en": "mound"
+	},
+	"隶": {
+		"en": "slave"
+	},	
+	"隹": {
+		"en": "short-tailed bird"
+	},	
+	"雨": {
+		"en": "rain"
+	},	
+	"青": {
+		"en": "blue"
+	},
+	"非": {
+		"en": "wrong"
+	},
+	"面": {
+		"en": "face"
+	},
+	"革": {
+		"en": "leather"
+	},	
+	"韦": {
+		"en": "soft leather"
+	},
+	"韭": {
+		"en": "leek"
+	},	
+	"音": {
+		"en": "sound"
+	},
+	"页": {
+		"en": "page"
+	},
+	"风": {
+		"en": "wind"
+	},
+	"飞": {
+		"en": "fly"
+	},	
+	"饣": {
+		"en": "eat"
+	},	
+	"首": {
+		"en": "head"
+	},
+	"香": {
+		"en": "fragrant"
+	},
+	"马": {
+		"en": "horse"
+	},
+	"骨": {
+		"en": "bone"
+	},
+	"高": {
+		"en": "high"
+	},
+	"髟": {
+		"en": "long hair"
+	},
+	"鬥": {
+		"en": "fight"
+	},
+	"鬯": {
+		"en": "sacrificial wine"
+	},	
+	"鬲": {
+		"en": "cauldron"
+	},
+	"鬼": {
+		"en": "ghost"
+	},
+	"鱼": {
+		"en": "fish"
+	},
+	"鸟": {
+		"en": "bird"
+	},
+	"卤": {
+		"en": "salty"
+	},	
+	"鹿": {
+		"en": "deer"
+	},
+	"麦": {
+		"en": "wheat"
+	},
+	"麻": {
+		"en": "hemp"
+	},	
+	"黄": {
+		"en": "yellow"
+	},	
+	"黍": {
+		"en": "millet"
+	},	
+	"黑": {
+		"en": "black"
+	},
+	"黹": {
+		"en": "embroidery"
+	},	
+	"黾": {
+		"en": "frog"
+	},
+	"鼎": {
+		"en": "tripod"
+	},	
+	"鼓": {
+		"en": "drum"
+	},
+	"鼠": {
+		"en": "rat"
+	},	
+	"鼻": {
+		"en": "nose"
+	},
+	"齐": {
+		"en": "even"
+	},
+	"齿": {
+		"en": "tooth"
+	},
+	"龙": {
+		"en": "dragon"
+	},	
+	"龟": {
+		"en": "turtle"
+	},	
+	"龠": {
+		"en": "flute"
+	}
+}
