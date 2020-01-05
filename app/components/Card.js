@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { 
   StyleSheet, 
-  Text, 
-  View 
+  Text,
+  TouchableOpacity
 } from 'react-native';
+
+import { config } from '../data/config'
 
 export default class Card extends Component {
 	
@@ -12,22 +14,29 @@ export default class Card extends Component {
  	 */
 	render() {
 		return(
-      <View style={styles.text}>
-        <Text>{this.props.text}</Text>
-      </View>
+      <TouchableOpacity style={styles.container} onPress={() => this.props.handle(this.props.isCorrect)}>
+        <Text style={styles.text}>{this.props.text}</Text>
+      </TouchableOpacity>
     )
 	 }
 
 }
 
 const styles = StyleSheet.create({
-  'text': {
-    width: '50%',
-    height: '50%',
-    backgroundColor: 'red',
+  'container': {
+    width: '48%',
+    height: '48%',
     alignSelf: 'stretch',
     justifyContent: 'center',
     textAlign: 'center',
     alignItems: 'center',
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: config.colors.primary,
+    color: config.colors.primary,
+    margin: '1%'
+  },
+  'text': {
+    textTransform: 'capitalize'    
   }
 })

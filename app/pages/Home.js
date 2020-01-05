@@ -6,6 +6,8 @@ import {
   View 
 } from 'react-native';
 
+import { config } from '../data/config'
+
 export default class Home extends Component {
 
   /**
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: config.colors.background,
   },
   welcome: {
     fontSize: 20,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: config.colors.primary,
     marginBottom: 5,
   },
 });

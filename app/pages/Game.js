@@ -6,13 +6,17 @@ import {
   View 
 } from 'react-native';
 
-import { language } from '../data/config'
 import Card from '../components/Card'
 import Heart from '../components/Heart'
+import TimedCharacter from '../components/TimedCharacter'
+
 import { 
   getRandomProperty, 
-  getRandomIndex 
+  getRandomIndex,
+  getUniqID,
+  getShuffledArr
 } from '../helpers/random'
+import { config } from '../data/config'
 
 export default class Game extends Component {
 
@@ -70,36 +74,36 @@ export default class Game extends Component {
   removeLife() {
     let lives = this.state.lives
     lives--
-    if(this.state.lives === 0) navigate('Home')
+    if(this.state.lives === 0) {
+      const {navigate} = this.props.navigation;
+      navigate('Home')
+    } 
     this.setState({'lives': lives})
   }
 
   setAnswerPropositions(answer, number = 4) {
 
-    let propositions = []
-
     // First we add the right answer to the proposition
+    let propositions = []
     propositions.push({
       'isCorrect': true,
-      'translation': this.data[answer][language]
+      'translation': this.data[answer][config.language]
     })
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
       propositions.push({
         'isCorrect': false,
-        'translation': getRandomProperty(this.data)[language]
+        'translation': getRandomProperty(this.data)[config.language]
       })
     }
-
-    return propositions 
+    return getShuffledArr(propositions)
   }
 
   /**
    * CHeck if the awnser is correct
    */
   checkAnswer(isCorrect) {
-    console.log(isCorrect)
     if(isCorrect === true) {
       this.newRound()
     }
@@ -119,15 +123,20 @@ export default class Game extends Component {
     let cards = null
     if(this.state.propositions.length !== 0) {
       cards = this.state.propositions.map((item, i) => (
-        <Card onClick={() => this.checkAnswer(item.isCorrect)} text={item.translation} />
+        <Card isCorrect={item.isCorrect} key={getUniqID()} handle={this.checkAnswer} text={item.translation} />
       ))
     }
 
     let lives = []
     if(this.state.lives !== 0) {
       for (let i = 0; i < this.state.lives; i++) {
-        lives.push(<Heart id={i}/>)
+        lives.push(<Heart key={getUniqID()}/>)
       }
+    }
+
+    let answer = null
+    if(this.state.answer) {
+      answer = <TimedCharacter seconds={6}>{this.state.answer}</TimedCharacter>
     }
 
     return (
@@ -135,13 +144,11 @@ export default class Game extends Component {
         <View style={styles.header}>
           <View style={styles.lives}>{lives}</View>
         </View>
-        <Text style={styles.welcome}>
+        <Text style={styles.character}>
           {this.title}
         </Text>
         <View style={styles.key}>
-          <Text style={styles.keyText}>
-            {this.state.answer}
-          </Text>
+          { answer }
         </View>
         <View style={styles.containerKeys}>
           {cards}
@@ -155,10 +162,9 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     width: '100%',
-    height: '100%',
+    height: 40,
     top: 40,
     left: 0,
-    zIndex: 10,
     height: 40,
     flexDirection: 'row-reverse'
   },
@@ -173,12 +179,13 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: config.colors.background,
   },
-  welcome: {
+  character: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: config.colors.primary
   },
   'containerKeys': {
     width: '80%',
@@ -186,11 +193,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap', 
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: config.colors.background,
     flex: 0.33,
-  },
-  'keyText': {
-    fontSize: 70,
   },
   'key': {
     flex: 0.33,
