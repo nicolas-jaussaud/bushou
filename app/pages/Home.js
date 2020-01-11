@@ -31,7 +31,6 @@ export default class Home extends Component {
     this.state = {
       'progress': 0
     }
-
     this.getProgress = this.getProgress.bind(this)
   }
 
@@ -41,8 +40,7 @@ export default class Home extends Component {
 
   getProgress = async () => {
     AsyncStorage.getItem('progress', (value) =>{
-      this.setState({progress: value == null ? 1 : parseInt(value)},
-        console.log(this.state.progress))
+      this.setState({progress: value == null ? 1 : parseInt(value)})
     })
   }
 
@@ -86,7 +84,12 @@ export default class Home extends Component {
         <Text style={textStyle}>
           Number of characters: {item.characters}
         </Text>
-        <Text style={[styles.instructions, textStyle]} onPress={() => navigate('Game', {title: item.title})}>
+        <Text 
+          style={[styles.instructions, textStyle]} onPress={() => navigate('Game', {
+            title: item.title,
+            levelNumber: parseInt(index),
+            charactersNumber: parseInt(item.characters) 
+          })}>
           {!isLocked ? 'Start the game' : 'Locked'}
         </Text>
       </View>

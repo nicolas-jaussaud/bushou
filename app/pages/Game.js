@@ -17,6 +17,7 @@ import {
   getUniqID,
   getShuffledArr
 } from '../helpers/random'
+import { getCharacters } from '../helpers/data'
 
 import { CONFIG } from '../data/config'
 
@@ -37,9 +38,9 @@ export default class Game extends Component {
 
     // Get the title from the navigation
     this.title = this.props.navigation.state.params.title
-    
+
     // Will contain the list of the characters/definition needed by the game
-    this.data = require('../data/data.json')
+    this.data = getCharacters(this.props.navigation.state.params.charactersNumber)
 
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
@@ -60,6 +61,7 @@ export default class Game extends Component {
     this.setAnswerPropositions  = this.setAnswerPropositions.bind(this) 
     this.checkAnswer            = this.checkAnswer.bind(this)
     this.removeLife             = this.removeLife.bind(this)
+    this.winRound               = this.winRound.bind(this)
   }
 
   /**
@@ -68,10 +70,7 @@ export default class Game extends Component {
   newRound() {
 
     // Win the round
-    if(this.state.round === 100) {
-      const {navigate} = this.props.navigation;
-      navigate('Home')
-    }
+    if(this.state.round === 100) this.winRound()
 
     const answer = getRandomIndex(this.data)
     const propositions = this.setAnswerPropositions(answer)
@@ -84,6 +83,20 @@ export default class Game extends Component {
     })
   }
 
+  winRound = async () => {
+    AsyncStorage.getItem('progress', (value) => {
+      const {navigate} = this.props.navigation;
+      if(value <= this.props.navigation.state.params.levelNumber) {
+        AsyncStorage.setItem('progress', this.props.navigation.state.params.levelNumber + 1, () => {
+          navigate('Home')
+        })
+      }
+      else{
+        navigate('Home')
+      }
+    })
+  }
+
   /**
    * When life is equal to 0 navigate to game over page
    */
@@ -91,7 +104,7 @@ export default class Game extends Component {
     let lives = this.state.lives
     lives--
     if(this.state.lives === 0) {
-      const {navigate} = this.props.navigation;
+      const {navigate} = this.props.navigation
       navigate('Home')
     } 
     this.setState({'lives': lives})
