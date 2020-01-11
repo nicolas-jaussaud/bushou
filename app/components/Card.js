@@ -5,7 +5,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { config } from '../data/config'
+import { CONFIG } from '../data/config'
 
 export default class Card extends Component {
 	
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: config.colors.primary,
-    color: config.colors.primary,
+    borderWidth: 1,
+    borderColor: CONFIG.colors.primary,
+    color: CONFIG.colors.primary,
     margin: '1%'
   },
   'text': {

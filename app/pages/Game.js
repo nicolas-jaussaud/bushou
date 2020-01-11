@@ -9,6 +9,7 @@ import {
 import Card from '../components/Card'
 import Heart from '../components/Heart'
 import TimedCharacter from '../components/TimedCharacter'
+import ProgressBar from '../components/ProgressBar'
 
 import { 
   getRandomProperty, 
@@ -16,7 +17,8 @@ import {
   getUniqID,
   getShuffledArr
 } from '../helpers/random'
-import { config } from '../data/config'
+
+import { CONFIG } from '../data/config'
 
 export default class Game extends Component {
 
@@ -42,10 +44,15 @@ export default class Game extends Component {
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
 
+    // Time for the first round (las round will be 10 time shorter)
+    this.initialSeconds = 10 
+
     this.state = {
       'answer': answer,
       'propositions': propositions,
-      'lives': 3
+      'lives': 3,
+      'round': 0,
+      'seconds': this.initialSeconds
     }
 
     // Avoid scope issue with methody
@@ -59,12 +66,21 @@ export default class Game extends Component {
    * Reset the anwser and propositions
    */
   newRound() {
+
+    // Win the round
+    if(this.state.round === 100) {
+      const {navigate} = this.props.navigation;
+      navigate('Home')
+    }
+
     const answer = getRandomIndex(this.data)
     const propositions = this.setAnswerPropositions(answer)
 
     this.setState({
       'answer': answer,
-      'propositions': propositions
+      'propositions': propositions,
+      'seconds': this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
+      'round': this.state.round + 1
     })
   }
 
@@ -87,29 +103,25 @@ export default class Game extends Component {
     let propositions = []
     propositions.push({
       'isCorrect': true,
-      'translation': this.data[answer][config.language]
+      'translation': this.data[answer][CONFIG.language]
     })
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
       propositions.push({
         'isCorrect': false,
-        'translation': getRandomProperty(this.data)[config.language]
+        'translation': getRandomProperty(this.data)[CONFIG.language]
       })
     }
     return getShuffledArr(propositions)
   }
 
   /**
-   * CHeck if the awnser is correct
+   * CHeck if the answer is correct
    */
   checkAnswer(isCorrect) {
-    if(isCorrect === true) {
-      this.newRound()
-    }
-    else{
-      this.removeLife()
-    }
+    if(isCorrect === false) this.removeLife()
+    if(this.state.lives !== 0) this.newRound()
   }
 
   /**
@@ -136,12 +148,15 @@ export default class Game extends Component {
 
     let answer = null
     if(this.state.answer) {
-      answer = <TimedCharacter seconds={6}>{this.state.answer}</TimedCharacter>
+      answer = <TimedCharacter key={getUniqID()} seconds={this.state.seconds}>{this.state.answer}</TimedCharacter>
     }
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
+          <View style={styles.round}>
+            <Text> Round: {this.state.round}/100</Text>
+          </View>
           <View style={styles.lives}>{lives}</View>
         </View>
         <Text style={styles.character}>
@@ -150,6 +165,7 @@ export default class Game extends Component {
         <View style={styles.key}>
           { answer }
         </View>
+        <ProgressBar key={getUniqID()} seconds={this.state.seconds} handle={this.checkAnswer}/>
         <View style={styles.containerKeys}>
           {cards}
         </View>
@@ -166,11 +182,20 @@ const styles = StyleSheet.create({
     top: 40,
     left: 0,
     height: 40,
-    flexDirection: 'row-reverse'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  'round': {
+    height: 40,
   },
   lives: {
     flexDirection: 'row-reverse',
     flexWrap: 'nowrap'
+  },
+  round: {
+    flexDirection: 'row-reverse',
+    flexWrap: 'nowrap',
+    marginLeft: 50
   },
   container: {
     flex: 1,
@@ -179,13 +204,13 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: config.colors.background,
+    backgroundColor: CONFIG.colors.background,
   },
   character: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: config.colors.primary
+    color: CONFIG.colors.primary
   },
   'containerKeys': {
     width: '80%',
@@ -193,11 +218,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap', 
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: config.colors.background,
-    flex: 0.33,
+    backgroundColor: CONFIG.colors.background,
+    flex: 0.25,
   },
   'key': {
-    flex: 0.33,
+    flex: 0.25,
     alignItems: 'center',
     justifyContent: 'center',
   }

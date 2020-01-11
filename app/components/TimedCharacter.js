@@ -12,34 +12,31 @@ export default class TimedCharacter extends Component {
    */
   constructor(props) {
     super(props)
+    
+    this.initialSize  = 100
+    this.milliseconds = this.props.seconds * 1000 
+    this.timeoutStep  = this.milliseconds / 100 
+    
     this.state = {
-      size: 100,
+      size: this.initialSize,
       opacity: 1
     }
 
-    this.startTimer     = this.startTimer.bind(this)
     this.startAnimation = this.startAnimation.bind(this)
   }
 
-  componentDidMount() {
-    this.startTimer() 
+  componentDidMount() { 
     this.startAnimation() 
-  }
-
-  startTimer() {
-    setTimeout(() => {
-      console.log('dead')
-    }, this.props.seconds * 1000);
   }
 
   startAnimation() {
     setTimeout(() => {
       this.setState({
-        'size': this.state.size - 0.1,
+        'size': this.state.size + ((this.state.opacity * 0.1)/ 0.1),
         'opacity': this.state.opacity - 0.01,
       })
       this.startAnimation()
-    }, 10); 
+    }, this.timeoutStep); 
   }
   /**
    * Renders the page

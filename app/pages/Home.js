@@ -3,10 +3,19 @@ import {
   Platform, 
   StyleSheet, 
   Text, 
-  View 
+  View,
+  Dimensions,
+  AsyncStorage 
 } from 'react-native';
 
-import { config } from '../data/config'
+// Static ata
+import { CONFIG } from '../data/config'
+import { LEVELS } from '../data/levels'
+
+// Dependencies
+import Carousel from 'react-native-snap-carousel';
+
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 export default class Home extends Component {
 
@@ -17,11 +26,30 @@ export default class Home extends Component {
     header: null,
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      'progress': 0
+    }
+
+    this.getProgress = this.getProgress.bind(this)
+  }
+
+  componentDidMount() { 
+    this.getProgress()
+  }
+
+  getProgress = async () => {
+    AsyncStorage.getItem('progress', (value) =>{
+      this.setState({progress: value == null ? 1 : parseInt(value)},
+        console.log(this.state.progress))
+    })
+  }
+
   /**
    * Renders the page
    */
   render() {
-    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -30,8 +58,36 @@ export default class Home extends Component {
         <Text style={styles.welcome}>
           BùShŏu
         </Text>
-        <Text style={styles.instructions} onPress={() => navigate('Game', {title: 'Level 1'})}>
-          Start the game
+        <View style={styles.carousel}>
+          <Carousel
+            layout='default'
+            ref={(c) => { this._carousel = c; }}
+            data={LEVELS}
+            renderItem={this._renderItem}
+            sliderWidth={viewportWidth}
+            itemWidth={viewportWidth/1.33}
+          />
+        </View>
+      </View>
+    );
+  }
+
+  _renderItem = ({item, index}) => {
+    
+    const {navigate} = this.props.navigation;
+    const isLocked = this.state.progress <= parseInt(index) 
+    const textStyle = isLocked ? {color: CONFIG.colors.background} : {color: CONFIG.colors.primary}
+    
+    return(
+      <View style={!isLocked ? styles.carouselItem : styles.carouselItemLocked}>
+        <Text style={[styles.carouselTitle, textStyle]}>
+          { item.title }
+        </Text>
+        <Text style={textStyle}>
+          Number of characters: {item.characters}
+        </Text>
+        <Text style={[styles.instructions, textStyle]} onPress={() => navigate('Game', {title: item.title})}>
+          {!isLocked ? 'Start the game' : 'Locked'}
         </Text>
       </View>
     );
@@ -43,7 +99,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: config.colors.background,
+    backgroundColor: CONFIG.colors.background,
+    color: CONFIG.colors.primary,
   },
   welcome: {
     fontSize: 20,
@@ -52,7 +109,37 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: config.colors.primary,
+    color: CONFIG.colors.primary,
     marginBottom: 5,
+    padding: 10,
+    borderColor: CONFIG.colors.primary,
+    color: CONFIG.colors.primary,
+    borderWidth: 1,
+    width: '66%'
   },
+  carousel: {
+    width: '100%',
+    height: '30%',
+    marginTop: '5%'
+  },
+  carouselItem: {
+    height: '100%',
+    borderWidth: 1,
+    borderColor: CONFIG.colors.primary,
+    color: CONFIG.colors.primary,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  carouselItemLocked: {
+    height: '100%',
+    borderWidth: 1,
+    borderColor: CONFIG.colors.background,
+    color: CONFIG.colors.background,
+    backgroundColor: CONFIG.colors.primary,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  carouselTitle: {
+    fontSize: 20,
+  }
 });
