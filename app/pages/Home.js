@@ -85,11 +85,11 @@ export default class Home extends Component {
           Number of characters: {item.characters}
         </Text>
         <Text 
-          style={[styles.instructions, textStyle]} onPress={() => navigate('Game', {
+          style={[styles.instructions, textStyle]} onPress={() => navigate('Characters', {
             title: item.title,
             levelNumber: parseInt(index),
             charactersNumber: parseInt(item.characters) 
-          })}>
+        })}>
           {!isLocked ? 'Start the game' : 'Locked'}
         </Text>
       </View>

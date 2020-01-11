@@ -1,5 +1,8 @@
-export const getRandomProperty = (obj) => {
+export const getRandomProperty = (obj, answer = false) => {
   let keys = Object.keys(obj)
+  console.log(keys)
+  if(answer !== false) keys.splice(keys.indexOf(answer), 1)
+  console.log(keys)
   return obj[keys[keys.length * Math.random() << 0]]
 }
 

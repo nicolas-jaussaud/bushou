@@ -123,7 +123,7 @@ export default class Game extends Component {
     for (let i = 0; i < number - 1; i++) {
       propositions.push({
         'isCorrect': false,
-        'translation': getRandomProperty(this.data)[CONFIG.language]
+        'translation': getRandomProperty(this.data, answer)[CONFIG.language]
       })
     }
     return getShuffledArr(propositions)
