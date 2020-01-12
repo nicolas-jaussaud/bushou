@@ -13,7 +13,8 @@ export default class ProgressBar extends Component {
     this.state = {
       'progress': 0
     }
-    this.interval = (this.props.seconds * 1000) / 100 
+    this.interval = (this.props.seconds * 1000) / 100
+
     this.startTimer = this.startTimer.bind(this)
   }
 

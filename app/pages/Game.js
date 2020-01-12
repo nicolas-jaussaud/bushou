@@ -3,7 +3,8 @@ import {
   Platform, 
   StyleSheet, 
   Text, 
-  View 
+  View ,
+  AsyncStorage
 } from 'react-native';
 
 import Card from '../components/Card'
@@ -70,7 +71,10 @@ export default class Game extends Component {
   newRound() {
 
     // Win the round
-    if(this.state.round === 100) this.winRound()
+    if(this.state.round === 100) {
+      this.winRound()
+      return;
+    }
 
     const answer = getRandomIndex(this.data)
     const propositions = this.setAnswerPropositions(answer)
@@ -80,7 +84,7 @@ export default class Game extends Component {
       'propositions': propositions,
       'seconds': this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
       'round': this.state.round + 1
-    })
+    }, console.log(this.state.seconds))
   }
 
   winRound = async () => {
@@ -101,12 +105,12 @@ export default class Game extends Component {
    * When life is equal to 0 navigate to game over page
    */
   removeLife() {
-    let lives = this.state.lives
-    lives--
     if(this.state.lives === 0) {
       const {navigate} = this.props.navigation
       navigate('Home')
     } 
+    let lives = this.state.lives
+    // lives--
     this.setState({'lives': lives})
   }
 
@@ -134,7 +138,7 @@ export default class Game extends Component {
    */
   checkAnswer(isCorrect) {
     if(isCorrect === false) this.removeLife()
-    if(this.state.lives !== 0) this.newRound()
+    this.newRound()
   }
 
   /**
@@ -160,9 +164,12 @@ export default class Game extends Component {
     }
 
     let answer = null
+    let timer = null
     if(this.state.answer) {
       answer = <TimedCharacter key={getUniqID()} seconds={this.state.seconds}>{this.state.answer}</TimedCharacter>
+      timer = <ProgressBar key={getUniqID()} seconds={this.state.seconds} handle={this.checkAnswer}/>
     }
+
 
     return (
       <View style={styles.container}>
@@ -178,7 +185,7 @@ export default class Game extends Component {
         <View style={styles.key}>
           { answer }
         </View>
-        <ProgressBar key={getUniqID()} seconds={this.state.seconds} handle={this.checkAnswer}/>
+        { timer }
         <View style={styles.containerKeys}>
           {cards}
         </View>

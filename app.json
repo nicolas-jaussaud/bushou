@@ -3,15 +3,19 @@
   "displayName": "Bùshŏu",
   "expo": {
     "name": "Bushou",
-    "slug": "expo-template-bare",
+    "slug": "bushou",
+    "primaryColor": "#000000",
     "privacy": "unlisted",
+    "icon": "./bushou.png",
     "sdkVersion": "35.0.0",
     "version": "1.0.0",
-    "entryPoint": "node_modules/expo/AppEntry.js",
     "platforms": [
       "ios",
       "android",
       "web"
     ]
+  },
+  "android": {
+    "package": "com.yourcompany.yourappname"
   }
 }
