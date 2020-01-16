@@ -13,9 +13,9 @@
       "ios",
       "android",
       "web"
-    ]
-  },
-  "android": {
-    "package": "com.yourcompany.yourappname"
+    ],
+    "android": {
+      "package": "com.yourcompany.yourappname"
+    }
   }
 }

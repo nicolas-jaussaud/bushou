@@ -36,11 +36,13 @@ export default class Home extends Component {
 
   componentDidMount() { 
     this.getProgress()
+    this.props.navigation.addListener('didFocus', () => this.getProgress())
   }
 
   getProgress = async () => {
-    AsyncStorage.getItem('progress', (value) =>{
-      this.setState({progress: value == null ? 1 : parseInt(value)})
+    AsyncStorage.getItem('progress').then(async (value) => {
+      const progress = value ? value : 1
+      this.setState({progress: progress})
     })
   }
 
@@ -79,17 +81,17 @@ export default class Home extends Component {
     return(
       <View style={!isLocked ? styles.carouselItem : styles.carouselItemLocked}>
         <Text style={[styles.carouselTitle, textStyle]}>
-          { item.title }
+          {item.title}
         </Text>
         <Text style={textStyle}>
           Number of characters: {item.characters}
         </Text>
         <Text 
-          style={[styles.instructions, textStyle]} onPress={() => navigate('Characters', {
+          style={[styles.instructions, textStyle]} onPress={() => !isLocked ? navigate('Characters', {
             title: item.title,
-            levelNumber: parseInt(index),
+            levelNumber: parseInt(index) + 1,
             charactersNumber: parseInt(item.characters) 
-        })}>
+        }) : ''}>
           {!isLocked ? 'Start the game' : 'Locked'}
         </Text>
       </View>

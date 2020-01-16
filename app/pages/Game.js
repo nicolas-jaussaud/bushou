@@ -84,16 +84,19 @@ export default class Game extends Component {
       'propositions': propositions,
       'seconds': this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
       'round': this.state.round + 1
-    }, console.log(this.state.seconds))
+    })
   }
 
-  winRound = async () => {
-    AsyncStorage.getItem('progress', (value) => {
+  winRound = async() => {
+    AsyncStorage.getItem('progress').then(async (value) => {
+      
       const {navigate} = this.props.navigation;
-      if(value <= this.props.navigation.state.params.levelNumber) {
-        AsyncStorage.setItem('progress', this.props.navigation.state.params.levelNumber + 1, () => {
-          navigate('Home')
-        })
+      const progress = (value === parseInt(value)) && (parseInt(value) !== 0) ? value : 1
+      const levelProgress = parseInt(this.props.navigation.state.params.levelNumber) 
+      
+      if(progress <= levelProgress) {
+        let newProgress = levelProgress + 1
+        AsyncStorage.setItem('progress', newProgress.toString()).then(async () => navigate('Home'))
       }
       else{
         navigate('Home')
