@@ -113,7 +113,7 @@ export default class Game extends Component {
       navigate('Home')
     } 
     let lives = this.state.lives
-    // lives--
+    lives--
     this.setState({'lives': lives})
   }
 
