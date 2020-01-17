@@ -15,7 +15,8 @@
       "web"
     ],
     "android": {
-      "package": "com.yourcompany.yourappname"
+      "package": "com.surfzilla.bushou",
+      "permissions": []
     }
   }
 }
