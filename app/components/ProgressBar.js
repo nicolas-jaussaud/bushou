@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 
-import { CONFIG } from '../data/config'
+import Settings from '../classes/Settings';
 
 export default class ProgressBar extends Component {
     
@@ -14,6 +14,8 @@ export default class ProgressBar extends Component {
       'progress': 0
     }
     this.interval = (this.props.seconds * 1000) / 100
+
+    this.styles = getStyles()
 
     this.startTimer = this.startTimer.bind(this)
   }
@@ -38,12 +40,12 @@ export default class ProgressBar extends Component {
    */
   render() {
     return(
-      <View style={styles.container}>
+      <View style={this.styles.container}>
         <View style={{
           flex: this.state.progress/100,
           opacity: 1 - (this.state.progress/100),
           height: '100%',
-          backgroundColor: CONFIG.colors.primary
+          backgroundColor: Settings.data.colors.primary
         }}>
         </View>
       </View>
@@ -52,15 +54,15 @@ export default class ProgressBar extends Component {
 
 }
 
-const styles = StyleSheet.create({
+const getStyles = () => (StyleSheet.create({
   'container': {
     flexDirection: 'row',
     flexWrap: 'nowrap',
     width: '80%',
     flex: 0.1,
     height: '5%',
-    backgroundColor: CONFIG.colors.background,
+    backgroundColor: Settings.data.colors.backgroundColor,
     marginTop: 10,
     marginBottom: 10
   },
-})
+}))

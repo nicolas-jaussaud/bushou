@@ -5,6 +5,8 @@ import {
   View,
 } from 'react-native';
 
+import Settings from '../classes/Settings'
+
 export default class TimedCharacter extends Component {
   
   /**
@@ -43,7 +45,7 @@ export default class TimedCharacter extends Component {
    */
   render() {
     return(
-      <Text style={{fontSize: this.state.size, opacity: this.state.opacity}}>
+      <Text style={{fontSize: this.state.size, opacity: this.state.opacity, color: Settings.data.colors.primary}}>
         {this.props.children}    
       </Text>
     )
