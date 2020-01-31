@@ -5,24 +5,29 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { CONFIG } from '../data/config'
+import Settings  from '../classes/Settings';
 
 export default class Card extends Component {
 	
+  constructor(props) {
+    super(props)
+    this.styles = getStyles()
+  }
+
 	/**
  	 * Renders the page
  	 */
 	render() {
 		return(
-      <TouchableOpacity style={styles.container} onPress={() => this.props.handle(this.props.isCorrect)}>
-        <Text style={styles.text}>{this.props.text}</Text>
+      <TouchableOpacity style={this.styles.container} onPress={() => this.props.handle(this.props.isCorrect)}>
+        <Text style={this.styles.text}>{this.props.text}</Text>
       </TouchableOpacity>
     )
 	 }
 
 }
 
-const styles = StyleSheet.create({
+const getStyles = () => (StyleSheet.create({
   'container': {
     width: '48%',
     height: '48%',
@@ -31,11 +36,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: CONFIG.colors.primary,
-    color: CONFIG.colors.primary,
+    borderColor: Settings.data.colors.primary,
+    color: Settings.data.colors.primary,
     margin: '1%'
   },
   'text': {
+    color: Settings.data.colors.primary,
     textTransform: 'capitalize'    
   }
-})
+}))

@@ -8,6 +8,8 @@ import {
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 
+import Settings from '../classes/Settings'
+
 export default class Heart extends Component {
   
   /**
@@ -22,6 +24,10 @@ export default class Heart extends Component {
    * @see https://stackoverflow.com/a/51821784/10491705
    */
   async _cacheResourcesAsync() {
+    // Can't use variable into require
+    if( Settings.data.theme === 'dark' ) {
+      return Asset.loadAsync([require('../assets/img/heart-white.png')]);
+    }
     return Asset.loadAsync([require('../assets/img/heart.png')]);
   }
 
@@ -43,7 +49,7 @@ export default class Heart extends Component {
       <View>
         <Image
           style={styles.image}
-          source={require('../assets/img/heart.png')}
+          source={Settings.data.theme === 'dark' ? require('../assets/img/heart-white.png') : require('../assets/img/heart.png')}
         />
       </View>
     )

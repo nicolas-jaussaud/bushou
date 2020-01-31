@@ -8,14 +8,15 @@ import {
   AsyncStorage 
 } from 'react-native';
 
-// Static ata
-import { CONFIG } from '../data/config'
+import Settings from '../classes/Settings';
+
+// Static data
 import { LEVELS } from '../data/levels'
 
 // Dependencies
 import Carousel from 'react-native-snap-carousel';
 
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 
 export default class Home extends Component {
 
@@ -31,6 +32,10 @@ export default class Home extends Component {
     this.state = {
       'progress': 0
     }
+
+    // Need a function for support settings
+    this.styles = getStyles()
+    
     this.getProgress = this.getProgress.bind(this)
   }
 
@@ -50,44 +55,52 @@ export default class Home extends Component {
    * Renders the page
    */
   render() {
+
+    // Show the progress only when we load the progress number
+    let levels = null
+    if(this.state.progress !== 0) {
+      levels =
+      <Carousel
+        layout='default'
+        ref={(c) => { this._carousel = c; }}
+        data={LEVELS}
+        renderItem={this._renderItem}
+        sliderWidth={viewportWidth}
+        itemWidth={viewportWidth/1.33}
+      />
+    }
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
+      <View style={this.styles.container}>
+        <Text style={this.styles.welcome}>
           部首
         </Text>
-        <Text style={styles.welcome}>
+        <Text style={this.styles.welcome}>
           BùShŏu
         </Text>
-        <View style={styles.carousel}>
-          <Carousel
-            layout='default'
-            ref={(c) => { this._carousel = c; }}
-            data={LEVELS}
-            renderItem={this._renderItem}
-            sliderWidth={viewportWidth}
-            itemWidth={viewportWidth/1.33}
-          />
+        <View style={this.styles.carousel}>
+          { levels }
         </View>
       </View>
     );
   }
 
-  _renderItem = ({item, index}) => {
+  _renderItem = ({item, index}) =>  {
     
     const {navigate} = this.props.navigation;
-    const isLocked = this.state.progress <= parseInt(index) 
-    const textStyle = isLocked ? {color: CONFIG.colors.background} : {color: CONFIG.colors.primary}
-    
+    const isLocked = this.state.progress <= parseInt(index)
+    let textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
+
     return(
-      <View style={!isLocked ? styles.carouselItem : styles.carouselItemLocked}>
-        <Text style={[styles.carouselTitle, textStyle]}>
+      <View style={!isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked}>
+        <Text style={[this.styles.carouselTitle, {color: textStyle}]}>
           {item.title}
         </Text>
-        <Text style={textStyle}>
+        <Text style={[{color: textStyle}]}>
           Number of characters: {item.characters}
         </Text>
         <Text 
-          style={[styles.instructions, textStyle]} onPress={() => !isLocked ? navigate('Characters', {
+          style={[this.styles.instructions, {color: textStyle}]} onPress={() => !isLocked ? navigate('Characters', {
             title: item.title,
             levelNumber: parseInt(index) + 1,
             charactersNumber: parseInt(item.characters) 
@@ -99,26 +112,28 @@ export default class Home extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const getStyles = () => (StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: CONFIG.colors.background,
-    color: CONFIG.colors.primary,
+    backgroundColor: Settings.data.colors.background,
+    color: Settings.data.colors.primary,
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: Settings.data.colors.primary,
   },
   instructions: {
     textAlign: 'center',
-    color: CONFIG.colors.primary,
+    color: Settings.data.colors.primary,
     marginBottom: 5,
     padding: 10,
-    borderColor: CONFIG.colors.primary,
-    color: CONFIG.colors.primary,
+    borderColor: Settings.data.colors.primary,
+    color: Settings.data.colors.primary,
     borderWidth: 1,
     width: '66%'
   },
@@ -130,21 +145,21 @@ const styles = StyleSheet.create({
   carouselItem: {
     height: '100%',
     borderWidth: 1,
-    borderColor: CONFIG.colors.primary,
-    color: CONFIG.colors.primary,
+    borderColor: Settings.data.colors.primary,
+    color: Settings.data.colors.primary,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   carouselItemLocked: {
     height: '100%',
     borderWidth: 1,
-    borderColor: CONFIG.colors.background,
-    color: CONFIG.colors.background,
-    backgroundColor: CONFIG.colors.primary,
+    borderColor: Settings.data.colors.background,
+    color: Settings.data.colors.background,
+    backgroundColor: Settings.data.colors.primary,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   carouselTitle: {
     fontSize: 20,
   }
-});
+}))

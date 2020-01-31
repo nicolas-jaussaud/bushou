@@ -6,8 +6,9 @@ import {
   ScrollView
 } from 'react-native';
 
-// Static ata
-import { CONFIG } from '../data/config'
+import Settings  from '../classes/Settings';
+
+// Static data
 import { getCharacters } from '../helpers/data'
 
 export default class Characters extends Component {
@@ -24,6 +25,10 @@ export default class Characters extends Component {
     this.state = {
       'progress': 0
     }
+
+    // Need a function for support settings
+    this.styles = getStyles()
+
     this.data = getCharacters(this.props.navigation.state.params.charactersNumber)
   }
 
@@ -35,12 +40,12 @@ export default class Characters extends Component {
     let characters = null
     if(this.data) {
       characters = Object.keys(this.data).map((item, i) => (
-        <View style={styles.line}>
-          <View style={styles.side}>
-            <Text style={styles.text}>{item}:</Text>
+        <View style={this.styles.line}>
+          <View style={this.styles.side}>
+            <Text style={this.styles.text}>{item}:</Text>
           </View>
           <View>
-            <Text style={styles.text}>{this.data[item][CONFIG.language]}</Text>
+            <Text style={this.styles.text}>{this.data[item][Settings.data.language]}</Text>
           </View>
         </View>
       ))
@@ -49,15 +54,15 @@ export default class Characters extends Component {
     const {navigate} = this.props.navigation;
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>
+      <View style={this.styles.container}>
+        <Text style={this.styles.title}>
           {this.props.navigation.state.params.title}
         </Text>
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={this.styles.scrollView}>
           {characters}
         </ScrollView>
         <Text 
-          style={styles.instructions} onPress={() => navigate('Game', {
+          style={this.styles.instructions} onPress={() => navigate('Game', {
             title: this.props.navigation.state.params.title,
             levelNumber: this.props.navigation.state.params.levelNumber,
             charactersNumber: this.props.navigation.state.params.charactersNumber 
@@ -69,13 +74,13 @@ export default class Characters extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const getStyles = () => (StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: CONFIG.colors.background,
-    color: CONFIG.colors.primary,
+    backgroundColor: Settings.data.colors.background,
+    color: Settings.data.colors.primary,
   },
   line: {
     width: '70%',
@@ -83,7 +88,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: '15%',
     marginRight: '15%',
-    borderColor: CONFIG.colors.primary,
+    color: Settings.data.colors.primary,
+    borderColor: Settings.data.colors.primary,
     borderBottomWidth: 1,
     paddingTop: 10,
   },
@@ -92,7 +98,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    color: Settings.data.colors.primary,
   },
   side: {
     width: '50%'
@@ -101,16 +108,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 40,
+    color: Settings.data.colors.primary,
   },
   instructions: {
     margin: 40,
     textAlign: 'center',
-    color: CONFIG.colors.primary,
+    color: Settings.data.colors.primary,
     marginBottom: 5,
     padding: 10,
-    borderColor: CONFIG.colors.primary,
-    color: CONFIG.colors.primary,
+    borderColor: Settings.data.colors.primary,
+    color: Settings.data.colors.primary,
     borderWidth: 1,
     width: '66%'
   },
-});
+}))

@@ -12,6 +12,8 @@ import Heart from '../components/Heart'
 import TimedCharacter from '../components/TimedCharacter'
 import ProgressBar from '../components/ProgressBar'
 
+import Settings  from '../classes/Settings';
+
 import { 
   getRandomProperty, 
   getRandomIndex,
@@ -19,8 +21,6 @@ import {
   getShuffledArr
 } from '../helpers/random'
 import { getCharacters } from '../helpers/data'
-
-import { CONFIG } from '../data/config'
 
 export default class Game extends Component {
 
@@ -37,6 +37,9 @@ export default class Game extends Component {
   constructor(props) {
     super(props)
 
+    // Needed for allowing settings into styles 
+    this.styles = getStyles()
+    
     // Get the title from the navigation
     this.title = this.props.navigation.state.params.title
 
@@ -75,6 +78,9 @@ export default class Game extends Component {
       this.winRound()
       return;
     }
+
+    // Need a function for support settings
+    this.styles = getStyles()
 
     const answer = getRandomIndex(this.data)
     const propositions = this.setAnswerPropositions(answer)
@@ -123,14 +129,14 @@ export default class Game extends Component {
     let propositions = []
     propositions.push({
       'isCorrect': true,
-      'translation': this.data[answer][CONFIG.language]
+      'translation': this.data[answer][Settings.data.language]
     })
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
       propositions.push({
         'isCorrect': false,
-        'translation': getRandomProperty(this.data, answer)[CONFIG.language]
+        'translation': getRandomProperty(this.data, answer)[Settings.data.language]
       })
     }
     return getShuffledArr(propositions)
@@ -175,21 +181,21 @@ export default class Game extends Component {
 
 
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.round}>
-            <Text> Round: {this.state.round}/100</Text>
+      <View style={this.styles.container}>
+        <View style={this.styles.header}>
+          <View style={this.styles.round}>
+            <Text style={this.styles.text}> Round: {this.state.round}/100</Text>
           </View>
-          <View style={styles.lives}>{lives}</View>
+          <View style={this.styles.lives}>{lives}</View>
         </View>
-        <Text style={styles.character}>
+        <Text style={this.styles.character}>
           {this.title}
         </Text>
-        <View style={styles.key}>
+        <View style={this.styles.key}>
           { answer }
         </View>
         { timer }
-        <View style={styles.containerKeys}>
+        <View style={this.styles.containerKeys}>
           {cards}
         </View>
       </View>
@@ -197,7 +203,7 @@ export default class Game extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const getStyles = () => (StyleSheet.create({
   header: {
     position: 'absolute',
     width: '100%',
@@ -227,13 +233,13 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: CONFIG.colors.background,
+    backgroundColor: Settings.data.colors.background,
   },
   character: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-    color: CONFIG.colors.primary
+    color: Settings.data.colors.primary
   },
   'containerKeys': {
     width: '80%',
@@ -241,12 +247,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap', 
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: CONFIG.colors.background,
+    backgroundColor: Settings.data.colors.background,
     flex: 0.25,
   },
   'key': {
     flex: 0.25,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  'text': {
+    color: Settings.data.colors.primary
   }
-})
+}))
