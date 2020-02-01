@@ -32,6 +32,10 @@ export default class Characters extends Component {
     this.data = getCharacters(this.props.navigation.state.params.charactersNumber)
   }
 
+  componentDidMount() { 
+    this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
+  }
+  
   /**
    * Renders the page
    */

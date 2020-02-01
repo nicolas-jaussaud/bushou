@@ -3,6 +3,7 @@ package com.bushou;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.avishayil.rnrestart.ReactNativeRestartPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeRestartPackage(),
             new AsyncStoragePackage(),
           new ReanimatedPackage(),
           new RNGestureHandlerPackage(),
