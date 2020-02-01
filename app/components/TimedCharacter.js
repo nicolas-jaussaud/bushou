@@ -28,7 +28,7 @@ export default class TimedCharacter extends Component {
   }
 
   componentDidMount() { 
-    this.startAnimation() 
+    this.startAnimation()
   }
 
   startAnimation() {

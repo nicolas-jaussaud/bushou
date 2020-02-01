@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Settings from '../classes/Settings';
+import DarkMode from '../components/DarkMode'
 
 // Static data
 import { LEVELS } from '../data/levels'
@@ -37,11 +38,21 @@ export default class Home extends Component {
     this.styles = getStyles()
     
     this.getProgress = this.getProgress.bind(this)
+    this.reloadStyle = this.reloadStyle.bind(this)
   }
 
   componentDidMount() { 
     this.getProgress()
-    this.props.navigation.addListener('didFocus', () => this.getProgress())
+    this.props.navigation.addListener('didFocus', () => {
+      this.getProgress()
+      this.reloadStyle()
+    })
+  }
+
+  reloadStyle = () => {
+    // Change theme when reload
+    this.styles = getStyles()
+    this.getProgress()
   }
 
   getProgress = async () => {
@@ -72,6 +83,12 @@ export default class Home extends Component {
 
     return (
       <View style={this.styles.container}>
+        <View style={this.styles.header}>
+          <DarkMode handler={() => {
+            this.setState({'progress':0})
+            this.reloadStyle()
+          }}/>
+        </View>
         <Text style={this.styles.welcome}>
           部首
         </Text>
@@ -120,6 +137,17 @@ const getStyles = () => (StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Settings.data.colors.background,
     color: Settings.data.colors.primary,
+  },
+  header: {
+    flex: 1,
+    width: '100%',
+    flexDirection: 'row-reverse',
+    zIndex: 999,
+    position: 'absolute',
+    top: 20,
+    left: 0,
+    height: 40,
+    paddingLeft: 10
   },
   welcome: {
     fontSize: 20,

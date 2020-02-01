@@ -68,6 +68,10 @@ export default class Game extends Component {
     this.winRound               = this.winRound.bind(this)
   }
 
+  componentDidMount() { 
+    this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
+  }
+
   /**
    * Reset the anwser and propositions
    */
@@ -210,7 +214,6 @@ const getStyles = () => (StyleSheet.create({
     height: 40,
     top: 40,
     left: 0,
-    height: 40,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },

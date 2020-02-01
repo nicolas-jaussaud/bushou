@@ -14,19 +14,19 @@
     "react-dom": "16.8.3",
     "react-native": "0.59.10",
     "react-native-gesture-handler": "^1.5.3",
-    "react-native-reanimated": "^1.4.0",
+    "react-native-reanimated": "^1.7.0",
     "react-native-screens": "^1.0.0-alpha.23",
     "react-native-snap-carousel": "^3.8.4",
     "react-native-unimodules": "0.6.0",
     "react-native-web": "^0.11.7",
-    "react-navigation": "^4.0.10",
+    "react-navigation": "^4.1.0",
     "react-navigation-stack": "^1.10.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.8.4",
     "babel-jest": "24.9.0",
     "jest": "24.9.0",
-    "jetifier": "^1.6.4",
+    "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "0.56.0",
     "react-test-renderer": "16.9.0"
   },

@@ -18,12 +18,14 @@ export default class Loader extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {'settings': {
-      'theme': ''
-    }}
+    this.state = {}
 
     this.settings = new Settings()
     this.init()
+  }
+
+  componentDidMount() { 
+    this.props.navigation.addListener('didFocus', () => this.init())
   }
 
   init = async() => {
@@ -40,7 +42,7 @@ export default class Loader extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.loading}>
-          部首 { this.state.settings.theme }
+          部首
         </Text>
       </View>
     );

@@ -1,8 +1,6 @@
 import { DEFAULT } from '../data/default-config'
 
-import {
- AsyncStorage 
-} from 'react-native'
+import { AsyncStorage } from 'react-native'
 
 export default class Settings {
 
@@ -21,8 +19,7 @@ export default class Settings {
         'background': background ? background : DEFAULT.colors.background,
         'primary': primary ? primary : DEFAULT.colors.primary
       },
-      // 'theme': theme ? theme : DEFAULT.theme
-      'theme': 'dark'
+      'theme': theme ? theme : DEFAULT.theme
     }
 
     if(Settings.data.theme === 'dark') {
@@ -34,5 +31,14 @@ export default class Settings {
   }
 
   getSetting = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
+  
+  static setSetting = (key, value, callback = false) => {
+    Settings.data[key] = value
+    AsyncStorage.setItem(key, value).then(async() => {
+      const SettingsObj = new Settings()
+      await SettingsObj.init()
+      if(callback !== false) callback()
+    })
+  }
 
 }
