@@ -13,6 +13,7 @@ import TimedCharacter from '../components/TimedCharacter'
 import ProgressBar from '../components/ProgressBar'
 
 import Settings  from '../classes/Settings';
+import { __ } from '../data/text'
 
 import { 
   getRandomProperty, 
@@ -188,7 +189,7 @@ export default class Game extends Component {
       <View style={this.styles.container}>
         <View style={this.styles.header}>
           <View style={this.styles.round}>
-            <Text style={this.styles.text}> Round: {this.state.round}/100</Text>
+            <Text style={this.styles.text}> { __('round') }: {this.state.round}/100</Text>
           </View>
           <View style={this.styles.lives}>{lives}</View>
         </View>
