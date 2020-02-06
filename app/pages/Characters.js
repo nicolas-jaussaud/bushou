@@ -10,6 +10,7 @@ import Settings  from '../classes/Settings';
 
 // Static data
 import { getCharacters } from '../helpers/data'
+import { __ } from '../data/text'
 
 export default class Characters extends Component {
 
@@ -71,7 +72,7 @@ export default class Characters extends Component {
             levelNumber: this.props.navigation.state.params.levelNumber,
             charactersNumber: this.props.navigation.state.params.charactersNumber 
         })}>
-          {'Start the game'}
+          { __('start') }
         </Text>
       </View>
     );

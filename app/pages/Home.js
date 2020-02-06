@@ -13,6 +13,7 @@ import DarkMode from '../components/DarkMode'
 
 // Static data
 import { LEVELS } from '../data/levels'
+import { __ } from '../data/text'
 
 // Dependencies
 import Carousel from 'react-native-snap-carousel';
@@ -114,7 +115,7 @@ export default class Home extends Component {
           {item.title}
         </Text>
         <Text style={[{color: textStyle}]}>
-          Number of characters: {item.characters}
+          { __('characters_number') }: {item.characters}
         </Text>
         <Text 
           style={[this.styles.instructions, {color: textStyle}]} onPress={() => !isLocked ? navigate('Characters', {
@@ -122,7 +123,7 @@ export default class Home extends Component {
             levelNumber: parseInt(index) + 1,
             charactersNumber: parseInt(item.characters) 
         }) : ''}>
-          {!isLocked ? 'Start the game' : 'Locked'}
+          {!isLocked ? __('start') : __('locked')}
         </Text>
       </View>
     );
