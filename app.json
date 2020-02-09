@@ -8,14 +8,14 @@
     "privacy": "unlisted",
     "icon": "./bushou.png",
     "sdkVersion": "35.0.0",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
     "android": {
-      "versionCode": 3,
+      "versionCode": 4,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.surfzilla.bushou",
       "package": "com.surfzilla.bushou",
       "permissions": []
