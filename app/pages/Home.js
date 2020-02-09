@@ -5,11 +5,13 @@ import {
   Text, 
   View,
   Dimensions,
-  AsyncStorage 
+  AsyncStorage,
+  TouchableOpacity
 } from 'react-native';
 
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
+import Language from '../components/Language'
 
 // Static data
 import { LEVELS } from '../data/levels'
@@ -32,7 +34,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'progress': 0
+      'progress': 0,
+      'popup': false
     }
 
     // Need a function for support settings
@@ -40,6 +43,8 @@ export default class Home extends Component {
     
     this.getProgress = this.getProgress.bind(this)
     this.reloadStyle = this.reloadStyle.bind(this)
+    this.setLanguage = this.setLanguage.bind(this)
+
   }
 
   componentDidMount() { 
@@ -63,6 +68,16 @@ export default class Home extends Component {
     })
   }
 
+  setLanguage(value) {
+    Settings.setSetting('language', value, () => {
+      this.setState({
+        popup: false,
+        progress:0
+      })
+      this.reloadStyle()
+    })
+  }
+
   /**
    * Renders the page
    */
@@ -82,11 +97,42 @@ export default class Home extends Component {
       />
     }
 
+    let popup = null
+    if(this.state.popup !== false) {
+      popup = 
+        <View style={this.styles.popupBg}>
+          <View style={this.styles.popup}>
+            <TouchableOpacity onPress={() => this.setLanguage('en')}>
+              <Text style={this.styles.popupText}>English</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.setLanguage('fr')}>
+              <Text style={this.styles.popupText}>Français</Text>
+            </TouchableOpacity>
+            <Text 
+              onPress={() => this.setState({'popup': false})}
+              style={[
+                this.styles.instructions, 
+                { 
+                  marginTop: 20, 
+                  borderColor: Settings.data.colors.primary, 
+                  color: Settings.data.colors.primary}
+              ]}>
+             { __('close') }
+            </Text>
+          </View>
+        </View>
+    }
+
     return (
       <View style={this.styles.container}>
+        { popup }
         <View style={this.styles.header}>
           <DarkMode handler={() => {
             this.setState({'progress':0})
+            this.reloadStyle()
+          }}/>
+          <Language handler={() => {
+            this.setState({'popup': true})
             this.reloadStyle()
           }}/>
         </View>
@@ -131,7 +177,43 @@ export default class Home extends Component {
 }
 
 const getStyles = () => (StyleSheet.create({
+  popupBg: {
+    zIndex: 9999,
+    width: '100%',
+    height: '100%',
+    opacity: 0.9,
+    position: 'absolute',
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: Settings.data.colors.primary,
+    color: Settings.data.colors.background,
+  },
+  popupText: {
+    color: Settings.data.colors.primary,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  popup: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    opacity: 1,
+    paddingLeft: '5%',
+    paddingRight: '5%',
+    paddingTop: '20%',
+    width: '80%',
+    marginLeft: '10%',
+    backgroundColor: Settings.data.colors.background,
+    color: Settings.data.colors.primary,
+  },
+  popupCross: {
+    position: 'absolute',
+    right: '5%',
+    top: '5%',
+    paddingTop: '5%'
+  },
   container: {
+    position: 'relative',
     flex: 1,
     width: '100%',
     justifyContent: 'center',
@@ -143,11 +225,13 @@ const getStyles = () => (StyleSheet.create({
     flex: 1,
     width: '100%',
     flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     zIndex: 999,
     position: 'absolute',
-    top: 20,
+    top: 10,
     left: 0,
-    height: 40,
+    height: 80,
     paddingLeft: 10
   },
   welcome: {

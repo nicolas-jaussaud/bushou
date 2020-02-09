@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { 
   StyleSheet,
-  Image,
-  View,
+  TouchableOpacity,
   Text,
-  TouchableOpacity
+  View,
+  Image
 } from 'react-native';
 
 import { AppLoading } from 'expo';
@@ -20,8 +20,6 @@ export default class DarkMode extends Component {
   constructor(props) {
     super(props)
     this.state = { isReady: false }
-
-    this.changeTheme = this.changeTheme.bind(this)
   }
 
   /**
@@ -35,29 +33,15 @@ export default class DarkMode extends Component {
     return Asset.loadAsync([require('../assets/img/moon.png')]);
   }
 
-  changeTheme() {
-    Settings.setSetting('theme', Settings.data.theme === 'dark' ? 'light' : 'dark', this.props.handler) 
-  }
-
   /**
    * Renders the page
    */
   render() {
-    if(!this.state.isReady) {
-      return(
-        <AppLoading
-          startAsync={() => this._cacheResourcesAsync()}
-          onFinish={() => this.setState({isReady: true})}
-          onError={console.warn}
-        />
-      )
-    }
-
     return(
-      <TouchableOpacity onPress={this.changeTheme}>
+      <TouchableOpacity style={styles.button} onPress={this.props.handler}>
         <Image
           style={styles.image}
-          source={Settings.data.theme === 'dark' ? require('../assets/img/sun.png') : require('../assets/img/moon.png')}
+          source={Settings.data.theme === 'dark' ? require('../assets/img/language-white.png') : require('../assets/img/language.png')}
         />
       </TouchableOpacity>
     )
@@ -68,9 +52,13 @@ export default class DarkMode extends Component {
 const styles = StyleSheet.create({
   'image': {
     width: 30,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 0,
     height: 30,
+  },
+  'button': {
+    flex: 1,
+    justifyContent: 'center',
   }
 })

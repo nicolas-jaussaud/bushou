@@ -21,6 +21,10 @@ export const TEXT = {
     'en': 'Level',
     'fr': 'Niveau'
   },
+  'close': {
+    'en': 'Close',
+    'fr': 'Fermer'
+  }
 }
 
 export const __ = (index) => {
