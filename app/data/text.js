@@ -11,7 +11,7 @@ export const TEXT = {
   },
   'locked': {
     'en': 'Locked',
-    'fr': 'Verrouiller'
+    'fr': 'Verrouillé'
   },
   'round': {
     'en': 'Round',
