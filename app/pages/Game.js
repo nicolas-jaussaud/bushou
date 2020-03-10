@@ -4,7 +4,8 @@ import {
   StyleSheet, 
   Text, 
   View ,
-  AsyncStorage
+  AsyncStorage, 
+  Vibration
 } from 'react-native';
 
 import Card from '../components/Card'
@@ -120,6 +121,7 @@ export default class Game extends Component {
    * When life is equal to 0 navigate to game over page
    */
   removeLife() {
+    Vibration.vibrate()
     if(this.state.lives === 0) {
       const {navigate} = this.props.navigation
       navigate('Home')
@@ -152,13 +154,7 @@ export default class Game extends Component {
    * CHeck if the answer is correct
    */
   checkAnswer(isCorrect) {
-    if(isCorrect === false) {
-      this.removeLife()
-    }
-    else{
-      speak(this.state.answer)
-    }
-
+    isCorrect === false ? this.removeLife() : speak(this.state.answer)
     this.newRound()
   }
 
