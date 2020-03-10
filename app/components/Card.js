@@ -5,13 +5,14 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import Settings  from '../classes/Settings';
+import Settings from '../classes/Settings';
 
 export default class Card extends Component {
 	
   constructor(props) {
     super(props)
     this.styles = getStyles()
+
   }
 
 	/**

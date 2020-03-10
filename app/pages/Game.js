@@ -22,6 +22,7 @@ import {
   getShuffledArr
 } from '../helpers/random'
 import { getCharacters } from '../helpers/data'
+import { speak } from '../helpers/voice';
 
 export default class Game extends Component {
 
@@ -151,7 +152,13 @@ export default class Game extends Component {
    * CHeck if the answer is correct
    */
   checkAnswer(isCorrect) {
-    if(isCorrect === false) this.removeLife()
+    if(isCorrect === false) {
+      this.removeLife()
+    }
+    else{
+      speak(this.state.answer)
+    }
+
     this.newRound()
   }
 
