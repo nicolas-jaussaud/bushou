@@ -42,6 +42,7 @@ const getStyles = () => (StyleSheet.create({
   },
   'text': {
     color: Settings.data.colors.primary,
-    textTransform: 'capitalize'    
+    textTransform: 'capitalize',
+    textAlign: 'center'
   }
 }))

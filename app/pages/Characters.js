@@ -107,7 +107,7 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
   },
   side: {
-    width: '50%'
+    width: '10%'
   },
   title: {
     fontSize: 20,
