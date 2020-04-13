@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bushou">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bushou">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <application
