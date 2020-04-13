@@ -30,7 +30,7 @@ export default class Characters extends Component {
     // Need a function for support settings
     this.styles = getStyles()
 
-    this.data = getCharacters(this.props.navigation.state.params.charactersNumber)
+    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.props.navigation.state.params.file)
   }
 
   componentDidMount() { 
@@ -70,7 +70,10 @@ export default class Characters extends Component {
           style={this.styles.instructions} onPress={() => navigate('Game', {
             title: this.props.navigation.state.params.title,
             levelNumber: this.props.navigation.state.params.levelNumber,
-            charactersNumber: this.props.navigation.state.params.charactersNumber 
+            charactersNumber: this.props.navigation.state.params.charactersNumber,
+            redirectPage: this.props.navigation.state.params.redirectPage,
+            progressKey: this.props.navigation.state.params.progressKey,
+            file: this.props.navigation.state.params.file
         })}>
           { __('start') }
         </Text>

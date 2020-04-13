@@ -14,7 +14,7 @@ import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
 
 // Static data
-import { LEVELS } from '../data/levels'
+import { LEVELS } from '../data/levels-hsk1'
 import { __ } from '../data/text'
 
 // Dependencies
@@ -22,7 +22,7 @@ import Carousel from 'react-native-snap-carousel';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 
-export default class Radicals extends Component {
+export default class Hsk extends Component {
 
   /**
    * Navigation options (hide the top bar)
@@ -62,7 +62,7 @@ export default class Radicals extends Component {
   }
 
   getProgress = async () => {
-    AsyncStorage.getItem('progress').then(async (value) => {
+    AsyncStorage.getItem('progress-hsk1').then(async (value) => {
       const progress = value ? value : 1
       this.setState({progress: progress})
     })
@@ -140,7 +140,7 @@ export default class Radicals extends Component {
           部首
         </Text>
         <Text style={this.styles.welcome}>
-          { __('radicals') }
+          { __('hsk') } 1
         </Text>
         <View style={this.styles.carousel}>
           { levels }
@@ -161,16 +161,16 @@ export default class Radicals extends Component {
           {item.title}
         </Text>
         <Text style={[{color: textStyle}]}>
-          { __('characters_number') }: {item.characters}
+          { __('words_number') }: {item.characters}
         </Text>
         <Text 
           style={[this.styles.instructions, {color: textStyle}]} onPress={() => !isLocked ? navigate('Characters', {
             title: item.title,
             levelNumber: parseInt(index) + 1,
             charactersNumber: parseInt(item.characters),
-            redirectPage: 'Radicals',
-            progressKey: 'progress',
-            file: 'radicals'
+            redirectPage: 'Hsk',
+            progressKey: 'progress-hsk1',
+            file: 'hsk1'
         }) : ''}>
           {!isLocked ? __('start') : __('locked')}
         </Text>

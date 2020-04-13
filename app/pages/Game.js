@@ -46,8 +46,8 @@ export default class Game extends Component {
     // Get the title from the navigation
     this.title = this.props.navigation.state.params.title
 
-    // Will contain the list of the characters/definition needed by the game
-    this.data = getCharacters(this.props.navigation.state.params.charactersNumber)
+    // Will contain the list of the characters/definition needed by the game 
+    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.props.navigation.state.params.file)
 
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
@@ -101,7 +101,11 @@ export default class Game extends Component {
   }
 
   winRound = async() => {
-    AsyncStorage.getItem('progress').then(async (value) => {
+    
+    const progressKey = this.props.navigation.state.params.progressKey 
+    const redirectPage = this.props.navigation.state.params.redirectPage 
+    
+    AsyncStorage.getItem(progressKey).then(async (value) => {
       
       const {navigate} = this.props.navigation;
       const progress = (value === parseInt(value)) && (parseInt(value) !== 0) ? value : 1
@@ -109,10 +113,10 @@ export default class Game extends Component {
       
       if(progress <= levelProgress) {
         let newProgress = levelProgress + 1
-        AsyncStorage.setItem('progress', newProgress.toString()).then(async () => navigate('Home'))
+        AsyncStorage.setItem(progressKey, newProgress.toString()).then(async () => navigate(redirectPage))
       }
       else{
-        navigate('Home')
+        navigate(redirectPage)
       }
     })
   }
@@ -121,10 +125,15 @@ export default class Game extends Component {
    * When life is equal to 0 navigate to game over page
    */
   removeLife() {
+
     Vibration.vibrate()
+    
     if(this.state.lives === 0) {
+      
       const {navigate} = this.props.navigation
-      navigate('Home')
+      const redirectPage = this.props.navigation.state.params.redirectPage 
+      
+      navigate(redirectPage)
     } 
     let lives = this.state.lives
     lives--

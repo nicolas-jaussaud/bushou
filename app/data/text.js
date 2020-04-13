@@ -24,6 +24,18 @@ export const TEXT = {
   'close': {
     'en': 'Close',
     'fr': 'Fermer'
+  },
+  'radicals': {
+    'en': 'Radicals',
+    'fr': 'Radicaux'
+  },
+  'hsk': {
+    'en': 'HSK',
+    'fr': 'HSK'
+  },
+  'words_number': {
+    'en': 'Number of words',
+    'fr': 'Nombre de mots'
   }
 }
 
