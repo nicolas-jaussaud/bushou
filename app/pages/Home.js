@@ -5,7 +5,6 @@ import {
   Text, 
   View,
   Dimensions,
-  AsyncStorage,
   TouchableOpacity
 } from 'react-native';
 
@@ -14,11 +13,7 @@ import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
 
 // Static data
-import { LEVELS } from '../data/levels'
 import { __ } from '../data/text'
-
-// Dependencies
-import Carousel from 'react-native-snap-carousel';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 
@@ -34,23 +29,19 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'progress': 0,
       'popup': false
     }
 
     // Need a function for support settings
     this.styles = getStyles()
     
-    this.getProgress = this.getProgress.bind(this)
     this.reloadStyle = this.reloadStyle.bind(this)
     this.setLanguage = this.setLanguage.bind(this)
 
   }
 
   componentDidMount() { 
-    this.getProgress()
     this.props.navigation.addListener('didFocus', () => {
-      this.getProgress()
       this.reloadStyle()
     })
   }
@@ -58,14 +49,7 @@ export default class Home extends Component {
   reloadStyle = () => {
     // Change theme when reload
     this.styles = getStyles()
-    this.getProgress()
-  }
-
-  getProgress = async () => {
-    AsyncStorage.getItem('progress').then(async (value) => {
-      const progress = value ? value : 1
-      this.setState({progress: progress})
-    })
+    this.setState({'refresh':0})
   }
 
   setLanguage(value) {
@@ -83,21 +67,9 @@ export default class Home extends Component {
    */
   render() {
 
-    // Show the progress only when we load the progress number
-    let levels = null
-    if(this.state.progress !== 0) {
-      levels =
-      <Carousel
-        layout='default'
-        ref={(c) => { this._carousel = c; }}
-        data={LEVELS}
-        renderItem={this._renderItem}
-        sliderWidth={viewportWidth}
-        itemWidth={viewportWidth/1.33}
-      />
-    }
+    const {navigate} = this.props.navigation;
 
-    let popup = null
+    let popup = null  
     if(this.state.popup !== false) {
       popup = 
         <View style={this.styles.popupBg}>
@@ -111,7 +83,7 @@ export default class Home extends Component {
             <Text 
               onPress={() => this.setState({'popup': false})}
               style={[
-                this.styles.instructions, 
+                this.styles.button, 
                 { 
                   marginTop: 20, 
                   borderColor: Settings.data.colors.primary, 
@@ -128,7 +100,7 @@ export default class Home extends Component {
         { popup }
         <View style={this.styles.header}>
           <DarkMode handler={() => {
-            this.setState({'progress':0})
+            this.setState({'refresh':0})
             this.reloadStyle()
           }}/>
           <Language handler={() => {
@@ -142,35 +114,14 @@ export default class Home extends Component {
         <Text style={this.styles.welcome}>
           BùShŏu
         </Text>
-        <View style={this.styles.carousel}>
-          { levels }
+        <View style={[this.styles.buttonContainer]}>
+          <Text  style={[this.styles.button]} onPress={() => navigate('Radicals')}>
+            { __('radicals') }
+          </Text>
+          <Text  style={[this.styles.button]} onPress={() => navigate('Hsk')}>
+            { __('hsk') } 1
+          </Text>
         </View>
-      </View>
-    );
-  }
-
-  _renderItem = ({item, index}) =>  {
-    
-    const {navigate} = this.props.navigation;
-    const isLocked = this.state.progress <= parseInt(index)
-    let textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
-
-    return(
-      <View style={!isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked}>
-        <Text style={[this.styles.carouselTitle, {color: textStyle}]}>
-          {item.title}
-        </Text>
-        <Text style={[{color: textStyle}]}>
-          { __('characters_number') }: {item.characters}
-        </Text>
-        <Text 
-          style={[this.styles.instructions, {color: textStyle}]} onPress={() => !isLocked ? navigate('Characters', {
-            title: item.title,
-            levelNumber: parseInt(index) + 1,
-            charactersNumber: parseInt(item.characters) 
-        }) : ''}>
-          {!isLocked ? __('start') : __('locked')}
-        </Text>
       </View>
     );
   }
@@ -221,6 +172,13 @@ const getStyles = () => (StyleSheet.create({
     backgroundColor: Settings.data.colors.background,
     color: Settings.data.colors.primary,
   },
+  buttonContainer: {
+    justifyContent: 'space-between',
+    width: '66%',
+    height: '33%',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
   header: {
     flex: 1,
     width: '100%',
@@ -240,7 +198,7 @@ const getStyles = () => (StyleSheet.create({
     margin: 10,
     color: Settings.data.colors.primary,
   },
-  instructions: {
+  button: {
     textAlign: 'center',
     color: Settings.data.colors.primary,
     marginBottom: 5,
@@ -248,31 +206,6 @@ const getStyles = () => (StyleSheet.create({
     borderColor: Settings.data.colors.primary,
     color: Settings.data.colors.primary,
     borderWidth: 1,
-    width: '66%'
-  },
-  carousel: {
-    width: '100%',
-    height: '30%',
-    marginTop: '5%'
-  },
-  carouselItem: {
-    height: '100%',
-    borderWidth: 1,
-    borderColor: Settings.data.colors.primary,
-    color: Settings.data.colors.primary,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  carouselItemLocked: {
-    height: '100%',
-    borderWidth: 1,
-    borderColor: Settings.data.colors.background,
-    color: Settings.data.colors.background,
-    backgroundColor: Settings.data.colors.primary,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  carouselTitle: {
-    fontSize: 20,
+    width: '49%'
   }
 }))
