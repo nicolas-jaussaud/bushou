@@ -94,6 +94,7 @@ export default class Radicals extends Component {
         renderItem={this._renderItem}
         sliderWidth={viewportWidth}
         itemWidth={viewportWidth/1.33}
+        firstItem={this.state.progress - 1}
       />
     }
 
