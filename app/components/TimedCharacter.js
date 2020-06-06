@@ -24,6 +24,8 @@ export default class TimedCharacter extends Component {
       opacity: 1
     }
 
+    this.styles = getStyles()
+
     this.startAnimation = this.startAnimation.bind(this)
   }
 
@@ -40,15 +42,28 @@ export default class TimedCharacter extends Component {
       this.startAnimation()
     }, this.timeoutStep); 
   }
+
   /**
    * Renders the page
    */
   render() {
     return(
-      <Text style={{fontSize: this.state.size, opacity: this.state.opacity, color: Settings.data.colors.primary}}>
+      <Text 
+        numberOfLines={1} 
+        ellipsizeMode={'clip'} 
+        style={[{fontSize: this.state.size, opacity: this.state.opacity}, this.styles.character]}
+      >
         {this.props.children}    
       </Text>
     )
    }
 
 }
+
+const getStyles = () => (StyleSheet.create({
+  'character': {
+    color: Settings.data.colors.primary,
+    flex: 1,
+    textAlign: "center",
+  },
+}))
