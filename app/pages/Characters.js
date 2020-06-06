@@ -3,7 +3,8 @@ import {
   StyleSheet, 
   Text, 
   View,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 
 import Settings  from '../classes/Settings';
@@ -44,16 +45,40 @@ export default class Characters extends Component {
 
     let characters = null
     if(this.data) {
-      characters = Object.keys(this.data).map((item, i) => (
-        <View style={this.styles.line}>
-          <View style={this.styles.side}>
-            <Text style={this.styles.text}>{item}:</Text>
-          </View>
-          <View>
-            <Text style={this.styles.text}>{this.data[item][Settings.data.language]}</Text>
-          </View>
-        </View>
-      ))
+      characters = Object.keys(this.data).map((item, i) => {
+        
+        let currentCharacter = null
+        if(this.state.currentCharacter === item) { 
+          currentCharacter =
+            <View style={this.styles.fullCharacter}>
+              <Text numberOfLines={2} style={this.styles.definition} style={this.styles.fullCharacterText}>
+                {item}
+              </Text>
+            </View>
+        }
+
+        let line = 
+          <TouchableOpacity 
+            style={this.styles.lineContainer} 
+            onPress={() => (this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item}))}
+          >
+            <View style={this.styles.line}>
+              <View style={this.styles.characterContainer}>
+                <Text style={this.styles.character}>
+                  {item}
+                </Text>
+              </View>
+              <View style={this.styles.definitionContainer}>
+                <Text numberOfLines={4} style={this.styles.definition}>
+                  {this.data[item][Settings.data.language]}
+                </Text>
+              </View>
+            </View>
+            { currentCharacter }
+          </TouchableOpacity>
+
+        return line
+      })
     }
 
     const {navigate} = this.props.navigation;
@@ -90,27 +115,46 @@ const getStyles = () => (StyleSheet.create({
     backgroundColor: Settings.data.colors.background,
     color: Settings.data.colors.primary,
   },
-  line: {
-    width: '70%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: '15%',
-    marginRight: '15%',
-    color: Settings.data.colors.primary,
-    borderColor: Settings.data.colors.primary,
-    borderBottomWidth: 1,
-    paddingTop: 10,
-  },
   scrollView: {
     width: '100%',
   },
-  text: {
-    fontSize: 18,
-    textTransform: 'capitalize',
+  character: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Settings.data.colors.background,
+  },
+  characterContainer: {
+    width: '33%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Settings.data.colors.primary,
+  },
+  definitionContainer: {
+    width: '66%',
+  },
+  lineContainer: {
+    width: '90%',
+    marginLeft: '5%',
+    marginBottom: 15,
+    marginRight: '5%',
+    flexDirection: 'column',
+    color: Settings.data.colors.primary,
+    borderColor: Settings.data.colors.primary,
+    marginTop: 3,
+    marginTop: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+  },
+  line: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     color: Settings.data.colors.primary,
   },
-  side: {
-    width: '10%'
+  definition: {
+    margin: '5%',
+    fontWeight: 'normal',
+    textTransform: 'capitalize',
+    color: Settings.data.colors.primary,
   },
   title: {
     fontSize: 20,
@@ -129,4 +173,15 @@ const getStyles = () => (StyleSheet.create({
     borderWidth: 1,
     width: '66%'
   },
+  fullCharacter: {
+    width: '100%',
+    justifyContent: 'center',
+    backgroundColor: Settings.data.colors.background,
+  },
+  fullCharacterText: {
+    color: Settings.data.colors.primary,
+    textAlign: 'center',
+    fontSize: 100,
+    width: '100%',
+  }
 }))
