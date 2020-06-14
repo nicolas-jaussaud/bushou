@@ -1,6 +1,7 @@
 import { DEFAULT } from '../data/default-config'
 
 import { AsyncStorage } from 'react-native'
+import { setStatusBarStyle } from 'expo-status-bar';
 
 export default class Settings {
 
@@ -27,16 +28,23 @@ export default class Settings {
       Settings.data.colors.background = primary ? primary : DEFAULT.colors.primary
     }
 
+    // Color icon in the notification bar
+    setStatusBarStyle(Settings.data.theme === 'dark' ? 'light' : 'dark')
+
     return Settings.data
   }
 
   getSetting = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
   
   static setSetting = (key, value, callback = false) => {
+    
     Settings.data[key] = value
+    
     AsyncStorage.setItem(key, value).then(async() => {
+    
       const SettingsObj = new Settings()
       await SettingsObj.init()
+
       if(callback !== false) callback()
     })
   }
