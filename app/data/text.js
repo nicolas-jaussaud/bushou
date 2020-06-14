@@ -36,7 +36,23 @@ export const TEXT = {
   'words_number': {
     'en': 'Number of words',
     'fr': 'Nombre de mots'
-  }
+  },
+  'keys': {
+    'en': 'Keys',
+    'fr': 'Clés'
+  },
+  'characters': {
+    'en': 'Characters',
+    'fr': 'Charactères'
+  },
+  'pinyin': {
+    'en': 'Pinyin',
+    'fr': 'Pinyin'
+  },
+  'audio': {
+    'en': 'Audio',
+    'fr': 'Audio'
+  },
 }
 
 export const __ = (index) => {

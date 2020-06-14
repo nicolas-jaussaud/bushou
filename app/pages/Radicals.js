@@ -171,7 +171,8 @@ export default class Radicals extends Component {
             charactersNumber: parseInt(item.characters),
             redirectPage: 'Radicals',
             progressKey: 'progress',
-            file: 'radicals'
+            file: 'radicals',
+            type: 'characters'
         }) : ''}>
           {!isLocked ? __('start') : __('locked')}
         </Text>
