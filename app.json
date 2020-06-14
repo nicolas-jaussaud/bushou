@@ -7,7 +7,6 @@
     "primaryColor": "#000000",
     "privacy": "unlisted",
     "icon": "./bushou.png",
-    "sdkVersion": "36.0.0",
     "version": "1.1.2",
     "platforms": [
       "ios",
