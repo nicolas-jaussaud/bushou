@@ -175,11 +175,10 @@ export default class Game extends Component {
      this.removeLife()
     }
     else if(this.props.navigation.state.params.file === 'hsk1') {
-      this.type ==! 'audio' ? speak(this.state.answer) : ''
+      this.type !== 'audio' ? speak(this.state.answer) : ''
     }
     else {
       sound('correct')
-
     }
 
     this.newRound()
@@ -190,8 +189,7 @@ export default class Game extends Component {
    *
    * @return     {string}
    */
-  answerDisplay() {
-      
+  answerDisplay() { 
     if(this.type === 'audio') {
       speak(this.state.answer)
       return '?';
