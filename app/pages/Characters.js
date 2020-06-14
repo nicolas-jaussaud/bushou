@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Settings  from '../classes/Settings';
+import { speak } from '../helpers/voice';
 
 // Static data
 import { getCharacters } from '../helpers/data'
@@ -31,7 +32,10 @@ export default class Characters extends Component {
     // Need a function for support settings
     this.styles = getStyles()
 
-    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.props.navigation.state.params.file)
+    // Source file (json)
+    this.file = this.props.navigation.state.params.file
+
+    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.file)
   }
 
   componentDidMount() { 
@@ -60,7 +64,10 @@ export default class Characters extends Component {
         let line = 
           <TouchableOpacity 
             style={this.styles.lineContainer} 
-            onPress={() => (this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item}))}
+            onPress={() => {
+              this.file === 'hsk1' ? speak(item) : ''
+              this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item})
+            }}
           >
             <View style={this.styles.line}>
               <View style={this.styles.characterContainer}>
@@ -70,7 +77,10 @@ export default class Characters extends Component {
               </View>
               <View style={this.styles.definitionContainer}>
                 <Text numberOfLines={4} style={this.styles.definition}>
-                  {this.data[item][Settings.data.language]}
+                  {this.data[item][Settings.data.language]} {
+                    this.file === 'hsk1' ?
+                      <Text style={this.styles.pinyin}> - {this.data[item].pinyin}</Text> : '' 
+                    }
                 </Text>
               </View>
             </View>
@@ -98,7 +108,8 @@ export default class Characters extends Component {
             charactersNumber: this.props.navigation.state.params.charactersNumber,
             redirectPage: this.props.navigation.state.params.redirectPage,
             progressKey: this.props.navigation.state.params.progressKey,
-            file: this.props.navigation.state.params.file
+            file: this.props.navigation.state.params.file,
+            type: this.props.navigation.state.params.type
         })}>
           { __('start') }
         </Text>
@@ -183,5 +194,8 @@ const getStyles = () => (StyleSheet.create({
     textAlign: 'center',
     fontSize: 100,
     width: '100%',
+  },
+  pinyin: {
+    fontStyle: 'italic'
   }
 }))

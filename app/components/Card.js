@@ -21,7 +21,7 @@ export default class Card extends Component {
 	render() {
 		return(
       <TouchableOpacity style={this.styles.container} onPress={() => this.props.handle(this.props.isCorrect)}>
-        <Text style={this.styles.text}>{this.props.text}</Text>
+        <Text style={ !this.props.isCharacter ? this.styles.text : this.styles.character }>{ this.props.text }</Text>
       </TouchableOpacity>
     )
 	 }
@@ -45,5 +45,10 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
     textTransform: 'capitalize',
     textAlign: 'center'
+  },
+  'character': {
+    color: Settings.data.colors.primary,
+    textAlign: 'center',
+    fontSize: 30
   }
 }))

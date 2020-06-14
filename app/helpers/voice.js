@@ -16,7 +16,6 @@ export const sound = async (name) => {
   try {
       await soundObject.loadAsync(require('../assets/sounds/correct.mp3'))
       await soundObject.playAsync();
-      console.log("yo")
   } catch (error) {
       console.log("Sound error: Can't fetch")
   }

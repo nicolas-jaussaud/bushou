@@ -1,7 +1,17 @@
 export const getRandomProperty = (obj, answer = false) => {
+  
   let keys = Object.keys(obj)
+
+  // If we need to make an excepetion for one answer
   if(answer !== false) keys.splice(keys.indexOf(answer), 1)
-  return obj[keys[keys.length * Math.random() << 0]]
+  
+  let index = keys.length * Math.random() << 0
+  let response = obj[keys[index]]
+
+  // Add the caracter (the key in the object) in the response
+  response.character = keys[index]
+
+  return response
 }
 
 export const getRandomIndex = (obj) => {

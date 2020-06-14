@@ -38,6 +38,14 @@ export default class Hsk extends Component {
       'popup': false
     }
 
+    // For getting progress
+    this.storageKey = 'progress-hsk1-' + this.props.navigation.state.params.type
+
+    // For legacy 
+    if(this.storageKey === 'progress-hsk1-characters') this.storageKey = 'progress-hsk1'
+    
+    this.title = __('hsk') + ' ' + 1 + ' - ' + __(this.props.navigation.state.params.type)
+
     // Need a function for support settings
     this.styles = getStyles()
     
@@ -62,7 +70,7 @@ export default class Hsk extends Component {
   }
 
   getProgress = async () => {
-    AsyncStorage.getItem('progress-hsk1').then(async (value) => {
+    AsyncStorage.getItem(this.storageKey).then(async (value) => {
       const progress = value ? value : 1
       this.setState({progress: progress})
     })
@@ -141,7 +149,7 @@ export default class Hsk extends Component {
           部首
         </Text>
         <Text style={this.styles.welcome}>
-          { __('hsk') } 1
+          { this.title }
         </Text>
         <View style={this.styles.carousel}>
           { levels }
@@ -170,7 +178,8 @@ export default class Hsk extends Component {
             levelNumber: parseInt(index) + 1,
             charactersNumber: parseInt(item.characters),
             redirectPage: 'Hsk',
-            progressKey: 'progress-hsk1',
+            progressKey: this.storageKey,
+            type: this.props.navigation.state.params.type,
             file: 'hsk1'
         }) : ''}>
           {!isLocked ? __('start') : __('locked')}

@@ -49,6 +49,10 @@ export default class Game extends Component {
     // Will contain the list of the characters/definition needed by the game 
     this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.props.navigation.state.params.file)
 
+    // Progress key for storage
+    this.progressKey = this.props.navigation.state.params.progressKey
+    this.type = this.props.navigation.state.params.type
+
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
 
@@ -69,6 +73,7 @@ export default class Game extends Component {
     this.checkAnswer            = this.checkAnswer.bind(this)
     this.removeLife             = this.removeLife.bind(this)
     this.winRound               = this.winRound.bind(this)
+    this.answerDisplay          = this.answerDisplay.bind(this)
   }
 
   componentDidMount() { 
@@ -102,10 +107,9 @@ export default class Game extends Component {
 
   winRound = async() => {
     
-    const progressKey = this.props.navigation.state.params.progressKey 
     const redirectPage = this.props.navigation.state.params.redirectPage 
     
-    AsyncStorage.getItem(progressKey).then(async (value) => {
+    AsyncStorage.getItem(this.progressKey).then(async (value) => {
       
       const {navigate} = this.props.navigation;
       const progress = (value === parseInt(value)) && (parseInt(value) !== 0) ? value : 1
@@ -113,10 +117,10 @@ export default class Game extends Component {
       
       if(progress <= levelProgress) {
         let newProgress = levelProgress + 1
-        AsyncStorage.setItem(progressKey, newProgress.toString()).then(async () => navigate(redirectPage))
+        AsyncStorage.setItem(this.progressKey, newProgress.toString()).then(async () => navigate(redirectPage, {type: this.type}))
       }
       else{
-        navigate(redirectPage)
+        navigate(redirectPage, {type: this.type})
       }
     })
   }
@@ -146,14 +150,17 @@ export default class Game extends Component {
     let propositions = []
     propositions.push({
       'isCorrect': true,
-      'translation': this.data[answer][Settings.data.language]
+      'translation': this.data[answer][Settings.data.language],
+      'data': this.data[answer]
     })
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
+      let data = getRandomProperty(this.data, answer)
       propositions.push({
         'isCorrect': false,
-        'translation': getRandomProperty(this.data, answer)[Settings.data.language]
+        'translation': data[Settings.data.language],
+        'data': data
       })
     }
     return getShuffledArr(propositions)
@@ -163,11 +170,12 @@ export default class Game extends Component {
    * CHeck if the answer is correct
    */
   checkAnswer(isCorrect) {
+
     if(isCorrect === false) {
      this.removeLife()
     }
     else if(this.props.navigation.state.params.file === 'hsk1') {
-      speak(this.state.answer)
+      this.type ==! 'audio' ? speak(this.state.answer) : ''
     }
     else {
       sound('correct')
@@ -175,6 +183,36 @@ export default class Game extends Component {
     }
 
     this.newRound()
+  }
+
+  /**
+   * The timmed answer string
+   *
+   * @return     {string}
+   */
+  answerDisplay() {
+      
+    if(this.type === 'audio') {
+      speak(this.state.answer)
+      return '?';
+    }
+    
+    return this.state.answer
+  }
+
+  /**
+   * Gets the card text.
+   */
+  getCardText(item) {
+    
+    if(this.type === 'audio') {
+      return item.data.character
+    }
+    else if(this.type === 'pinyin') {
+      return item.data.pinyin
+    }
+    
+    return item.translation
   }
 
   /**
@@ -188,7 +226,13 @@ export default class Game extends Component {
     let cards = null
     if(this.state.propositions.length !== 0) {
       cards = this.state.propositions.map((item, i) => (
-        <Card isCorrect={item.isCorrect} key={getUniqID()} handle={this.checkAnswer} text={item.translation} />
+        <Card 
+          isCorrect={item.isCorrect} 
+          key={getUniqID()} 
+          handle={this.checkAnswer} 
+          text={ this.getCardText(item) }
+          isCharacter={ this.type === 'audio' }
+        />
       ))
     }
 
@@ -202,10 +246,9 @@ export default class Game extends Component {
     let answer = null
     let timer = null
     if(this.state.answer) {
-      answer = <TimedCharacter key={getUniqID()} seconds={this.state.seconds}>{this.state.answer}</TimedCharacter>
+      answer = <TimedCharacter key={getUniqID()} seconds={this.state.seconds}>{ this.answerDisplay() }</TimedCharacter>
       timer = <ProgressBar key={getUniqID()} seconds={this.state.seconds} handle={this.checkAnswer}/>
     }
-
 
     return (
       <View style={this.styles.container}>
@@ -223,7 +266,7 @@ export default class Game extends Component {
         </View>
         { timer }
         <View style={this.styles.containerKeys}>
-          {cards}
+          { cards }
         </View>
       </View>
     );

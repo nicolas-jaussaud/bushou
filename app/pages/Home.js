@@ -5,7 +5,8 @@ import {
   Text, 
   View,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 
 import Settings from '../classes/Settings';
@@ -29,7 +30,11 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'popup': false
+      'popup': false,
+      'progress': 0,
+      'progress-hsk1': 0,
+      'progress-hsk1-audio': 0,
+      'progress-hsk1-pinyin': 0,
     }
 
     // Need a function for support settings
@@ -37,12 +42,24 @@ export default class Home extends Component {
     
     this.reloadStyle = this.reloadStyle.bind(this)
     this.setLanguage = this.setLanguage.bind(this)
+    this.getDate     = this.getData.bind(this)
 
   }
 
   componentDidMount() { 
+    this.getData()
     this.props.navigation.addListener('didFocus', () => {
+      this.getData()
       this.reloadStyle()
+    })
+  }
+
+  getData = async () => {
+    ['progress', 'progress-hsk1', 'progress-hsk1-pinyin', 'progress-hsk1-audio'].map((name) => {
+      AsyncStorage.getItem(name).then(async (value) => {
+        const progress = value ? value : 1
+        this.setState({[name]: progress})
+      })
     })
   }
 
@@ -115,12 +132,28 @@ export default class Home extends Component {
           BùShŏu
         </Text>
         <View style={[this.styles.buttonContainer]}>
-          <Text  style={[this.styles.button]} onPress={() => navigate('Radicals')}>
+          <Text style={[this.styles.subtitle]}>
             { __('radicals') }
           </Text>
-          <Text  style={[this.styles.button]} onPress={() => navigate('Hsk')}>
+          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
+            <Text style={[this.styles.text]}>{ __('keys') }</Text>
+            <Text style={[this.styles.progress]}>{ this.state.progress }/42</Text>
+          </TouchableOpacity>
+          <Text  style={[this.styles.subtitle]}>
             { __('hsk') } 1
           </Text>
+          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
+            <Text style={[this.styles.text]}>{ __('characters') }</Text>
+            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1'] }/30</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
+            <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
+            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-pinyin'] }/30</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'audio'})}>
+            <Text style={[this.styles.text]}>{ __('audio') }</Text>
+            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-audio'] }/30</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -173,11 +206,11 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
   },
   buttonContainer: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '66%',
-    height: '33%',
+    height: '50%',
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   header: {
     flex: 1,
@@ -206,6 +239,23 @@ const getStyles = () => (StyleSheet.create({
     borderColor: Settings.data.colors.primary,
     color: Settings.data.colors.primary,
     borderWidth: 1,
-    width: '49%'
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  text: {
+    color: Settings.data.colors.primary,
+  },
+  progress: {
+    color: Settings.data.colors.primary,
+  },
+  subtitle: {
+    fontSize: 18,
+    textAlign: 'left',
+    width: '100%',
+    padding: 10,
+    color: Settings.data.colors.primary,
+    marginBottom: 5,
+    marginTop: 20,
   }
 }))
