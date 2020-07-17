@@ -12,6 +12,7 @@ import {
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
+import SettingsButton from '../components/SettingsButton'
 
 // Static data
 import { __ } from '../data/text'
@@ -63,8 +64,10 @@ export default class Home extends Component {
     })
   }
 
+  /**
+   * Change theme when reload
+   */
   reloadStyle = () => {
-    // Change theme when reload
     this.styles = getStyles()
     this.setState({'refresh':0})
   }
@@ -132,28 +135,42 @@ export default class Home extends Component {
           BùShŏu
         </Text>
         <View style={[this.styles.buttonContainer]}>
+          
           <Text style={[this.styles.subtitle]}>
             { __('radicals') }
           </Text>
+
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
             <Text style={[this.styles.text]}>{ __('keys') }</Text>
             <Text style={[this.styles.progress]}>{ this.state.progress }/42</Text>
           </TouchableOpacity>
+
+          
           <Text  style={[this.styles.subtitle]}>
             { __('hsk') } 1
           </Text>
+          
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
             <Text style={[this.styles.text]}>{ __('characters') }</Text>
             <Text style={[this.styles.progress]}>{ this.state['progress-hsk1'] }/30</Text>
           </TouchableOpacity>
+          
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
             <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
             <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-pinyin'] }/30</Text>
           </TouchableOpacity>
+          
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'audio'})}>
             <Text style={[this.styles.text]}>{ __('audio') }</Text>
             <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-audio'] }/30</Text>
           </TouchableOpacity>
+
+
+          <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
+            <SettingsButton/>
+            <Text style={this.styles.text}>Paramètres</Text>
+          </TouchableOpacity>
+          
         </View>
       </View>
     );
@@ -205,10 +222,17 @@ const getStyles = () => (StyleSheet.create({
     backgroundColor: Settings.data.colors.background,
     color: Settings.data.colors.primary,
   },
+  'containerSettings': {
+    flex: 1,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 30
+  },
   buttonContainer: {
     justifyContent: 'center',
     width: '66%',
-    height: '50%',
+    height: '55%',
     alignItems: 'center',
     flexDirection: 'column',
   },
@@ -257,5 +281,14 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
     marginBottom: 5,
     marginTop: 20,
+  },
+  textButton: {
+    textAlign: 'center',
+    color: Settings.data.colors.primary,
+    marginBottom: 5,
+    padding: 10,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 }))

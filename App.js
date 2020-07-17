@@ -11,6 +11,7 @@ import Game from './app/pages/Game';
 import Characters from './app/pages/Characters';
 import Radicals from './app/pages/Radicals';
 import Hsk from './app/pages/Hsk';
+import Options from './app/pages/Options';
 
 // @see https://facebook.github.io/react-native/docs/navigation
 const MainNavigator = createStackNavigator({
@@ -19,7 +20,8 @@ const MainNavigator = createStackNavigator({
     Radicals: { screen: Radicals },
     Hsk: { screen: Hsk },
     Game: { screen: Game },
-    Characters: { screen: Characters }, 
+    Characters: { screen: Characters },
+    Options: { screen: Options }, 
   },{
     initialRouteName: 'Loader'
   }
