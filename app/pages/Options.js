@@ -4,9 +4,10 @@ import {
   Text, 
   View,
   Dimensions,
-  TouchableOpacity,
-  AsyncStorage
+  SafeAreaView, 
+  SectionList
 } from 'react-native';
+import { Picker } from 'react-native';
 
 import Settings from '../classes/Settings';
 import SettingLine from '../components/SettingLine';
@@ -27,7 +28,9 @@ export default class Options extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      language: Settings.data.language
+    }
 
     // Need a function for support settings
     this.styles = getStyles()
@@ -58,13 +61,19 @@ export default class Options extends Component {
           部首
         </Text>
         <Text style={this.styles.welcome}>
-          Settings
+          { __('settings') }
         </Text>
         <View style={[this.styles.settingsContainer]}>
 
+          <View style={[this.styles.titleContainer, {paddingTop: 0}]}>
+            <Text style={ this.styles.title }>
+              { __('display') }
+            </Text>
+          </View>
+
           <View style={ this.styles.settingLine }>
             <Text style={ this.styles.text }>
-              { 'Dark Mode' }
+              { __('dark_mode') }
             </Text>
             <SettingLine
               name={ 'theme' }
@@ -77,10 +86,35 @@ export default class Options extends Component {
               }}
             />
           </View>
-          
+
           <View style={ this.styles.settingLine }>
             <Text style={ this.styles.text }>
-              { 'Progression' }
+              { __('language') }
+            </Text>
+            <Picker
+              selectedValue={ this.state.language }
+              style={[this.styles.text, this.styles.languages]}
+              itemStyle={[this.styles.text, {width: '75%'}]}
+              onValueChange={(value, i) => { 
+                Settings.set('language', value, () => {
+                  this.setState({'language': value})
+                  this.reloadStyle()
+              })}
+            }>
+              <Picker.Item label="English" value="en" />
+              <Picker.Item label="Français" value="fr" />
+            </Picker>
+          </View>
+
+          <View style={ this.styles.titleContainer }>
+            <Text style={ this.styles.title }>
+              { __('game') }
+            </Text>
+          </View>
+
+          <View style={ this.styles.settingLine }>
+            <Text style={ this.styles.text }>
+              { __('progression') }
             </Text>
              <SettingLine
               name={ 'is-progression' }
@@ -96,7 +130,7 @@ export default class Options extends Component {
 
           <View style={ this.styles.settingLine }>
             <Text style={ this.styles.text }>
-              { 'Vibrations' }
+              { __('vibrations') }
             </Text>
              <SettingLine
               name={ 'is-vibrations' }
@@ -112,7 +146,7 @@ export default class Options extends Component {
             
           <View style={ this.styles.settingLine }>
             <Text style={ this.styles.text }>
-              { 'Sound' }
+              { __('sound') }
             </Text>
              <SettingLine
               name={ 'is-audio' }
@@ -144,7 +178,7 @@ const getStyles = () => (StyleSheet.create({
   },
   settingsContainer: {
     justifyContent: 'flex-start',
-    width: '66%',
+    width: '80%',
     height: '55%',
     alignItems: 'flex-start',
     flexDirection: 'column',
@@ -157,7 +191,8 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
   },
   'settingLine': {
-    width: '100%',
+    width: '90%',
+    paddingLeft: '5%',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
@@ -165,4 +200,25 @@ const getStyles = () => (StyleSheet.create({
   'text': {
     color: Settings.data.colors.primary,
   },
+  'title': {
+    color: Settings.data.colors.primary,
+    fontWeight: 'bold'
+  },
+  titleContainer: {
+    paddingLeft: '5%',
+    paddingTop: 30,
+    paddingBottom: 10,
+    marginBottom: 10,
+    width: '100%',
+    borderBottomColor: Settings.data.colors.primary,
+    borderBottomWidth: 1,
+  },
+  languages: {
+    transform: [
+      {scale: 0.9}, 
+      {translate: [23,0]
+    }], 
+    height: 30, 
+    width: 130
+  } 
 }))

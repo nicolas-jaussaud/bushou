@@ -193,7 +193,8 @@ export default class Home extends Component {
 
           <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
             <SettingsButton/>
-            <Text style={this.styles.text}>Paramètres</Text>
+            <Text style={this.styles.text}>
+            { __('settings') }</Text>
           </TouchableOpacity>
           
         </View>

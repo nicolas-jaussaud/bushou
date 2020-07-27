@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/picker": "^1.6.5",
     "expo": "^37.0.0",
     "expo-asset": "~8.1.5",
     "expo-av": "~8.1.0",

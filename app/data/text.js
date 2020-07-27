@@ -53,6 +53,38 @@ export const TEXT = {
     'en': 'Audio',
     'fr': 'Audio'
   },
+  'dark_mode': {
+    'en': 'Dark Mode',
+    'fr': 'Mode Sombre'
+  },
+  'display': {
+    'en': 'Display',
+    'fr': 'Affichage'
+  },
+  'language': {
+    'en': 'Language',
+    'fr': 'Langue'
+  },
+  'game': {
+    'en': 'Game',
+    'fr': 'Jeu'
+  },
+  'progression': {
+    'en': 'Progression',
+    'fr': 'Progression'
+  },
+  'vibrations': {
+    'en': 'Vibrations',
+    'fr': 'Vibrations'
+  },
+  'sound': {
+    'en': 'Sound',
+    'fr': 'Son'
+  },
+  'settings': {
+    'en': 'Settings',
+    'fr': 'Paramètres'
+  }
 }
 
 export const __ = (index) => {
