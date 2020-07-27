@@ -24,7 +24,7 @@ export default class SettingLine extends Component {
 
   getData = async() => {
     AsyncStorage.getItem(this.props.name).then((value) => {
-      this.setState({value: value})
+      this.setState({value: value !== null ? value : this.props.default})
     })
   }
 
