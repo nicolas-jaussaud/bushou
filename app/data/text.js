@@ -84,6 +84,10 @@ export const TEXT = {
   'settings': {
     'en': 'Settings',
     'fr': 'Paramètres'
+  },
+  'no_sound': {
+    'en': 'Sound is muted',
+    'fr': 'Son désactivé'
   }
 }
 
