@@ -36,7 +36,7 @@ export default class DarkMode extends Component {
   }
 
   changeTheme() {
-    Settings.setSetting('theme', Settings.data.theme === 'dark' ? 'light' : 'dark', this.props.handler) 
+    Settings.set('theme', Settings.data.theme === 'dark' ? 'light' : 'dark', this.props.handler) 
   }
 
   /**

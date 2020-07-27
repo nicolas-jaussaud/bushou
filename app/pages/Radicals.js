@@ -69,7 +69,7 @@ export default class Radicals extends Component {
   }
 
   setLanguage(value) {
-    Settings.setSetting('language', value, () => {
+    Settings.set('language', value, () => {
       this.setState({
         popup: false,
         progress:0
@@ -153,7 +153,10 @@ export default class Radicals extends Component {
   _renderItem = ({item, index}) =>  {
     
     const {navigate} = this.props.navigation;
-    const isLocked = this.state.progress <= parseInt(index)
+    const isLocked = Settings.data.isProgress !== 'no' ? 
+      this.state.progress <= parseInt(index) :
+      false
+
     let textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
 
     return(

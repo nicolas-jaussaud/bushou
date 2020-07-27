@@ -35,7 +35,7 @@ export default class Home extends Component {
       'progress': 0,
       'progress-hsk1': 0,
       'progress-hsk1-audio': 0,
-      'progress-hsk1-pinyin': 0,
+      'progress-hsk1-pinyin': 0
     }
 
     // Need a function for support settings
@@ -56,6 +56,8 @@ export default class Home extends Component {
   }
 
   getData = async () => {
+
+    // Get current user progress 
     ['progress', 'progress-hsk1', 'progress-hsk1-pinyin', 'progress-hsk1-audio'].map((name) => {
       AsyncStorage.getItem(name).then(async (value) => {
         const progress = value ? value : 1
@@ -73,7 +75,7 @@ export default class Home extends Component {
   }
 
   setLanguage(value) {
-    Settings.setSetting('language', value, () => {
+    Settings.set('language', value, () => {
       this.setState({
         popup: false,
         progress:0
@@ -94,12 +96,15 @@ export default class Home extends Component {
       popup = 
         <View style={this.styles.popupBg}>
           <View style={this.styles.popup}>
+
             <TouchableOpacity onPress={() => this.setLanguage('en')}>
               <Text style={this.styles.popupText}>English</Text>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={() => this.setLanguage('fr')}>
               <Text style={this.styles.popupText}>Français</Text>
             </TouchableOpacity>
+            
             <Text 
               onPress={() => this.setState({'popup': false})}
               style={[
@@ -142,7 +147,9 @@ export default class Home extends Component {
 
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
             <Text style={[this.styles.text]}>{ __('keys') }</Text>
-            <Text style={[this.styles.progress]}>{ this.state.progress }/42</Text>
+            <Text style={[this.styles.progress]}>
+              { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
+            </Text>
           </TouchableOpacity>
 
           
@@ -152,17 +159,23 @@ export default class Home extends Component {
           
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
             <Text style={[this.styles.text]}>{ __('characters') }</Text>
-            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1'] }/30</Text>
+            <Text style={[this.styles.progress]}>
+              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
+            </Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
             <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
-            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-pinyin'] }/30</Text>
+            <Text style={[this.styles.progress]}>
+              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
+            </Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'audio'})}>
             <Text style={[this.styles.text]}>{ __('audio') }</Text>
-            <Text style={[this.styles.progress]}>{ this.state['progress-hsk1-audio'] }/30</Text>
+            <Text style={[this.styles.progress]}>
+              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+            </Text>
           </TouchableOpacity>
 
 

@@ -73,11 +73,11 @@ export default class Hsk extends Component {
     AsyncStorage.getItem(this.storageKey).then(async (value) => {
       const progress = value ? value : 1
       this.setState({progress: progress})
-    })
+    })    
   }
 
   setLanguage(value) {
-    Settings.setSetting('language', value, () => {
+    Settings.set('language', value, () => {
       this.setState({
         popup: false,
         progress:0
@@ -161,7 +161,10 @@ export default class Hsk extends Component {
   _renderItem = ({item, index}) =>  {
     
     const {navigate} = this.props.navigation;
-    const isLocked = this.state.progress <= parseInt(index)
+    const isLocked = Settings.data.isProgress !== 'no' ? 
+      this.state.progress <= parseInt(index) :
+      false
+
     let textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
 
     return(
