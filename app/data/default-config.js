@@ -6,5 +6,6 @@ export const DEFAULT = {
   },
   'theme': 'light',
   'isProgress': 'yes',
-  'isVibrations': 'yes'
+  'isVibrations': 'yes',
+  'isAudio': 'yes'
 }
