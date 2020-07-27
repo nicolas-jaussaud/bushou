@@ -171,13 +171,25 @@ export default class Home extends Component {
             </Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'audio'})}>
-            <Text style={[this.styles.text]}>{ __('audio') }</Text>
-            <Text style={[this.styles.progress]}>
-              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
-            </Text>
-          </TouchableOpacity>
 
+          { Settings.data.isAudio !== 'no' ? 
+            <TouchableOpacity style={[this.styles.button]} onPress={
+              () => navigate('Hsk', {type: 'audio'})}>
+              <Text style={[this.styles.text]}>{ __('audio') }</Text>
+              <Text style={[this.styles.progress]}>
+                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+              </Text>
+            </TouchableOpacity> :
+            <View style={[this.styles.button, {opacity: 0.5}]}>
+              <View style={[this.styles.textDisableContainer]}>
+                <Text style={[this.styles.text]}>{ __('audio') }</Text>
+                <Text style={[this.styles.text, this.styles.textDisable]}>(Sound is disable)</Text>
+              </View>
+              <Text style={[this.styles.progress]}>
+                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+              </Text>
+            </View>
+          }
 
           <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
             <SettingsButton/>
@@ -282,6 +294,14 @@ const getStyles = () => (StyleSheet.create({
   },
   text: {
     color: Settings.data.colors.primary,
+  },
+  textDisableContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  },
+  textDisable: {
+    fontStyle: 'italic',
+    marginLeft: 5
   },
   progress: {
     color: Settings.data.colors.primary,

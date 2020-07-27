@@ -109,6 +109,23 @@ export default class Options extends Component {
               }}
             />
           </View>
+            
+          <View style={ this.styles.settingLine }>
+            <Text style={ this.styles.text }>
+              { 'Sound' }
+            </Text>
+             <SettingLine
+              name={ 'is-audio' }
+              enableValue={ 'yes' }
+              disableValue={ 'no' }
+              default={ Settings.data.isAudio }
+              handle={ () => {
+                this.reloadStyle()
+                this.setState({'refresh':0})
+              }}
+            />            
+          </View>
+
         </View>
       </View>
     );
