@@ -109,6 +109,12 @@ export default class Game extends Component {
     
     const redirectPage = this.props.navigation.state.params.redirectPage 
     
+    // If no progress enable no need to save anything
+    if(Settings.data.isProgress === 'no') {
+      navigate(redirectPage, {type: this.type})
+      return;
+    }
+
     AsyncStorage.getItem(this.progressKey).then(async (value) => {
       
       const {navigate} = this.props.navigation;

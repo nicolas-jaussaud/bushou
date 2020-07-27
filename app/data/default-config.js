@@ -4,5 +4,6 @@ export const DEFAULT = {
     'background': '#F5FCFF',
     'primary': '#333333'
   },
-  'theme': 'light'
+  'theme': 'light',
+  'isProgress': 'yes'
 }

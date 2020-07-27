@@ -44,7 +44,7 @@ export default class SettingLine extends Component {
             this.props.disableValue : 
             this.props.enableValue
 
-          Settings.setSetting(this.props.name, newValue, () => {
+          Settings.set(this.props.name, newValue, () => {
             this.setState({value: newValue})
             this.props.handle()
           }) 

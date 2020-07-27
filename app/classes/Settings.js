@@ -9,10 +9,11 @@ export default class Settings {
 
   init = async() => {
 
-    const language = await this.getSetting('language')
-    const primary = await this.getSetting('primary')
-    const background = await this.getSetting('background')
-    const theme = await this.getSetting('theme')
+    const language = await Settings.get('language')
+    const primary = await Settings.get('primary')
+    const background = await Settings.get('background')
+    const theme = await Settings.get('theme')
+    const isProgress = await Settings.get('is-progression')
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
@@ -20,7 +21,8 @@ export default class Settings {
         'background': background ? background : DEFAULT.colors.background,
         'primary': primary ? primary : DEFAULT.colors.primary
       },
-      'theme': theme ? theme : DEFAULT.theme
+      'theme': theme ? theme : DEFAULT.theme,
+      'isProgress': isProgress ? isProgress : DEFAULT.isProgress,
     }
 
     if(Settings.data.theme === 'dark') {
@@ -34,9 +36,9 @@ export default class Settings {
     return Settings.data
   }
 
-  getSetting = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
+  static get = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
   
-  static setSetting = (key, value, callback = false) => {
+  static set = (key, value, callback = false) => {
     
     Settings.data[key] = value
     
@@ -48,5 +50,4 @@ export default class Settings {
       if(callback !== false) callback()
     })
   }
-
 }
