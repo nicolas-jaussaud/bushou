@@ -183,7 +183,9 @@ export default class Home extends Component {
             <View style={[this.styles.button, {opacity: 0.5}]}>
               <View style={[this.styles.textDisableContainer]}>
                 <Text style={[this.styles.text]}>{ __('audio') }</Text>
-                <Text style={[this.styles.text, this.styles.textDisable]}>(Sound is disable)</Text>
+                <Text style={[this.styles.text, this.styles.textDisable]}>
+                  ({ __('no_sound') })
+                </Text>
               </View>
               <Text style={[this.styles.progress]}>
                 { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
