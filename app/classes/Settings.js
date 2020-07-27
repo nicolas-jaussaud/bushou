@@ -14,6 +14,7 @@ export default class Settings {
     const background = await Settings.get('background')
     const theme = await Settings.get('theme')
     const isProgress = await Settings.get('is-progression')
+    const isVibrations = await Settings.get('is-vibrations')
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
@@ -23,6 +24,7 @@ export default class Settings {
       },
       'theme': theme ? theme : DEFAULT.theme,
       'isProgress': isProgress ? isProgress : DEFAULT.isProgress,
+      'isVibrations': isVibrations ? isVibrations : DEFAULT.isVibrations,
     }
 
     if(Settings.data.theme === 'dark') {

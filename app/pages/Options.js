@@ -27,13 +27,7 @@ export default class Options extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      'popup': false,
-      'progress': 0,
-      'progress-hsk1': 0,
-      'progress-hsk1-audio': 0,
-      'progress-hsk1-pinyin': 0,
-    }
+    this.state = {}
 
     // Need a function for support settings
     this.styles = getStyles()
@@ -76,6 +70,7 @@ export default class Options extends Component {
               name={ 'theme' }
               enableValue={ 'dark' }
               disableValue={ 'light' }
+              default={ Settings.data.theme }
               handle={ () => {
                 this.reloadStyle()
                 this.setState({'refresh':0})
@@ -91,6 +86,7 @@ export default class Options extends Component {
               name={ 'is-progression' }
               enableValue={ 'yes' }
               disableValue={ 'no' }
+              default={ Settings.data.isProgress }
               handle={ () => {
                 this.reloadStyle()
                 this.setState({'refresh':0})
@@ -98,6 +94,21 @@ export default class Options extends Component {
             />
           </View>
 
+          <View style={ this.styles.settingLine }>
+            <Text style={ this.styles.text }>
+              { 'Vibrations' }
+            </Text>
+             <SettingLine
+              name={ 'is-vibrations' }
+              enableValue={ 'yes' }
+              disableValue={ 'no' }
+              default={ Settings.data.isVibrations }
+              handle={ () => {
+                this.reloadStyle()
+                this.setState({'refresh':0})
+              }}
+            />
+          </View>
         </View>
       </View>
     );

@@ -5,5 +5,6 @@ export const DEFAULT = {
     'primary': '#333333'
   },
   'theme': 'light',
-  'isProgress': 'yes'
+  'isProgress': 'yes',
+  'isVibrations': 'yes'
 }

@@ -136,7 +136,7 @@ export default class Game extends Component {
    */
   removeLife() {
 
-    Vibration.vibrate()
+    if(Settings.data.isVibrations !== 'no') Vibration.vibrate();
     
     if(this.state.lives === 0) {
       
