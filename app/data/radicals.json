@@ -216,8 +216,8 @@
     "fr": "longue enjambée"
   },    
   "廾": {
-    "en": "hands joined",
-    "fr": "deux maine, vingt"
+    "en": "hands joined, twenty",
+    "fr": "deux mains, vingt"
   },
   "弋": {
     "en": "shoot with a bow",
@@ -248,8 +248,8 @@
     "fr": "hallebarde"
   },    
   "户": {
-    "en": "door",
-    "fr": "porte"
+    "en": "door, home",
+    "fr": "porte, maison"
   },    
   "手": {
     "en": "hand",
@@ -409,7 +409,7 @@
   },
   "疋": {
     "en": "cloth",
-    "fr": "boucle de vêtement"
+    "fr": "rouleau de tissu"
   },
   "疒": {
     "en": "ill",
@@ -461,7 +461,7 @@
   },
   "穴": {
     "en": "cave",
-    "fr": "cavité"
+    "fr": "grotte"
   },
   "立": {
     "en": "stand",
@@ -485,11 +485,11 @@
   },  
   "网": {
     "en": "net",
-    "fr": "réseau"
+    "fr": "filet"
   },  
   "羊": {
     "en": "sheep",
-    "fr": "moutoun"
+    "fr": "mouton"
   },
   "羽": {
     "en": "feather",
@@ -500,8 +500,8 @@
     "fr": "vieux"
   },  
   "而": {
-    "en": "and",
-    "fr": "et"
+    "en": "and, beard",
+    "fr": "et, barbe"
   },  
   "耒": {
     "en": "plow",
@@ -521,11 +521,11 @@
   },
   "臣": {
     "en": "minister",
-    "fr": "minister"
+    "fr": "ministre"
   },
   "自": {
-    "en": "oneself",
-    "fr": "soi-même"
+    "en": "oneself, nose",
+    "fr": "soi-même, nez"
   },  
   "至": {
     "en": "arrive",
@@ -561,11 +561,11 @@
   },
   "虍": {
     "en": "tiger",
-    "en": "tigre"
+    "fr": "tigre"
   },  
   "虫": {
-    "en": "insect",
-    "fr": "insecte"
+    "en": "snake, insect",
+    "fr": "serpent, insecte"
   },  
   "血": {
     "en": "blood",
@@ -633,7 +633,7 @@
   },
   "车": {
     "en": "cart",
-    "fr": "charrue"
+    "fr": "charette"
   },
   "辛": {
     "en": "bitter",
@@ -673,7 +673,7 @@
   },
   "门": {
     "en": "gate",
-    "fr": "porte"
+    "fr": "portail"
   },
   "阜": {
     "en": "mound",
@@ -692,8 +692,8 @@
     "fr": "pluie"
   },  
   "青": {
-    "en": "blue",
-    "fr": "bleu"
+    "en": "green, blue",
+    "fr": "vert, bleu"
   },
   "非": {
     "en": "wrong",
@@ -713,7 +713,7 @@
   },
   "韭": {
     "en": "leek",
-    "fr": "ail"
+    "fr": "poireau"
   },  
   "音": {
     "en": "sound",
@@ -813,7 +813,7 @@
   },
   "黹": {
     "en": "embroidery",
-    "fr": "tricot"
+    "fr": "broderie"
   },  
   "黾": {
     "en": "frog",
