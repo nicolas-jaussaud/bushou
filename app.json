@@ -8,6 +8,7 @@
     "privacy": "unlisted",
     "icon": "./bushou.png",
     "version": "1.2.1",
+    "orientation": "portrait",
     "platforms": [
       "ios",
       "android",
