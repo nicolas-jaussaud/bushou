@@ -19,11 +19,24 @@ export const sound = async (name) => {
   
   if(Settings.data.isAudio === 'no') return;
   
-  const soundObject = new Audio.Sound()
-  try {
-      await soundObject.loadAsync(require('../assets/sounds/correct.mp3'))
-      await soundObject.playAsync();
-  } catch (error) {
-      console.log("Sound error: Can't fetch")
-  }
+  const sound = require('../assets/sounds/correct.mp3')
+  Audio.Sound.createAsync(
+    sound,
+    { shouldPlay: true }
+  ).then((result) => {
+
+    /**
+     * Fix issue with sound dropping after some repetition
+     * 
+     * @see https://github.com/expo/expo/issues/1873#issuecomment-488912452
+     */
+    result.sound.setOnPlaybackStatusUpdate((status) => {
+      if( !status.didJustFinish ) return;
+      result.sound.unloadAsync()
+    })
+
+  }).catch((error) => {
+    console.log('Sound error: ' + error)
+  })
 }
+
