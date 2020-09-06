@@ -3,7 +3,7 @@ import Settings from '../classes/Settings';
 export const TEXT = {
   'characters_number': {
     'en': 'Number of characters',
-    'fr': 'Nombre de charactères'
+    'fr': 'Nombre de caractères'
   },
   'start': {
     'en': 'Start the game',
@@ -43,7 +43,7 @@ export const TEXT = {
   },
   'characters': {
     'en': 'Characters',
-    'fr': 'Charactères'
+    'fr': 'Caractères'
   },
   'pinyin': {
     'en': 'Pinyin',
