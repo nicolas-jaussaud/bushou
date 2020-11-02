@@ -12,6 +12,7 @@ import {
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
+import Popup from '../components/Popup'
 import SettingsButton from '../components/SettingsButton'
 
 // Static data
@@ -42,7 +43,6 @@ export default class Home extends Component {
     this.styles = getStyles()
     
     this.reloadStyle = this.reloadStyle.bind(this)
-    this.setLanguage = this.setLanguage.bind(this)
     this.getDate     = this.getData.bind(this)
 
   }
@@ -74,51 +74,15 @@ export default class Home extends Component {
     this.setState({'refresh':0})
   }
 
-  setLanguage(value) {
-    Settings.set('language', value, () => {
-      this.setState({
-        popup: false,
-        progress:0
-      })
-      this.reloadStyle()
-    })
-  }
-
   /**
    * Renders the page
    */
   render() {
 
-    const {navigate} = this.props.navigation;
-
-    let popup = null  
-    if(this.state.popup !== false) {
-      popup = 
-        <View style={this.styles.popupBg}>
-          <View style={this.styles.popup}>
-
-            <TouchableOpacity onPress={() => this.setLanguage('en')}>
-              <Text style={this.styles.popupText}>English</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => this.setLanguage('fr')}>
-              <Text style={this.styles.popupText}>Français</Text>
-            </TouchableOpacity>
-            
-            <Text 
-              onPress={() => this.setState({'popup': false})}
-              style={[
-                this.styles.button, 
-                { 
-                  marginTop: 20, 
-                  borderColor: Settings.data.colors.primary, 
-                  color: Settings.data.colors.primary}
-              ]}>
-             { __('close') }
-            </Text>
-          </View>
-        </View>
-    }
+    const { navigate } = this.props.navigation;
+    const popup = this.state.popup !== false ? 
+      <Popup change={ () => this.reloadStyle() } close={ () => this.setState({'popup': false}) }/> : 
+      false 
 
     return (
       <View style={this.styles.container}>
@@ -206,41 +170,6 @@ export default class Home extends Component {
 }
 
 const getStyles = () => (StyleSheet.create({
-  popupBg: {
-    zIndex: 9999,
-    width: '100%',
-    height: '100%',
-    opacity: 0.9,
-    position: 'absolute',
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: Settings.data.colors.primary,
-    color: Settings.data.colors.background,
-  },
-  popupText: {
-    color: Settings.data.colors.primary,
-    paddingTop: 10,
-    paddingBottom: 10,
-  },
-  popup: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-    opacity: 1,
-    paddingLeft: '5%',
-    paddingRight: '5%',
-    paddingTop: '20%',
-    width: '80%',
-    marginLeft: '10%',
-    backgroundColor: Settings.data.colors.background,
-    color: Settings.data.colors.primary,
-  },
-  popupCross: {
-    position: 'absolute',
-    right: '5%',
-    top: '5%',
-    paddingTop: '5%'
-  },
   container: {
     position: 'relative',
     flex: 1,
