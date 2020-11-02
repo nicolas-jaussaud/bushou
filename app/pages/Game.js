@@ -176,7 +176,7 @@ export default class Game extends Component {
     propositions.push({
       'isCorrect': true,
       'translation': this.getName(answer),
-      'data': this.data[answer]
+      'data': { ...this.data[answer], 'character': answer},
     })
     
     // Then we set the wrong answer
@@ -230,8 +230,7 @@ export default class Game extends Component {
   getCardText(item) {
     
     if(this.type === 'audio') {
-      return Settings.data.characters !== 'traditional' && 'traditional' in item.data ?
-        item.data.traditional : item.data.characters 
+      return this.getCharacter(item.data.character) 
     }
 
     return this.type === 'pinyin' ? item.data.pinyin : item.translation
