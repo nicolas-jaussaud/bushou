@@ -45,9 +45,13 @@ export default class Game extends Component {
     
     // Get the title from the navigation
     this.title = this.props.navigation.state.params.title
+    this.file = this.props.navigation.state.params.file
 
     // Will contain the list of the characters/definition needed by the game 
-    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.props.navigation.state.params.file)
+    this.data = getCharacters(
+      this.props.navigation.state.params.charactersNumber, 
+      this.file
+    )
 
     // Progress key for storage
     this.progressKey = this.props.navigation.state.params.progressKey
@@ -74,6 +78,8 @@ export default class Game extends Component {
     this.removeLife             = this.removeLife.bind(this)
     this.winRound               = this.winRound.bind(this)
     this.answerDisplay          = this.answerDisplay.bind(this)
+    this.getName                = this.getName.bind(this)
+    this.getCharacter           = this.getCharacter.bind(this)
   }
 
   componentDidMount() { 
@@ -131,6 +137,19 @@ export default class Game extends Component {
     })
   }
 
+  getName(item) {
+    return this.file === 'radicals' ? 
+      this.data[item].name[Settings.data.language] :
+      this.data[item].translations[Settings.data.language]
+  }
+
+  getCharacter(item) {
+
+    if(Settings.data.characters !== 'traditional') return item;
+    
+    return 'traditional' in this.data[item] ? this.data[item].traditional : item
+  }
+
   /**
    * When life is equal to 0 navigate to game over page
    */
@@ -156,7 +175,7 @@ export default class Game extends Component {
     let propositions = []
     propositions.push({
       'isCorrect': true,
-      'translation': this.data[answer][Settings.data.language],
+      'translation': this.getName(answer),
       'data': this.data[answer]
     })
     
@@ -165,7 +184,7 @@ export default class Game extends Component {
       let data = getRandomProperty(this.data, answer)
       propositions.push({
         'isCorrect': false,
-        'translation': data[Settings.data.language],
+        'translation': data.[this.file === 'radicals' ? 'name' : 'translations'].[Settings.data.language],
         'data': data
       })
     }
@@ -195,13 +214,14 @@ export default class Game extends Component {
    *
    * @return     {string}
    */
-  answerDisplay() { 
+  answerDisplay() {
+
     if(this.type === 'audio') {
       speak(this.state.answer)
       return '?';
     }
     
-    return this.state.answer
+    return this.getCharacter(this.state.answer)
   }
 
   /**
@@ -210,13 +230,11 @@ export default class Game extends Component {
   getCardText(item) {
     
     if(this.type === 'audio') {
-      return item.data.character
+      return Settings.data.characters !== 'traditional' && 'traditional' in item.data ?
+        item.data.traditional : item.data.characters 
     }
-    else if(this.type === 'pinyin') {
-      return item.data.pinyin
-    }
-    
-    return item.translation
+
+    return this.type === 'pinyin' ? item.data.pinyin : item.translation
   }
 
   /**
@@ -224,21 +242,19 @@ export default class Game extends Component {
    */
   render() {
     
-    const {navigate} = this.props.navigation
+    const { navigate } = this.props.navigation
     
     // Display the card when we have the data
-    let cards = null
-    if(this.state.propositions.length !== 0) {
-      cards = this.state.propositions.map((item, i) => (
+    const cards = this.state.propositions.length !== 0 ?
+      this.state.propositions.map((item, i) => (
         <Card 
-          isCorrect={item.isCorrect} 
-          key={getUniqID()} 
-          handle={this.checkAnswer} 
+          isCorrect={ item.isCorrect } 
+          key={ getUniqID() } 
+          handle={ this.checkAnswer } 
           text={ this.getCardText(item) }
           isCharacter={ this.type === 'audio' }
         />
-      ))
-    }
+      )) : false
 
     let lives = []
     if(this.state.lives !== 0) {
@@ -247,29 +263,30 @@ export default class Game extends Component {
       }
     }
 
-    let answer = null
-    let timer = null
-    if(this.state.answer) {
-      answer = <TimedCharacter key={getUniqID()} seconds={this.state.seconds}>{ this.answerDisplay() }</TimedCharacter>
-      timer = <ProgressBar key={getUniqID()} seconds={this.state.seconds} handle={this.checkAnswer}/>
-    }
+    const answer = this.state.answer ? 
+      <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
+        { this.answerDisplay() }
+      </TimedCharacter> : null
+    
+    const timer = this.state.answer ? 
+      <ProgressBar key={ getUniqID() } seconds={ this.state.seconds } handle={ this.checkAnswer }/> : null
 
     return (
-      <View style={this.styles.container}>
-        <View style={this.styles.header}>
-          <View style={this.styles.round}>
-            <Text style={this.styles.text}> { __('round') }: {this.state.round}/100</Text>
+      <View style={ this.styles.container }>
+        <View style={ this.styles.header }>
+          <View style={ this.styles.round }>
+            <Text style={ this.styles.text }> { __('round') }: {this.state.round}/100</Text>
           </View>
-          <View style={this.styles.lives}>{lives}</View>
+          <View style={ this.styles.lives }>{ lives }</View>
         </View>
-        <Text style={this.styles.character}>
-          {this.title}
+        <Text style={ this.styles.character }>
+          { this.title }
         </Text>
-        <View style={this.styles.key}>
+        <View style={ this.styles.key }>
           { answer }
         </View>
         { timer }
-        <View style={this.styles.containerKeys}>
+        <View style={ this.styles.containerKeys }>
           { cards }
         </View>
       </View>

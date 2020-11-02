@@ -1,5 +1,6 @@
 export const DEFAULT = {
   'language': 'en',
+  'characters': 'simplified',
   'colors': {
     'background': '#F5FCFF',
     'primary': '#333333'
