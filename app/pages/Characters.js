@@ -9,6 +9,7 @@ import {
 
 import Settings  from '../classes/Settings';
 import { speak } from '../helpers/voice';
+import { getUniqID } from '../helpers/random'
 
 // Static data
 import { getCharacters } from '../helpers/data'
@@ -36,73 +37,83 @@ export default class Characters extends Component {
     this.file = this.props.navigation.state.params.file
 
     this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.file)
+    
+    this.getCharacter = this.getCharacter.bind(this)
+    this.getName      = this.getName.bind(this)
   }
 
   componentDidMount() { 
     this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
   }
   
+  getCharacter(item) {
+
+    if(Settings.data.characters !== 'traditional') return item;
+    
+    return 'traditional' in this.data[item] ? this.data[item].traditional : item
+  }
+
+  getName(item) {
+    return this.file === 'radicals' ? 
+      this.data[item].name[Settings.data.language] :
+      this.data[item].translations[Settings.data.language]
+  }
+
   /**
    * Renders the page
    */
   render() {
 
-    let characters = null
-    if(this.data) {
-      characters = Object.keys(this.data).map((item, i) => {
-        
-        let currentCharacter = null
-        if(this.state.currentCharacter === item) { 
-          currentCharacter =
-            <View style={this.styles.fullCharacter}>
-              <Text numberOfLines={2} style={this.styles.definition} style={this.styles.fullCharacterText}>
-                {item}
-              </Text>
-            </View>
-        }
+    const characters = this.data ?
+      Object.keys(this.data).map((item, i) => {
+        const currentCharacter = this.state.currentCharacter === item ? 
+          <View style={ this.styles.fullCharacter }>
+            <Text numberOfLines={2} style={ this.styles.definition } style={ this.styles.fullCharacterText }>
+              { this.getCharacter(item) }
+            </Text>
+          </View> : null
 
-        let line = 
+        return( 
           <TouchableOpacity 
-            style={this.styles.lineContainer} 
+            key={ getUniqID() }
+            style={ this.styles.lineContainer } 
             onPress={() => {
               this.file === 'hsk1' ? speak(item) : ''
               this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item})
             }}
           >
-            <View style={this.styles.line}>
-              <View style={this.styles.characterContainer}>
-                <Text style={this.styles.character}>
-                  {item}
+            <View style={ this.styles.line }>
+              <View style={ this.styles.characterContainer }>
+                <Text style={ this.styles.character }>
+                  { this.getCharacter(item) }
                 </Text>
               </View>
-              <View style={this.styles.definitionContainer}>
-                <Text numberOfLines={4} style={this.styles.definition}>
-                  {this.data[item][Settings.data.language]} {
+              <View style={ this.styles.definitionContainer }>
+                <Text numberOfLines={ 4 } style={ this.styles.definition }>
+                  { this.getName(item) } {
                     this.file === 'hsk1' ?
-                      <Text style={this.styles.pinyin}> - {this.data[item].pinyin}</Text> : '' 
+                      <Text style={ this.styles.pinyin }> - { this.data[item].pinyin }</Text> : '' 
                     }
                 </Text>
               </View>
             </View>
             { currentCharacter }
           </TouchableOpacity>
+        )
+      }) : null
 
-        return line
-      })
-    }
-
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     return (
-      <View style={this.styles.container}>
-        <Text style={this.styles.title}>
-          {this.props.navigation.state.params.title}
+      <View style={ this.styles.container }>
+        <Text style={ this.styles.title }>
+          { this.props.navigation.state.params.title }
         </Text>
-        <ScrollView style={this.styles.scrollView}>
-          {characters}
+        <ScrollView style={ this.styles.scrollView }>
+          { characters }
         </ScrollView>
         <Text 
-          style={this.styles.instructions} onPress={() => navigate('Game', {
+          style={ this.styles.instructions } onPress={() => navigate('Game', {
             title: this.props.navigation.state.params.title,
             levelNumber: this.props.navigation.state.params.levelNumber,
             charactersNumber: this.props.navigation.state.params.charactersNumber,

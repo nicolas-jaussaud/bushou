@@ -1,858 +1,1307 @@
 {
-  "一": { 
-    "en": "one",
-    "fr": "un"
+  "一": {
+    "name": {
+      "en": "one",
+      "fr": "un"
+    }
   },
-  "丨": { 
-    "en": "line",
-    "fr": "ligne"
+  "丨": {
+    "name": {
+      "en": "line",
+      "fr": "ligne"
+    }
   },
-  "丶": { 
-    "en": "dot",
-    "fr": "point"
+  "丶": {
+    "name": {
+      "en": "dot",
+      "fr": "point"
+    }
   },
-  "丿": { 
-    "en": "slash",
-    "fr": "oblique"
+  "丿": {
+    "name": {
+      "en": "slash",
+      "fr": "oblique"
+    }
   },
-  "乙": { 
-    "en": "second",
-    "fr": "second"
+  "乙": {
+    "name": {
+      "en": "second",
+      "fr": "second"
+    }
   },
-  "亅": { 
-    "en": "hook",
-    "fr": "crochet"
+  "亅": {
+    "name": {
+      "en": "hook",
+      "fr": "crochet"
+    }
   },
-  "二": { 
-    "en": "two",
-    "fr": "deux"
+  "二": {
+    "name": {
+      "en": "two",
+      "fr": "deux"
+    }
   },
-  "亠": { 
-    "en": "lid",
-    "fr": "couvercle"
+  "亠": {
+    "name": {
+      "en": "lid",
+      "fr": "couvercle"
+    }
   },
-  "人" : {
-    "en": "person",
-    "fr": "homme"
+  "人": {
+    "name": {
+      "en": "person",
+      "fr": "homme"
+    }
   },
-  "儿" : {
-    "en": "legs",
-    "fr": "enfant, jambes"
+  "儿": {
+    "name": {
+      "en": "legs",
+      "fr": "enfant, jambes"
+    }
   },
   "入": {
-    "en": "enter",
-    "fr": "entrer"
+    "name": {
+      "en": "enter",
+      "fr": "entrer"
+    }
   },
   "八": {
-    "en": "eight",
-    "fr": "huit, diviser"
+    "name": {
+      "en": "eight",
+      "fr": "huit, diviser"
+    }
   },
   "冂": {
-    "en": "down box",
-    "fr": "boîte retournée"
-  },  
+    "name": {
+      "en": "down box",
+      "fr": "boîte retournée"
+    }
+  },
   "冖": {
-    "en": "cover",
-    "fr": "couverture"
-  },  
+    "name": {
+      "en": "cover",
+      "fr": "couverture"
+    }
+  },
   "冫": {
-    "en": "ice",
-    "fr": "glace"
-  },  
+    "name": {
+      "en": "ice",
+      "fr": "glace"
+    }
+  },
   "几": {
-    "en": "table",
-    "fr": "table"
-  },  
+    "name": {
+      "en": "table",
+      "fr": "table"
+    }
+  },
   "凵": {
-    "en": "open box",
-    "fr": "boîte, bouche ouverte"
+    "name": {
+      "en": "open box",
+      "fr": "boîte, bouche ouverte"
+    }
   },
   "刀": {
-    "en": "knife",
-    "fr": "couteau"
+    "name": {
+      "en": "knife",
+      "fr": "couteau"
+    }
   },
   "力": {
-    "en": "power",
-    "fr": "force"
-  },  
+    "name": {
+      "en": "power",
+      "fr": "force"
+    }
+  },
   "勹": {
-    "en": "wrap",
-    "fr": "envelopper"
-  },    
+    "name": {
+      "en": "wrap",
+      "fr": "envelopper"
+    }
+  },
   "匕": {
-    "en": "ladle",
-    "fr": "cuillère"
-  },  
+    "name": {
+      "en": "ladle",
+      "fr": "cuillère"
+    }
+  },
   "匚": {
-    "en": "right open box",
-    "fr": "boîte ouverte à droite"
-  },  
+    "name": {
+      "en": "right open box",
+      "fr": "boîte ouverte à droite"
+    }
+  },
   "匸": {
-    "en": "hiding enclosure",
-    "fr": "fermeture cachée"
-  },  
+    "name": {
+      "en": "hiding enclosure",
+      "fr": "fermeture cachée"
+    }
+  },
   "十": {
-    "en": "ten",
-    "fr": "dix, complet"
-  },  
+    "name": {
+      "en": "ten",
+      "fr": "dix, complet"
+    }
+  },
   "卜": {
-    "en": "divination",
-    "fr": "divination"
-  },  
+    "name": {
+      "en": "divination",
+      "fr": "divination"
+    }
+  },
   "卩": {
-    "en": "seal",
-    "fr": "sceau"
-  },  
+    "name": {
+      "en": "seal",
+      "fr": "sceau"
+    }
+  },
   "厂": {
-    "en": "cliff",
-    "fr": "falaise"
-  },  
+    "name": {
+      "en": "cliff",
+      "fr": "falaise"
+    }
+  },
   "厶": {
-    "en": "private",
-    "fr": "privé"
-  },    
+    "name": {
+      "en": "private",
+      "fr": "privé"
+    }
+  },
   "又": {
-    "en": "again",
-    "fr": "main droite, encore"
-  },  
+    "name": {
+      "en": "again",
+      "fr": "main droite, encore"
+    }
+  },
   "口": {
-    "en": "mouth",
-    "fr": "bouche"
-  },    
+    "name": {
+      "en": "mouth",
+      "fr": "bouche"
+    }
+  },
   "囗": {
-    "en": "enclosure",
-    "fr": "enclos"
-  },    
+    "name": {
+      "en": "enclosure",
+      "fr": "enclos"
+    }
+  },
   "土": {
-    "en": "earth",
-    "fr": "terre"
+    "name": {
+      "en": "earth",
+      "fr": "terre"
+    }
   },
   "士": {
-    "en": "scholar",
-    "fr": "savant, lettré"
-  },    
+    "name": {
+      "en": "scholar",
+      "fr": "savant, lettré"
+    }
+  },
   "夂": {
-    "en": "go",
-    "fr": "aller"
-  },  
+    "name": {
+      "en": "go",
+      "fr": "aller"
+    }
+  },
   "夊": {
-    "en": "go slowly",
-    "fr": "aller lentement"
-  },  
+    "name": {
+      "en": "go slowly",
+      "fr": "aller lentement"
+    }
+  },
   "夕": {
-    "en": "night",
-    "fr": "soir"
-  },  
+    "name": {
+      "en": "night",
+      "fr": "soir"
+    }
+  },
   "大": {
-    "en": "big",
-    "fr": "grand, gros, très"
-  },        
+    "name": {
+      "en": "big",
+      "fr": "grand, gros, très"
+    }
+  },
   "女": {
-    "en": "woman",
-    "fr": "femme"
-  },  
+    "name": {
+      "en": "woman",
+      "fr": "femme"
+    }
+  },
   "子": {
-    "en": "child",
-    "fr": "enfant, graine"
-  },  
+    "name": {
+      "en": "child",
+      "fr": "enfant, graine"
+    }
+  },
   "宀": {
-    "en": "roof",
-    "fr": "toit"
-  },    
+    "name": {
+      "en": "roof",
+      "fr": "toit"
+    }
+  },
   "寸": {
-    "en": "inch",
-    "fr": "pouce"
-  },  
+    "name": {
+      "en": "inch",
+      "fr": "pouce"
+    }
+  },
   "小": {
-    "en": "small",
-    "fr": "petit"
-  },  
+    "name": {
+      "en": "small",
+      "fr": "petit"
+    }
+  },
   "尢": {
-    "en": "lame",
-    "fr": "courbé"
-  },  
+    "name": {
+      "en": "lame",
+      "fr": "courbé"
+    }
+  },
   "尸": {
-    "en": "corpse",
-    "fr": "corps, cadavre"
-  },    
+    "name": {
+      "en": "corpse",
+      "fr": "corps, cadavre"
+    }
+  },
   "屮": {
-    "en": "sprout",
-    "fr": "pousser"
-  },  
+    "name": {
+      "en": "sprout",
+      "fr": "pousser"
+    }
+  },
   "山": {
-    "en": "mountain",
-    "fr": "montagne"
+    "name": {
+      "en": "mountain",
+      "fr": "montagne"
+    }
   },
   "川": {
-    "en": "river",
-    "fr": "rivière"
-  },  
+    "name": {
+      "en": "river",
+      "fr": "rivière"
+    }
+  },
   "工": {
-    "en": "work",
-    "fr": "travail"
-  },    
+    "name": {
+      "en": "work",
+      "fr": "travail"
+    }
+  },
   "己": {
-    "en": "oneself",
-    "fr": "soi-même"
-  },    
+    "name": {
+      "en": "oneself",
+      "fr": "soi-même"
+    }
+  },
   "巾": {
-    "en": "towel",
-    "fr": "turban, écharpe"
-  },  
+    "name": {
+      "en": "towel",
+      "fr": "turban, écharpe"
+    }
+  },
   "干": {
-    "en": "dry",
-    "fr": "sécher"
-  },    
+    "name": {
+      "en": "dry",
+      "fr": "sécher"
+    }
+  },
   "幺": {
-    "en": "thread", 
-    "fr": "fil court"
-  },  
+    "name": {
+      "en": "thread",
+      "fr": "fil court"
+    }
+  },
   "广": {
-    "en": "shelter",
-    "fr": "maison sur une falaise"
-  },    
+    "name": {
+      "en": "shelter",
+      "fr": "maison sur une falaise"
+    }
+  },
   "廴": {
-    "en": "stride",
-    "fr": "longue enjambée"
-  },    
+    "name": {
+      "en": "stride",
+      "fr": "longue enjambée"
+    }
+  },
   "廾": {
-    "en": "hands joined, twenty",
-    "fr": "deux mains, vingt"
+    "name": {
+      "en": "hands joined, twenty",
+      "fr": "deux mains, vingt"
+    }
   },
   "弋": {
-    "en": "shoot with a bow",
-    "fr": "tir"
-  },  
+    "name": {
+      "en": "shoot with a bow",
+      "fr": "tir"
+    }
+  },
   "弓": {
-    "en": "bow",
-    "fr": "arc"
-  },  
+    "name": {
+      "en": "bow",
+      "fr": "arc"
+    }
+  },
   "彐": {
-    "en": "snout",
-    "fr": "groin"
-  },  
+    "name": {
+      "en": "snout",
+      "fr": "groin"
+    }
+  },
   "彡": {
-    "en": "hair",
-    "fr": "soies, poils"
-  },    
+    "name": {
+      "en": "hair",
+      "fr": "soies, poils"
+    }
+  },
   "彳": {
-    "en": "step",
-    "fr": "pas"
-  },    
+    "name": {
+      "en": "step",
+      "fr": "pas"
+    }
+  },
   "心": {
-    "en": "heart",
-    "fr": "cœur"
-  },  
+    "name": {
+      "en": "heart",
+      "fr": "cœur"
+    }
+  },
   "戈": {
-    "en": "spear",
-    "fr": "hallebarde"
-  },    
+    "name": {
+      "en": "spear",
+      "fr": "hallebarde"
+    }
+  },
   "户": {
-    "en": "door, home",
-    "fr": "porte, maison"
-  },    
+    "name": {
+      "en": "door, home",
+      "fr": "porte, maison"
+    }
+  },
   "手": {
-    "en": "hand",
-    "fr": "main"
+    "name": {
+      "en": "hand",
+      "fr": "main"
+    }
   },
   "支": {
-    "en": "branch",
-    "fr": "branche"
-  },  
+    "name": {
+      "en": "branch",
+      "fr": "branche"
+    }
+  },
   "攴": {
-    "en": "rap",
-    "fr": "frapper"
-  },  
+    "name": {
+      "en": "rap",
+      "fr": "frapper"
+    }
+  },
   "文": {
-    "en": "script",
-    "fr": "écriture"
-  },  
+    "name": {
+      "en": "script",
+      "fr": "écriture"
+    }
+  },
   "斗": {
-    "en": "dipper",
-    "fr": "plongeur"
-  },    
+    "name": {
+      "en": "dipper",
+      "fr": "plongeur"
+    }
+  },
   "斤": {
-    "en": "axe",
-    "fr": "hache"
-  },  
+    "name": {
+      "en": "axe",
+      "fr": "hache"
+    }
+  },
   "方": {
-    "en": "square",
-    "fr": "carré"
-  },  
+    "name": {
+      "en": "square",
+      "fr": "carré"
+    }
+  },
   "无": {
-    "en": "not",
-    "fr": "manque, ne pas"
-  },      
+    "name": {
+      "en": "not",
+      "fr": "manque, ne pas"
+    }
+  },
   "日": {
-    "en": "sun",
-    "fr": "soleil"
-  },  
+    "name": {
+      "en": "sun",
+      "fr": "soleil"
+    }
+  },
   "曰": {
-    "en": "say",
-    "fr": "dire"
-  },    
+    "name": {
+      "en": "say",
+      "fr": "dire"
+    }
+  },
   "月": {
-    "en": "moon",
-    "fr": "lune"
-  },  
+    "name": {
+      "en": "moon",
+      "fr": "lune"
+    }
+  },
   "木": {
-    "en": "tree",
-    "fr": "arbre"
-  },    
+    "name": {
+      "en": "tree",
+      "fr": "arbre"
+    }
+  },
   "欠": {
-    "en": "lack",
-    "fr": "bâillement"
-  },  
+    "name": {
+      "en": "lack",
+      "fr": "bâillement"
+    }
+  },
   "止": {
-    "en": "stop",
-    "fr": "arrêt"
-  },    
+    "name": {
+      "en": "stop",
+      "fr": "arrêt"
+    }
+  },
   "歹": {
-    "en": "death",
-    "fr": "mort"
-  },    
+    "name": {
+      "en": "death",
+      "fr": "mort"
+    }
+  },
   "殳": {
-    "en": "weapon",
-    "fr": "arme"
-  },    
+    "name": {
+      "en": "weapon",
+      "fr": "arme"
+    }
+  },
   "母": {
-    "en": "mother",
-    "fr": "ne pas faire, mère"
-  },  
+    "name": {
+      "en": "mother",
+      "fr": "ne pas faire, mère"
+    }
+  },
   "比": {
-    "en": "compare",
-    "fr": "comparer"
-  },  
+    "name": {
+      "en": "compare",
+      "fr": "comparer"
+    }
+  },
   "毛": {
-    "en": "fur",
-    "fr": "poil"
-  },    
+    "name": {
+      "en": "fur",
+      "fr": "poil"
+    }
+  },
   "氏": {
-    "en": "clan",
-    "fr": "clan"
-  },  
+    "name": {
+      "en": "clan",
+      "fr": "clan"
+    }
+  },
   "气": {
-    "en": "steam",
-    "fr": "vapeur, souffle"
-  },  
+    "name": {
+      "en": "steam",
+      "fr": "vapeur, souffle"
+    }
+  },
   "水": {
-    "en": "water",
-    "fr": "eau"
-  },  
+    "name": {
+      "en": "water",
+      "fr": "eau"
+    }
+  },
   "火": {
-    "en": "fire",
-    "fr": "feu"
-  },  
+    "name": {
+      "en": "fire",
+      "fr": "feu"
+    }
+  },
   "爪": {
-    "en": "claw",
-    "fr": "griffe"
+    "name": {
+      "en": "claw",
+      "fr": "griffe"
+    }
   },
   "父": {
-    "en": "father",
-    "fr": "père"
+    "name": {
+      "en": "father",
+      "fr": "père"
+    }
   },
   "爻": {
-    "en": "lines on a trigram",
-    "fr": "double croix"
+    "name": {
+      "en": "lines on a trigram",
+      "fr": "double croix"
+    }
   },
   "爿": {
-    "en": "half of a tree trunk",
-    "fr": "bois fendu"
+    "name": {
+      "en": "half of a tree trunk",
+      "fr": "bois fendu"
+    }
   },
   "片": {
-    "en": "slice",
-    "fr": "tranche"
+    "name": {
+      "en": "slice",
+      "fr": "tranche"
+    }
   },
   "牙": {
-    "en": "tooth",
-    "fr": "croc"
+    "name": {
+      "en": "tooth",
+      "fr": "croc"
+    }
   },
   "牛": {
-    "en": "cow",
-    "fr": "vache"
+    "name": {
+      "en": "cow",
+      "fr": "vache"
+    }
   },
   "犭": {
-    "en": "dog",
-    "fr": "chien"
-  },  
+    "name": {
+      "en": "dog",
+      "fr": "chien"
+    }
+  },
   "玄": {
-    "en": "profound",
-    "fr": "sombre, profond"
+    "name": {
+      "en": "profound",
+      "fr": "sombre, profond"
+    }
   },
   "玉": {
-    "en": "jade",
-    "fr": "jade"
+    "name": {
+      "en": "jade",
+      "fr": "jade"
+    }
   },
   "瓜": {
-    "en": "melon",
-    "fr": "melon"
+    "name": {
+      "en": "melon",
+      "fr": "melon"
+    }
   },
   "瓦": {
-    "en": "tile",
-    "fr": "tuile"
+    "name": {
+      "en": "tile",
+      "fr": "tuile"
+    }
   },
   "甘": {
-    "en": "sweet",
-    "fr": "doux"
+    "name": {
+      "en": "sweet",
+      "fr": "doux"
+    }
   },
   "生": {
-    "en": "life",
-    "fr": "vie"
+    "name": {
+      "en": "life",
+      "fr": "vie"
+    }
   },
   "用": {
-    "en": "use",
-    "fr": "utiliser"
-  },  
+    "name": {
+      "en": "use",
+      "fr": "utiliser"
+    }
+  },
   "田": {
-    "en": "field",
-    "fr": "champ"
+    "name": {
+      "en": "field",
+      "fr": "champ"
+    }
   },
   "疋": {
-    "en": "cloth",
-    "fr": "rouleau de tissu"
+    "name": {
+      "en": "cloth",
+      "fr": "rouleau de tissu"
+    }
   },
   "疒": {
-    "en": "ill",
-    "fr": "maladie"
-  },   
+    "name": {
+      "en": "ill",
+      "fr": "maladie"
+    }
+  },
   "癶": {
-    "en": "foot steps",
-    "fr": "empreintes de pas"
-  },  
+    "name": {
+      "en": "foot steps",
+      "fr": "empreintes de pas"
+    }
+  },
   "白": {
-    "en": "white",
-    "fr": "blanc"
+    "name": {
+      "en": "white",
+      "fr": "blanc"
+    }
   },
   "皮": {
-    "en": "skin",
-    "fr": "peau"
+    "name": {
+      "en": "skin",
+      "fr": "peau"
+    }
   },
   "皿": {
-    "en": "dish",
-    "fr": "plat"
+    "name": {
+      "en": "dish",
+      "fr": "plat"
+    }
   },
   "目": {
-    "en": "eye",
-    "fr": "œil"
-  },  
+    "name": {
+      "en": "eye",
+      "fr": "œil"
+    }
+  },
   "矛": {
-    "en": "spear",
-    "fr": "lance"
+    "name": {
+      "en": "spear",
+      "fr": "lance"
+    }
   },
   "矢": {
-    "en": "arrow",
-    "fr": "flèche"
+    "name": {
+      "en": "arrow",
+      "fr": "flèche"
+    }
   },
   "石": {
-    "en": "stone",
-    "fr": "pierre"
+    "name": {
+      "en": "stone",
+      "fr": "pierre"
+    }
   },
   "示": {
-    "en": "spirit",
-    "fr": "esprit"
+    "name": {
+      "en": "spirit",
+      "fr": "esprit"
+    }
   },
   "禸": {
-    "en": "track",
-    "fr": "piste"
+    "name": {
+      "en": "track",
+      "fr": "piste"
+    }
   },
   "禾": {
-    "en": "grain",
-    "fr": "grain"
+    "name": {
+      "en": "grain",
+      "fr": "grain"
+    }
   },
   "穴": {
-    "en": "cave",
-    "fr": "grotte"
+    "name": {
+      "en": "cave",
+      "fr": "grotte"
+    }
   },
   "立": {
-    "en": "stand",
-    "fr": "debout, ériger"
+    "name": {
+      "en": "stand",
+      "fr": "debout, ériger"
+    }
   },
   "竹": {
-    "en": "bamboo",
-    "fr": "bambou"
+    "name": {
+      "en": "bamboo",
+      "fr": "bambou"
+    }
   },
   "米": {
-    "en": "rice",
-    "fr": "riz"
+    "name": {
+      "en": "rice",
+      "fr": "riz"
+    }
   },
   "纟": {
-    "en": "silk",
-    "fr": "soie"
+    "name": {
+      "en": "silk",
+      "fr": "soie"
+    },
+    "traditional": "糹"
   },
   "缶": {
-    "en": "jar",
-    "fr": "jarre"
-  },  
+    "name": {
+      "en": "jar",
+      "fr": "jarre"
+    }
+  },
   "网": {
-    "en": "net",
-    "fr": "filet"
-  },  
+    "name": {
+      "en": "net",
+      "fr": "filet"
+    }
+  },
   "羊": {
-    "en": "sheep",
-    "fr": "mouton"
+    "name": {
+      "en": "sheep",
+      "fr": "mouton"
+    }
   },
   "羽": {
-    "en": "feather",
-    "fr": "plume"
-  },  
+    "name": {
+      "en": "feather",
+      "fr": "plume"
+    }
+  },
   "老": {
-    "en": "old",
-    "fr": "vieux"
-  },  
+    "name": {
+      "en": "old",
+      "fr": "vieux"
+    }
+  },
   "而": {
-    "en": "and, beard",
-    "fr": "et, barbe"
-  },  
+    "name": {
+      "en": "and, beard",
+      "fr": "et, barbe"
+    }
+  },
   "耒": {
-    "en": "plow",
-    "fr": "charrue"
+    "name": {
+      "en": "plow",
+      "fr": "charrue"
+    }
   },
   "耳": {
-    "en": "ear",
-    "fr": "oreille"
-  },  
+    "name": {
+      "en": "ear",
+      "fr": "oreille"
+    }
+  },
   "聿": {
-    "en": "brush",
-    "fr": "pinceau"
+    "name": {
+      "en": "brush",
+      "fr": "pinceau"
+    }
   },
   "肉": {
-    "en": "meat",
-    "fr": "viande"
+    "name": {
+      "en": "meat",
+      "fr": "viande"
+    }
   },
   "臣": {
-    "en": "minister",
-    "fr": "ministre"
+    "name": {
+      "en": "minister",
+      "fr": "ministre"
+    }
   },
   "自": {
-    "en": "oneself, nose",
-    "fr": "soi-même, nez"
-  },  
+    "name": {
+      "en": "oneself, nose",
+      "fr": "soi-même, nez"
+    }
+  },
   "至": {
-    "en": "arrive",
-    "fr": "arriver"
+    "name": {
+      "en": "arrive",
+      "fr": "arriver"
+    }
   },
   "臼": {
-    "en": "mortar",
-    "fr": "mortier"
-  },  
+    "name": {
+      "en": "mortar",
+      "fr": "mortier"
+    }
+  },
   "舌": {
-    "en": "tongue",
-    "fr": "langue (organe)"
+    "name": {
+      "en": "tongue",
+      "fr": "langue (organe)"
+    }
   },
   "舛": {
-    "en": "contrary",
-    "fr": "opposé"
+    "name": {
+      "en": "contrary",
+      "fr": "opposé"
+    }
   },
   "舟": {
-    "en": "boat",
-    "fr": "bateau"
+    "name": {
+      "en": "boat",
+      "fr": "bateau"
+    }
   },
   "艮": {
-    "en": "stopping",
-    "fr": "arrêter"
+    "name": {
+      "en": "stopping",
+      "fr": "arrêter"
+    }
   },
   "色": {
-    "en": "color",
-    "fr": "couleur"
+    "name": {
+      "en": "color",
+      "fr": "couleur"
+    }
   },
   "艹": {
-    "en": "grass",
-    "fr": "herbe"
+    "name": {
+      "en": "grass",
+      "fr": "herbe"
+    }
   },
   "虍": {
-    "en": "tiger",
-    "fr": "tigre"
-  },  
+    "name": {
+      "en": "tiger",
+      "fr": "tigre"
+    }
+  },
   "虫": {
-    "en": "snake, insect",
-    "fr": "serpent, insecte"
-  },  
+    "name": {
+      "en": "snake, insect",
+      "fr": "serpent, insecte"
+    }
+  },
   "血": {
-    "en": "blood",
-    "fr": "sang"
-  },  
+    "name": {
+      "en": "blood",
+      "fr": "sang"
+    }
+  },
   "行": {
-    "en": "go, do",
-    "fr": "aller, faire"
+    "name": {
+      "en": "go, do",
+      "fr": "aller, faire"
+    }
   },
   "衣": {
-    "en": "clothes",
-    "fr": "vêtement"
-  },  
+    "name": {
+      "en": "clothes",
+      "fr": "vêtement"
+    }
+  },
   "西": {
-    "en": "west",
-    "fr": "ouest"
+    "name": {
+      "en": "west",
+      "fr": "ouest"
+    }
   },
   "见": {
-    "en": "see",
-    "fr": "voir"
-  },  
+    "name": {
+      "en": "see",
+      "fr": "voir"
+    },
+    "traditional": "見"
+  },
   "角": {
-    "en": "horn",
-    "fr": "corne"
+    "name": {
+      "en": "horn",
+      "fr": "corne"
+    }
   },
   "讠": {
-    "en": "speech",
-    "fr": "parole"
-  },  
+    "name": {
+      "en": "speech",
+      "fr": "parole"
+    },
+    "traditional": "言"
+  },
   "谷": {
-    "en": "valley",
-    "fr": "vallée"
-  },  
+    "name": {
+      "en": "valley",
+      "fr": "vallée"
+    }
+  },
   "豆": {
-    "en": "bean",
-    "fr": "haricot"
+    "name": {
+      "en": "bean",
+      "fr": "haricot"
+    }
   },
   "豕": {
-    "en": "pig",
-    "fr": "porc"
-  },  
+    "name": {
+      "en": "pig",
+      "fr": "porc"
+    }
+  },
   "豸": {
-    "en": "badger",
-    "fr": "chat, blaireau "
-  },  
+    "name": {
+      "en": "badger",
+      "fr": "chat, blaireau "
+    }
+  },
   "贝": {
-    "en": "shell",
-    "fr": "coquillage"
-  },  
+    "name": {
+      "en": "shell",
+      "fr": "coquillage"
+    },
+    "traditional": "貝"
+  },
   "赤": {
-    "en": "red",
-    "fr": "rouge"
-  },  
+    "name": {
+      "en": "red",
+      "fr": "rouge"
+    }
+  },
   "走": {
-    "en": "run",
-    "fr": "courir"
+    "name": {
+      "en": "run",
+      "fr": "courir"
+    }
   },
   "足": {
-    "en": "foot",
-    "fr": "pied"
+    "name": {
+      "en": "foot",
+      "fr": "pied"
+    }
   },
   "身": {
-    "en": "body",
-    "fr": "corps"
+    "name": {
+      "en": "body",
+      "fr": "corps"
+    }
   },
   "车": {
-    "en": "cart",
-    "fr": "charette"
+    "name": {
+      "en": "cart",
+      "fr": "charette"
+    },
+    "traditional": "車"
   },
   "辛": {
-    "en": "bitter",
-    "fr": "laborieux, amère"
-  },  
+    "name": {
+      "en": "bitter",
+      "fr": "laborieux, amère"
+    }
+  },
   "辰": {
-    "en": "morning",
-    "fr": "matin"
-  },  
+    "name": {
+      "en": "morning",
+      "fr": "matin"
+    }
+  },
   "辶": {
-    "en": "walk",
-    "fr": "marche"
+    "name": {
+      "en": "walk",
+      "fr": "marche"
+    }
   },
   "邑": {
-    "en": "city",
-    "fr": "ville"
+    "name": {
+      "en": "city",
+      "fr": "ville"
+    }
   },
   "酉": {
-    "en": "wine",
-    "fr": "vin, alcool"
+    "name": {
+      "en": "wine",
+      "fr": "vin, alcool"
+    }
   },
   "釆": {
-    "en": "distinguish",
-    "fr": "distinguer"
-  },  
+    "name": {
+      "en": "distinguish",
+      "fr": "distinguer"
+    }
+  },
   "里": {
-    "en": "village",
-    "fr": "village, voisinage"
-  },  
+    "name": {
+      "en": "village",
+      "fr": "village, voisinage"
+    }
+  },
   "钅": {
-    "en": "metal",
-    "fr": "métal, or"
-  },  
+    "name": {
+      "en": "metal",
+      "fr": "métal, or"
+    }
+  },
   "长": {
-    "en": "long",
-    "fr": "long"
+    "name": {
+      "en": "long",
+      "fr": "long"
+    },
+    "traditional": "長"
   },
   "门": {
-    "en": "gate",
-    "fr": "portail"
+    "name": {
+      "en": "gate",
+      "fr": "portail"
+    },
+    "traditional": "門"
   },
   "阜": {
-    "en": "mound",
-    "fr": "butte"
+    "name": {
+      "en": "mound",
+      "fr": "butte"
+    }
   },
   "隶": {
-    "en": "slave",
-    "fr": "esclave"
-  },  
+    "name": {
+      "en": "slave",
+      "fr": "esclave"
+    }
+  },
   "隹": {
-    "en": "short-tailed bird",
-    "fr": "oiseau à queue courte"
-  },  
+    "name": {
+      "en": "short-tailed bird",
+      "fr": "oiseau à queue courte"
+    }
+  },
   "雨": {
-    "en": "rain",
-    "fr": "pluie"
-  },  
+    "name": {
+      "en": "rain",
+      "fr": "pluie"
+    }
+  },
   "青": {
-    "en": "green, blue",
-    "fr": "vert, bleu"
+    "name": {
+      "en": "green, blue",
+      "fr": "vert, bleu"
+    }
   },
   "非": {
-    "en": "wrong",
-    "fr": "faux"
+    "name": {
+      "en": "wrong",
+      "fr": "faux"
+    }
   },
   "面": {
-    "en": "face",
-    "fr": "visage"
+    "name": {
+      "en": "face",
+      "fr": "visage"
+    }
   },
   "革": {
-    "en": "leather",
-    "fr": "cuir"
-  },  
+    "name": {
+      "en": "leather",
+      "fr": "cuir"
+    }
+  },
   "韦": {
-    "en": "soft leather",
-    "fr": "cuir tanné"
+    "name": {
+      "en": "soft leather",
+      "fr": "cuir tanné"
+    },
+    "traditional": "韋"
   },
   "韭": {
-    "en": "leek",
-    "fr": "poireau"
-  },  
+    "name": {
+      "en": "leek",
+      "fr": "poireau"
+    }
+  },
   "音": {
-    "en": "sound",
-    "fr": "son"
+    "name": {
+      "en": "sound",
+      "fr": "son"
+    }
   },
   "页": {
-    "en": "page",
-    "fr": "feuille"
+    "name": {
+      "en": "page",
+      "fr": "feuille"
+    },
+    "traditional": "頁"
   },
   "风": {
-    "en": "wind",
-    "fr": "vent"
+    "name": {
+      "en": "wind",
+      "fr": "vent"
+    },
+    "traditional": "風"
   },
   "飞": {
-    "en": "fly",
-    "fr": "voler"
-  },  
+    "name": {
+      "en": "fly",
+      "fr": "voler"
+    },
+    "traditional": "飛"
+  },
   "饣": {
-    "en": "eat",
-    "fr": "manger"
-  },  
+    "name": {
+      "en": "eat",
+      "fr": "manger"
+    },
+    "traditional": "飠"
+  },
   "首": {
-    "en": "head",
-    "fr": "tête"
+    "name": {
+      "en": "head",
+      "fr": "tête"
+    }
   },
   "香": {
-    "en": "fragrant",
-    "fr": "parfumé"
+    "name": {
+      "en": "fragrant",
+      "fr": "parfumé"
+    }
   },
   "马": {
-    "en": "horse",
-    "fr": "cheval"
+    "name": {
+      "en": "horse",
+      "fr": "cheval"
+    },
+    "traditional": "馬"
   },
   "骨": {
-    "en": "bone",
-    "fr": "os"
+    "name": {
+      "en": "bone",
+      "fr": "os"
+    }
   },
   "高": {
-    "en": "high",
-    "fr": "grand, haut"
+    "name": {
+      "en": "high",
+      "fr": "grand, haut"
+    }
   },
   "髟": {
-    "en": "long hair",
-    "fr": "longs cheveux"
+    "name": {
+      "en": "long hair",
+      "fr": "longs cheveux"
+    }
   },
   "鬥": {
-    "en": "fight",
-    "fr": "combat"
+    "name": {
+      "en": "fight",
+      "fr": "combat"
+    }
   },
   "鬯": {
-    "en": "sacrificial wine",
-    "fr": "vin sacrificiel"
-  },  
+    "name": {
+      "en": "sacrificial wine",
+      "fr": "vin sacrificiel"
+    }
+  },
   "鬲": {
-    "en": "cauldron",
-    "fr": "chaudron tripode"
+    "name": {
+      "en": "cauldron",
+      "fr": "chaudron tripode"
+    }
   },
   "鬼": {
-    "en": "ghost",
-    "fr": "fantôme"
+    "name": {
+      "en": "ghost",
+      "fr": "fantôme"
+    }
   },
   "鱼": {
-    "en": "fish",
-    "fr": "poisson"
+    "name": {
+      "en": "fish",
+      "fr": "poisson"
+    },
+    "traditional": "魚"
   },
   "鸟": {
-    "en": "bird",
-    "fr": "oiseau"
+    "name": {
+      "en": "bird",
+      "fr": "oiseau"
+    },
+    "traditional": "鳥"
   },
   "卤": {
-    "en": "salty",
-    "fr": "sel"
-  },  
+    "name": {
+      "en": "salty",
+      "fr": "sel"
+    }
+  },
   "鹿": {
-    "en": "deer",
-    "fr": "cervidé"
+    "name": {
+      "en": "deer",
+      "fr": "cervidé"
+    }
   },
   "麦": {
-    "en": "wheat",
-    "fr": "froment"
+    "name": {
+      "en": "wheat",
+      "fr": "froment"
+    },
+    "traditional": "麥"
   },
   "麻": {
-    "en": "hemp",
-    "fr": "chanvre"
-  },  
+    "name": {
+      "en": "hemp",
+      "fr": "chanvre"
+    }
+  },
   "黄": {
-    "en": "yellow",
-    "fr": "jaune"
-  },  
+    "name": {
+      "en": "yellow",
+      "fr": "jaune"
+    }
+  },
   "黍": {
-    "en": "millet",
-    "fr": "millet"
-  },  
+    "name": {
+      "en": "millet",
+      "fr": "millet"
+    }
+  },
   "黑": {
-    "en": "black",
-    "fr": "noir"
+    "name": {
+      "en": "black",
+      "fr": "noir"
+    }
   },
   "黹": {
-    "en": "embroidery",
-    "fr": "broderie"
-  },  
+    "name": {
+      "en": "embroidery",
+      "fr": "broderie"
+    }
+  },
   "黾": {
-    "en": "frog",
-    "fr": "amphibien"
+    "name": {
+      "en": "frog",
+      "fr": "amphibien"
+    },
+    "traditional": "黽"
   },
   "鼎": {
-    "en": "tripod",
-    "fr": "tripode"
-  },  
+    "name": {
+      "en": "tripod",
+      "fr": "tripode"
+    }
+  },
   "鼓": {
-    "en": "drum",
-    "fr": "tambour"
+    "name": {
+      "en": "drum",
+      "fr": "tambour"
+    }
   },
   "鼠": {
-    "en": "rat",
-    "fr": "rat"
-  },  
+    "name": {
+      "en": "rat",
+      "fr": "rat"
+    }
+  },
   "鼻": {
-    "en": "nose",
-    "fr": "nez"
+    "name": {
+      "en": "nose",
+      "fr": "nez"
+    }
   },
   "齐": {
-    "en": "even",
-    "fr": "uniformément"
+    "name": {
+      "en": "even",
+      "fr": "uniformément"
+    },
+    "traditional": "齊"
   },
   "齿": {
-    "en": "tooth",
-    "fr": "dent"
+    "name": {
+      "en": "tooth",
+      "fr": "dent"
+    },
+    "traditional": "齒"
   },
   "龙": {
-    "en": "dragon",
-    "fr": "dragon"
-  },  
+    "name": {
+      "en": "dragon",
+      "fr": "dragon"
+    },
+    "traditional": "龍"
+  },
   "龟": {
-    "en": "turtle",
-    "fr": "tortue"
-  },  
+    "name": {
+      "en": "turtle",
+      "fr": "tortue"
+    },
+    "traditional": "龜"
+  },
   "龠": {
-    "en": "flute",
-    "fr": "flute, pot de mesure"
+    "name": {
+      "en": "flute",
+      "fr": "flute, pot de mesure"
+    }
   }
 }

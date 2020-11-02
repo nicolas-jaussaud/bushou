@@ -29,7 +29,8 @@ export default class Options extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      language: Settings.data.language
+      language: Settings.data.language,
+      characters: Settings.data.characters
     }
 
     // Need a function for support settings
@@ -93,7 +94,7 @@ export default class Options extends Component {
             </Text>
             <Picker
               selectedValue={ this.state.language }
-              style={[this.styles.text, this.styles.languages]}
+              style={[this.styles.text, this.styles.select]}
               itemStyle={[this.styles.text, {width: '75%'}]}
               onValueChange={(value, i) => { 
                 Settings.set('language', value, () => {
@@ -103,6 +104,23 @@ export default class Options extends Component {
             }>
               <Picker.Item label="English" value="en" />
               <Picker.Item label="Français" value="fr" />
+            </Picker>
+          </View>
+
+           <View style={ this.styles.settingLine }>
+            <Text style={ this.styles.text }>
+              { __('characters') }
+            </Text>
+            <Picker
+              selectedValue={ this.state.characters }
+              style={[this.styles.text, this.styles.select]}
+              itemStyle={[this.styles.text, {width: '75%'}]}
+              onValueChange={ (value, i) =>  
+                Settings.set('characters', value, () => this.setState({'characters': value}))
+              }
+            >
+              <Picker.Item label={ __('simplified') } value="simplified" />
+              <Picker.Item label={ __('traditional') } value="traditional" />
             </Picker>
           </View>
 
@@ -213,7 +231,7 @@ const getStyles = () => (StyleSheet.create({
     borderBottomColor: Settings.data.colors.primary,
     borderBottomWidth: 1,
   },
-  languages: {
+  select: {
     transform: [
       {scale: 0.9}, 
       {translate: [23,0]

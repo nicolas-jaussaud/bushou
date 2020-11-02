@@ -27,10 +27,9 @@ export default class SettingsButton extends Component {
    */
   async _cacheResourcesAsync() {
     // Can't use variable into require
-    if(Settings.data.theme === 'dark') {
-      return Asset.loadAsync([require('../assets/img/sun.png')]);
-    }
-    return Asset.loadAsync([require('../assets/img/moon.png')]);
+    return Settings.data.theme === 'dark' ?
+      Asset.loadAsync([require('../assets/img/sun.png')]) :
+      Asset.loadAsync([require('../assets/img/moon.png')]);
   }
 
   /**

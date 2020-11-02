@@ -88,6 +88,14 @@ export const TEXT = {
   'no_sound': {
     'en': 'Sound is muted',
     'fr': 'Son désactivé'
+  },
+  'traditional': {
+    'en': 'Traditional',
+    'fr': 'Traditionnel'
+  },
+  'simplified': {
+    'en': 'Simplified',
+    'fr': 'Simplifié'
   }
 }
 

@@ -10,6 +10,7 @@ export default class Settings {
   init = async() => {
 
     const language = await Settings.get('language')
+    const characters = await Settings.get('characters')
     const primary = await Settings.get('primary')
     const background = await Settings.get('background')
     const theme = await Settings.get('theme')
@@ -19,6 +20,7 @@ export default class Settings {
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
+      'characters': characters ? characters : DEFAULT.characters,
       'colors': {
         'background': background ? background : DEFAULT.colors.background,
         'primary': primary ? primary : DEFAULT.colors.primary
