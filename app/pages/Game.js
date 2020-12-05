@@ -129,7 +129,8 @@ export default class Game extends Component {
       
       if(progress <= levelProgress) {
         let newProgress = levelProgress + 1
-        AsyncStorage.setItem(this.progressKey, newProgress.toString()).then(async () => navigate(redirectPage, {type: this.type}))
+        AsyncStorage.setItem(this.progressKey, newProgress.toString()).then(async () => 
+          navigate(redirectPage, { type: this.type }))
       }
       else{
         navigate(redirectPage, {type: this.type})

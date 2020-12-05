@@ -54,7 +54,7 @@ export default class Hsk extends Component {
     this.reloadStyle = this.reloadStyle.bind(this)
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     this.props.navigation.addListener('didFocus', () => {
       this.reloadStyle()
     })
@@ -71,7 +71,7 @@ export default class Hsk extends Component {
     AsyncStorage.getItem(this.storageKey).then(async (value) => {
       const progress = value ? value : 1
       this.setState({progress: progress})
-    })    
+    })
   }
 
   /**
@@ -88,7 +88,7 @@ export default class Hsk extends Component {
         renderItem={ this._renderItem }
         sliderWidth={ viewportWidth }
         itemWidth={ viewportWidth / 1.33 }
-        firstItem={ this.state.progress - 1 }
+        firstItem={ Settings.data.isProgress !== 'no' ? this.state.progress - 1 : false }
       /> : null
 
     const popup = this.state.popup !== false ? 
