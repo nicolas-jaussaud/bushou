@@ -2,12 +2,20 @@
   "name": "Bushou",
   "displayName": "Bùshŏu",
   "expo": {
+    "assetBundlePatterns": [
+      "./app/assets/img/*"
+    ],
+    "splash": {
+      "image": "./bushou.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
     "name": "Bushou",
     "slug": "bushou",
     "primaryColor": "#000000",
     "privacy": "unlisted",
     "icon": "./bushou.png",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "orientation": "portrait",
     "platforms": [
       "ios",
@@ -15,7 +23,7 @@
       "web"
     ],
     "android": {
-      "versionCode": 12,
+      "versionCode": 13,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.surfzilla.bushou",
       "package": "com.surfzilla.bushou",
       "permissions": [
