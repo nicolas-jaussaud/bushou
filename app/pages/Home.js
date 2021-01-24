@@ -14,6 +14,7 @@ import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
 import Popup from '../components/Popup'
 import SettingsButton from '../components/SettingsButton'
+import Accordion from '../components/Accordion'
 
 // Static data
 import { __ } from '../data/text'
@@ -105,62 +106,67 @@ export default class Home extends Component {
         </Text>
         <View style={[this.styles.buttonContainer]}>
           
-          <Text style={[this.styles.subtitle]}>
-            { __('radicals') }
-          </Text>
-
-          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
-            <Text style={[this.styles.text]}>{ __('keys') }</Text>
-            <Text style={[this.styles.progress]}>
-              { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
-            </Text>
-          </TouchableOpacity>
-
-          
-          <Text  style={[this.styles.subtitle]}>
-            { __('hsk') } 1
-          </Text>
-          
-          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
-            <Text style={[this.styles.text]}>{ __('characters') }</Text>
-            <Text style={[this.styles.progress]}>
-              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
-            </Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
-            <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
-            <Text style={[this.styles.progress]}>
-              { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
-            </Text>
-          </TouchableOpacity>
-          
-
-          { Settings.data.isAudio !== 'no' ? 
-            <TouchableOpacity style={[this.styles.button]} onPress={
-              () => navigate('Hsk', {type: 'audio'})}>
-              <Text style={[this.styles.text]}>{ __('audio') }</Text>
+          <Accordion 
+            label={__('radicals')} 
+            isOpen={this.state.accordionOpen === 'radicals'} 
+            handler={(part) => this.setState({accordionOpen: part})}
+            part={'radicals'}
+          >
+            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
+              <Text style={[this.styles.text]}>{ __('keys') }</Text>
               <Text style={[this.styles.progress]}>
-                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+                { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
               </Text>
-            </TouchableOpacity> :
-            <View style={[this.styles.button, {opacity: 0.5}]}>
-              <View style={[this.styles.textDisableContainer]}>
+            </TouchableOpacity>
+          </Accordion>
+          
+          <Accordion 
+            label={__('hsk')} 
+            isOpen={this.state.accordionOpen === 'hsk'} 
+            handler={(part) => this.setState({accordionOpen: part})}
+            part={'hsk'}
+          >
+            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
+              <Text style={[this.styles.text]}>{ __('characters') }</Text>
+              <Text style={[this.styles.progress]}>
+                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
+              </Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
+              <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
+              <Text style={[this.styles.progress]}>
+                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
+              </Text>
+            </TouchableOpacity>
+            
+            { Settings.data.isAudio !== 'no' ? 
+              <TouchableOpacity style={[this.styles.button]} onPress={
+                () => navigate('Hsk', {type: 'audio'})}>
                 <Text style={[this.styles.text]}>{ __('audio') }</Text>
-                <Text style={[this.styles.text, this.styles.textDisable]}>
-                  ({ __('no_sound') })
+                <Text style={[this.styles.progress]}>
+                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+                </Text>
+              </TouchableOpacity> :
+              <View style={[this.styles.button, {opacity: 0.5}]}>
+                <View style={[this.styles.textDisableContainer]}>
+                  <Text style={[this.styles.text]}>{ __('audio') }</Text>
+                  <Text style={[this.styles.text, this.styles.textDisable]}>
+                    ({ __('no_sound') })
+                  </Text>
+                </View>
+                <Text style={[this.styles.progress]}>
+                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
                 </Text>
               </View>
-              <Text style={[this.styles.progress]}>
-                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
-              </Text>
-            </View>
-          }
+            }
+          </Accordion>
 
           <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
             <SettingsButton/>
             <Text style={this.styles.text}>
-            { __('settings') }</Text>
+              { __('settings') }
+            </Text>
           </TouchableOpacity>
           
         </View>
@@ -188,10 +194,11 @@ const getStyles = () => (StyleSheet.create({
   },
   buttonContainer: {
     justifyContent: 'center',
-    width: '66%',
+    width: '100%',
     height: '55%',
     alignItems: 'center',
     flexDirection: 'column',
+    marginTop: 20,
   },
   header: {
     flex: 1,
@@ -237,15 +244,6 @@ const getStyles = () => (StyleSheet.create({
   },
   progress: {
     color: Settings.data.colors.primary,
-  },
-  subtitle: {
-    fontSize: 18,
-    textAlign: 'left',
-    width: '100%',
-    padding: 10,
-    color: Settings.data.colors.primary,
-    marginBottom: 5,
-    marginTop: 20,
   },
   textButton: {
     textAlign: 'center',
