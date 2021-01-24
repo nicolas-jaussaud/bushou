@@ -3,11 +3,9 @@ import {
   StyleSheet, 
   Text, 
   View,
-  Dimensions,
-  SafeAreaView, 
-  SectionList
+  Dimensions
 } from 'react-native';
-import { Picker } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 import Settings from '../classes/Settings';
 import SettingLine from '../components/SettingLine';
@@ -208,17 +206,17 @@ const getStyles = () => (StyleSheet.create({
     margin: 10,
     color: Settings.data.colors.primary,
   },
-  'settingLine': {
+  settingLine: {
     width: '90%',
     paddingLeft: '5%',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
   },
-  'text': {
+  text: {
     color: Settings.data.colors.primary,
   },
-  'title': {
+  title: {
     color: Settings.data.colors.primary,
     fontWeight: 'bold'
   },
