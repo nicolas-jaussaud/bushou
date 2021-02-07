@@ -15,13 +15,35 @@ export default class Accordion extends Component {
     this.state = {
       isOpen: this.props.isOpen ? this.props.isOpen : false 
     }
-    this.styles = getStyles()
+    
+    this.styles = getStyles(this.props.primary)
+  
+    this.reloadStyle = this.reloadStyle.bind(this)
+  }
 
+  componentDidMount() { 
+    this.props.navigation.addListener('didFocus', () => {
+      this.reloadStyle()
+    })
+  }
+
+  /**
+   * Change theme when reload
+   */
+  reloadStyle = () => {
+    this.styles = getStyles(this.props.primary)
+    this.setState({'refresh':0})
   }
 
   componentDidUpdate(prevProps) {
-    if(this.state.isOpen === this.props.isOpen) return;
-    this.setState({isOpen: this.props.isOpen})
+
+    if(this.state.isOpen !== this.props.isOpen) {
+      this.setState({isOpen: this.props.isOpen})
+    }
+
+    if(prevProps.primary !== this.props.primary) {
+      this.reloadStyle()
+    }
   }
 
 	render() {
@@ -53,7 +75,7 @@ export default class Accordion extends Component {
 
 }
 
-const getStyles = () => (StyleSheet.create({
+const getStyles = (primary) => (StyleSheet.create({
   accordionView: {
     width: '80%',
     paddingTop: 20,
@@ -63,7 +85,7 @@ const getStyles = () => (StyleSheet.create({
   container: {
     width: '80%',
     marginBottom: 5,
-    borderColor: Settings.data.colors.primary,
+    borderColor: primary,
     borderWidth: 1,
     alignItems: 'center'
   },
@@ -78,13 +100,13 @@ const getStyles = () => (StyleSheet.create({
   text: {
     width: '70%',
     textAlign: 'left',
-    color: Settings.data.colors.primary,
+    color: primary,
     fontWeight: 'bold',
   },
   icon: {
     width: '30%',
     textAlign: 'right',
     fontSize: 20,
-    color: Settings.data.colors.primary,
+    color: primary,
   },
 }))

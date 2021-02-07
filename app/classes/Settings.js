@@ -1,6 +1,5 @@
 import { DEFAULT } from '../data/default-config'
-
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { setStatusBarStyle } from 'expo-status-bar';
 
 export default class Settings {
@@ -9,14 +8,14 @@ export default class Settings {
 
   init = async() => {
 
-    const language = await Settings.get('language')
-    const characters = await Settings.get('characters')
-    const primary = await Settings.get('primary')
-    const background = await Settings.get('background')
-    const theme = await Settings.get('theme')
-    const isProgress = await Settings.get('is-progression')
-    const isVibrations = await Settings.get('is-vibrations')
-    const isAudio = await Settings.get('is-audio')
+    const language      = await Settings.get('language')
+    const characters    = await Settings.get('characters')
+    const primary       = await Settings.get('primary')
+    const background    = await Settings.get('background')
+    const theme         = await Settings.get('theme')
+    const isProgress    = await Settings.get('is-progression')
+    const isVibrations  = await Settings.get('is-vibrations')
+    const isAudio       = await Settings.get('is-audio')
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
@@ -56,4 +55,5 @@ export default class Settings {
       if(callback !== false) callback()
     })
   }
+  
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { 
-  Platform, 
   StyleSheet, 
   Text, 
   View ,
-  AsyncStorage, 
   Vibration
 } from 'react-native';
+import AsyncStorage from 'react-native'
+
 
 import Card from '../components/Card'
 import Heart from '../components/Heart'
@@ -60,7 +60,7 @@ export default class Game extends Component {
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
 
-    // Time for the first round (las round will be 10 time shorter)
+    // Time for the first round (last round will be 10 time shorter)
     this.initialSeconds = 10 
 
     this.state = {

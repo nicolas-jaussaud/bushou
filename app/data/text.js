@@ -96,9 +96,51 @@ export const TEXT = {
   'simplified': {
     'en': 'Simplified',
     'fr': 'Simplifié'
-  }
+  },
+  'custom': {
+    'en': 'Custom',
+    'fr': 'Personalisé'
+  },
+  'add_level': {
+    'en': 'Add a custom level',
+    'fr': 'Ajouter un niveau personalisé'
+  },
+  'no_level': {
+    'en': 'No custom level yet',
+    'fr': 'Pas encore de niveau'
+  },
+  'create_custom': {
+    'en': 'Custom creation',
+    'fr': 'Création personalisé'
+  },
+  'data': {
+    'en': 'Data',
+    'fr': 'Data'
+  },
+  'data_type': {
+    'en': 'Data to learn',
+    'fr': 'Données à apprendre'
+  },
+  'items_by_level': {
+    'en': 'Items by level',
+    'fr': 'Items par niveau'
+  },
+  'enable_acceleration': {
+    'en': 'Enable acceleration',
+    'fr': 'Activer l\'accélération'
+  },
+  'time_by_characters': {
+    'en': 'Time by character',
+    'fr': 'Temps par caractère'
+  },
+  'seconds': {
+    'en': 'seconds',
+    'fr': 'secondes'
+  },
+  'second': {
+    'en': 'second',
+    'fr': 'seconde'
+  },
 }
 
-export const __ = (index) => {
-  return TEXT[index][Settings.data.language] 
-}
+export const __ = index => (TEXT[index][Settings.data.language])

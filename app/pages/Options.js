@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import {  
   StyleSheet, 
   Text, 
-  View,
-  Dimensions
+  View
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+
+import FieldContainer from '../components/FieldContainer';
+import SectionTitle from '../components/SectionTitle';
 
 import Settings from '../classes/Settings';
 import SettingLine from '../components/SettingLine';
 
 // Static data
 import { __ } from '../data/text'
-
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 
 export default class Options extends Component {
 
@@ -64,16 +64,9 @@ export default class Options extends Component {
         </Text>
         <View style={[this.styles.settingsContainer]}>
 
-          <View style={[this.styles.titleContainer, {paddingTop: 0}]}>
-            <Text style={ this.styles.title }>
-              { __('display') }
-            </Text>
-          </View>
+          <SectionTitle noPadding={ true } text={ __('display') } primary={ Settings.data.colors.primary }/>
 
-          <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('dark_mode') }
-            </Text>
+          <FieldContainer label={ __('dark_mode') } primary={ Settings.data.colors.primary }>
             <SettingLine
               name={ 'theme' }
               enableValue={ 'dark' }
@@ -82,14 +75,11 @@ export default class Options extends Component {
               handle={ () => {
                 this.reloadStyle()
                 this.setState({'refresh':0})
-              }}
+              }}  
             />
-          </View>
-
-          <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('language') }
-            </Text>
+          </FieldContainer>
+          
+          <FieldContainer label={ __('language') } primary={ Settings.data.colors.primary }>
             <Picker
               selectedValue={ this.state.language }
               style={[this.styles.text, this.styles.select]}
@@ -103,12 +93,9 @@ export default class Options extends Component {
               <Picker.Item label="English" value="en" />
               <Picker.Item label="Français" value="fr" />
             </Picker>
-          </View>
-
-           <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('characters') }
-            </Text>
+          </FieldContainer>
+          
+          <FieldContainer label={ __('characters') } primary={ Settings.data.colors.primary }>
             <Picker
               selectedValue={ this.state.characters }
               style={[this.styles.text, this.styles.select]}
@@ -120,18 +107,11 @@ export default class Options extends Component {
               <Picker.Item label={ __('simplified') } value="simplified" />
               <Picker.Item label={ __('traditional') } value="traditional" />
             </Picker>
-          </View>
+          </FieldContainer>
+          
+          <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
 
-          <View style={ this.styles.titleContainer }>
-            <Text style={ this.styles.title }>
-              { __('game') }
-            </Text>
-          </View>
-
-          <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('progression') }
-            </Text>
+          <FieldContainer label={ __('progression') } primary={ Settings.data.colors.primary }>
              <SettingLine
               name={ 'is-progression' }
               enableValue={ 'yes' }
@@ -142,12 +122,9 @@ export default class Options extends Component {
                 this.setState({'refresh':0})
               }}
             />
-          </View>
-
-          <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('vibrations') }
-            </Text>
+          </FieldContainer>
+          
+          <FieldContainer label={ __('vibrations') } primary={ Settings.data.colors.primary }>
              <SettingLine
               name={ 'is-vibrations' }
               enableValue={ 'yes' }
@@ -158,12 +135,9 @@ export default class Options extends Component {
                 this.setState({'refresh':0})
               }}
             />
-          </View>
-            
-          <View style={ this.styles.settingLine }>
-            <Text style={ this.styles.text }>
-              { __('sound') }
-            </Text>
+          </FieldContainer>
+
+          <FieldContainer label={ __('sound') } primary={ Settings.data.colors.primary }>
              <SettingLine
               name={ 'is-audio' }
               enableValue={ 'yes' }
@@ -174,8 +148,8 @@ export default class Options extends Component {
                 this.setState({'refresh':0})
               }}
             />            
-          </View>
-
+          </FieldContainer>
+          
         </View>
       </View>
     );
@@ -206,28 +180,8 @@ const getStyles = () => (StyleSheet.create({
     margin: 10,
     color: Settings.data.colors.primary,
   },
-  settingLine: {
-    width: '90%',
-    paddingLeft: '5%',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
   text: {
     color: Settings.data.colors.primary,
-  },
-  title: {
-    color: Settings.data.colors.primary,
-    fontWeight: 'bold'
-  },
-  titleContainer: {
-    paddingLeft: '5%',
-    paddingTop: 30,
-    paddingBottom: 10,
-    marginBottom: 10,
-    width: '100%',
-    borderBottomColor: Settings.data.colors.primary,
-    borderBottomWidth: 1,
   },
   select: {
     transform: [

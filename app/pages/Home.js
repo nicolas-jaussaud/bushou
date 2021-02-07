@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { 
-  Platform, 
+import {
   StyleSheet, 
   Text, 
   View,
   Dimensions,
   TouchableOpacity,
-  AsyncStorage
+  ScrollView
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
@@ -98,78 +99,109 @@ export default class Home extends Component {
             this.reloadStyle()
           }}/>
         </View>
-        <Text style={this.styles.welcome}>
-          部首
-        </Text>
-        <Text style={this.styles.welcome}>
-          BùShŏu
-        </Text>
-        <View style={[this.styles.buttonContainer]}>
-          
-          <Accordion 
-            label={__('radicals')} 
-            isOpen={this.state.accordionOpen === 'radicals'} 
-            handler={(part) => this.setState({accordionOpen: part})}
-            part={'radicals'}
-          >
-            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
-              <Text style={[this.styles.text]}>{ __('keys') }</Text>
-              <Text style={[this.styles.progress]}>
-                { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
-              </Text>
-            </TouchableOpacity>
-          </Accordion>
-          
-          <Accordion 
-            label={__('hsk')} 
-            isOpen={this.state.accordionOpen === 'hsk'} 
-            handler={(part) => this.setState({accordionOpen: part})}
-            part={'hsk'}
-          >
-            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
-              <Text style={[this.styles.text]}>{ __('characters') }</Text>
-              <Text style={[this.styles.progress]}>
-                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
-              </Text>
-            </TouchableOpacity>
+
+        <View style={this.styles.titleContainer}>
+          <Text style={this.styles.welcome}>
+            部首
+          </Text>
+          <Text style={this.styles.welcome}>
+            BùShŏu
+          </Text>
+        </View>
+        
+        <ScrollView style={this.styles.scrollView}>
+          <View style={this.styles.buttonContainer}>
             
-            <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
-              <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
-              <Text style={[this.styles.progress]}>
-                { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
-              </Text>
-            </TouchableOpacity>
-            
-            { Settings.data.isAudio !== 'no' ? 
-              <TouchableOpacity style={[this.styles.button]} onPress={
-                () => navigate('Hsk', {type: 'audio'})}>
-                <Text style={[this.styles.text]}>{ __('audio') }</Text>
+            <Accordion 
+              label={__('radicals')} 
+              isOpen={this.state.accordionOpen === 'radicals'} 
+              handler={(part) => this.setState({accordionOpen: part})}
+              part={'radicals'}
+              navigation={this.props.navigation}
+              primary={Settings.data.colors.primary}
+            >
+              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
+                <Text style={[this.styles.text]}>{ __('keys') }</Text>
                 <Text style={[this.styles.progress]}>
-                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+                  { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
                 </Text>
-              </TouchableOpacity> :
-              <View style={[this.styles.button, {opacity: 0.5}]}>
-                <View style={[this.styles.textDisableContainer]}>
+              </TouchableOpacity>
+            </Accordion>
+            
+            <Accordion 
+              label={__('hsk') + ' 1'}
+              isOpen={this.state.accordionOpen === 'hsk'} 
+              handler={(part) => this.setState({accordionOpen: part})}
+              part={'hsk'}
+              navigation={this.props.navigation}
+              primary={Settings.data.colors.primary}
+            >
+              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
+                <Text style={[this.styles.text]}>{ __('characters') }</Text>
+                <Text style={[this.styles.progress]}>
+                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
+                </Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
+                <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
+                <Text style={[this.styles.progress]}>
+                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
+                </Text>
+              </TouchableOpacity>
+              
+              { Settings.data.isAudio !== 'no' ? 
+                <TouchableOpacity style={[this.styles.button]} onPress={
+                  () => navigate('Hsk', {type: 'audio'})}>
                   <Text style={[this.styles.text]}>{ __('audio') }</Text>
-                  <Text style={[this.styles.text, this.styles.textDisable]}>
-                    ({ __('no_sound') })
+                  <Text style={[this.styles.progress]}>
+                    { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
+                  </Text>
+                </TouchableOpacity> :
+                <View style={[this.styles.button, {opacity: 0.5}]}>
+                  <View style={[this.styles.textDisableContainer]}>
+                    <Text style={[this.styles.text]}>{ __('audio') }</Text>
+                    <Text style={[this.styles.text, this.styles.textDisable]}>
+                      ({ __('no_sound') })
+                    </Text>
+                  </View>
+                  <Text style={[this.styles.progress]}>
+                    { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
                   </Text>
                 </View>
-                <Text style={[this.styles.progress]}>
-                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
-                </Text>
-              </View>
-            }
-          </Accordion>
+              }
+            </Accordion>
 
-          <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
-            <SettingsButton/>
-            <Text style={this.styles.text}>
-              { __('settings') }
-            </Text>
-          </TouchableOpacity>
-          
-        </View>
+            <Accordion 
+              label={__('custom')} 
+              isOpen={this.state.accordionOpen === 'custom'} 
+              handler={(part) => this.setState({accordionOpen: part})}
+              part={'custom'}
+              navigation={this.props.navigation}
+              primary={Settings.data.colors.primary}
+            >
+              <View style={[this.styles.button, this.styles.borderDashed]}>
+                <Text style={[this.styles.text]}>{ __('no_level') }</Text>
+              </View>
+              
+              <TouchableOpacity style={this.styles.containerCustom} onPress={() => navigate('Custom')}>
+                <Text style={[this.styles.text, {fontWeight: 'bold', fontSize: 20}]}>+ </Text>
+                <Text style={this.styles.text}>
+                  { __('add_level') }
+                </Text>
+              </TouchableOpacity>
+            </Accordion>
+
+          </View>
+        </ScrollView>
+        
+        <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
+          <SettingsButton/>
+          <Text style={this.styles.text}>
+            { __('settings') }
+          </Text>
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -185,20 +217,36 @@ const getStyles = () => (StyleSheet.create({
     backgroundColor: Settings.data.colors.background,
     color: Settings.data.colors.primary,
   },
-  'containerSettings': {
+  titleContainer: {
+    height: '20%',
+    width: '100%',
+    marginTop: '30%',
+    alignItems: 'center'
+  },
+  scrollView: {
+    width: '100%',
+    height: '25%',
+  },
+  containerSettings: {
     flex: 1,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     paddingTop: 30
   },
-  buttonContainer: {
-    justifyContent: 'center',
+  containerCustom: {
+    flex: 1,
     width: '100%',
-    height: '55%',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingTop: '5%'
+  },
+  buttonContainer: {
+    width: '100%',
+    height: '100%',
     alignItems: 'center',
     flexDirection: 'column',
-    marginTop: 20,
   },
   header: {
     flex: 1,
@@ -211,7 +259,7 @@ const getStyles = () => (StyleSheet.create({
     top: 10,
     left: 0,
     height: 80,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
   welcome: {
     fontSize: 20,
@@ -253,5 +301,12 @@ const getStyles = () => (StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  borderDashed: {
+    borderColor: Settings.data.colors.primary,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 1,
+    opacity: 0.5
   }
 }))

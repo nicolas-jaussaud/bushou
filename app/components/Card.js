@@ -12,7 +12,6 @@ export default class Card extends Component {
   constructor(props) {
     super(props)
     this.styles = getStyles()
-
   }
 
 	/**
@@ -29,7 +28,7 @@ export default class Card extends Component {
 }
 
 const getStyles = () => (StyleSheet.create({
-  'container': {
+  container: {
     width: '48%',
     height: '48%',
     alignSelf: 'stretch',
@@ -41,12 +40,12 @@ const getStyles = () => (StyleSheet.create({
     color: Settings.data.colors.primary,
     margin: '1%'
   },
-  'text': {
+  text: {
     color: Settings.data.colors.primary,
     textTransform: 'capitalize',
     textAlign: 'center'
   },
-  'character': {
+  character: {
     color: Settings.data.colors.primary,
     textAlign: 'center',
     fontSize: 30
