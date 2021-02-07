@@ -43,6 +43,7 @@ export default class DarkMode extends Component {
    * Renders the page
    */
   render() {
+
     if(!this.state.isReady) {
       return(
         <AppLoading
@@ -66,7 +67,7 @@ export default class DarkMode extends Component {
 }
 
 const styles = StyleSheet.create({
-  'image': {
+  image: {
     width: 30,
     paddingLeft: 10,
     paddingRight: 10,

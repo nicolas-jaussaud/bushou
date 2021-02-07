@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import { 
   StyleSheet,
   TouchableOpacity,
-  Text,
-  View,
   Image
 } from 'react-native';
 
-import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
-
 import Settings from '../classes/Settings'
 
 export default class DarkMode extends Component {
@@ -41,7 +37,9 @@ export default class DarkMode extends Component {
       <TouchableOpacity style={styles.button} onPress={this.props.handler}>
         <Image
           style={styles.image}
-          source={Settings.data.theme === 'dark' ? require('../assets/img/language-white.png') : require('../assets/img/language.png')}
+          source={Settings.data.theme === 'dark' ? 
+            require('../assets/img/language-white.png') : 
+            require('../assets/img/language.png')}
         />
       </TouchableOpacity>
     )

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { 
-  Platform, 
   StyleSheet, 
   Text, 
   View,
-  Dimensions,
-  AsyncStorage,
-  TouchableOpacity
+  Dimensions
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'

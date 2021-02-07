@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { 
-  StyleSheet,
-  Text,
-  View,
-  Switch,
-  AsyncStorage
-} from 'react-native';
+import { Switch } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Settings from '../classes/Settings'
 import { convertHexToRGBA } from '../helpers/colors';
