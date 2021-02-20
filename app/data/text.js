@@ -121,9 +121,9 @@ export const TEXT = {
     'en': 'Data to learn',
     'fr': 'Données à apprendre'
   },
-  'items_by_level': {
-    'en': 'Items by level',
-    'fr': 'Items par niveau'
+  'new_items_by_level': {
+    'en': 'New items by level',
+    'fr': 'Nouveaux items par niveau'
   },
   'enable_acceleration': {
     'en': 'Enable acceleration',
@@ -140,6 +140,26 @@ export const TEXT = {
   'second': {
     'en': 'second',
     'fr': 'seconde'
+  },
+  'lives': {
+    'en': 'Lives',
+    'fr': 'Vies'
+  },
+  'is_unlimited': {
+    'en': 'Unlimited caracters number',
+    'fr': 'Nombre ilimité de caractères',
+  },
+  'max_items_by_level': {
+    'en': 'Max items by level',
+    'fr': 'Items max par niveau'
+  },
+  'create': {
+    'en': 'Create',
+    'fr': 'Créer'
+  },
+  'name': {
+    'en': 'Name',
+    'fr': 'Nom'
   },
 }
 

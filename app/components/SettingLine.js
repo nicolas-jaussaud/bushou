@@ -39,6 +39,15 @@ export default class SettingLine extends Component {
             this.props.disableValue : 
             this.props.enableValue
 
+          /**
+           * If there is a callback set we don't save settings into the component
+           */
+          if(this.props.callback) {
+            this.setState({value: newValue})
+            this.props.callback(newValue)
+            return;
+          }
+
           Settings.set(this.props.name, newValue, () => {
             this.setState({value: newValue})
             this.props.handle()

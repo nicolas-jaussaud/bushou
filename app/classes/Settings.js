@@ -16,6 +16,7 @@ export default class Settings {
     const isProgress    = await Settings.get('is-progression')
     const isVibrations  = await Settings.get('is-vibrations')
     const isAudio       = await Settings.get('is-audio')
+    const customLevels  = await Settings.get('custom-levels')
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
@@ -27,7 +28,8 @@ export default class Settings {
       'theme': theme ? theme : DEFAULT.theme,
       'isProgress': isProgress ? isProgress : DEFAULT.isProgress,
       'isVibrations': isVibrations ? isVibrations : DEFAULT.isVibrations,
-      'isAudio': isAudio ? isAudio : DEFAULT.isAudio
+      'isAudio': isAudio ? isAudio : DEFAULT.isAudio,
+      'customLevels': customLevels ? customLevels.split(',') : DEFAULT.customLevels
     }
 
     if(Settings.data.theme === 'dark') {
@@ -35,7 +37,7 @@ export default class Settings {
       Settings.data.colors.background = primary ? primary : DEFAULT.colors.primary
     }
 
-    // Color icon in the notification bar
+    // Color icon in the notification barcustomLevels
     setStatusBarStyle(Settings.data.theme === 'dark' ? 'light' : 'dark')
 
     return Settings.data

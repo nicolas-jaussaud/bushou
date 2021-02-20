@@ -3,9 +3,11 @@ import {
   StyleSheet, 
   Text, 
   View,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import FieldContainer from '../components/FieldContainer';
 import SectionTitle from '../components/SectionTitle';
@@ -30,17 +32,22 @@ export default class Custom extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      language: Settings.data.language,
-      characters: Settings.data.characters,
-      startNumber: 0,
-      endNumber: 0,
-      currentData: {}
+      name: '',
+      newItems: 0,
+      maxItems: 0,
+      data: 'radicals',
+      lives: 3,
+      isAcceleration: 'yes',
+      isUnlimited: 'yes',
+      timeBycharacters: 3
     }
 
     // Need a function for support settings
     this.styles = getStyles()
     
-    this.reloadStyle = this.reloadStyle.bind(this)
+    this.reloadStyle  = this.reloadStyle.bind(this)
+    this.saveData     = this.saveData.bind(this)
+    this.isValid      = this.isValid.bind(this)
   }
 
   componentDidMount() { 
@@ -55,10 +62,46 @@ export default class Custom extends Component {
     this.setState({'refresh':0})
   }
 
-  setValue() {
+  /**
+   * Add data as new custom progress if valid
+   */
+  saveData = () => {
 
+    if( !this.isValid() ) return;
+    
+    /**
+     * We generate a unique ID for this custom progress, and add to the 
+     * settings with the other unique ID
+     * 
+     * This unique ID will then be used for saving the custom progress data
+     * as JSON
+     */
+    const levelID = getUniqID()
+    const levels = [...Settings.data.customLevels]
+    levels.push(levelID)
+    const levelData = JSON.stringify(this.state)
+
+    Settings.set('customLevels', levels.join(','), () => {
+      AsyncStorage.setItem(levelID, levelData).then(async() => console.log('yas'))
+    })
   }
   
+  /**
+   * Validate data
+   */
+  isValid = () => {
+    
+    if( this.state.name === '') return false
+    if( ['radicals', 'hsk'].includes(this.state.radicals) ) return false
+    if( !Number.isInteger(this.state.newItems) || this.state.newItems === 0 ) return false
+
+    if( this.state.isUnlimited !== 'yes' ) {
+      if( !Number.isInteger(this.state.maxItems) || this.state.maxItems === 0 ) return false
+    }
+
+    return true
+  }
+
   /**
    * Renders the page
    */
@@ -74,67 +117,132 @@ export default class Custom extends Component {
         </Text>
         <View style={[this.styles.settingsContainer]}>
 
-          <SectionTitle noPadding={ true } text={ __('data') } primary={ Settings.data.colors.primary }/>
+          <SectionTitle noPadding={ true } text={ __('name') } primary={ Settings.data.colors.primary }/>
+          
+          <FieldContainer label={ __('name') } primary={ Settings.data.colors.primary }>
+            <TextInput
+              style={[this.styles.text, this.styles.number]}
+              onChangeText={ text => this.setState({name: text}) }
+              value={ this.state.name }
+            />
+          </FieldContainer>
+
+          <SectionTitle text={ __('data') } primary={ Settings.data.colors.primary }/>
 
           <FieldContainer label={ __('data_type') } primary={ Settings.data.colors.primary }>
             <Picker
-              selectedValue={ this.state.language }
+              selectedValue={ this.state.data }
               style={[this.styles.text, this.styles.select]}
               itemStyle={[this.styles.text, {width: '75%'}]}
-              onValueChange={(value, i) => {
-                // Settings.set('language', value, () => this.setState({language: value}))
-              }}>
-              <Picker.Item label="Radicals" value="radicals" />
-              <Picker.Item label="HSK 1" value="hsk" />
+              onValueChange={(value) => this.setState({data: value})}>
+                <Picker.Item label='Radicals' value='radicals' />
+                <Picker.Item label='HSK 1' value='hsk' />
             </Picker>
           </FieldContainer>
-            
-          <FieldContainer label={ __('items_by_level') } primary={ Settings.data.colors.primary }>
+          
+          <FieldContainer label={ __('new_items_by_level') } primary={ Settings.data.colors.primary }>
             <TextInput
               keyboardType='phone-pad'
               style={[this.styles.text, this.styles.number]}
               onChangeText={ text => {
                 const number = parseInt(text)
-                this.setState({startNumber: Number.isNaN(number) ? 0 : number}
+                this.setState({newItems: Number.isNaN(number) ? 0 : number}
               )}}
-              value={ this.state.startNumber }
+              value={ this.state.newItems }
             />
           </FieldContainer>
 
-          <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
-
-          <FieldContainer label={ __('enable_acceleration') } primary={ Settings.data.colors.primary }>
+          <FieldContainer label={ __('is_unlimited') } primary={ Settings.data.colors.primary }>
             <SettingLine
-              name={ 'is-acceleration' }
+              name={ 'isUnlimited' }
               enableValue={ 'yes' }
               disableValue={ 'no' }
               default={ 'yes' }
+              callback={ (value) => this.setState({isUnlimited: value})}
             />
           </FieldContainer>
+          
+          { this.state.isUnlimited !== 'yes' ?
+            <FieldContainer label={ __('max_items_by_level') } primary={ Settings.data.colors.primary }>
+              <TextInput
+                keyboardType='phone-pad'
+                style={[this.styles.text, this.styles.number]}
+                onChangeText={ text => {
+                  const number = parseInt(text)
+                  this.setState({maxItems: Number.isNaN(number) ? 0 : number}
+                )}}
+                value={ this.state.maxItems }
+              />
+            </FieldContainer> : null }
 
-          { this.state['is-acceleration'] === 'yes' ?   
-          <FieldContainer label={ __('time_by_characters') } primary={ Settings.data.colors.primary }>
+          <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
+          
+          <FieldContainer label={ __('lives') } primary={ Settings.data.colors.primary }>
             <Picker
-              selectedValue={ this.state.language }
+              selectedValue={ this.state.lives }
+              name={ 'lives' }
               style={[this.styles.text, this.styles.select]}
               itemStyle={[this.styles.text, {width: '75%'}]}
-              onValueChange={(value, i) => {
-                // Settings.set('language', value, () => this.setState({language: value}))
-              }}>
-                { [...Array(21).keys()].map((index) => {
-                  if(index === 0) return;
+              onValueChange={(value) => this.setState({lives: value})}>
+                { [...Array(11).keys()].map((index) => {
                   return(
                     <Picker.Item 
                       key={ getUniqID() } 
                       value={ index } 
-                      label={ index + ' ' + (index === 1 ? __('second') : __('seconds')) } 
+                      label={ index.toString() } 
                     />
                   )
                 })}
             </Picker>
-          </FieldContainer> : null }
-            
-          <Text>{ JSON.stringify(this.state.currentData) }</Text>
+          </FieldContainer>
+
+          <FieldContainer label={ __('enable_acceleration') } primary={ Settings.data.colors.primary }>
+            <SettingLine
+              name={ 'isAcceleration' }
+              enableValue={ 'yes' }
+              disableValue={ 'no' }
+              default={ 'yes' }
+              callback={ (value) => this.setState({'isAcceleration': value})}
+            />
+          </FieldContainer>
+              
+          { this.state.isAcceleration !== 'yes' ?   
+            <FieldContainer label={ __('time_by_characters') } primary={ Settings.data.colors.primary }>
+              <Picker
+                selectedValue={ this.state.timeByCharacters }
+                name={ 'timeByCharacters' }
+                style={[this.styles.text, this.styles.select]}
+                itemStyle={[this.styles.text, {width: '75%'}]}
+                onValueChange={(value) => this.setState({timeByCharacters: value})}>
+                  { [...Array(11).keys()].map((index) => {
+                    if(index === 0) return;
+                    return(
+                      <Picker.Item 
+                        key={ getUniqID() } 
+                        value={ index } 
+                        label={ index + ' ' + (index === 1 ? __('second') : __('seconds')) } 
+                      />
+                    )
+                  })}
+              </Picker>
+            </FieldContainer> : null }
+                      
+          <View style={ this.styles.buttonContainer }>
+            { this.isValid() ? 
+              <TouchableOpacity style={this.styles.button} onPress={() => this.saveData()}>
+                <Text style={this.styles.text}>
+                  { __('create') }
+                </Text>
+              </TouchableOpacity> 
+            :
+              <View style={[this.styles.button, {opacity: 0.3}]}>
+                <Text style={[this.styles.text, {opacity: 0.7}]}>
+                  { __('create') }
+                </Text>
+              </View>
+            }
+          </View>
+
         </View>
       </View>
     );
@@ -178,9 +286,25 @@ const getStyles = () => (StyleSheet.create({
   },
   number: {
     height: 30, 
-    width: 130, 
+    width: 100, 
     borderColor: Settings.data.colors.primary, 
     borderWidth: 0.5,
     textAlign: 'center'
+  },
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  button: {
+    color: Settings.data.colors.primary,
+    marginTop: 20,
+    padding: 10,
+    borderColor: Settings.data.colors.primary,
+    color: Settings.data.colors.primary,
+    borderWidth: 1,
+    width: '33%',
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
+
 }))
