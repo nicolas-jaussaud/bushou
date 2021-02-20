@@ -8,5 +8,6 @@ export const DEFAULT = {
   'theme': 'light',
   'isProgress': 'yes',
   'isVibrations': 'yes',
-  'isAudio': 'yes'
+  'isAudio': 'yes',
+  'customLevels': []
 }
