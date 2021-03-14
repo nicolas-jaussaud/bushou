@@ -37,7 +37,7 @@ export default class Settings {
       Settings.data.colors.background = primary ? primary : DEFAULT.colors.primary
     }
 
-    // Color icon in the notification barcustomLevels
+    // Color icon in the notification bar
     setStatusBarStyle(Settings.data.theme === 'dark' ? 'light' : 'dark')
 
     return Settings.data
@@ -46,9 +46,8 @@ export default class Settings {
   static get = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
   
   static set = (key, value, callback = false) => {
-    
-    Settings.data[key] = value
-    
+    Settings.data['custom-levels' ? 'customLevels' : key] = value
+    console.log(Settings.data)
     AsyncStorage.setItem(key, value).then(async() => {
     
       const SettingsObj = new Settings()
