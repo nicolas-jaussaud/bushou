@@ -46,8 +46,9 @@ export default class Settings {
   static get = async(key) => (AsyncStorage.getItem(key).then((value) => (value)))
   
   static set = (key, value, callback = false) => {
+
     Settings.data['custom-levels' ? 'customLevels' : key] = value
-    console.log(Settings.data)
+
     AsyncStorage.setItem(key, value).then(async() => {
     
       const SettingsObj = new Settings()

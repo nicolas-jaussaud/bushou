@@ -13,6 +13,7 @@ import Radicals from './app/pages/Radicals';
 import Hsk from './app/pages/Hsk';
 import Options from './app/pages/Options';
 import Custom from './app/pages/Custom';
+import Edit from './app/pages/Edit';
 
 // @see https://facebook.github.io/react-native/docs/navigation
 const MainNavigator = createStackNavigator({
@@ -24,6 +25,7 @@ const MainNavigator = createStackNavigator({
     Characters: { screen: Characters },
     Options: { screen: Options }, 
     Custom: { screen: Custom }, 
+    Edit: { screen: Edit }, 
   },{
     initialRouteName: 'Loader'
   }

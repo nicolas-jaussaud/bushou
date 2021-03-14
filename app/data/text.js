@@ -109,6 +109,10 @@ export const TEXT = {
     'en': 'Delete',
     'fr': 'Supprimer'
   },
+  'delete_levels': {
+    'en': 'Delete Levels',
+    'fr': 'Supprimer les Niveaux'
+  },
   'no_level': {
     'en': 'No custom level yet',
     'fr': 'Pas encore de niveau'
