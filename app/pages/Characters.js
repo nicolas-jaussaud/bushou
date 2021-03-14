@@ -37,7 +37,7 @@ export default class Characters extends Component {
     this.file = this.props.navigation.state.params.file
 
     this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.file)
-    
+
     this.getCharacter = this.getCharacter.bind(this)
     this.getName      = this.getName.bind(this)
   }

@@ -3,14 +3,13 @@ import {
   StyleSheet, 
   Text, 
   View,
-  Dimensions,
   TouchableOpacity,
   ScrollView
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-
 import Settings from '../classes/Settings';
+
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
 import Popup from '../components/Popup'
@@ -19,8 +18,7 @@ import Accordion from '../components/Accordion'
 
 // Static data
 import { __ } from '../data/text'
-
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
+import { getCustomLevels } from '../helpers/levels'
 
 export default class Home extends Component {
 
@@ -69,24 +67,8 @@ export default class Home extends Component {
     })
 
     this.setState({
-      customLevels: await this.getCustomLevels()
+      customLevels: await getCustomLevels()
     })
-  }
-
-  /**
-   * Get levels created by the users
-   */
-  getCustomLevels = async () => {
-    const levelKeys = Settings.data.customLevels
-    const levels = {}
-
-    for (let i = 0; i < levelKeys.length; i++) {
-      levels[ levelKeys[i] ] = JSON.parse(await AsyncStorage.getItem(levelKeys[i]).then((value) => (value)))
-      const progress = await AsyncStorage.getItem('progress-' + levelKeys[i]).then((value) => (value))
-      levels[ levelKeys[i] ].progress = progress ? progress : 1
-    }
-
-    return levels
   }
 
   /**
@@ -208,7 +190,7 @@ export default class Home extends Component {
                     const level = this.state.customLevels[key]
                     const progressTotal = level.data === 'radicals' ? 
                       Math.ceil(214 / parseInt(level.newItems)) :  
-                      Math.ceil(150 / parseInt(level.newItems)) ;  
+                      Math.ceil(156 / parseInt(level.newItems)) ;  
                     
                     return(
                       <TouchableOpacity style={[this.styles.button]}>
@@ -232,7 +214,7 @@ export default class Home extends Component {
                       { __('add') }
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={this.styles.customButton} onPress={() => navigate('Custom')}>
+                  <TouchableOpacity style={this.styles.customButton} onPress={() => navigate('Edit')}>
                     <Text style={[this.styles.text, {fontWeight: 'bold', fontSize: 20}]}>- </Text>
                     <Text style={this.styles.text}>
                       { __('delete') }
