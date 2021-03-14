@@ -101,9 +101,13 @@ export const TEXT = {
     'en': 'Custom',
     'fr': 'Personalisé'
   },
-  'add_level': {
-    'en': 'Add a custom level',
-    'fr': 'Ajouter un niveau personalisé'
+  'add': {
+    'en': 'Add',
+    'fr': 'Ajouter'
+  },
+  'delete': {
+    'en': 'Delete',
+    'fr': 'Supprimer'
   },
   'no_level': {
     'en': 'No custom level yet',

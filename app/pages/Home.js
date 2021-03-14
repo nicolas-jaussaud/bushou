@@ -38,7 +38,8 @@ export default class Home extends Component {
       'progress': 0,
       'progress-hsk1': 0,
       'progress-hsk1-audio': 0,
-      'progress-hsk1-pinyin': 0
+      'progress-hsk1-pinyin': 0,
+      'customLevels': {}
     }
 
     // Need a function for support settings
@@ -66,6 +67,26 @@ export default class Home extends Component {
         this.setState({[name]: progress})
       })
     })
+
+    this.setState({
+      customLevels: await this.getCustomLevels()
+    })
+  }
+
+  /**
+   * Get levels created by the users
+   */
+  getCustomLevels = async () => {
+    const levelKeys = Settings.data.customLevels
+    const levels = {}
+
+    for (let i = 0; i < levelKeys.length; i++) {
+      levels[ levelKeys[i] ] = JSON.parse(await AsyncStorage.getItem(levelKeys[i]).then((value) => (value)))
+      const progress = await AsyncStorage.getItem('progress-' + levelKeys[i]).then((value) => (value))
+      levels[ levelKeys[i] ].progress = progress ? progress : 1
+    }
+
+    return levels
   }
 
   /**
@@ -81,7 +102,7 @@ export default class Home extends Component {
    */
   render() {
 
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
     const popup = this.state.popup !== false ? 
       <Popup change={ () => this.reloadStyle() } close={ () => this.setState({'popup': false}) }/> : 
       false 
@@ -180,16 +201,44 @@ export default class Home extends Component {
               navigation={this.props.navigation}
               primary={Settings.data.colors.primary}
             >
-              <View style={[this.styles.button, this.styles.borderDashed]}>
-                <Text style={[this.styles.text]}>{ __('no_level') }</Text>
-              </View>
-              
-              <TouchableOpacity style={this.styles.containerCustom} onPress={() => navigate('Custom')}>
-                <Text style={[this.styles.text, {fontWeight: 'bold', fontSize: 20}]}>+ </Text>
-                <Text style={this.styles.text}>
-                  { __('add_level') }
-                </Text>
-              </TouchableOpacity>
+              { Object.keys(this.state.customLevels).length !== 0 ?
+                <>                   
+                  { Object.keys(this.state.customLevels).map((key) => {
+                    
+                    const level = this.state.customLevels[key]
+                    const progressTotal = level.data === 'radicals' ? 
+                      Math.ceil(214 / parseInt(level.newItems)) :  
+                      Math.ceil(150 / parseInt(level.newItems)) ;  
+                    
+                    return(
+                      <TouchableOpacity style={[this.styles.button]}>
+                        <Text style={[this.styles.text]}>{ level.name }</Text>
+                        <Text style={[this.styles.progress]}>
+                          { Settings.data.isProgress !== 'no' ? `${level.progress}/${progressTotal}` : '' }
+                        </Text>
+                    </TouchableOpacity>)
+                })} 
+                </>
+                : 
+                  <View style={[this.styles.button, this.styles.borderDashed]}>
+                    <Text style={[this.styles.text]}>{ __('no_level') }</Text>
+                  </View>
+                }
+
+                <View style={this.styles.containerCustom}>
+                  <TouchableOpacity style={this.styles.customButton} onPress={() => navigate('Custom')}>
+                    <Text style={[this.styles.text, {fontWeight: 'bold', fontSize: 20}]}>+ </Text>
+                    <Text style={this.styles.text}>
+                      { __('add') }
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={this.styles.customButton} onPress={() => navigate('Custom')}>
+                    <Text style={[this.styles.text, {fontWeight: 'bold', fontSize: 20}]}>- </Text>
+                    <Text style={this.styles.text}>
+                      { __('delete') }
+                    </Text>
+                  </TouchableOpacity>
+                </View>
             </Accordion>
 
           </View>
@@ -236,11 +285,17 @@ const getStyles = () => (StyleSheet.create({
   },
   containerCustom: {
     flex: 1,
-    width: '100%',
+    width: '50%',
+    marginLeft: '50%',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingTop: '5%'
+  },
+  customButton: {
+    flex: 0.5,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   buttonContainer: {
     width: '100%',

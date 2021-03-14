@@ -70,19 +70,21 @@ export default class Custom extends Component {
     if( !this.isValid() ) return;
     
     /**
-     * We generate a unique ID for this custom progress, and add to the 
-     * settings with the other unique ID
+     * We generate a unique ID for this custom progress, and add it to the 
+     * settings with the others unique IDs
      * 
-     * This unique ID will then be used for saving the custom progress data
-     * as JSON
+     * This unique ID will then be used as the key for saving the custom progress 
+     * data as JSON
      */
     const levelID = getUniqID()
     const levels = [...Settings.data.customLevels]
     levels.push(levelID)
     const levelData = JSON.stringify(this.state)
 
-    Settings.set('customLevels', levels.join(','), () => {
-      AsyncStorage.setItem(levelID, levelData).then(async() => console.log('yas'))
+    const { navigate } = this.props.navigation
+
+    Settings.set('custom-levels', levels.join(','), () => {
+      AsyncStorage.setItem(levelID, levelData).then(async() => navigate('Home'))
     })
   }
   
