@@ -1,15 +1,42 @@
-// import { DEFAULT } from '../data/default-config'
-// import AsyncStorage from '@react-native-async-storage/async-storage'
-// import { setStatusBarStyle } from 'expo-status-bar';
-import Module from './Module'
+import Settings from '../Settings'
+import { __ } from '../../data/text'
 
 export default class Level {
 
-  static data = DEFAULT
+  constructor(number, module) {
 
-  constructor(key, level) {
-    this.level  = parseInt(level)
-    this.module = new Module(key)
+    this.module = module
+    this.number = number
   }
 
+  getTitle = () => (__('level') + ' ' + this.number)
+  getLives = () => (parseInt( this.module.get('lives')))
+  getRounds = () => (this.module.get('roundNumber') ? parseInt(this.module.get('roundNumber')) : 100)
+
+  /**
+   * Number of characters of the current Level
+   */
+  getCharacterNumber() {
+    
+    const number = this.number * this.module.getNewItems()
+    const max = this.module.getMax()
+    const moduleCharacters = this.module.getCharacterNumber()
+
+    if(number > moduleCharacters && max === false) return this.module.getCharacterNumber()
+
+    return max !== false && max < number ? module.getMax() : number
+  }
+
+  /**
+   * Get index of the first character of the level (or false if first of the list)
+   */
+  getFirstItem() {
+
+    const number = this.number * this.module.getNewItems()
+    const max = this.module.getMax()
+
+    return max && max < number ? number - max : false
+  }
+
+  isLocked = () => (Settings.data.isProgress !== 'no' ? this.module.getProgress() < this.number : false)
 }

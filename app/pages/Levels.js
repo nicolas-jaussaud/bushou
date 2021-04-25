@@ -5,15 +5,13 @@ import {
   View,
   Dimensions
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
 import Popup from '../components/Popup'
 
-// Static data
-import { LEVELS } from '../data/levels-hsk1'
+import { getModule } from '../helpers/modules'
 import { __ } from '../data/text'
 
 // Dependencies
@@ -21,7 +19,7 @@ import Carousel from 'react-native-snap-carousel';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
 
-export default class Hsk extends Component {
+export default class Levels extends Component {
 
   /**
    * Navigation options (hide the top bar)
@@ -33,12 +31,12 @@ export default class Hsk extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      progress: 0,
+      progress: false,
+      levels: false,
       popup: false
     }
 
-    // If custom progress
-    this.props.navigation.state.params.data ? this.initCustom() : this.initHsk()
+    this.init()
 
     // Need a function for support settings
     this.styles = getStyles()
@@ -47,48 +45,13 @@ export default class Hsk extends Component {
     this.reloadStyle = this.reloadStyle.bind(this)
   }
 
-  /**
-   * Init if from user data
-   */
-  initCustom() {
+  async init() {
+    this.key = this.props.navigation.state.params.key
 
-    const data = this.props.navigation.state.params.data
+    this.module = await getModule(this.key)
+    await this.getProgress()
     
-    this.storageKey = this.props.navigation.state.params.type
-    this.title = data.name
-
-    const total = data.data === 'hsk' ? 156 : 214
-
-    const levels = total / parseInt(data.newItems)
-
-    this.levels = []
-    for (let index = 0; index < levels; index++) {
-
-      const characters = (index + 1) * parseInt(data.newItems)
-      const max = data.maxItems ? parseInt(data.maxItems) : false
-
-      this.levels.push({
-        characters: max !== false && max < characters ? max : characters,
-        title:      'Level ' + (index + 1),
-        firstItem:  max && max < characters ? characters - max : false,
-        lives:      parseInt(data.lives),
-        rounds:     data.roundNumber ? parseInt(data.roundNumber) : 100,
-      })
-    }
-  }
-
-  /**
-   * Init for regular levels
-   */
-  initHsk() {
-
-    this.storageKey = 'progress-hsk1-' + this.props.navigation.state.params.type
-
-    // For legacy 
-    if(this.storageKey === 'progress-hsk1-characters') this.storageKey = 'progress-hsk1'
-    
-    this.title = __('hsk') + ' ' + 1 + ' - ' + __(this.props.navigation.state.params.type)
-    this.levels = LEVELS
+    this.setState({levels: this.module.getLevels()})
   }
 
   componentDidMount() {
@@ -97,34 +60,44 @@ export default class Hsk extends Component {
     })
   }
 
+  /**
+   * Change theme and reload progress
+   */
   reloadStyle = () => {
-    // Change theme when reload
     this.setState({progress: 0}, () => this.getProgress())
     this.styles = getStyles()
   }
 
-  getProgress = async () => {
-    AsyncStorage.getItem(this.storageKey).then(async (value) => {
-      const progress = value ? value : 1
-      this.setState({progress: progress})
-    })
+  getProgress = async () => (this.setState({progress: await this.module.getProgress(true)}))
+
+  /**
+   * We need to add "Hsk" and "Radicals" for static HSK modules
+   */
+  getTitle() {
+
+    if(!this.module) return '';
+    if(!this.module.isStatic) return this.module.getTitle();
+
+    return this.module.get('data') === 'hsk1'
+      ? 'HSK 1 - ' + this.module.getTitle()
+      : __('radicals') + ' - ' + this.module.getTitle()
   }
 
   /**
    * Renders the page
    */
   render() {
-
+    
     // Show the progress only when we load the progress number
-    const levels = this.state.progress !== 0 ?
+    const levels = this.state.levels !== false && this.state.progress !== false ?
       <Carousel
         layout='default'
-        ref={(c) => { this._carousel = c; }}
-        data={ this.levels }
+        ref={ c => this._carousel = c }
+        data={ this.state.levels }
         renderItem={ this._renderItem }
         sliderWidth={ viewportWidth }
         itemWidth={ viewportWidth / 1.33 }
-        firstItem={ Settings.data.isProgress !== 'no' ? this.state.progress - 1 : false }
+        firstItem={ Settings.data.isProgress !== 'no' ? this.state.progress : false }
       /> : null
 
     const popup = this.state.popup !== false ? 
@@ -148,7 +121,7 @@ export default class Hsk extends Component {
           部首
         </Text>
         <Text style={ this.styles.welcome }>
-          { this.title }
+          { this.getTitle() }
         </Text>
         <View style={ this.styles.carousel }>
           { levels }
@@ -157,38 +130,30 @@ export default class Hsk extends Component {
     );
   }
 
-  _renderItem = ({item, index}) => {
+  _renderItem = ({item}) => {
     
-    const {navigate} = this.props.navigation;
-    const isLocked = Settings.data.isProgress !== 'no' ? 
-      this.state.progress <= parseInt(index) :
-      false
+    const level = item
+    const { navigate } = this.props.navigation
 
-    const textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
+    const textStyle = level.isLocked() 
+      ? Settings.data.colors.background 
+      : Settings.data.colors.primary 
+    
     return(
-      <View style={ !isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked }>
+      <View style={ !level.isLocked() ? this.styles.carouselItem : this.styles.carouselItemLocked }>
         <Text style={ [this.styles.carouselTitle, {color: textStyle}] }>
-          { item.title }
+          { level.getTitle() }
         </Text>
         <Text style={ [{color: textStyle}] }>
-          { __('words_number') }: {item.characters}
+          { __('words_number') }: { level.getCharacterNumber() }
         </Text>
         <Text 
-          style={ [this.styles.instructions, {color: textStyle}] } onPress={() => !isLocked ? navigate('Characters', {
-            title:            item.title,
-            levelNumber:      parseInt(index) + 1,
-            charactersNumber: parseInt(item.characters),
-            firstItem:        item.firstItem ? item.firstItem : false,
-            redirectPage:     'Hsk',
-            progressKey:      this.storageKey,
-            type:             this.props.navigation.state.params.type,
-            file:             'hsk1',
-            lives:            item.lives ? parseInt(item.lives) : 3,
-            rounds:           item.rounds ? parseInt(item.rounds) : 100,
-            inputType:        item.inputType ? item.inputType : 100,
-            answerType:       item.answerType ? item.answerType : 100,
+          style={[this.styles.instructions, {color: textStyle}] } onPress={
+            () => !level.isLocked() ? navigate('Characters', {
+              module: this.module.key,
+              level: level.number,
         }) : ''}>
-          { !isLocked ? __('start') : __('locked') }
+          { !level.isLocked() ? __('start') : __('locked') }
         </Text>
       </View>
     );
