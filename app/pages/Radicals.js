@@ -136,7 +136,8 @@ export default class Radicals extends Component {
             redirectPage: 'Radicals',
             progressKey: 'progress',
             file: 'radicals',
-            type: 'characters'
+            type: 'characters',
+            answerType: 'translation'
         }) : ''}>
           { !isLocked ? __('start') : __('locked') }
         </Text>

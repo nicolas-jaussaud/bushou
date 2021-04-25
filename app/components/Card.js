@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 
 import Settings from '../classes/Settings';
-
 export default class Card extends Component {
 	
   constructor(props) {

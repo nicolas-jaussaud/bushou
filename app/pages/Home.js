@@ -6,9 +6,8 @@ import {
   TouchableOpacity,
   ScrollView
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import Settings from '../classes/Settings';
+import Settings from '../classes/Settings'
 
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
@@ -16,9 +15,11 @@ import Popup from '../components/Popup'
 import SettingsButton from '../components/SettingsButton'
 import Accordion from '../components/Accordion'
 
+import { getUniqID } from '../helpers/random'
+
 // Static data
 import { __ } from '../data/text'
-import { getCustomLevels } from '../helpers/levels'
+import { getModules } from '../helpers/modules'
 
 export default class Home extends Component {
 
@@ -31,21 +32,18 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props)
+
     this.state = {
       'popup': false,
-      'progress': 0,
-      'progress-hsk1': 0,
-      'progress-hsk1-audio': 0,
-      'progress-hsk1-pinyin': 0,
-      'customLevels': {}
+      'modules': []
     }
 
     // Need a function for support settings
     this.styles = getStyles()
     
-    this.reloadStyle = this.reloadStyle.bind(this)
-    this.getDate     = this.getData.bind(this)
-
+    this.reloadStyle      = this.reloadStyle.bind(this)
+    this.getData          = this.getData.bind(this)
+    this.isCustomModules  = this.isCustomModules.bind(this)
   }
 
   componentDidMount() { 
@@ -56,27 +54,22 @@ export default class Home extends Component {
     })
   }
 
-  getData = async () => {
+  getData = async () => this.setState({modules: await getModules()})
 
-    // Get current user progress 
-    ['progress', 'progress-hsk1', 'progress-hsk1-pinyin', 'progress-hsk1-audio'].map((name) => {
-      AsyncStorage.getItem(name).then(async (value) => {
-        const progress = value ? value : 1
-        this.setState({[name]: progress})
-      })
-    })
+  isCustomModules = () => (
+    Object.keys(this.state.modules).length !== 0 && Object.keys(this.state.modules.custom).length !== 0
+  )
 
-    this.setState({
-      customLevels: await getCustomLevels()
-    })
-  }
+  isModules = () => (
+    Object.keys(this.state.modules).length !== 0 && Object.keys(this.state.modules.static).length !== 0
+  )
 
   /**
    * Change theme when reload
    */
   reloadStyle = () => {
     this.styles = getStyles()
-    this.setState({'refresh':0})
+    this.setState({refresh: 0})
   }
 
   /**
@@ -94,11 +87,11 @@ export default class Home extends Component {
         { popup }
         <View style={this.styles.header}>
           <DarkMode handler={() => {
-            this.setState({'refresh':0})
+            this.setState({refresh: 0})
             this.reloadStyle()
           }}/>
           <Language handler={() => {
-            this.setState({'popup': true})
+            this.setState({popup: true})
             this.reloadStyle()
           }}/>
         </View>
@@ -114,66 +107,53 @@ export default class Home extends Component {
         
         <ScrollView style={this.styles.scrollView}>
           <View style={this.styles.buttonContainer}>
-            
-            <Accordion 
-              label={__('radicals')} 
-              isOpen={this.state.accordionOpen === 'radicals'} 
-              handler={(part) => this.setState({accordionOpen: part})}
-              part={'radicals'}
-              navigation={this.props.navigation}
-              primary={Settings.data.colors.primary}
-            >
-              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals')}>
-                <Text style={[this.styles.text]}>{ __('keys') }</Text>
-                <Text style={[this.styles.progress]}>
-                  { Settings.data.isProgress !== 'no' ? this.state.progress + '/42' : '' }
-                </Text>
-              </TouchableOpacity>
-            </Accordion>
-            
-            <Accordion 
-              label={__('hsk') + ' 1'}
-              isOpen={this.state.accordionOpen === 'hsk'} 
-              handler={(part) => this.setState({accordionOpen: part})}
-              part={'hsk'}
-              navigation={this.props.navigation}
-              primary={Settings.data.colors.primary}
-            >
-              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'characters'})}>
-                <Text style={[this.styles.text]}>{ __('characters') }</Text>
-                <Text style={[this.styles.progress]}>
-                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1'] + '/30' : '' }
-                </Text>
-              </TouchableOpacity>
+
+          { this.isModules() ?
+            Object.keys(this.state.modules.static).map((category) => {
               
-              <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Hsk', {type: 'pinyin'})}>
-                <Text style={[this.styles.text]}>{ __('pinyin') }</Text>
-                <Text style={[this.styles.progress]}>
-                  { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-pinyin'] + '/30' : '' }
-                </Text>
-              </TouchableOpacity>
-              
-              { Settings.data.isAudio !== 'no' ? 
-                <TouchableOpacity style={[this.styles.button]} onPress={
-                  () => navigate('Hsk', {type: 'audio'})}>
-                  <Text style={[this.styles.text]}>{ __('audio') }</Text>
-                  <Text style={[this.styles.progress]}>
-                    { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
-                  </Text>
-                </TouchableOpacity> :
-                <View style={[this.styles.button, {opacity: 0.5}]}>
-                  <View style={[this.styles.textDisableContainer]}>
-                    <Text style={[this.styles.text]}>{ __('audio') }</Text>
-                    <Text style={[this.styles.text, this.styles.textDisable]}>
-                      ({ __('no_sound') })
-                    </Text>
-                  </View>
-                  <Text style={[this.styles.progress]}>
-                    { Settings.data.isProgress !== 'no' ? this.state['progress-hsk1-audio'] + '/30' : '' }
-                  </Text>
-                </View>
-              }
-            </Accordion>
+              const modules = this.state.modules.static[category]
+              const moduleKeys = Object.keys(this.state.modules.static[category])
+
+              return(
+                <Accordion 
+                  label={ category === 'radicals' ? __('radicals') : __('hsk') + ' 1' } 
+                  isOpen={ this.state.accordionOpen === category } 
+                  handler={ (part) => this.setState({accordionOpen: part}) }
+                  part={ category }
+                  navigation={ this.props.navigation }
+                  primary={ Settings.data.colors.primary }
+                >
+                 { moduleKeys.map((key) => {
+
+                    const module = modules[key]
+
+                    // If need audio and audio no aivailable we don't give access
+                    if( Settings.data.isAudio === 'no' && module.useAudio() ) return(
+                      <View style={[this.styles.button, {opacity: 0.5}]}>
+                        <View style={[this.styles.textDisableContainer]}>
+                          <Text style={[this.styles.text]}>{ module.getTitle() }</Text>
+                          <Text style={[this.styles.text, this.styles.textDisable]}>
+                            ({ __('no_sound') })
+                          </Text>
+                        </View>
+                        <Text style={[this.styles.progress]}>
+                          { module.getProgressText() }
+                        </Text>
+                      </View>
+                    )
+
+                    return( 
+                      <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals', {type: module.key}) }>
+                        <Text style={[this.styles.text]}>{ module.getTitle() }</Text>
+                        <Text style={[this.styles.progress]}>
+                          { module.getProgressText() }
+                        </Text>
+                      </TouchableOpacity> 
+                    )
+                  })}
+                </Accordion>
+              )
+            }) : null }
 
             <Accordion 
               label={__('custom')} 
@@ -183,22 +163,19 @@ export default class Home extends Component {
               navigation={this.props.navigation}
               primary={Settings.data.colors.primary}
             >
-              { Object.keys(this.state.customLevels).length !== 0 ?
-                <>                   
-                  { Object.keys(this.state.customLevels).map((key) => {
+              { this.isCustomModules() ?
+                <>           
+                  { Object.keys(this.state.modules.custom).map((key) => {
                     
-                    const level = this.state.customLevels[key]
-                    const progressTotal = level.data === 'radicals' ? 
-                      Math.ceil(214 / parseInt(level.newItems)) :  
-                      Math.ceil(156 / parseInt(level.newItems)) ;  
-                    
+                    const module = this.state.modules.custom[key]
+
                     return(
-                      <TouchableOpacity style={[this.styles.button]}>
-                        <Text style={[this.styles.text]}>{ level.name }</Text>
+                      <TouchableOpacity key={ getUniqID() } style={[this.styles.button]} onPress={() => navigate('Hsk', { type: key })}>
+                        <Text style={[this.styles.text]}>{ module.get('name') }</Text>
                         <Text style={[this.styles.progress]}>
-                          { Settings.data.isProgress !== 'no' ? `${level.progress}/${progressTotal}` : '' }
+                          { module.getProgressText() }
                         </Text>
-                    </TouchableOpacity>)
+                      </TouchableOpacity>)
                 })} 
                 </>
                 : 
