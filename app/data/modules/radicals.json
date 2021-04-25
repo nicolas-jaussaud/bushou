@@ -1,0 +1,13 @@
+{
+  "answerItems": "characters",
+  "data": "radicals",
+  "isAcceleration": "yes",
+  "isUnlimited": "yes",
+  "lives": 3,
+  "maxItems": 0,
+  "name": "keys",
+  "newItems": 5,
+  "roundNumber": "100",
+  "targetItem": "translation",
+  "timeBycharacters": 3
+}

@@ -169,6 +169,22 @@ export const TEXT = {
     'en': 'Name',
     'fr': 'Nom'
   },
+  'target_item': {
+    'en': 'Target item',
+    'fr': 'Item cible'
+  },
+  'answer_items': {
+    'en': 'Answer items',
+    'fr': 'Items réponses'
+  },
+  'translation': {
+    'en': 'Translation',
+    'fr': 'Traduction'
+  },
+  'round_number': {
+    'en': 'Number of rounds',
+    'fr': 'Nombre de manche'
+  }
 }
 
 export const __ = index => (TEXT[index][Settings.data.language])

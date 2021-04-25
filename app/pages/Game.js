@@ -41,34 +41,38 @@ export default class Game extends Component {
     super(props)
 
     // Needed for allowing settings into styles 
-    this.styles = getStyles()
-    
+    this.styles   = getStyles()
+    this.navData  = this.props.navigation.state.params
+
     // Get the title from the navigation
-    this.title = this.props.navigation.state.params.title
-    this.file = this.props.navigation.state.params.file
+    this.title  = this.navData.title
+    this.file   = this.navData.file
 
     // Will contain the list of the characters/definition needed by the game 
     this.data = getCharacters(
-      this.props.navigation.state.params.charactersNumber, 
-      this.file
+      this.navData.charactersNumber, 
+      this.file,
+      this.navData.firstItem ? this.navData.firstItem : false 
     )
 
     // Progress key for storage
-    this.progressKey = this.props.navigation.state.params.progressKey
-    this.type = this.props.navigation.state.params.type
-
+    this.progressKey = this.navData.progressKey
+    this.type = this.navData.type
+    this.answerType =  this.navData.answerType ? this.navData.answerType : ''
+    
     let answer = getRandomIndex(this.data)
     let propositions = this.setAnswerPropositions(answer, 4)
 
     // Time for the first round (last round will be 10 time shorter)
     this.initialSeconds = 10 
+    console.log(this.navData)
 
     this.state = {
-      'answer': answer,
-      'propositions': propositions,
-      'lives': 3,
-      'round': 0,
-      'seconds': this.initialSeconds
+      answer:       answer,
+      propositions: propositions,
+      lives:        this.navData.lives,
+      round:        0,
+      seconds:      this.initialSeconds
     }
 
     // Avoid scope issue with methody
@@ -92,7 +96,7 @@ export default class Game extends Component {
   newRound() {
 
     // Win the round
-    if(this.state.round === 100) {
+    if(this.state.round === this.navData.rounds) {
       this.winRound()
       return;
     }
@@ -104,16 +108,16 @@ export default class Game extends Component {
     const propositions = this.setAnswerPropositions(answer)
 
     this.setState({
-      'answer': answer,
-      'propositions': propositions,
-      'seconds': this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
-      'round': this.state.round + 1
+      answer:       answer,
+      propositions: propositions,
+      seconds:      this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
+      round:        this.state.round + 1
     })
   }
 
   winRound = async() => {
     
-    const redirectPage = this.props.navigation.state.params.redirectPage 
+    const redirectPage = this.navData.redirectPage 
     
     // If no progress enable no need to save anything
     if(Settings.data.isProgress === 'no') {
@@ -125,7 +129,7 @@ export default class Game extends Component {
       
       const {navigate} = this.props.navigation;
       const progress = (value === parseInt(value)) && (parseInt(value) !== 0) ? value : 1
-      const levelProgress = parseInt(this.props.navigation.state.params.levelNumber) 
+      const levelProgress = parseInt(this.navData.levelNumber) 
       
       if(progress <= levelProgress) {
         let newProgress = levelProgress + 1
@@ -160,11 +164,12 @@ export default class Game extends Component {
     
     if(this.state.lives === 0) {
       
-      const {navigate} = this.props.navigation
-      const redirectPage = this.props.navigation.state.params.redirectPage 
+      const { navigate } = this.props.navigation
+      const redirectPage = this.navData.redirectPage 
       
       navigate(redirectPage)
     } 
+    
     let lives = this.state.lives
     lives--
     this.setState({'lives': lives})
@@ -200,7 +205,7 @@ export default class Game extends Component {
     if(isCorrect === false) {
      this.removeLife()
     }
-    else if(this.props.navigation.state.params.file === 'hsk1') {
+    else if(this.navData.file === 'hsk1') {
       this.type !== 'audio' ? speak(this.state.answer) : ''
     }
     else {
@@ -217,33 +222,52 @@ export default class Game extends Component {
    */
   answerDisplay() {
 
-    if(this.type === 'audio') {
-      speak(this.state.answer)
-      return '?';
+    switch(this.type) {
+      
+      case 'audio': 
+        speak(this.state.answer)
+        return '?';
+        
+      case 'characters': 
+        return this.state.answer
+
+      case 'pinyin':
+        return this.data[this.state.answer].pinyin
+
+      case 'translation':
+        return this.data[this.state.answer].translation[ Settings.data.language ]
+
+      default:
+        return this.getCharacter(this.state.answer)
     }
-    
-    return this.getCharacter(this.state.answer)
   }
 
   /**
    * Gets the card text.
    */
   getCardText(item) {
-    
-    if(this.type === 'audio') {
-      return this.getCharacter(item.data.character) 
-    }
 
-    return this.type === 'pinyin' ? item.data.pinyin : item.translation
+    switch(this.answerType) {
+        
+      case 'characters': 
+        return item.data.characters
+
+      case 'pinyin':
+        return item.data.pinyin
+
+      case 'translation':
+        return item.data.pinyin.translation[ Settings.data.language ]
+
+      default:
+        return item.data.characters        
+    }
   }
 
   /**
    * Renders the page
    */
   render() {
-    
-    const { navigate } = this.props.navigation
-    
+        
     // Display the card when we have the data
     const cards = this.state.propositions.length !== 0 ?
       this.state.propositions.map((item, i) => (
@@ -275,7 +299,7 @@ export default class Game extends Component {
       <View style={ this.styles.container }>
         <View style={ this.styles.header }>
           <View style={ this.styles.round }>
-            <Text style={ this.styles.text }> { __('round') }: {this.state.round}/100</Text>
+            <Text style={ this.styles.text }> { __('round') }: { this.state.round }/{ this.navData.rounds }</Text>
           </View>
           <View style={ this.styles.lives }>{ lives }</View>
         </View>
@@ -304,12 +328,13 @@ const getStyles = () => (StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  'round': {
+  round: {
     height: 40,
   },
   lives: {
     flexDirection: 'row-reverse',
-    flexWrap: 'nowrap'
+    flexWrap: 'wrap',
+    maxWidth: '60%'
   },
   round: {
     flexDirection: 'row-reverse',
@@ -331,7 +356,7 @@ const getStyles = () => (StyleSheet.create({
     margin: 10,
     color: Settings.data.colors.primary
   },
-  'containerKeys': {
+  containerKeys: {
     width: '80%',
     flexDirection: 'row',
     flexWrap: 'wrap', 
@@ -340,12 +365,12 @@ const getStyles = () => (StyleSheet.create({
     backgroundColor: Settings.data.colors.background,
     flex: 0.25,
   },
-  'key': {
+  key: {
     flex: 0.25,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  'text': {
+  text: {
     color: Settings.data.colors.primary
   }
 }))

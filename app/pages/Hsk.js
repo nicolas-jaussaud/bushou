@@ -33,23 +33,62 @@ export default class Hsk extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'progress': 0,
-      'popup': false
+      progress: 0,
+      popup: false
     }
 
-    // For getting progress
-    this.storageKey = 'progress-hsk1-' + this.props.navigation.state.params.type
-
-    // For legacy 
-    if(this.storageKey === 'progress-hsk1-characters') this.storageKey = 'progress-hsk1'
-    
-    this.title = __('hsk') + ' ' + 1 + ' - ' + __(this.props.navigation.state.params.type)
+    // If custom progress
+    this.props.navigation.state.params.data ? this.initCustom() : this.initHsk()
 
     // Need a function for support settings
     this.styles = getStyles()
     
     this.getProgress = this.getProgress.bind(this)
     this.reloadStyle = this.reloadStyle.bind(this)
+  }
+
+  /**
+   * Init if from user data
+   */
+  initCustom() {
+
+    const data = this.props.navigation.state.params.data
+    
+    this.storageKey = this.props.navigation.state.params.type
+    this.title = data.name
+
+    const total = data.data === 'hsk' ? 156 : 214
+
+    const levels = total / parseInt(data.newItems)
+
+    this.levels = []
+    for (let index = 0; index < levels; index++) {
+
+      const characters = (index + 1) * parseInt(data.newItems)
+      const max = data.maxItems ? parseInt(data.maxItems) : false
+
+      this.levels.push({
+        characters: max !== false && max < characters ? max : characters,
+        title:      'Level ' + (index + 1),
+        firstItem:  max && max < characters ? characters - max : false,
+        lives:      parseInt(data.lives),
+        rounds:     data.roundNumber ? parseInt(data.roundNumber) : 100,
+      })
+    }
+  }
+
+  /**
+   * Init for regular levels
+   */
+  initHsk() {
+
+    this.storageKey = 'progress-hsk1-' + this.props.navigation.state.params.type
+
+    // For legacy 
+    if(this.storageKey === 'progress-hsk1-characters') this.storageKey = 'progress-hsk1'
+    
+    this.title = __('hsk') + ' ' + 1 + ' - ' + __(this.props.navigation.state.params.type)
+    this.levels = LEVELS
   }
 
   componentDidMount() {
@@ -60,8 +99,7 @@ export default class Hsk extends Component {
 
   reloadStyle = () => {
     // Change theme when reload
-    this.setState({progress: 0}, 
-      () => this.getProgress())
+    this.setState({progress: 0}, () => this.getProgress())
     this.styles = getStyles()
   }
 
@@ -82,7 +120,7 @@ export default class Hsk extends Component {
       <Carousel
         layout='default'
         ref={(c) => { this._carousel = c; }}
-        data={ LEVELS }
+        data={ this.levels }
         renderItem={ this._renderItem }
         sliderWidth={ viewportWidth }
         itemWidth={ viewportWidth / 1.33 }
@@ -119,7 +157,7 @@ export default class Hsk extends Component {
     );
   }
 
-  _renderItem = ({item, index}) =>  {
+  _renderItem = ({item, index}) => {
     
     const {navigate} = this.props.navigation;
     const isLocked = Settings.data.isProgress !== 'no' ? 
@@ -127,7 +165,6 @@ export default class Hsk extends Component {
       false
 
     const textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
-
     return(
       <View style={ !isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked }>
         <Text style={ [this.styles.carouselTitle, {color: textStyle}] }>
@@ -138,13 +175,18 @@ export default class Hsk extends Component {
         </Text>
         <Text 
           style={ [this.styles.instructions, {color: textStyle}] } onPress={() => !isLocked ? navigate('Characters', {
-            title: item.title,
-            levelNumber: parseInt(index) + 1,
+            title:            item.title,
+            levelNumber:      parseInt(index) + 1,
             charactersNumber: parseInt(item.characters),
-            redirectPage: 'Hsk',
-            progressKey: this.storageKey,
-            type: this.props.navigation.state.params.type,
-            file: 'hsk1'
+            firstItem:        item.firstItem ? item.firstItem : false,
+            redirectPage:     'Hsk',
+            progressKey:      this.storageKey,
+            type:             this.props.navigation.state.params.type,
+            file:             'hsk1',
+            lives:            item.lives ? parseInt(item.lives) : 3,
+            rounds:           item.rounds ? parseInt(item.rounds) : 100,
+            inputType:        item.inputType ? item.inputType : 100,
+            answerType:       item.answerType ? item.answerType : 100,
         }) : ''}>
           { !isLocked ? __('start') : __('locked') }
         </Text>

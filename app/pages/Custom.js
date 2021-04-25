@@ -4,7 +4,8 @@ import {
   Text, 
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -39,7 +40,10 @@ export default class Custom extends Component {
       lives: 3,
       isAcceleration: 'yes',
       isUnlimited: 'yes',
-      timeBycharacters: 3
+      timeBycharacters: 3,
+      targetItem: 'characters',
+      answerItems: 'translation',
+      roundNumber: '100'
     }
 
     // Need a function for support settings
@@ -48,6 +52,19 @@ export default class Custom extends Component {
     this.reloadStyle  = this.reloadStyle.bind(this)
     this.saveData     = this.saveData.bind(this)
     this.isValid      = this.isValid.bind(this)
+
+    this.types = [
+      {value: 'audio', label: __('audio')},
+      {value: 'characters', label: __('characters')},
+      {value: 'pinyin', label: __('pinyin')},
+      {value: 'translation', label: __('translation')}
+    ]
+
+    this.answerTypes = [
+      {value: 'characters', label: __('characters')},
+      {value: 'pinyin', label: __('pinyin')},
+      {value: 'translation', label: __('translation')}
+    ]
   }
 
   componentDidMount() { 
@@ -118,117 +135,170 @@ export default class Custom extends Component {
           { __('create_custom') }
         </Text>
         <View style={[this.styles.settingsContainer]}>
+          <ScrollView style={[this.styles.settingsScrollView]}>
 
-          <SectionTitle noPadding={ true } text={ __('name') } primary={ Settings.data.colors.primary }/>
-          
-          <FieldContainer label={ __('name') } primary={ Settings.data.colors.primary }>
-            <TextInput
-              style={[this.styles.text, this.styles.number]}
-              onChangeText={ text => this.setState({name: text}) }
-              value={ this.state.name }
-            />
-          </FieldContainer>
+            <SectionTitle noPadding={ true } text={ __('name') } primary={ Settings.data.colors.primary }/>
+            
+            <FieldContainer label={ __('name') } primary={ Settings.data.colors.primary }>
+              <TextInput
+                style={[this.styles.text, this.styles.number]}
+                onChangeText={ text => this.setState({name: text}) }
+                value={ this.state.name }
+              />
+            </FieldContainer>
 
-          <SectionTitle text={ __('data') } primary={ Settings.data.colors.primary }/>
+            <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
+            
+            <FieldContainer label={ __('lives') } primary={ Settings.data.colors.primary }>
+              <Picker
+                selectedValue={ this.state.lives }
+                name={ 'lives' }
+                style={[this.styles.text, this.styles.select]}
+                itemStyle={[this.styles.text, {width: '75%'}]}
+                onValueChange={(value) => this.setState({lives: value})}>
+                  { [...Array(11).keys()].map((index) => {
+                    return(
+                      <Picker.Item 
+                        key={ getUniqID() } 
+                        value={ index } 
+                        label={ index.toString() } 
+                      />
+                    )
+                  })}
+              </Picker>
+            </FieldContainer>
 
-          <FieldContainer label={ __('data_type') } primary={ Settings.data.colors.primary }>
-            <Picker
-              selectedValue={ this.state.data }
-              style={[this.styles.text, this.styles.select]}
-              itemStyle={[this.styles.text, {width: '75%'}]}
-              onValueChange={(value) => this.setState({data: value})}>
-                <Picker.Item label='Radicals' value='radicals' />
-                <Picker.Item label='HSK 1' value='hsk' />
-            </Picker>
-          </FieldContainer>
-          
-          <FieldContainer label={ __('new_items_by_level') } primary={ Settings.data.colors.primary }>
-            <TextInput
-              keyboardType='phone-pad'
-              style={[this.styles.text, this.styles.number]}
-              onChangeText={ text => {
-                const number = parseInt(text)
-                this.setState({newItems: Number.isNaN(number) ? 0 : number}
-              )}}
-              value={ this.state.newItems }
-            />
-          </FieldContainer>
+            <FieldContainer label={ __('enable_acceleration') } primary={ Settings.data.colors.primary }>
+              <SettingLine
+                name={ 'isAcceleration' }
+                enableValue={ 'yes' }
+                disableValue={ 'no' }
+                default={ 'yes' }
+                callback={ (value) => this.setState({isAcceleration: value})}
+              />
+            </FieldContainer>
+                
+            { this.state.isAcceleration !== 'yes' ?   
+              <FieldContainer label={ __('time_by_characters') } primary={ Settings.data.colors.primary }>
+                <Picker
+                  selectedValue={ this.state.timeByCharacters }
+                  name={ 'timeByCharacters' }
+                  style={[this.styles.text, this.styles.select]}
+                  itemStyle={[this.styles.text, {width: '75%'}]}
+                  onValueChange={(value) => this.setState({timeByCharacters: value})}>
+                    { [...Array(11).keys()].map((index) => {
+                      if(index === 0) return;
+                      return(
+                        <Picker.Item 
+                          key={ getUniqID() } 
+                          value={ index } 
+                          label={ index + ' ' + (index === 1 ? __('second') : __('seconds')) } 
+                        />
+                      )
+                    })}
+                </Picker>
+              </FieldContainer> : null }
 
-          <FieldContainer label={ __('is_unlimited') } primary={ Settings.data.colors.primary }>
-            <SettingLine
-              name={ 'isUnlimited' }
-              enableValue={ 'yes' }
-              disableValue={ 'no' }
-              default={ 'yes' }
-              callback={ (value) => this.setState({isUnlimited: value})}
-            />
-          </FieldContainer>
-          
-          { this.state.isUnlimited !== 'yes' ?
-            <FieldContainer label={ __('max_items_by_level') } primary={ Settings.data.colors.primary }>
+            <FieldContainer label={ __('target_item') } primary={ Settings.data.colors.primary }>
+              <Picker
+                selectedValue={ this.state.targetItem }
+                name={ 'targetItem' }
+                style={[this.styles.text, this.styles.select]}
+                itemStyle={[this.styles.text, {width: '75%'}]}
+                onValueChange={(value) => this.setState({targetItem: value})}>
+                  { this.types.map((index) => {
+                    return(
+                      <Picker.Item 
+                        key={ getUniqID() } 
+                        value={ index.value } 
+                        label={ index.label } 
+                      />
+                    )
+                  }) }
+              </Picker>
+            </FieldContainer>
+
+            <FieldContainer label={ __('answer_items') } primary={ Settings.data.colors.primary }>
+              <Picker
+                selectedValue={ this.state.answerItems }
+                name={ 'answerItems' }
+                style={[this.styles.text, this.styles.select]}
+                itemStyle={[this.styles.text, {width: '75%'}]}
+                onValueChange={(value) => this.setState({answerItems: value})}>
+                  { this.answerTypes.map((index) => {
+                    return(
+                      <Picker.Item 
+                        key={ getUniqID() } 
+                        value={ index.value } 
+                        label={ index.label } 
+                      />
+                    )
+                  }) }
+              </Picker>
+            </FieldContainer>
+            
+            <FieldContainer label={ __('round_number') } primary={ Settings.data.colors.primary }>
               <TextInput
                 keyboardType='phone-pad'
                 style={[this.styles.text, this.styles.number]}
                 onChangeText={ text => {
                   const number = parseInt(text)
-                  this.setState({maxItems: Number.isNaN(number) ? 0 : number}
+                  this.setState({roundNumber: Number.isNaN(number) ? 0 : number}
                 )}}
-                value={ this.state.maxItems }
+                value={ this.state.roundNumber }
               />
-            </FieldContainer> : null }
+            </FieldContainer>
 
-          <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
-          
-          <FieldContainer label={ __('lives') } primary={ Settings.data.colors.primary }>
-            <Picker
-              selectedValue={ this.state.lives }
-              name={ 'lives' }
-              style={[this.styles.text, this.styles.select]}
-              itemStyle={[this.styles.text, {width: '75%'}]}
-              onValueChange={(value) => this.setState({lives: value})}>
-                { [...Array(11).keys()].map((index) => {
-                  return(
-                    <Picker.Item 
-                      key={ getUniqID() } 
-                      value={ index } 
-                      label={ index.toString() } 
-                    />
-                  )
-                })}
-            </Picker>
-          </FieldContainer>
+            <SectionTitle text={ __('data') } primary={ Settings.data.colors.primary }/>
 
-          <FieldContainer label={ __('enable_acceleration') } primary={ Settings.data.colors.primary }>
-            <SettingLine
-              name={ 'isAcceleration' }
-              enableValue={ 'yes' }
-              disableValue={ 'no' }
-              default={ 'yes' }
-              callback={ (value) => this.setState({'isAcceleration': value})}
-            />
-          </FieldContainer>
-              
-          { this.state.isAcceleration !== 'yes' ?   
-            <FieldContainer label={ __('time_by_characters') } primary={ Settings.data.colors.primary }>
+            <FieldContainer label={ __('data_type') } primary={ Settings.data.colors.primary }>
               <Picker
-                selectedValue={ this.state.timeByCharacters }
-                name={ 'timeByCharacters' }
+                selectedValue={ this.state.data }
                 style={[this.styles.text, this.styles.select]}
                 itemStyle={[this.styles.text, {width: '75%'}]}
-                onValueChange={(value) => this.setState({timeByCharacters: value})}>
-                  { [...Array(11).keys()].map((index) => {
-                    if(index === 0) return;
-                    return(
-                      <Picker.Item 
-                        key={ getUniqID() } 
-                        value={ index } 
-                        label={ index + ' ' + (index === 1 ? __('second') : __('seconds')) } 
-                      />
-                    )
-                  })}
+                onValueChange={(value) => this.setState({data: value})}>
+                  <Picker.Item label='Radicals' value='radicals' />
+                  <Picker.Item label='HSK 1' value='hsk' />
               </Picker>
-            </FieldContainer> : null }
-                      
+            </FieldContainer>
+            
+            <FieldContainer label={ __('new_items_by_level') } primary={ Settings.data.colors.primary }>
+              <TextInput
+                keyboardType='phone-pad'
+                style={[this.styles.text, this.styles.number]}
+                onChangeText={ text => {
+                  const number = parseInt(text)
+                  this.setState({newItems: Number.isNaN(number) ? 0 : number}
+                )}}
+                value={ this.state.newItems }
+              />
+            </FieldContainer>
+
+            <FieldContainer label={ __('is_unlimited') } primary={ Settings.data.colors.primary }>
+              <SettingLine
+                name={ 'isUnlimited' }
+                enableValue={ 'yes' }
+                disableValue={ 'no' }
+                default={ 'yes' }
+                callback={ (value) => this.setState({isUnlimited: value})}
+              />
+            </FieldContainer>
+            
+            { this.state.isUnlimited !== 'yes' ?
+              <FieldContainer label={ __('max_items_by_level') } primary={ Settings.data.colors.primary }>
+                <TextInput
+                  keyboardType='phone-pad'
+                  style={[this.styles.text, this.styles.number]}
+                  onChangeText={ text => {
+                    const number = parseInt(text)
+                    this.setState({maxItems: Number.isNaN(number) ? 0 : number}
+                  )}}
+                  value={ this.state.maxItems }
+                />
+              </FieldContainer> : null }
+          
+          </ScrollView>
+
           <View style={ this.styles.buttonContainer }>
             { this.isValid() ? 
               <TouchableOpacity style={this.styles.button} onPress={() => this.saveData()}>
@@ -243,8 +313,7 @@ export default class Custom extends Component {
                 </Text>
               </View>
             }
-          </View>
-
+          </View>        
         </View>
       </View>
     );
@@ -267,7 +336,10 @@ const getStyles = () => (StyleSheet.create({
     height: '55%',
     alignItems: 'flex-start',
     flexDirection: 'column',
-    margin: 50,
+    margin: 50
+  },
+  settingsScrollView: {
+    width: '100%',
   },
   welcome: {
     fontSize: 20,

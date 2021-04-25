@@ -8,8 +8,10 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import Settings  from '../classes/Settings';
-import { getCustomLevels } from '../helpers/levels'
+import { getUniqID } from '../helpers/random'
+
+import Settings  from '../classes/Settings'
+import { getModules } from '../helpers/modules'
 
 // Static data
 import { __ } from '../data/text'
@@ -37,10 +39,10 @@ export default class Edit extends Component {
 
   async componentDidMount() {
 
-    this.setState({levels: await getCustomLevels()})
+    this.setState({modules: await getModules().custom})
 
     this.props.navigation.addListener('didFocus', async () => {
-      this.setState({levels: await getCustomLevels()})
+      this.setState({modules: await getModules().custom})
       this.styles = getStyles()
     })
   }
@@ -81,14 +83,14 @@ export default class Edit extends Component {
         <View style={this.styles.levelContainer}>
           <ScrollView style={this.styles.ScrollView}>
             
-          { Object.keys(this.state.levels).length !== 0 ?
+          { Object.keys(this.state.modules).length !== 0 ?
             <>                   
-              { Object.keys(this.state.levels).map((key) => {
+              { Object.keys(this.state.modules).map((key) => {
                 
-                const level = this.state.levels[key]
+                const level = this.state.modules[key]
                 
                 return(
-                  <View style={this.styles.item}>
+                  <View style={this.styles.item} key={getUniqID()}>
                     <View style={this.styles.level}>
                       <Text style={this.styles.text}>
                         { level.name }

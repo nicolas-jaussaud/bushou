@@ -33,10 +33,16 @@ export default class Characters extends Component {
     // Need a function for support settings
     this.styles = getStyles()
 
-    // Source file (json)
-    this.file = this.props.navigation.state.params.file
+    this.navData = this.props.navigation.state.params
 
-    this.data = getCharacters(this.props.navigation.state.params.charactersNumber, this.file)
+    // Source file (json)
+    this.file = this.navData.file
+
+    const charactersNumber  = this.navData.charactersNumber
+    const firstCharacters   = this.navData.firstItem ? this.navData.firstItem : false 
+
+    this.lives  = this.navData.lives
+    this.data   = getCharacters(charactersNumber, this.file, firstCharacters)
 
     this.getCharacter = this.getCharacter.bind(this)
     this.getName      = this.getName.bind(this)
@@ -47,7 +53,7 @@ export default class Characters extends Component {
   }
   
   getCharacter(item) {
-
+    
     if(Settings.data.characters !== 'traditional') return item;
     
     return 'traditional' in this.data[item] ? this.data[item].traditional : item
@@ -107,21 +113,13 @@ export default class Characters extends Component {
     return (
       <View style={ this.styles.container }>
         <Text style={ this.styles.title }>
-          { this.props.navigation.state.params.title }
+          { this.navData.title }
         </Text>
         <ScrollView style={ this.styles.scrollView }>
           { characters }
         </ScrollView>
         <Text 
-          style={ this.styles.instructions } onPress={() => navigate('Game', {
-            title: this.props.navigation.state.params.title,
-            levelNumber: this.props.navigation.state.params.levelNumber,
-            charactersNumber: this.props.navigation.state.params.charactersNumber,
-            redirectPage: this.props.navigation.state.params.redirectPage,
-            progressKey: this.props.navigation.state.params.progressKey,
-            file: this.props.navigation.state.params.file,
-            type: this.props.navigation.state.params.type
-        })}>
+          style={ this.styles.instructions } onPress={() => navigate('Game', this.navData )}>
           { __('start') }
         </Text>
       </View>
