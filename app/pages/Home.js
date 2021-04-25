@@ -116,6 +116,7 @@ export default class Home extends Component {
 
               return(
                 <Accordion 
+                  key={ getUniqID() }
                   label={ category === 'radicals' ? __('radicals') : __('hsk') + ' 1' } 
                   isOpen={ this.state.accordionOpen === category } 
                   handler={ (part) => this.setState({accordionOpen: part}) }
@@ -129,7 +130,7 @@ export default class Home extends Component {
 
                     // If need audio and audio no aivailable we don't give access
                     if( Settings.data.isAudio === 'no' && module.useAudio() ) return(
-                      <View style={[this.styles.button, {opacity: 0.5}]}>
+                      <View key={ getUniqID() } style={[this.styles.button, {opacity: 0.5}]}>
                         <View style={[this.styles.textDisableContainer]}>
                           <Text style={[this.styles.text]}>{ module.getTitle() }</Text>
                           <Text style={[this.styles.text, this.styles.textDisable]}>
@@ -143,7 +144,7 @@ export default class Home extends Component {
                     )
 
                     return( 
-                      <TouchableOpacity style={[this.styles.button]} onPress={() => navigate('Radicals', {type: module.key}) }>
+                      <TouchableOpacity key={ getUniqID() } style={[this.styles.button]} onPress={() => navigate('Levels', {key: module.key}) }>
                         <Text style={[this.styles.text]}>{ module.getTitle() }</Text>
                         <Text style={[this.styles.progress]}>
                           { module.getProgressText() }
@@ -170,7 +171,7 @@ export default class Home extends Component {
                     const module = this.state.modules.custom[key]
 
                     return(
-                      <TouchableOpacity key={ getUniqID() } style={[this.styles.button]} onPress={() => navigate('Hsk', { type: key })}>
+                      <TouchableOpacity key={ getUniqID() } style={[this.styles.button]} onPress={() => navigate('Levels', {key: key})}>
                         <Text style={[this.styles.text]}>{ module.get('name') }</Text>
                         <Text style={[this.styles.progress]}>
                           { module.getProgressText() }
@@ -203,7 +204,7 @@ export default class Home extends Component {
           </View>
         </ScrollView>
         
-        <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options', {type: 'audio'})}>
+        <TouchableOpacity style={this.styles.containerSettings} onPress={() => navigate('Options')}>
           <SettingsButton/>
           <Text style={this.styles.text}>
             { __('settings') }

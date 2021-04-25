@@ -47,4 +47,4 @@ export const getModules = async () => {
   return modules
 }
 
-const getModule = async key => ( await new Module(key) )
+export const getModule = async key => (await new Module(key))

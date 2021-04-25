@@ -2,6 +2,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Settings from '../Settings'
+import Level from './Level'
 import { __ } from '../../data/text'
 
 export default class Module {
@@ -87,15 +88,35 @@ export default class Module {
   }
 
   /**
+   * Calculate the number of levels according to the module settings
+   */
+  getLevels() {
+
+    const levels = [] 
+    for (let i = 0; i < this.getLevelNumber(); i++) levels.push( new Level((i + 1), this) )
+
+    return levels
+  }
+
+  /**
    * Static module has translations
    */
   getTitle = () => (this.isStatic ? __( this.get('name') ) : this.get('name'))
+  
+  // Calculation helpers
 
-  getTotal = () => (
-    this.get('data') === 'radicals' 
-      ? Math.ceil(214 / parseInt(this.get('newItems')))  
-      : Math.ceil(156 / parseInt(this.get('newItems')))
-  )
+  getMax = () => (this.get('maxItems') ? parseInt( this.get('maxItems') ) : false)
+  getNewItems = () => (this.get('newItems') ? parseInt( this.get('newItems') ) : false)
+  getTotal = () => (Math.ceil( this.getCharacterNumber() / parseInt(this.get('newItems') )))
+  getLevelNumber = () => (Math.ceil( this.getCharacterNumber() / this.getNewItems() ))
+  getCharacterNumber = () => (this.get('data') === 'radicals' ? 214 : 156)
+  
+  async getProgress(forceReload = false) {
+    
+    if(forceReload) await this.initProgress()
+    
+    return parseInt(this.get('progress'))
+  }
 
   getProgressText() {
 
