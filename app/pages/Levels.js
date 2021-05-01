@@ -36,17 +36,16 @@ export default class Levels extends Component {
       popup: false
     }
 
-    this.init()
-
     // Need a function for support settings
     this.styles = getStyles()
     
     this.getProgress = this.getProgress.bind(this)
-    this.reloadStyle = this.reloadStyle.bind(this)
   }
 
   async init() {
+
     this.key = this.props.navigation.state.params.key
+    this.styles = getStyles()
 
     this.module = await getModule(this.key)
     await this.getProgress()
@@ -56,16 +55,11 @@ export default class Levels extends Component {
 
   componentDidMount() {
     this.props.navigation.addListener('didFocus', () => {
-      this.reloadStyle()
+      this.setState({
+        progress: false,
+        levels: false
+      }, () => this.init())
     })
-  }
-
-  /**
-   * Change theme and reload progress
-   */
-  reloadStyle = () => {
-    this.setState({progress: 0}, () => this.getProgress())
-    this.styles = getStyles()
   }
 
   getProgress = async () => (this.setState({progress: await this.module.getProgress(true)}))
@@ -101,7 +95,7 @@ export default class Levels extends Component {
       /> : null
 
     const popup = this.state.popup !== false ? 
-      <Popup change={ () => this.reloadStyle() } close={ () => this.setState({'popup': false}) }/> : 
+      <Popup change={ () => this.init() } close={ () => this.setState({'popup': false}) }/> : 
       false
 
     return (
@@ -109,12 +103,10 @@ export default class Levels extends Component {
         { popup }
         <View style={ this.styles.header }>
           <DarkMode handler={() => {
-            this.setState({'progress':0})
-            this.reloadStyle()
+            this.setState({'progress': false}, () => this.init())
           }}/>
           <Language handler={() => {
-            this.setState({'popup': true})
-            this.reloadStyle()
+            this.setState({'popup': true}, () => this.init())
           }}/>
         </View>
         <Text style={ this.styles.welcome }>
@@ -135,12 +127,13 @@ export default class Levels extends Component {
     const level = item
     const { navigate } = this.props.navigation
 
-    const textStyle = level.isLocked() 
-      ? Settings.data.colors.background 
-      : Settings.data.colors.primary 
+    const isLocked = Settings.data.isProgress !== 'no' 
+      ? (this.state.progress + 1) < parseInt(level.number) 
+      : false
+    const textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
     
     return(
-      <View style={ !level.isLocked() ? this.styles.carouselItem : this.styles.carouselItemLocked }>
+      <View style={ !isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked }>
         <Text style={ [this.styles.carouselTitle, {color: textStyle}] }>
           { level.getTitle() }
         </Text>
@@ -149,11 +142,11 @@ export default class Levels extends Component {
         </Text>
         <Text 
           style={[this.styles.instructions, {color: textStyle}] } onPress={
-            () => !level.isLocked() ? navigate('Characters', {
+            () => !isLocked ? navigate('Characters', {
               module: this.module.key,
               level: level.number,
         }) : ''}>
-          { !level.isLocked() ? __('start') : __('locked') }
+          { !isLocked ? __('start') : __('locked') }
         </Text>
       </View>
     );

@@ -5,14 +5,16 @@ import {
   View,
   ScrollView,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 
-import Settings  from '../classes/Settings';
-import { speak } from '../helpers/voice';
+import Settings from '../classes/Settings'
+import Module from '../classes/models/Module'
+import Level from '../classes/models/Level'
+
+import { speak } from '../helpers/voice'
 import { getUniqID } from '../helpers/random'
 
 // Static data
-import { getCharacters } from '../helpers/data'
 import { __ } from '../data/text'
 
 export default class Characters extends Component {
@@ -27,42 +29,42 @@ export default class Characters extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'progress': 0
+      progress: 0,
+      data: []
     }
 
     // Need a function for support settings
     this.styles = getStyles()
-
     this.navData = this.props.navigation.state.params
-
-    // Source file (json)
-    this.file = this.navData.file
-
-    const charactersNumber  = this.navData.charactersNumber
-    const firstCharacters   = this.navData.firstItem ? this.navData.firstItem : false 
-
-    this.lives  = this.navData.lives
-    this.data   = getCharacters(charactersNumber, this.file, firstCharacters)
 
     this.getCharacter = this.getCharacter.bind(this)
     this.getName      = this.getName.bind(this)
   }
 
-  componentDidMount() { 
-    this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
+  async componentDidMount() { 
+    
+    this.module = await new Module(this.navData.module)
+    this.level  = new Level(this.navData.level, this.module)
+
+    this.props.navigation.addListener('didFocus', async () => {
+      this.setState({data: await this.level.getCharacters()})
+      this.styles = getStyles()
+    })
   }
   
   getCharacter(item) {
     
     if(Settings.data.characters !== 'traditional') return item;
     
-    return 'traditional' in this.data[item] ? this.data[item].traditional : item
+    return 'traditional' in this.state.data[item] 
+      ? this.state.data[item].traditional 
+      : item
   }
 
   getName(item) {
-    return this.file === 'radicals' ? 
-      this.data[item].name[Settings.data.language] :
-      this.data[item].translations[Settings.data.language]
+    return this.module.get('data') === 'radicals' 
+      ? this.state.data[item].name[Settings.data.language]
+      : this.state.data[item].translations[Settings.data.language]
   }
 
   /**
@@ -70,10 +72,10 @@ export default class Characters extends Component {
    */
   render() {
 
-    const characters = this.data ?
-      Object.keys(this.data).map((item, i) => {
+    const characters = this.state.data ?
+      Object.keys(this.state.data).map((item, i) => {
         const currentCharacter = this.state.currentCharacter === item ? 
-          <View style={ this.styles.fullCharacter }>
+          <View key={ getUniqID() } style={ this.styles.fullCharacter }>
             <Text numberOfLines={2} style={ this.styles.definition } style={ this.styles.fullCharacterText }>
               { this.getCharacter(item) }
             </Text>
@@ -84,7 +86,7 @@ export default class Characters extends Component {
             key={ getUniqID() }
             style={ this.styles.lineContainer } 
             onPress={() => {
-              this.file === 'hsk1' ? speak(item) : ''
+              this.module.get('data') === 'hsk' ? speak(item) : ''
               this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item})
             }}
           >
@@ -97,8 +99,8 @@ export default class Characters extends Component {
               <View style={ this.styles.definitionContainer }>
                 <Text numberOfLines={ 4 } style={ this.styles.definition }>
                   { this.getName(item) } {
-                    this.file === 'hsk1' ?
-                      <Text style={ this.styles.pinyin }> - { this.data[item].pinyin }</Text> : '' 
+                    this.module.get('data') === 'hsk' ?
+                      <Text style={ this.styles.pinyin }> - { this.state.data[item].pinyin }</Text> : '' 
                     }
                 </Text>
               </View>
@@ -113,13 +115,12 @@ export default class Characters extends Component {
     return (
       <View style={ this.styles.container }>
         <Text style={ this.styles.title }>
-          { this.navData.title }
+          { this.level ? this.level.getTitle() : null }
         </Text>
         <ScrollView style={ this.styles.scrollView }>
           { characters }
         </ScrollView>
-        <Text 
-          style={ this.styles.instructions } onPress={() => navigate('Game', this.navData )}>
+        <Text style={ this.styles.instructions } onPress={() => navigate('Game', this.navData)}>
           { __('start') }
         </Text>
       </View>
