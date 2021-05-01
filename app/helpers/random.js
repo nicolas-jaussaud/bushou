@@ -14,11 +14,6 @@ export const getRandomProperty = (obj, answer = false) => {
   return response
 }
 
-export const getRandomIndex = (obj) => {
-  let keys = Object.keys(obj)
-  return keys[keys.length * Math.random() << 0]
-}
-
 /**
  * @see https://gist.github.com/gordonbrander/2230317
  */

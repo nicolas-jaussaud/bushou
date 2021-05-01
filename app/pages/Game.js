@@ -7,23 +7,22 @@ import {
 } from 'react-native';
 import AsyncStorage from 'react-native'
 
-
 import Card from '../components/Card'
 import Heart from '../components/Heart'
 import TimedCharacter from '../components/TimedCharacter'
 import ProgressBar from '../components/ProgressBar'
 
-import Settings  from '../classes/Settings';
+import Settings  from '../classes/Settings'
+import Module from '../classes/models/Module'
+import Level from '../classes/models/Level'
 import { __ } from '../data/text'
 
 import { 
   getRandomProperty, 
-  getRandomIndex,
   getUniqID,
   getShuffledArr
 } from '../helpers/random'
-import { getCharacters } from '../helpers/data'
-import { speak, sound } from '../helpers/voice';
+import { speak } from '../helpers/voice';
 
 export default class Game extends Component {
 
@@ -44,35 +43,11 @@ export default class Game extends Component {
     this.styles   = getStyles()
     this.navData  = this.props.navigation.state.params
 
-    // Get the title from the navigation
-    this.title  = this.navData.title
-    this.file   = this.navData.file
-
-    // Will contain the list of the characters/definition needed by the game 
-    this.data = getCharacters(
-      this.navData.charactersNumber, 
-      this.file,
-      this.navData.firstItem ? this.navData.firstItem : false 
-    )
-
-    // Progress key for storage
-    this.progressKey = this.navData.progressKey
-    this.type = this.navData.type
-    this.answerType =  this.navData.answerType ? this.navData.answerType : ''
-    
-    let answer = getRandomIndex(this.data)
-    let propositions = this.setAnswerPropositions(answer, 4)
-
-    // Time for the first round (last round will be 10 time shorter)
-    this.initialSeconds = 10 
-    console.log(this.navData)
-
     this.state = {
-      answer:       answer,
-      propositions: propositions,
-      lives:        this.navData.lives,
+      answer:       '',
+      propositions: [],
       round:        0,
-      seconds:      this.initialSeconds
+      isData:       false
     }
 
     // Avoid scope issue with methody
@@ -80,13 +55,30 @@ export default class Game extends Component {
     this.setAnswerPropositions  = this.setAnswerPropositions.bind(this) 
     this.checkAnswer            = this.checkAnswer.bind(this)
     this.removeLife             = this.removeLife.bind(this)
-    this.winRound               = this.winRound.bind(this)
-    this.answerDisplay          = this.answerDisplay.bind(this)
+    this.win                    = this.win.bind(this)
     this.getName                = this.getName.bind(this)
     this.getCharacter           = this.getCharacter.bind(this)
   }
 
-  componentDidMount() { 
+  async componentDidMount() { 
+
+    this.module = await new Module(this.navData.module)
+    this.level  = new Level(this.navData.level, this.module)
+    this.data   = this.level.getCharacters()
+
+    // Time for the first round (last round will be 10 time shorter)
+    this.initialSeconds = this.module.getInitialSeconds()
+    const answer = this.level.getRandomIndex()
+
+    this.setState({
+      answer:       answer,
+      lives:        this.module.get('lives'),
+      seconds:      this.module.get('timeBycharacters'),
+      propositions: this.setAnswerPropositions(answer, 4),
+      rounds:       this.module.getRounds(),
+      isData:       true
+    })
+
     this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
   }
 
@@ -95,58 +87,40 @@ export default class Game extends Component {
    */
   newRound() {
 
-    // Win the round
-    if(this.state.round === this.navData.rounds) {
-      this.winRound()
+    if(this.state.round === this.module.getRounds()) {
+      this.win()
       return;
     }
 
     // Need a function for support settings
     this.styles = getStyles()
 
-    const answer = getRandomIndex(this.data)
+    const answer = this.level.getRandomIndex()
     const propositions = this.setAnswerPropositions(answer)
 
     this.setState({
       answer:       answer,
       propositions: propositions,
       seconds:      this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
-      round:        this.state.round + 1
+      round:        this.state.round + 1,
     })
   }
 
-  winRound = async() => {
-    
-    const redirectPage = this.navData.redirectPage 
-    
-    // If no progress enable no need to save anything
-    if(Settings.data.isProgress === 'no') {
-      navigate(redirectPage, {type: this.type})
-      return;
-    }
+  win = async () => {
 
-    AsyncStorage.getItem(this.progressKey).then(async (value) => {
-      
-      const {navigate} = this.props.navigation;
-      const progress = (value === parseInt(value)) && (parseInt(value) !== 0) ? value : 1
-      const levelProgress = parseInt(this.navData.levelNumber) 
-      
-      if(progress <= levelProgress) {
-        let newProgress = levelProgress + 1
-        AsyncStorage.setItem(this.progressKey, newProgress.toString()).then(async () => 
-          navigate(redirectPage, { type: this.type }))
-      }
-      else{
-        navigate(redirectPage, {type: this.type})
-      }
+    const { navigate } = this.props.navigation
+    
+    // Param is callback to after save 
+    this.level.completeLevel(() => {
+      navigate('Levels', { key: this.module.key })
     })
   }
 
-  getName(item) {
-    return this.file === 'radicals' ? 
-      this.data[item].name[Settings.data.language] :
-      this.data[item].translations[Settings.data.language]
-  }
+  getName = item => (
+    this.module.get('data') === 'radicals' 
+      ? this.data[item].name[Settings.data.language] 
+      : this.data[item].translations[Settings.data.language]
+  )
 
   getCharacter(item) {
 
@@ -163,11 +137,8 @@ export default class Game extends Component {
     if(Settings.data.isVibrations !== 'no') Vibration.vibrate();
     
     if(this.state.lives === 0) {
-      
       const { navigate } = this.props.navigation
-      const redirectPage = this.navData.redirectPage 
-      
-      navigate(redirectPage)
+      navigate('Levels', { key: this.module.key })
     } 
     
     let lives = this.state.lives
@@ -178,7 +149,7 @@ export default class Game extends Component {
   setAnswerPropositions(answer, number = 4) {
 
     // First we add the right answer to the proposition
-    let propositions = []
+    const propositions = []
     propositions.push({
       'isCorrect': true,
       'translation': this.getName(answer),
@@ -187,10 +158,10 @@ export default class Game extends Component {
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
-      let data = getRandomProperty(this.data, answer)
+      const data = getRandomProperty(this.data, answer)
       propositions.push({
         'isCorrect': false,
-        'translation': data.[this.file === 'radicals' ? 'name' : 'translations'].[Settings.data.language],
+        'translation': data[this.module.get('data') === 'radicals' ? 'name' : 'translations'][Settings.data.language],
         'data': data
       })
     }
@@ -201,72 +172,16 @@ export default class Game extends Component {
    * CHeck if the answer is correct
    */
   checkAnswer(isCorrect) {
-
-    if(isCorrect === false) {
-     this.removeLife()
-    }
-    else if(this.navData.file === 'hsk1') {
-      this.type !== 'audio' ? speak(this.state.answer) : ''
-    }
-    else {
-      sound('correct')
-    }
-
+    isCorrect === false ? this.removeLife() : this.module.correctAnswer(this.state.answer)
     this.newRound()
-  }
-
-  /**
-   * The timmed answer string
-   *
-   * @return     {string}
-   */
-  answerDisplay() {
-
-    switch(this.type) {
-      
-      case 'audio': 
-        speak(this.state.answer)
-        return '?';
-        
-      case 'characters': 
-        return this.state.answer
-
-      case 'pinyin':
-        return this.data[this.state.answer].pinyin
-
-      case 'translation':
-        return this.data[this.state.answer].translation[ Settings.data.language ]
-
-      default:
-        return this.getCharacter(this.state.answer)
-    }
-  }
-
-  /**
-   * Gets the card text.
-   */
-  getCardText(item) {
-
-    switch(this.answerType) {
-        
-      case 'characters': 
-        return item.data.characters
-
-      case 'pinyin':
-        return item.data.pinyin
-
-      case 'translation':
-        return item.data.pinyin.translation[ Settings.data.language ]
-
-      default:
-        return item.data.characters        
-    }
   }
 
   /**
    * Renders the page
    */
   render() {
+
+    if(this.state.isData === false) return null;
         
     // Display the card when we have the data
     const cards = this.state.propositions.length !== 0 ?
@@ -275,23 +190,23 @@ export default class Game extends Component {
           isCorrect={ item.isCorrect } 
           key={ getUniqID() } 
           handle={ this.checkAnswer } 
-          text={ this.getCardText(item) }
+          text={ this.module.getCardText(item) }
           isCharacter={ this.type === 'audio' }
         />
       )) : false
 
-    let lives = []
+    const lives = []
     if(this.state.lives !== 0) {
       for (let i = 0; i < this.state.lives; i++) {
-        lives.push(<Heart key={getUniqID()}/>)
+        lives.push(<Heart key={ getUniqID() }/>)
       }
     }
 
     const answer = this.state.answer ? 
       <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
-        { this.answerDisplay() }
+        { this.module.getItemText(this.state.answer) }
       </TimedCharacter> : null
-    
+
     const timer = this.state.answer ? 
       <ProgressBar key={ getUniqID() } seconds={ this.state.seconds } handle={ this.checkAnswer }/> : null
 
@@ -299,7 +214,7 @@ export default class Game extends Component {
       <View style={ this.styles.container }>
         <View style={ this.styles.header }>
           <View style={ this.styles.round }>
-            <Text style={ this.styles.text }> { __('round') }: { this.state.round }/{ this.navData.rounds }</Text>
+            <Text style={ this.styles.text }> { __('round') }: { this.state.round }/{ this.state.rounds }</Text>
           </View>
           <View style={ this.styles.lives }>{ lives }</View>
         </View>
