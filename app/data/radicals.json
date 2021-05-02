@@ -1,719 +1,839 @@
 {
   "一": {
+    "pinyin": "yī",
     "name": {
       "en": "one",
       "fr": "un"
     }
   },
   "丨": {
+    "pinyin": "shù",
     "name": {
       "en": "line",
       "fr": "ligne"
     }
   },
   "丶": {
+    "pinyin": "diǎn",
     "name": {
       "en": "dot",
       "fr": "point"
     }
   },
   "丿": {
+    "pinyin": "piě",
     "name": {
       "en": "slash",
       "fr": "oblique"
     }
   },
   "乙": {
+    "pinyin": "yǐ",
     "name": {
       "en": "second",
       "fr": "second"
     }
   },
   "亅": {
+    "pinyin": "gōu",
     "name": {
       "en": "hook",
       "fr": "crochet"
     }
   },
   "二": {
+    "pinyin": "èr",
     "name": {
       "en": "two",
       "fr": "deux"
     }
   },
   "亠": {
+    "pinyin": "tóu",
     "name": {
       "en": "lid",
       "fr": "couvercle"
     }
   },
   "人": {
+    "pinyin": "rén",
     "name": {
       "en": "person",
       "fr": "homme"
     }
   },
   "儿": {
+    "pinyin": "ér",
     "name": {
       "en": "legs",
       "fr": "enfant, jambes"
     }
   },
   "入": {
+    "pinyin": "rù",
     "name": {
       "en": "enter",
       "fr": "entrer"
     }
   },
   "八": {
+    "pinyin": "bā",
     "name": {
       "en": "eight",
       "fr": "huit, diviser"
     }
   },
   "冂": {
+    "pinyin": "jiǒng",
     "name": {
       "en": "down box",
       "fr": "boîte retournée"
     }
   },
   "冖": {
+    "pinyin": "mì",    
     "name": {
       "en": "cover",
       "fr": "couverture"
     }
   },
   "冫": {
+    "pinyin": "bīng",
     "name": {
       "en": "ice",
       "fr": "glace"
     }
   },
   "几": {
+    "pinyin": "jǐ",
     "name": {
       "en": "table",
       "fr": "table"
     }
   },
   "凵": {
+    "pinyin": "qǔ",
     "name": {
       "en": "open box",
       "fr": "boîte, bouche ouverte"
     }
   },
   "刀": {
+    "pinyin": "dāo",
     "name": {
       "en": "knife",
       "fr": "couteau"
     }
   },
   "力": {
+    "pinyin": "lì",
     "name": {
       "en": "power",
       "fr": "force"
     }
   },
   "勹": {
+    "pinyin": "bāo",
     "name": {
       "en": "wrap",
       "fr": "envelopper"
     }
   },
   "匕": {
+    "pinyin": "bǐ",
     "name": {
       "en": "ladle",
       "fr": "cuillère"
     }
   },
   "匚": {
+    "pinyin": "fāng",
     "name": {
       "en": "right open box",
       "fr": "boîte ouverte à droite"
     }
   },
   "匸": {
+    "pinyin": "xǐ",
     "name": {
       "en": "hiding enclosure",
       "fr": "fermeture cachée"
     }
   },
   "十": {
+    "pinyin": "shí",
     "name": {
       "en": "ten",
       "fr": "dix, complet"
     }
   },
   "卜": {
+    "pinyin": "bǔ",
     "name": {
       "en": "divination",
       "fr": "divination"
     }
   },
   "卩": {
+    "pinyin": "jié",
     "name": {
       "en": "seal",
       "fr": "sceau"
     }
   },
   "厂": {
+    "pinyin": "hàn",
     "name": {
       "en": "cliff",
       "fr": "falaise"
     }
   },
   "厶": {
+    "pinyin": "sī",
     "name": {
       "en": "private",
       "fr": "privé"
     }
   },
   "又": {
+    "pinyin": "yòu",
     "name": {
       "en": "again",
       "fr": "main droite, encore"
     }
   },
   "口": {
+    "pinyin": "kǒu",
     "name": {
       "en": "mouth",
       "fr": "bouche"
     }
   },
   "囗": {
+    "pinyin": "wéi",
     "name": {
       "en": "enclosure",
       "fr": "enclos"
     }
   },
   "土": {
+    "pinyin": "tǔ",
     "name": {
       "en": "earth",
       "fr": "terre"
     }
   },
   "士": {
+    "pinyin": "shì",
     "name": {
       "en": "scholar",
       "fr": "savant, lettré"
     }
-  },
+  },	
   "夂": {
+    "pinyin": "zhī",
     "name": {
       "en": "go",
       "fr": "aller"
     }
   },
   "夊": {
+    "pinyin": "suī",
     "name": {
       "en": "go slowly",
       "fr": "aller lentement"
     }
   },
   "夕": {
+    "pinyin": "xī",
     "name": {
       "en": "night",
       "fr": "soir"
     }
   },
   "大": {
+    "pinyin": "dà",
     "name": {
       "en": "big",
       "fr": "grand, gros, très"
     }
   },
   "女": {
+    "pinyin": "nǚ",
     "name": {
       "en": "woman",
       "fr": "femme"
     }
   },
   "子": {
+    "pinyin": "zǐ",
     "name": {
       "en": "child",
       "fr": "enfant, graine"
     }
   },
   "宀": {
+    "pinyin": "gài",
     "name": {
       "en": "roof",
       "fr": "toit"
     }
   },
   "寸": {
+    "pinyin": "cùn",
     "name": {
       "en": "inch",
       "fr": "pouce"
     }
   },
   "小": {
+    "pinyin": "xiǎo",
     "name": {
       "en": "small",
       "fr": "petit"
     }
   },
   "尢": {
+    "pinyin": "yóu",
     "name": {
       "en": "lame",
       "fr": "courbé"
     }
   },
   "尸": {
+    "pinyin": "shī",
     "name": {
       "en": "corpse",
       "fr": "corps, cadavre"
     }
   },
   "屮": {
+    "pinyin": "chè",
     "name": {
       "en": "sprout",
       "fr": "pousser"
     }
   },
   "山": {
+    "pinyin": "shān",
     "name": {
       "en": "mountain",
       "fr": "montagne"
     }
   },
   "川": {
+    "pinyin": "chuān",
     "name": {
       "en": "river",
       "fr": "rivière"
     }
   },
   "工": {
+    "pinyin": "gōng",
     "name": {
       "en": "work",
       "fr": "travail"
     }
   },
   "己": {
+    "pinyin": "jǐ",
     "name": {
       "en": "oneself",
       "fr": "soi-même"
     }
   },
   "巾": {
+    "pinyin": "jīn",
     "name": {
       "en": "towel",
       "fr": "turban, écharpe"
     }
   },
   "干": {
+    "pinyin": "gān",
     "name": {
       "en": "dry",
       "fr": "sécher"
     }
-  },
+  },	
   "幺": {
+    "pinyin": "yāo",
     "name": {
       "en": "thread",
       "fr": "fil court"
     }
   },
   "广": {
+    "pinyin": "guǎng",
     "name": {
       "en": "shelter",
       "fr": "maison sur une falaise"
     }
   },
   "廴": {
+    "pinyin": "yǐn",
     "name": {
       "en": "stride",
       "fr": "longue enjambée"
     }
   },
   "廾": {
+    "pinyin": "gǒng",
     "name": {
       "en": "hands joined, twenty",
       "fr": "deux mains, vingt"
     }
   },
   "弋": {
+    "pinyin": "yì",
     "name": {
       "en": "shoot with a bow",
       "fr": "tir"
     }
   },
   "弓": {
+    "pinyin": "gōng",
     "name": {
       "en": "bow",
       "fr": "arc"
     }
   },
   "彐": {
+    "pinyin": "jì",
     "name": {
       "en": "snout",
       "fr": "groin"
     }
   },
   "彡": {
+    "pinyin": "shān",
     "name": {
       "en": "hair",
       "fr": "soies, poils"
     }
   },
   "彳": {
+    "pinyin": "chì",
     "name": {
       "en": "step",
       "fr": "pas"
     }
   },
   "心": {
+    "pinyin": "xīn",
     "name": {
       "en": "heart",
       "fr": "cœur"
     }
   },
   "戈": {
+    "pinyin": "gē",
     "name": {
       "en": "spear",
       "fr": "hallebarde"
     }
   },
   "户": {
+    "pinyin": "hù",
     "name": {
       "en": "door, home",
       "fr": "porte, maison"
     }
   },
   "手": {
+    "pinyin": "shǒu",
     "name": {
       "en": "hand",
       "fr": "main"
     }
   },
   "支": {
+    "pinyin": "zhī",
     "name": {
       "en": "branch",
       "fr": "branche"
     }
   },
   "攴": {
+    "pinyin": "pū",
     "name": {
       "en": "rap",
       "fr": "frapper"
     }
   },
   "文": {
+    "pinyin": "wén",
     "name": {
       "en": "script",
       "fr": "écriture"
     }
   },
   "斗": {
+    "pinyin": "dǒu",
     "name": {
       "en": "dipper",
       "fr": "plongeur"
     }
   },
   "斤": {
+    "pinyin": "jīn",
     "name": {
       "en": "axe",
       "fr": "hache"
     }
   },
   "方": {
+    "pinyin": "fāng",
     "name": {
       "en": "square",
       "fr": "carré"
     }
   },
   "无": {
+    "pinyin": "wú",
     "name": {
       "en": "not",
       "fr": "manque, ne pas"
     }
   },
   "日": {
+    "pinyin": "rì",
     "name": {
       "en": "sun",
       "fr": "soleil"
     }
   },
   "曰": {
+    "pinyin": "yuē",
     "name": {
       "en": "say",
       "fr": "dire"
     }
   },
   "月": {
+    "pinyin": "yuè",
     "name": {
       "en": "moon",
       "fr": "lune"
     }
   },
   "木": {
+    "pinyin": "mù",
     "name": {
       "en": "tree",
       "fr": "arbre"
     }
   },
   "欠": {
+    "pinyin": "qiàn",
     "name": {
       "en": "lack",
       "fr": "bâillement"
     }
   },
   "止": {
+    "pinyin": "zhǐ",
     "name": {
       "en": "stop",
       "fr": "arrêt"
     }
   },
   "歹": {
+    "pinyin": "dǎi",
     "name": {
       "en": "death",
       "fr": "mort"
     }
   },
   "殳": {
+    "pinyin": "shū",
     "name": {
       "en": "weapon",
       "fr": "arme"
     }
   },
   "母": {
+    "pinyin": "毋",
     "name": {
       "en": "mother",
       "fr": "ne pas faire, mère"
     }
   },
   "比": {
+    "pinyin": "bǐ",
     "name": {
       "en": "compare",
       "fr": "comparer"
     }
   },
   "毛": {
+    "pinyin": "máo",
     "name": {
       "en": "fur",
       "fr": "poil"
     }
-  },
+  },	
   "氏": {
+    "pinyin": "shì",
     "name": {
       "en": "clan",
       "fr": "clan"
     }
   },
   "气": {
+    "pinyin": "qì",
     "name": {
       "en": "steam",
       "fr": "vapeur, souffle"
     }
   },
   "水": {
+    "pinyin": "shuǐ",
     "name": {
       "en": "water",
       "fr": "eau"
     }
   },
   "火": {
+    "pinyin": "huǒ",
     "name": {
       "en": "fire",
       "fr": "feu"
     }
   },
   "爪": {
+    "pinyin": "zhǎo",
     "name": {
       "en": "claw",
       "fr": "griffe"
     }
   },
   "父": {
+    "pinyin": "fù",
     "name": {
       "en": "father",
       "fr": "père"
     }
   },
   "爻": {
+    "pinyin": "yáo",
     "name": {
       "en": "lines on a trigram",
       "fr": "double croix"
     }
   },
   "爿": {
+    "pinyin": "qiáng",
     "name": {
       "en": "half of a tree trunk",
       "fr": "bois fendu"
     }
   },
   "片": {
+    "pinyin": "piàn",
     "name": {
       "en": "slice",
       "fr": "tranche"
     }
   },
   "牙": {
+    "pinyin": "yá",
     "name": {
       "en": "tooth",
       "fr": "croc"
     }
   },
   "牛": {
+    "pinyin": "niú",
     "name": {
       "en": "cow",
       "fr": "vache"
     }
   },
   "犭": {
+    "pinyin": "quǎn",
     "name": {
       "en": "dog",
       "fr": "chien"
     }
   },
   "玄": {
+    "pinyin": "xuán",
     "name": {
       "en": "profound",
       "fr": "sombre, profond"
     }
   },
   "玉": {
+    "pinyin": "yù",
     "name": {
       "en": "jade",
       "fr": "jade"
     }
   },
   "瓜": {
+    "pinyin": "guā",
     "name": {
       "en": "melon",
       "fr": "melon"
     }
   },
   "瓦": {
+    "pinyin": "wǎ",
     "name": {
       "en": "tile",
       "fr": "tuile"
     }
   },
   "甘": {
+    "pinyin": "gān",
     "name": {
       "en": "sweet",
       "fr": "doux"
     }
   },
   "生": {
+    "pinyin": "shēng",
     "name": {
       "en": "life",
       "fr": "vie"
     }
-  },
+  },	
   "用": {
+    "pinyin": "yòng",
     "name": {
       "en": "use",
       "fr": "utiliser"
     }
   },
   "田": {
+    "pinyin": "tián",
     "name": {
       "en": "field",
       "fr": "champ"
     }
   },
   "疋": {
+    "pinyin": "pǐ",
     "name": {
       "en": "cloth",
       "fr": "rouleau de tissu"
     }
   },
   "疒": {
+    "pinyin": "bìng",
     "name": {
       "en": "ill",
       "fr": "maladie"
     }
   },
   "癶": {
+    "pinyin": "bō",
     "name": {
       "en": "foot steps",
       "fr": "empreintes de pas"
     }
   },
   "白": {
+    "pinyin": "bái",
     "name": {
       "en": "white",
       "fr": "blanc"
     }
   },
-  "皮": {
+  "皮": {	
+    "pinyin": "pí",
     "name": {
       "en": "skin",
       "fr": "peau"
     }
   },
   "皿": {
+    "pinyin": "mǐn",
     "name": {
       "en": "dish",
       "fr": "plat"
     }
   },
   "目": {
+    "pinyin": "mù",
     "name": {
       "en": "eye",
       "fr": "œil"
     }
   },
   "矛": {
+    "pinyin": "máo",
     "name": {
       "en": "spear",
       "fr": "lance"
     }
   },
   "矢": {
+    "pinyin": "shǐ",
     "name": {
       "en": "arrow",
       "fr": "flèche"
     }
   },
   "石": {
+    "pinyin": "shí",
     "name": {
       "en": "stone",
       "fr": "pierre"
     }
   },
   "示": {
+    "pinyin": "shì",
     "name": {
       "en": "spirit",
       "fr": "esprit"
     }
   },
   "禸": {
+    "pinyin": "róu",
     "name": {
       "en": "track",
       "fr": "piste"
     }
   },
   "禾": {
+    "pinyin": "hé",
     "name": {
       "en": "grain",
       "fr": "grain"
     }
   },
   "穴": {
+    "pinyin": "xuè",
     "name": {
       "en": "cave",
       "fr": "grotte"
     }
   },
   "立": {
+    "pinyin": "lì",
     "name": {
       "en": "stand",
       "fr": "debout, ériger"
     }
   },
   "竹": {
+    "pinyin": "zhú",
     "name": {
       "en": "bamboo",
       "fr": "bambou"
     }
   },
   "米": {
+    "pinyin": "mǐ",
     "name": {
       "en": "rice",
       "fr": "riz"
     }
   },
   "纟": {
+    "pinyin": "sī",
     "name": {
       "en": "silk",
       "fr": "soie"
@@ -721,162 +841,189 @@
     "traditional": "糹"
   },
   "缶": {
+    "pinyin": "fǒu",
     "name": {
       "en": "jar",
       "fr": "jarre"
     }
   },
   "网": {
+    "pinyin": "wǎng",
     "name": {
       "en": "net",
       "fr": "filet"
     }
   },
   "羊": {
+    "pinyin": "yáng",
     "name": {
       "en": "sheep",
       "fr": "mouton"
     }
   },
   "羽": {
+    "pinyin": "yǔ",
     "name": {
       "en": "feather",
       "fr": "plume"
     }
   },
   "老": {
+    "pinyin": "lǎo",
     "name": {
       "en": "old",
       "fr": "vieux"
     }
   },
   "而": {
+    "pinyin": "ér",
     "name": {
       "en": "and, beard",
       "fr": "et, barbe"
     }
   },
   "耒": {
+    "pinyin": "lěi",
     "name": {
       "en": "plow",
       "fr": "charrue"
     }
   },
   "耳": {
+    "pinyin": "ěr",
     "name": {
       "en": "ear",
       "fr": "oreille"
     }
   },
   "聿": {
+    "pinyin": "yù",
     "name": {
       "en": "brush",
       "fr": "pinceau"
     }
   },
   "肉": {
+    "pinyin": "ròu",
     "name": {
       "en": "meat",
       "fr": "viande"
     }
   },
   "臣": {
+    "pinyin": "chén",
     "name": {
       "en": "minister",
       "fr": "ministre"
     }
   },
   "自": {
+    "pinyin": "zì",
     "name": {
       "en": "oneself, nose",
       "fr": "soi-même, nez"
     }
   },
   "至": {
+    "pinyin": "zhì",
     "name": {
       "en": "arrive",
       "fr": "arriver"
     }
   },
   "臼": {
+    "pinyin": "jiù",
     "name": {
       "en": "mortar",
       "fr": "mortier"
     }
   },
   "舌": {
+    "pinyin": "shé",
     "name": {
       "en": "tongue",
       "fr": "langue (organe)"
     }
   },
   "舛": {
+    "pinyin": "chuǎn",
     "name": {
       "en": "contrary",
       "fr": "opposé"
     }
   },
   "舟": {
+    "pinyin": "zhōu",
     "name": {
       "en": "boat",
       "fr": "bateau"
     }
   },
   "艮": {
+    "pinyin": "gèn",
     "name": {
       "en": "stopping",
       "fr": "arrêter"
     }
   },
   "色": {
+    "pinyin": "sè",
     "name": {
       "en": "color",
       "fr": "couleur"
     }
   },
   "艹": {
+    "pinyin": "cǎo",
     "name": {
       "en": "grass",
       "fr": "herbe"
     }
   },
   "虍": {
+    "pinyin": "hǔ",
     "name": {
       "en": "tiger",
       "fr": "tigre"
     }
   },
   "虫": {
+    "pinyin": "chóng",
     "name": {
       "en": "snake, insect",
       "fr": "serpent, insecte"
     }
-  },
+  },	
   "血": {
+    "pinyin": "xuě",
     "name": {
       "en": "blood",
       "fr": "sang"
     }
   },
   "行": {
+    "pinyin": "xíng",
     "name": {
-      "en": "go, do",
-      "fr": "aller, faire"
+      "en": "walk, go, do",
+      "fr": "marcher, aller, faire"
     }
   },
   "衣": {
+    "pinyin": "yī",
     "name": {
       "en": "clothes",
       "fr": "vêtement"
     }
   },
   "西": {
+    "pinyin": "xī",
     "name": {
       "en": "west",
       "fr": "ouest"
     }
   },
   "见": {
+    "pinyin": "jiàn",
     "name": {
       "en": "see",
       "fr": "voir"
@@ -884,12 +1031,14 @@
     "traditional": "見"
   },
   "角": {
+    "pinyin": "jiǎo",
     "name": {
       "en": "horn",
       "fr": "corne"
     }
   },
   "讠": {
+    "pinyin": "yán",
     "name": {
       "en": "speech",
       "fr": "parole"
@@ -897,30 +1046,35 @@
     "traditional": "言"
   },
   "谷": {
+    "pinyin": "gǔ",
     "name": {
       "en": "valley",
       "fr": "vallée"
     }
   },
   "豆": {
+    "pinyin": "dòu",
     "name": {
       "en": "bean",
       "fr": "haricot"
     }
   },
   "豕": {
+    "pinyin": "shǐ",
     "name": {
       "en": "pig",
       "fr": "porc"
     }
   },
   "豸": {
+    "pinyin": "zhì",
     "name": {
-      "en": "badger",
+      "en": "cat, badger",
       "fr": "chat, blaireau "
     }
   },
   "贝": {
+    "pinyin": "bèi",
     "name": {
       "en": "shell",
       "fr": "coquillage"
@@ -928,30 +1082,35 @@
     "traditional": "貝"
   },
   "赤": {
+    "pinyin": "chì",
     "name": {
       "en": "red",
       "fr": "rouge"
     }
   },
   "走": {
+    "pinyin": "zǒu",
     "name": {
-      "en": "run",
-      "fr": "courir"
+      "en": "walk, run",
+      "fr": "marcher, courir"
     }
   },
   "足": {
+    "pinyin": "zú",
     "name": {
       "en": "foot",
       "fr": "pied"
     }
   },
   "身": {
+    "pinyin": "shēn",
     "name": {
       "en": "body",
       "fr": "corps"
     }
   },
   "车": {
+    "pinyin": "chē",
     "name": {
       "en": "cart",
       "fr": "charette"
@@ -959,54 +1118,63 @@
     "traditional": "車"
   },
   "辛": {
+    "pinyin": "xīn",
     "name": {
       "en": "bitter",
       "fr": "laborieux, amère"
     }
   },
   "辰": {
+    "pinyin": "chén",
     "name": {
       "en": "morning",
       "fr": "matin"
     }
   },
   "辶": {
+    "pinyin": "chuò",
     "name": {
       "en": "walk",
       "fr": "marche"
     }
   },
   "邑": {
+    "pinyin": "yì",
     "name": {
       "en": "city",
       "fr": "ville"
     }
   },
   "酉": {
+    "pinyin": "yǒu",
     "name": {
       "en": "wine",
       "fr": "vin, alcool"
     }
   },
   "釆": {
+    "pinyin": "biàn",
     "name": {
       "en": "distinguish",
       "fr": "distinguer"
     }
   },
   "里": {
+    "pinyin": "lǐ",
     "name": {
       "en": "village",
       "fr": "village, voisinage"
     }
   },
   "钅": {
+    "pinyin": "jīn",
     "name": {
       "en": "metal",
       "fr": "métal, or"
     }
   },
   "长": {
+    "pinyin": "cháng",
     "name": {
       "en": "long",
       "fr": "long"
@@ -1014,6 +1182,7 @@
     "traditional": "長"
   },
   "门": {
+    "pinyin": "mén",
     "name": {
       "en": "gate",
       "fr": "portail"
@@ -1021,54 +1190,63 @@
     "traditional": "門"
   },
   "阜": {
+    "pinyin": "fù",
     "name": {
       "en": "mound",
       "fr": "butte"
     }
   },
   "隶": {
+    "pinyin": "lì",
     "name": {
       "en": "slave",
       "fr": "esclave"
     }
   },
   "隹": {
+    "pinyin": "zhuī",
     "name": {
       "en": "short-tailed bird",
       "fr": "oiseau à queue courte"
     }
   },
   "雨": {
+    "pinyin": "yǔ",
     "name": {
       "en": "rain",
       "fr": "pluie"
     }
   },
   "青": {
+    "pinyin": "qīng",
     "name": {
       "en": "green, blue",
       "fr": "vert, bleu"
     }
   },
   "非": {
+    "pinyin": "fēi",
     "name": {
       "en": "wrong",
       "fr": "faux"
     }
   },
   "面": {
+    "pinyin": "miàn",
     "name": {
       "en": "face",
       "fr": "visage"
     }
   },
   "革": {
+    "pinyin": "gé",
     "name": {
       "en": "leather",
       "fr": "cuir"
     }
   },
   "韦": {
+    "pinyin": "wěi",
     "name": {
       "en": "soft leather",
       "fr": "cuir tanné"
@@ -1076,18 +1254,21 @@
     "traditional": "韋"
   },
   "韭": {
+    "pinyin": "jiǔ",
     "name": {
       "en": "leek",
       "fr": "poireau"
     }
   },
   "音": {
+    "pinyin": "yīn",
     "name": {
       "en": "sound",
       "fr": "son"
     }
   },
   "页": {
+    "pinyin": "yè",
     "name": {
       "en": "page",
       "fr": "feuille"
@@ -1095,13 +1276,15 @@
     "traditional": "頁"
   },
   "风": {
+    "pinyin": "fēng",
     "name": {
       "en": "wind",
       "fr": "vent"
     },
     "traditional": "風"
-  },
+  },	
   "飞": {
+    "pinyin": "fēi",
     "name": {
       "en": "fly",
       "fr": "voler"
@@ -1109,6 +1292,7 @@
     "traditional": "飛"
   },
   "饣": {
+    "pinyin": "shí",
     "name": {
       "en": "eat",
       "fr": "manger"
@@ -1116,18 +1300,21 @@
     "traditional": "飠"
   },
   "首": {
+    "pinyin": "shǒu",
     "name": {
       "en": "head",
       "fr": "tête"
     }
   },
   "香": {
+    "pinyin": "xiāng",
     "name": {
       "en": "fragrant",
       "fr": "parfumé"
     }
   },
   "马": {
+    "pinyin": "mǎ",
     "name": {
       "en": "horse",
       "fr": "cheval"
@@ -1135,55 +1322,64 @@
     "traditional": "馬"
   },
   "骨": {
+    "pinyin": "gǔ",
     "name": {
       "en": "bone",
       "fr": "os"
     }
   },
   "高": {
+    "pinyin": "gāo",
     "name": {
       "en": "high",
       "fr": "grand, haut"
     }
   },
   "髟": {
+    "pinyin": "biāo",
     "name": {
       "en": "long hair",
       "fr": "longs cheveux"
     }
   },
   "鬥": {
+    "pinyin": "dòu",
     "name": {
       "en": "fight",
       "fr": "combat"
     }
   },
   "鬯": {
+    "pinyin": "chàng",
     "name": {
       "en": "sacrificial wine",
       "fr": "vin sacrificiel"
     }
   },
   "鬲": {
+    "pinyin": "lì",
     "name": {
       "en": "cauldron",
       "fr": "chaudron tripode"
     }
   },
   "鬼": {
+    "pinyin": "guǐ",
     "name": {
       "en": "ghost",
       "fr": "fantôme"
     }
   },
   "鱼": {
+    "pinyin": "yú",
     "name": {
       "en": "fish",
       "fr": "poisson"
     },
     "traditional": "魚"
-  },
+  },	
   "鸟": {
+    "pinyin": "niǎo",
     "name": {
       "en": "bird",
       "fr": "oiseau"
@@ -1191,18 +1387,21 @@
     "traditional": "鳥"
   },
   "卤": {
+    "pinyin": "lǔ",
     "name": {
       "en": "salty",
       "fr": "sel"
     }
   },
   "鹿": {
+    "pinyin": "lù",
     "name": {
       "en": "deer",
       "fr": "cervidé"
     }
   },
   "麦": {
+    "pinyin": "mài",
     "name": {
       "en": "wheat",
       "fr": "froment"
@@ -1210,36 +1409,42 @@
     "traditional": "麥"
   },
   "麻": {
+    "pinyin": "má",
     "name": {
       "en": "hemp",
       "fr": "chanvre"
     }
   },
   "黄": {
+    "pinyin": "huáng",
     "name": {
       "en": "yellow",
       "fr": "jaune"
     }
   },
   "黍": {
+    "pinyin": "shǔ",
     "name": {
       "en": "millet",
       "fr": "millet"
     }
   },
   "黑": {
+    "pinyin": "hēi",
     "name": {
       "en": "black",
       "fr": "noir"
     }
   },
   "黹": {
+    "pinyin": "zhǐ",
     "name": {
       "en": "embroidery",
       "fr": "broderie"
     }
   },
   "黾": {
+    "pinyin": "mǐn",
     "name": {
       "en": "frog",
       "fr": "amphibien"
@@ -1247,30 +1452,35 @@
     "traditional": "黽"
   },
   "鼎": {
+    "pinyin": "dǐng",
     "name": {
       "en": "tripod",
       "fr": "tripode"
     }
   },
   "鼓": {
+    "pinyin": "gǔ",
     "name": {
       "en": "drum",
       "fr": "tambour"
     }
   },
   "鼠": {
+    "pinyin": "shǔ",
     "name": {
       "en": "rat",
       "fr": "rat"
     }
   },
   "鼻": {
+    "pinyin": "bí",
     "name": {
       "en": "nose",
       "fr": "nez"
     }
   },
   "齐": {
+    "pinyin": "qí",
     "name": {
       "en": "even",
       "fr": "uniformément"
@@ -1278,6 +1488,7 @@
     "traditional": "齊"
   },
   "齿": {
+    "pinyin": "chǐ",
     "name": {
       "en": "tooth",
       "fr": "dent"
@@ -1285,6 +1496,7 @@
     "traditional": "齒"
   },
   "龙": {
+    "pinyin": "lóng",
     "name": {
       "en": "dragon",
       "fr": "dragon"
@@ -1292,6 +1504,7 @@
     "traditional": "龍"
   },
   "龟": {
+    "pinyin": "guī",
     "name": {
       "en": "turtle",
       "fr": "tortue"
@@ -1299,6 +1512,7 @@
     "traditional": "龜"
   },
   "龠": {
+    "pinyin": "yuè",
     "name": {
       "en": "flute",
       "fr": "flute, pot de mesure"
