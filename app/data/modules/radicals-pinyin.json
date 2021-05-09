@@ -1,13 +1,13 @@
 {
-  "answerItems": "characters",
-  "data": "hsk1",
+  "answerItems": "pinyin",
+  "data": "radicals",
   "isAcceleration": "yes",
   "isUnlimited": "yes",
   "lives": 3,
   "maxItems": 0,
-  "name": "audio",
+  "name": "pinyin",
   "newItems": 5,
   "roundNumber": "100",
-  "targetItem": "audio",
+  "targetItem": "characters",
   "timeBycharacters": 3
 }

@@ -18,7 +18,7 @@ export default class TimedCharacter extends Component {
     this.initialSize  = 100
     this.milliseconds = this.props.seconds * 1000 
     this.timeoutStep  = this.milliseconds / 100 
-    
+
     this.state = {
       size: this.initialSize,
       opacity: 1

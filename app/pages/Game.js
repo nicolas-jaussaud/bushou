@@ -4,8 +4,7 @@ import {
   Text, 
   View ,
   Vibration
-} from 'react-native';
-import AsyncStorage from 'react-native'
+} from 'react-native'
 
 import Card from '../components/Card'
 import Heart from '../components/Heart'
@@ -22,7 +21,6 @@ import {
   getUniqID,
   getShuffledArr
 } from '../helpers/random'
-import { speak } from '../helpers/voice';
 
 export default class Game extends Component {
 
@@ -66,14 +64,12 @@ export default class Game extends Component {
     this.level  = new Level(this.navData.level, this.module)
     this.data   = this.level.getCharacters()
 
-    // Time for the first round (last round will be 10 time shorter)
-    this.initialSeconds = this.module.getInitialSeconds()
     const answer = this.level.getRandomIndex()
 
     this.setState({
       answer:       answer,
       lives:        this.module.get('lives'),
-      seconds:      this.module.get('timeBycharacters'),
+      seconds:      this.module.getInitialSeconds(),
       propositions: this.setAnswerPropositions(answer, 4),
       rounds:       this.module.getRounds(),
       isData:       true
@@ -97,11 +93,11 @@ export default class Game extends Component {
 
     const answer = this.level.getRandomIndex()
     const propositions = this.setAnswerPropositions(answer)
-
+    console.log(this.module.getSecondPerRound(this.state.round + 1))
     this.setState({
       answer:       answer,
       propositions: propositions,
-      seconds:      this.state.round > 10 ? this.initialSeconds / (this.state.round * 0.1) : this.initialSeconds, 
+      seconds:      this.module.getSecondPerRound(this.state.round + 1), 
       round:        this.state.round + 1,
     })
   }
@@ -143,7 +139,7 @@ export default class Game extends Component {
     
     let lives = this.state.lives
     lives--
-    this.setState({'lives': lives})
+   // this.setState({'lives': lives})
   }
 
   setAnswerPropositions(answer, number = 4) {

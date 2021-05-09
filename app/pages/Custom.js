@@ -34,13 +34,13 @@ export default class Custom extends Component {
     super(props)
     this.state = {
       name: '',
-      newItems: 0,
-      maxItems: 0,
+      newItems: '10',
+      maxItems: '10',
       data: 'radicals',
       lives: 3,
       isAcceleration: 'yes',
       isUnlimited: 'yes',
-      timeBycharacters: 3,
+      timeByCharacters: '1',
       targetItem: 'characters',
       answerItems: 'translation',
       roundNumber: '100'
@@ -109,13 +109,14 @@ export default class Custom extends Component {
    * Validate data
    */
   isValid = () => {
-    
+
     if( this.state.name === '') return false
-    if( ['radicals', 'hsk'].includes(this.state.radicals) ) return false
-    if( !Number.isInteger(this.state.newItems) || this.state.newItems === 0 ) return false
+    if( !['radicals', 'hsk1'].includes(this.state.data) ) return false
+
+    if( parseInt(this.state.newItems) === 0 ) return false
 
     if( this.state.isUnlimited !== 'yes' ) {
-      if( !Number.isInteger(this.state.maxItems) || this.state.maxItems === 0 ) return false
+      if( parseInt(this.state.maxItems) === 0 ) return false
     }
 
     return true
@@ -258,7 +259,7 @@ export default class Custom extends Component {
                 itemStyle={[this.styles.text, {width: '75%'}]}
                 onValueChange={(value) => this.setState({data: value})}>
                   <Picker.Item label='Radicals' value='radicals' />
-                  <Picker.Item label='HSK 1' value='hsk' />
+                  <Picker.Item label='HSK 1' value='hsk1' />
               </Picker>
             </FieldContainer>
             

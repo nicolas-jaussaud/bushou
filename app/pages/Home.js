@@ -164,12 +164,32 @@ export default class Home extends Component {
               navigation={this.props.navigation}
               primary={Settings.data.colors.primary}
             >
+              <Text style={[this.styles.text, this.styles.betaText]}>
+                { Settings.data.language !== 'fr'
+                  ? 'Gives the possibility to create a personalized progression (currently in beta).'
+                  : 'Donne la possibilité de créer une progression personalisé (actuellement en beta).' }
+                </Text>
               { this.isCustomModules() ?
                 <>           
                   { Object.keys(this.state.modules.custom).map((key) => {
                     
                     const module = this.state.modules.custom[key]
 
+                    // If need audio and audio no aivailable we don't give access
+                    if( Settings.data.isAudio === 'no' && module.useAudio() ) return(
+                      <View key={ getUniqID() } style={[this.styles.button, {opacity: 0.5}]}>
+                        <View style={[this.styles.textDisableContainer]}>
+                          <Text style={[this.styles.text]}>{ module.getTitle() }</Text>
+                          <Text style={[this.styles.text, this.styles.textDisable]}>
+                            ({ __('no_sound') })
+                          </Text>
+                        </View>
+                        <Text style={[this.styles.progress]}>
+                          { module.getProgressText() }
+                        </Text>
+                      </View>
+                    )
+                    
                     return(
                       <TouchableOpacity key={ getUniqID() } style={[this.styles.button]} onPress={() => navigate('Levels', {key: key})}>
                         <Text style={[this.styles.text]}>{ module.get('name') }</Text>
@@ -177,7 +197,7 @@ export default class Home extends Component {
                           { module.getProgressText() }
                         </Text>
                       </TouchableOpacity>)
-                })} 
+                  })}
                 </>
                 : 
                   <View style={[this.styles.button, this.styles.borderDashed]}>
@@ -245,16 +265,16 @@ const getStyles = () => (StyleSheet.create({
   },
   containerCustom: {
     flex: 1,
-    width: '50%',
-    marginLeft: '50%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingTop: '5%'
   },
   customButton: {
-    flex: 0.5,
+    marginLeft: 20,
     flexDirection: 'row',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   buttonContainer: {
@@ -323,5 +343,9 @@ const getStyles = () => (StyleSheet.create({
     borderStyle: 'dashed',
     borderRadius: 1,
     opacity: 0.5
+  },
+  betaText: {
+    fontStyle: 'italic',
+    paddingBottom: 15
   }
 }))

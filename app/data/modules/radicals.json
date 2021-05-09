@@ -1,5 +1,5 @@
 {
-  "answerItems": "characters",
+  "answerItems": "translation",
   "data": "radicals",
   "isAcceleration": "yes",
   "isUnlimited": "yes",
@@ -8,6 +8,6 @@
   "name": "keys",
   "newItems": 5,
   "roundNumber": "100",
-  "targetItem": "translation",
+  "targetItem": "characters",
   "timeBycharacters": 3
 }
