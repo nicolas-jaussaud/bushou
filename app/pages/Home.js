@@ -167,7 +167,7 @@ export default class Home extends Component {
               <Text style={[this.styles.text, this.styles.betaText]}>
                 { Settings.data.language !== 'fr'
                   ? 'Gives the possibility to create a personalized progression (currently in beta).'
-                  : 'Donne la possibilité de créer une progression personalisé (actuellement en beta).' }
+                  : 'Donne la possibilité de créer une progression personnalisée (actuellement en beta).' }
                 </Text>
               { this.isCustomModules() ?
                 <>           

@@ -15,15 +15,13 @@
     "primaryColor": "#000000",
     "privacy": "unlisted",
     "icon": "./bushou.png",
-    "version": "1.2.3",
+    "version": "1.3.0",
     "orientation": "portrait",
     "platforms": [
-      "ios",
       "android",
-      "web"
     ],
     "android": {
-      "versionCode": 13,
+      "versionCode": 14,
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.surfzilla.bushou",
       "package": "com.surfzilla.bushou",
       "permissions": [

@@ -119,7 +119,7 @@ export const TEXT = {
   },
   'create_custom': {
     'en': 'Custom creation',
-    'fr': 'Création personalisé'
+    'fr': 'Création personnalisée'
   },
   'data': {
     'en': 'Data',
@@ -155,7 +155,7 @@ export const TEXT = {
   },
   'is_unlimited': {
     'en': 'Unlimited caracters number',
-    'fr': 'Nombre ilimité de caractères',
+    'fr': 'Nombre illimité de caractères',
   },
   'max_items_by_level': {
     'en': 'Max items by level',
