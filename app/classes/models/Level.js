@@ -1,5 +1,8 @@
 import Settings from '../Settings'
 import { __ } from '../../data/text'
+import { Logs } from 'expo'
+
+Logs.enableExpoCliLogging()
 export default class Level {
 
   constructor(number, module) {
@@ -46,7 +49,15 @@ export default class Level {
 
     if(number > moduleCharacters && max === false) return this.module.getCharacterNumber()
 
-    return max !== false && max < number ? this.module.getMax() : number
+    if(max !== false && max < number) {
+
+      const firstItem = this.getFirstItem() ? this.getFirstItem() : 0
+      return this.module.getCharacterNumber() < number 
+        ?  this.module.getCharacterNumber() - this.getFirstItem()
+        : max
+    }
+    
+    return number
   }
 
   /**
