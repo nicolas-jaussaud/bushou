@@ -7,7 +7,9 @@ import Module from '../classes/models/Module'
  */
 const staticModules = {
   radicals: [
-    'radicals'
+    'radicals',
+    'radicals-pinyin',
+    'radicals-audio',
   ],
   hsk1: [
     'hsk1',

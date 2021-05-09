@@ -62,6 +62,7 @@ export default class Characters extends Component {
   }
 
   getName(item) {
+
     return this.module.get('data') === 'radicals' 
       ? this.state.data[item].name[Settings.data.language]
       : this.state.data[item].translations[Settings.data.language]
@@ -72,7 +73,7 @@ export default class Characters extends Component {
    */
   render() {
 
-    const characters = this.state.data ?
+    const characters = this.state.data.length !== 0 ?
       Object.keys(this.state.data).map((item, i) => {
         const currentCharacter = this.state.currentCharacter === item ? 
           <View key={ getUniqID() } style={ this.styles.fullCharacter }>
@@ -86,7 +87,7 @@ export default class Characters extends Component {
             key={ getUniqID() }
             style={ this.styles.lineContainer } 
             onPress={() => {
-              this.module.get('data') === 'hsk' ? speak(item) : ''
+              speak(item)
               this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item})
             }}
           >
@@ -99,8 +100,7 @@ export default class Characters extends Component {
               <View style={ this.styles.definitionContainer }>
                 <Text numberOfLines={ 4 } style={ this.styles.definition }>
                   { this.getName(item) } {
-                    this.module.get('data') === 'hsk' ?
-                      <Text style={ this.styles.pinyin }> - { this.state.data[item].pinyin }</Text> : '' 
+                      <Text style={ this.styles.pinyin }> - { this.state.data[item].pinyin }</Text>
                     }
                 </Text>
               </View>

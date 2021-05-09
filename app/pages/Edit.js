@@ -28,7 +28,7 @@ export default class Edit extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'levels': {}
+      modules: {}
     }
 
     // Need a function for support settings
@@ -38,11 +38,9 @@ export default class Edit extends Component {
   }
 
   async componentDidMount() {
-
-    this.setState({modules: await getModules().custom})
-
     this.props.navigation.addListener('didFocus', async () => {
-      this.setState({modules: await getModules().custom})
+      const module = await getModules()
+      this.setState({modules: module.custom})
       this.styles = getStyles()
     })
   }
@@ -53,14 +51,17 @@ export default class Edit extends Component {
   async deleteLevel(key) {
     
     // Hide results while deleting
-    this.setState({levels: {}})
+    this.setState({modules: false})
 
-    const levels = [...Settings.data.customLevels].filter(e => e !== key)  
+    const modules = [...Settings.data.customLevels].filter(e => e !== key)  
 
-    Settings.set('custom-levels', levels.join(','), async () => {
+    Settings.set('custom-levels', modules.join(','), async () => {
+      
       await AsyncStorage.removeItem('progress-' + key)
       await AsyncStorage.removeItem('progress-' + key)
-      this.setState({levels: await getCustomLevels()})
+      
+      const module = await getModules()
+      this.setState({modules: module.custom})
     })
   }
 
@@ -82,18 +83,18 @@ export default class Edit extends Component {
         </Text>
         <View style={this.styles.levelContainer}>
           <ScrollView style={this.styles.ScrollView}>
-            
-          { Object.keys(this.state.modules).length !== 0 ?
+
+          { this.state.modules && Object.keys(this.state.modules).length !== 0 ?
             <>                   
               { Object.keys(this.state.modules).map((key) => {
                 
-                const level = this.state.modules[key]
-                
+                const module = this.state.modules[key]
+
                 return(
-                  <View style={this.styles.item} key={getUniqID()}>
+                  <View style={this.styles.item} key={ getUniqID() }>
                     <View style={this.styles.level}>
                       <Text style={this.styles.text}>
-                        { level.name }
+                        { module.getTitle() }
                       </Text>
                     </View>
                     <TouchableOpacity style={this.styles.button} onPress={() => this.deleteLevel(key)}>

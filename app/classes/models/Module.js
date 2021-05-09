@@ -4,12 +4,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import Settings from '../Settings'
 import Level from './Level'
 import { __ } from '../../data/text'
-import { speak, sound } from '../../helpers/voice';
+import { speak } from '../../helpers/voice';
 
 import HskData from '../../data/hsk1'
 import RadicalsData from '../../data/radicals'
 
 import StaticRadicals from '../../data/modules/radicals'
+import StaticRadicalsPinyin from '../../data/modules/radicals-pinyin'
+import StaticRadicalsAudio from '../../data/modules/radicals-audio'
+
 import StaticHsk from '../../data/modules/hsk1'
 import StaticHskPinyin from '../../data/modules/hsk1-pinyin'
 import StaticHskAudio from '../../data/modules/hsk1-audio'
@@ -28,11 +31,13 @@ export default class Module {
      */
     this.staticModules = [
       'radicals',
+      'radicals-pinyin',
+      'radicals-audio',
       'hsk1',
       'hsk1-pinyin',
       'hsk1-audio',
     ]
-    
+
     this.isStatic = this.staticModules.includes(key) ? true : false
 
     // Allow the use of await for instanciation
@@ -91,14 +96,12 @@ export default class Module {
     AsyncStorage.setItem(this.getProgressKey(), progress.toString()).then(callback) 
   }
 
-  /**
-   * Currently it's not possible to use variable inside require(), so we have
-   * to do use a swicth (that's annoying but there is just 4 cases to handle)
-   */
   getJSON() {
 
     switch(this.key) {
       case 'radicals': return StaticRadicals;
+      case 'radicals-pinyin': return StaticRadicalsPinyin
+      case 'radicals-audio': return StaticRadicalsAudio
       case 'hsk1': return StaticHsk
       case 'hsk1-pinyin': return StaticHskPinyin
       case 'hsk1-audio': return StaticHskAudio
@@ -108,7 +111,7 @@ export default class Module {
   /**
    * Get data of the whole module and cache the result
    */
-  getData = () => (this.get('data') === 'hsk' ? HskData : RadicalsData)
+  getData = () => (this.get('data') === 'hsk1' ? HskData : RadicalsData)
 
   /**
    * Calculate the number of levels according to the module settings
@@ -126,7 +129,22 @@ export default class Module {
    */
   getTitle = () => (this.isStatic ? __( this.get('name') ) : this.get('name'))
   
-  getInitialSeconds = () => (this.get('timeBycharacters') ? parseInt(this.get('timeBycharacters')) : 10)
+  getInitialSeconds = () => (
+    this.get('timeByCharacters') && this.get('isAcceleration') !== 'yes'
+      ? parseInt(this.get('timeByCharacters')) 
+      : 10
+  )
+  
+  /**
+   * This really needs to be reworked
+   */
+  getSecondPerRound = round => {
+    if(this.get('isAcceleration') === 'yes') {
+      round = round > 100 ? 100 : round
+      return round > 10 ? this.getInitialSeconds() / (round * 0.1) : this.getInitialSeconds()
+    }
+    return this.getInitialSeconds()
+  }
   
   // Calculation helpers
 
@@ -149,10 +167,10 @@ export default class Module {
 
     if(Settings.data.isProgress === 'no') return '';
 
-    const progress = this.get('progress')
+    const progress = parseInt(this.get('progress'))
     const total = this.getTotal()
-    
-    return `${progress}/${total}`
+
+    return `${progress ? progress : 0}/${total}`
   }
 
   useAudio = () => (this.get('answerItems') === 'audio' || this.get('targetItem') === 'audio')
@@ -161,49 +179,53 @@ export default class Module {
    * Appropriate sound when it's the correct answer
    */
   correctAnswer = answer => {
-    
-    if(this.get('data') === 'hsk') {
-      this.get('answerItems') !== 'audio' ? speak(answer) : ''
-    }
-    else {
-      this.get('answerItems') !== 'audio' ? sound('correct') : ''
-    }
+    this.get('answerItems') !== 'audio' && Settings.data.isAudio !== 'no' ? 
+      speak(answer) : ''
   }
 
   getCardText = item => {
 
     switch(this.get('answerItems')) {
 
-      case 'characters': return item.data.characters
+      case 'characters': return this.getCharacter(item.data.character)
       case 'pinyin': return item.data.pinyin
       
       case 'translation': 
-        return this.get('data') === 'hsk' 
+        return this.get('data') === 'hsk1' 
           ? item.data.translations[ Settings.data.language ]
           : item.data.name[ Settings.data.language ]
       
-      default: return item.data.characters        
+      default: return item.data.character
     }
+  }
+
+  getCharacter(item) {
+
+    if(Settings.data.characters !== 'traditional') return item;
+    
+    const data = this.getData()
+
+    return 'traditional' in data[ item ] ? data[ item ].traditional : item
   }
 
   getItemText = item => {
 
     const data = this.getData()
-
+    
     switch(this.get('targetItem')) {
 
-      case 'audio': 
+      case 'audio':
         speak(item)
         return '?';
-      case 'characters': return item.answer
+      case 'characters': return this.getCharacter(item)
       case 'pinyin': return data[ item ].pinyin
       
       case 'translation': 
-        return this.get('data') === 'hsk' 
+        return this.get('data') === 'hsk1' 
           ? data[ item ].translations[ Settings.data.language ]
           : data[ item ].name[ Settings.data.language ]
       
-      default: return item.answer
+      default: return this.getCharacter(item)
     }
   }
 

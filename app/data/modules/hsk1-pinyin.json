@@ -1,5 +1,5 @@
 {
-  "answerItems": "characters",
+  "answerItems": "pinyin",
   "data": "hsk1",
   "isAcceleration": "yes",
   "isUnlimited": "yes",
@@ -8,6 +8,6 @@
   "name": "pinyin",
   "newItems": 5,
   "roundNumber": "100",
-  "targetItem": "pinyin",
+  "targetItem": "characters",
   "timeBycharacters": 3
 }

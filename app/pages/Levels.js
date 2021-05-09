@@ -49,7 +49,7 @@ export default class Levels extends Component {
 
     this.module = await getModule(this.key)
     await this.getProgress()
-    
+
     this.setState({levels: this.module.getLevels()})
   }
 
