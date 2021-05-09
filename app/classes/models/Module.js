@@ -62,7 +62,7 @@ export default class Module {
 
     const data = JSON.parse(await this.getAsync(this.key))
     Object.keys(data).map(key => this.set(key, data[key]))
-    
+
     this.initProgress()
   }
 
@@ -148,7 +148,7 @@ export default class Module {
   
   // Calculation helpers
 
-  getMax = () => (this.get('maxItems') ? parseInt( this.get('maxItems') ) : false)
+  getMax = () => (this.get('maxItems') && this.get('isUnlimited') !== 'yes' ? parseInt( this.get('maxItems') ) : false)
   getNewItems = () => (this.get('newItems') ? parseInt( this.get('newItems') ) : false)
   getTotal = () => (Math.ceil( this.getCharacterNumber() / parseInt(this.get('newItems') )))
   getLevelNumber = () => (Math.ceil( this.getCharacterNumber() / this.getNewItems() ))

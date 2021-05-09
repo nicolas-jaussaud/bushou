@@ -81,7 +81,7 @@ export default class Levels extends Component {
    * Renders the page
    */
   render() {
-    
+
     // Show the progress only when we load the progress number
     const levels = this.state.levels !== false && this.state.progress !== false ?
       <Carousel
@@ -93,7 +93,7 @@ export default class Levels extends Component {
         itemWidth={ viewportWidth / 1.33 }
         firstItem={ Settings.data.isProgress !== 'no' ? this.state.progress : false }
       /> : null
-
+    
     const popup = this.state.popup !== false ? 
       <Popup change={ () => this.init() } close={ () => this.setState({'popup': false}) }/> : 
       false
@@ -126,7 +126,7 @@ export default class Levels extends Component {
     
     const level = item
     const { navigate } = this.props.navigation
-
+    
     const isLocked = Settings.data.isProgress !== 'no' 
       ? (this.state.progress + 1) < parseInt(level.number) 
       : false
