@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { 
   StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
   Image
 } from 'react-native';
 
-import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 
 import Settings from '../classes/Settings'

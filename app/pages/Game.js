@@ -28,7 +28,7 @@ export default class Game extends Component {
    * Navigation options (hide the top bar)
    */
   static navigationOptions = {
-    header: null,
+    headerShown: false,
   }
 
   /**
@@ -93,7 +93,7 @@ export default class Game extends Component {
 
     const answer = this.level.getRandomIndex()
     const propositions = this.setAnswerPropositions(answer)
-    console.log(this.module.getSecondPerRound(this.state.round + 1))
+
     this.setState({
       answer:       answer,
       propositions: propositions,
@@ -139,7 +139,7 @@ export default class Game extends Component {
     
     let lives = this.state.lives
     lives--
-   // this.setState({'lives': lives})
+    this.setState({'lives': lives})
   }
 
   setAnswerPropositions(answer, number = 4) {

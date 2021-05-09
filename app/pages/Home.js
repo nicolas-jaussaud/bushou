@@ -27,7 +27,7 @@ export default class Home extends Component {
    * Navigation options (hide the top bar)
    */
   static navigationOptions = {
-    header: null,
+    headerShown: false,
   }
 
   constructor(props) {
