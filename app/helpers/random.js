@@ -5,6 +5,9 @@ export const getRandomProperty = (obj, answer = false) => {
   // If we need to make an excepetion for one answer
   if(answer !== false) keys.splice(keys.indexOf(answer), 1)
   
+  // Can happen if only one item in the level
+  if(keys.length === 0) return false;
+  
   let index = keys.length * Math.random() << 0
   let response = obj[keys[index]]
 
