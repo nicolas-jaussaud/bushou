@@ -77,9 +77,6 @@ export default class Level {
 
     const previousProgress = await this.module.getProgress(true)
     const currentLevel = parseInt(this.number)
-    
-    console.log('current: ' + previousProgress)
-    console.log('level: ' + currentLevel)
 
     previousProgress < currentLevel
       ? this.module.setProgress(currentLevel, callback)
