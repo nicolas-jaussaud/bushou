@@ -258,7 +258,7 @@ export default class Custom extends Component {
                 style={[this.styles.text, this.styles.select]}
                 itemStyle={[this.styles.text, {width: '75%'}]}
                 onValueChange={(value) => this.setState({data: value})}>
-                  <Picker.Item label='Radicals' value='radicals' />
+                  <Picker.Item label={ __('radicals') } value='radicals' />
                   <Picker.Item label='HSK 1' value='hsk1' />
               </Picker>
             </FieldContainer>
