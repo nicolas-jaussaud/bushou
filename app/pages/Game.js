@@ -154,12 +154,24 @@ export default class Game extends Component {
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
+      
       const data = getRandomProperty(this.data, answer)
-      propositions.push({
-        'isCorrect': false,
-        'translation': data[this.module.get('data') === 'radicals' ? 'name' : 'translations'][Settings.data.language],
-        'data': data
-      })
+      
+      // Bad temporary way to handle this case
+      if(data === false) {
+        propositions.push({
+          'isCorrect': true,
+          'translation': this.getName(answer),
+          'data': { ...this.data[answer], 'character': answer},
+        })
+      } else {
+        propositions.push({
+          'isCorrect': false,
+          'translation': data[this.module.get('data') === 'radicals' ? 'name' : 'translations'][Settings.data.language],
+          'data': data
+        })
+      }
+      
     }
     return getShuffledArr(propositions)
   }

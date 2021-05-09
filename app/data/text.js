@@ -99,7 +99,7 @@ export const TEXT = {
   },
   'custom': {
     'en': 'Custom',
-    'fr': 'Personalisé'
+    'fr': 'Personnalisé'
   },
   'add': {
     'en': 'Add',
