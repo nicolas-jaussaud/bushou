@@ -87,7 +87,7 @@ export default class Characters extends Component {
             key={ getUniqID() }
             style={ this.styles.lineContainer } 
             onPress={() => {
-              speak(item)
+              this.module.speak(item)
               this.setState({currentCharacter: this.state.currentCharacter === item ? '' : item})
             }}
           >

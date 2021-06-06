@@ -180,7 +180,7 @@ export default class Module {
    */
   correctAnswer = answer => {
     this.get('answerItems') !== 'audio' && Settings.data.isAudio !== 'no' ? 
-      speak(answer) : ''
+    this.speak(answer) : ''
   }
 
   getCardText = item => {
@@ -215,7 +215,7 @@ export default class Module {
     switch(this.get('targetItem')) {
 
       case 'audio':
-        speak(item)
+        this.speak(item)
         return '?';
       case 'characters': return this.getCharacter(item)
       case 'pinyin': return data[ item ].pinyin
@@ -229,4 +229,28 @@ export default class Module {
     }
   }
 
+  /**
+   * There is some radicals which has a different name than the pronunciation, the speak
+   * function will not prononce it has we want if we use the character so we we use pinyin
+   * 
+   * However we can't use this everywhere because speak dosen't support tones with pinyin (unfortunalty)
+   */
+  speak(item) {
+
+    if(this.get('data') === 'hsk1' ) {
+      speak(item)
+      return;
+    }
+
+    // @see https://ltl-beijing.com/chinese-radicals/
+    const exceptions = [
+      '丨',
+      '丶',
+      '亅'
+    ]
+
+    exceptions.includes(item)
+      ? speak( this.getData()[ item ].pinyin )
+      : speak(item)
+  }
 }
