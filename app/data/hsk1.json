@@ -1,1166 +1,1322 @@
 {
-   "零":{
-      "translations":{
-         "en":"zero",
-         "fr":"zero"
-      },
-      "pinyin":"líng"
-   },
-   "一":{
-      "translations":{
-         "en":"one",
-         "fr":"un"
-      },
-      "pinyin":"yī"
-   },
-   "二":{
-      "translations":{
-         "en":"two",
-         "fr":"deux"
-      },
-      "pinyin":"èr"
-   },
-   "三":{
-      "translations":{
-         "en":"three",
-         "fr":"trois"
-      },
-      "pinyin":"sān"
-   },
-   "四":{
-      "translations":{
-         "en":"four",
-         "fr":"quatre"
-      },
-      "pinyin":"sì"
-   },
-   "五":{
-      "translations":{
-         "en":"five",
-         "fr":"cinq"
-      },
-      "pinyin":"wǔ"
-   },
-   "六":{
-      "translations":{
-         "en":"six",
-         "fr":"six"
-      },
-      "pinyin":"liù"
-   },
-   "七":{
-      "translations":{
-         "en":"seven",
-         "fr":"sept"
-      },
-      "pinyin":"qī"
-   },
-   "八":{
-      "translations":{
-         "en":"eight",
-         "fr":"huit"
-      },
-      "pinyin":"bā"
-   },
-   "九":{
-      "translations":{
-         "en":"nine",
-         "fr":"neuf"
-      },
-      "pinyin":"jiǔ"
-   },
-   "十":{
-      "translations":{
-         "en":"ten",
-         "fr":"dix"
-      },
-      "pinyin":"shí"
-   },
-   "些":{
-      "translations":{
-         "en":"some",
-         "fr":"quelques, plusieurs"
-      },
-      "pinyin":"xiē"
-   },
-   "个":{
-      "translations":{
-         "en":"one, a, an",
-         "fr":"classificateur"
-      },
-      "pinyin":"gè",
-      "traditional":"個"
-   },
-   "块":{
-      "translations":{
-         "en":"piece",
-         "fr":"morceau, classificateur"
-      },
-      "pinyin":"kuài",
-      "traditional":"塊"
-   },
-   "本":{
-      "translations":{
-         "en":"classifier for books",
-         "fr":"classificateur pour les livres"
-      },
-      "pinyin":"běn"
-   },
-   "岁":{
-      "translations":{
-         "en":"year",
-         "fr":"âge"
-      },
-      "pinyin":"suì",
-      "traditional":"歲"
-   },
-   "茶":{
-      "translations":{
-         "en":"tea",
-         "fr":"thé"
-      },
-      "pinyin":"chá"
-   },
-   "水果":{
-      "translations":{
-         "en":"fruit",
-         "fr":"fruit"
-      },
-      "pinyin":"shuǐguǒ"
-   },
-   "苹果":{
-      "translations":{
-         "en":"apple",
-         "fr":"pomme"
-      },
-      "pinyin":"píngguǒ",
-      "traditional":"蘋果"
-   },
-   "水":{
-      "translations":{
-         "en":"water",
-         "fr":"eau"
-      },
-      "pinyin":"shuǐ"
-   },
-   "菜":{
-      "translations":{
-         "en":"vegetable",
-         "fr":"légume, plat"
-      },
-      "pinyin":"cài"
-   },
-   "米饭":{
-      "translations":{
-         "en":"rice",
-         "fr":"riz"
-      },
-      "pinyin":"mǐfàn",
-      "traditional":"米飯"
-   },
-   "杯子":{
-      "translations":{
-         "en":"cup",
-         "fr":"tasse, verre"
-      },
-      "pinyin":"bēizi"
-   },
-   "家":{
-      "translations":{
-         "en":"home",
-         "fr":"maison, famille"
-      },
-      "pinyin":"jiā"
-   },
-   "饭店":{
-      "translations":{
-         "en":"restaurant",
-         "fr":"restaurant"
-      },
-      "pinyin":"fàndiàn",
-      "traditional":"飯店"
-   },
-   "学校":{
-      "translations":{
-         "en":"school",
-         "fr":"école"
-      },
-      "pinyin":"xuéxiào",
-      "traditional":"學校"
-   },
-   "商店":{
-      "translations":{
-         "en":"store",
-         "fr":"magasin"
-      },
-      "pinyin":"shāngdiàn"
-   },
-   "医院":{
-      "translations":{
-         "en":"hospital",
-         "fr":"hôpital"
-      },
-      "pinyin":"yīyuàn",
-      "traditional":"醫院"
-   },
-   "火车站":{
-      "translations":{
-         "en":"train station",
-         "fr":"gare"
-      },
-      "pinyin":"huǒchēzhàn",
-      "traditional":"火車站"
-   },
-   "上午":{
-      "translations":{
-         "en":"morning",
-         "fr":"matin"
-      },
-      "pinyin":"shàngwǔ"
-   },
-   "中午":{
-      "translations":{
-         "en":"noon",
-         "fr":"midi"
-      },
-      "pinyin":"zhōngwǔ"
-   },
-   "下午":{
-      "translations":{
-         "en":"afternoon",
-         "fr":"après-midi"
-      },
-      "pinyin":"xiàwǔ"
-   },
-   "今天":{
-      "translations":{
-         "en":"today",
-         "fr":"aujourd'hui"
-      },
-      "pinyin":"jīntiān"
-   },
-   "明天":{
-      "translations":{
-         "en":"tomorrow",
-         "fr":"demain"
-      },
-      "pinyin":"míngtiān"
-   },
-   "昨天":{
-      "translations":{
-         "en":"yesterday",
-         "fr":"hier"
-      },
-      "pinyin":"zuòtiān"
-   },
-   "时候":{
-      "translations":{
-         "en":"time",
-         "fr":"moment"
-      },
-      "pinyin":"shíhóu",
-      "traditional":"時候"
-   },
-   "点":{
-      "translations":{
-         "en":"dot, spot",
-         "fr":"point, heure"
-      },
-      "pinyin":"diǎn",
-      "traditional":"點"
-   },
-   "现在":{
-      "translations":{
-         "en":"now",
-         "fr":"maintenant"
-      },
-      "pinyin":"xiànzài",
-      "traditional":"現在"
-   },
-   "分钟":{
-      "translations":{
-         "en":"minute",
-         "fr":"minute"
-      },
-      "pinyin":"fēnzhōng",
-      "traditional":"分鐘"
-   },
-   "日":{
-      "translations":{
-         "en":"day",
-         "fr":"jour"
-      },
-      "pinyin":"rì"
-   },
-   "星期":{
-      "translations":{
-         "en":"week",
-         "fr":"semaine"
-      },
-      "pinyin":"xīngqī"
-   },
-   "月":{
-      "translations":{
-         "en":"month, moon",
-         "fr":"mois, lune"
-      },
-      "pinyin":"yuè"
-   },
-   "年":{
-      "translations":{
-         "en":"year",
-         "fr":"année"
-      },
-      "pinyin":"nián"
-   },
-   "后面":{
-      "translations":{
-         "en":"behind",
-         "fr":"derrière"
-      },
-      "pinyin":"hòumiàn",
-      "traditional":"後面"
-   },
-   "前面":{
-      "translations":{
-         "en":"front",
-         "fr":"devant"
-      },
-      "pinyin":"qiánmiàn",
-   },
-   "上":{
-      "translations":{
-         "en":"up",
-         "fr":"monter, au-dessus"
-      },
-      "pinyin":"shàng"
-   },
-   "下":{
-      "translations":{
-         "en":"down",
-         "fr":"descendre, en-dessous"
-      },
-      "pinyin":"xià"
-   },
-   "里":{
-      "translations":{
-         "en":"inside",
-         "fr":"à l'intérieur"
-      },
-      "pinyin":"lǐ",
-      "traditional":"裡"
-   },
-   "衣服":{
-      "translations":{
-         "en":"cloth",
-         "fr":"vêtements"
-      },
-      "pinyin":"yīfu"
-   },
-   "老师":{
-      "translations":{
-         "en":"teacher",
-         "fr":"professeur"
-      },
-      "pinyin":"lǎoshī",
-      "traditional":"老師"
-   },
-   "同学":{
-      "translations":{
-         "en":"shoolmate",
-         "fr":"camarade"
-      },
-      "pinyin":"tóngxué",
-      "traditional":"同學"
-   },
-   "学生":{
-      "translations":{
-         "en":"student",
-         "fr":"étudiant"
-      },
-      "pinyin":"xuéshēng",
-      "traditional":"學生"
-   },
-   "医生":{
-      "translations":{
-         "en":"doctor",
-         "fr":"médecin"
-      },
-      "pinyin":"yīshēng",
-      "traditional":"醫生"
-   },
-   "小姐":{
-      "translations":{
-         "en":"Miss",
-         "fr":"Mademoiselle"
-      },
-      "pinyin":"xiǎojiě"
-   },
-   "先生":{
-      "translations":{
-         "en":"Sir",
-         "fr":"Monsieur, mari"
-      },
-      "pinyin":"xiānshēng"
-   },
-   "朋友":{
-      "translations":{
-         "en":"friend",
-         "fr":"ami"
-      },
-      "pinyin":"péngyǒu"
-   },
-   "爸爸":{
-      "translations":{
-         "en":"father",
-         "fr":"papa"
-      },
-      "pinyin":"bàba"
-   },
-   "妈妈":{
-      "translations":{
-         "en":"mother",
-         "fr":"maman"
-      },
-      "pinyin":"māma",
-      "traditional":"媽媽"
-   },
-   "儿子":{
-      "translations":{
-         "en":"son",
-         "fr":"fils"
-      },
-      "pinyin":"érzi",
-      "traditional":"兒子"
-   },
-   "女儿":{
-      "translations":{
-         "en":"daughter",
-         "fr":"fille"
-      },
-      "pinyin":"nǚér",
-      "traditional":"女兒"
-   },
-   "汉语":{
-      "translations":{
-         "en":"mandarin Chinese",
-         "fr":"Chinois (la langue)"
-      },
-      "pinyin":"hànyǔ",
-      "traditional":"漢語"
-   },
-   "字":{
-      "translations":{
-         "en":"character",
-         "fr":"caractère"
-      },
-      "pinyin":"zì"
-   },
-   "中国":{
-      "translations":{
-         "en":"China",
-         "fr":"Chine"
-      },
-      "pinyin":"zhōngguò",
-      "traditional":"中國"
-   },
-   "北京":{
-      "translations":{
-         "en":"Beijing",
-         "fr":"Beijing"
-      },
-      "pinyin":"běijīng"
-   },
-   "猫":{
-      "translations":{
-         "en":"cat",
-         "fr":"chat"
-      },
-      "pinyin":"māo",
-      "traditional":"貓"
-   },
-   "狗":{
-      "translations":{
-         "en":"dog",
-         "fr":"chien"
-      },
-      "pinyin":"gǒu"
-   },
-   "人":{
-      "translations":{
-         "en":"person",
-         "fr":"ĥomme, personne"
-      },
-      "pinyin":"rén"
-   },
-   "名字":{
-      "translations":{
-         "en":"name",
-         "fr":"prénom"
-      },
-      "pinyin":"míngzi"
-   },
-   "东西":{
-      "translations":{
-         "en":"thing",
-         "fr":"chose, object"
-      },
-      "pinyin":"dōngxī",
-      "traditional":"東西"
-   },
-   "书":{
-      "translations":{
-         "en":"book",
-         "fr":"livre"
-      },
-      "pinyin":"shū",
-      "traditional":"書"
-   },
-   "椅子":{
-      "translations":{
-         "en":"chair",
-         "fr":"chaise"
-      },
-      "pinyin":"yǐzi"
-   },
-   "桌子":{
-      "translations":{
-         "en":"desk",
-         "fr":"table"
-      },
-      "pinyin":"zhuōzi"
-   },
-   "电脑":{
-      "translations":{
-         "en":"computer",
-         "fr":"ordinateur"
-      },
-      "pinyin":"diànnǎo",
-      "traditional":"電腦"
-   },
-   "电视":{
-      "translations":{
-         "en":"television",
-         "fr":"télévision"
-      },
-      "pinyin":"diànshì",
-      "traditional":"電視"
-   },
-   "电影":{
-      "translations":{
-         "en":"movie",
-         "fr":"film"
-      },
-      "pinyin":"diànyǐng",
-      "traditional":"電影"
-   },
-   "飞机":{
-      "translations":{
-         "en":"airplane",
-         "fr":"avion"
-      },
-      "pinyin":"fēijī",
-      "traditional":"飛機"
-   },
-   "出租车":{
-      "translations":{
-         "en":"taxi",
-         "fr":"taxi"
-      },
-      "pinyin":"chūzūchē",
-      "traditional":"出租車"
-   },
-   "天气":{
-      "translations":{
-         "en":"weather",
-         "fr":"temps, météo"
-      },
-      "pinyin":"tiānqì",
-      "traditional":"天氣"
-   },
-   "钱":{
-      "translations":{
-         "en":"money",
-         "fr":"argent"
-      },
-      "pinyin":"qián",
-      "traditional":"錢"
-   },
-   "冷":{
-      "translations":{
-         "en":"cold",
-         "fr":"froid, avoir froid"
-      },
-      "pinyin":"lěng"
-   },
-   "热":{
-      "translations":{
-         "en":"hot",
-         "fr":"chaud"
-      },
-      "pinyin":"rè",
-      "traditional":"熱"
-   },
-   "好":{
-      "translations":{
-         "en":"good",
-         "fr":"bien"
-      },
-      "pinyin":"hǎo"
-   },
-   "号":{
-      "translations":{
-         "en":"number",
-         "fr":"numéro"
-      },
-      "pinyin":"hào",
-      "traditional":"號"
-   },
-   "高兴":{
-      "translations":{
-         "en":"happy",
-         "fr":"content"
-      },
-      "pinyin":"gāoxìng",
-      "traditional":"高興"
-   },
-   "漂亮":{
-      "translations":{
-         "en":"beautiful",
-         "fr":"joli"
-      },
-      "pinyin":"piàoliàng"
-   },
-   "少":{
-      "translations":{
-         "en":"few, little",
-         "fr":"peu"
-      },
-      "pinyin":"shǎo"
-   },
-   "多":{
-      "translations":{
-         "en":"many, much",
-         "fr":"beaucoup"
-      },
-      "pinyin":"duō"
-   },
-   "小":{
-      "translations":{
-         "en":"small",
-         "fr":"petit"
-      },
-      "pinyin":"xiǎo"
-   },
-   "大":{
-      "translations":{
-         "en":"big",
-         "fr":"grand"
-      },
-      "pinyin":"dà"
-   },
-   "学习":{
-      "translations":{
-         "en":"study",
-         "fr":"étudier, apprendre"
-      },
-      "pinyin":"xuéxí",
-      "traditional":"學習"
-   },
-   "工作":{
-      "translations":{
-         "en":"work",
-         "fr":"travail, travailler"
-      },
-      "pinyin":"gōngzuò"
-   },
-   "看见":{
-      "translations":{
-         "en":"see",
-         "fr":"voir, apercevoir"
-      },
-      "pinyin":"kànjiàn",
-      "traditional":"看見"
-   },
-   "看":{
-      "translations":{
-         "en":"look",
-         "fr":"regarder"
-      },
-      "pinyin":"kàn"
-   },
-   "读":{
-      "translations":{
-         "en":"read",
-         "fr":"lire, étudier"
-      },
-      "pinyin":"dú",
-      "traditional":"讀"
-   },
-   "写":{
-      "translations":{
-         "en":"write",
-         "fr":"écrire"
-      },
-      "pinyin":"xiě",
-      "traditional":"寫"
-   },
-   "听":{
-      "translations":{
-         "en":"listen",
-         "fr":"écouter, entendre"
-      },
-      "pinyin":"tīng",
-      "traditional":"聽"
-   },
-   "说":{
-      "translations":{
-         "en":"speak",
-         "fr":"parler"
-      },
-      "pinyin":"shuō",
-      "traditional":"說"
-   },
-   "叫":{
-      "translations":{
-         "en":"call",
-         "fr":"s'appeler"
-      },
-      "pinyin":"jiào"
-   },
-   "请":{
-      "translations":{
-         "en":"please",
-         "fr":"s'il vous plaït, inviter"
-      },
-      "pinyin":"qǐng",
-      "traditional":"請"
-   },
-   "不客气":{
-      "translations":{
-         "en":"you are welcome",
-         "fr":"de rien"
-      },
-      "pinyin":"búkèqì",
-      "traditional":"不客氣"
-   },
-   "谢谢":{
-      "translations":{
-         "en":"thank",
-         "fr":"merci"
-      },
-      "pinyin":"xièxie",
-      "traditional":"謝謝"
-   },
-   "没关系":{
-      "translations":{
-         "en":"It doesn’t matter",
-         "fr":"Ce n'est pas grave, peu importe"
-      },
-      "pinyin":"méiguānxì",
-      "traditional":"沒關係"
-   },
-   "对不起":{
-      "translations":{
-         "en":"sorry",
-         "fr":"désolé(e)"
-      },
-      "pinyin":"duìbùqǐ",
-      "traditional":"對不起"
-   },
-   "再见":{
-      "translations":{
-         "en":"good-bye",
-         "fr":"au revoir"
-      },
-      "pinyin":"zàijiàn",
-      "traditional":"再見"
-   },
-   "做":{
-      "translations":{
-         "en":"do",
-         "fr":"faire"
-      },
-      "pinyin":"zuò"
-   },
-   "是":{
-      "translations":{
-         "en":"be (am, is, are)",
-         "fr":"être"
-      },
-      "pinyin":"shì"
-   },
-   "有":{
-      "translations":{
-         "en":"have",
-         "fr":"avoir"
-      },
-      "pinyin":"yǒu"
-   },
-   "想":{
-      "translations":{
-         "en":"think, want",
-         "fr":"penser, vouloir"
-      },
-      "pinyin":"xiǎng"
-   },
-   "能":{
-      "translations":{
-         "en":"can, be able to",
-         "fr":"pouvoir"
-      },
-      "pinyin":"néng"
-   },
-   "会":{
-      "translations":{
-         "en":"know how to",
-         "fr":"savoir faire, pouvoir faire"
-      },
-      "pinyin":"huì",
-      "traditional":"會"
-   },
-   "住":{
-      "translations":{
-         "en":"live",
-         "fr":"habiter"
-      },
-      "pinyin":"zhù"
-   },
-   "认识":{
-      "translations":{
-         "en":"know",
-         "fr":"connaître, savoir"
-      },
-      "pinyin":"rènshi",
-      "traditional":"認識"
-   },
-   "来":{
-      "translations":{
-         "en":"come",
-         "fr":"venir"
-      },
-      "pinyin":"lái",
-      "traditional":"來"
-   },
-   "去":{
-      "translations":{
-         "en":"go",
-         "fr":"aller"
-      },
-      "pinyin":"qù"
-   },
-   "回":{
-      "translations":{
-         "en":"return",
-         "fr":"revenir, retourner"
-      },
-      "pinyin":"huí"
-   },
-   "下雨":{
-      "translations":{
-         "en":"rain",
-         "fr":"pleuvoir"
-      },
-      "pinyin":"xiàyǔ"
-   },
-   "喜欢":{
-      "translations":{
-         "en":"to like",
-         "fr":"aimer, apprécier"
-      },
-      "pinyin":"xǐhuān",
-      "traditional":"喜歡"
-   },
-   "爱":{
-      "translations":{
-         "en":"love",
-         "fr":"aimer"
-      },
-      "pinyin":"ài",
-      "traditional":"愛"
-   },
-   "打电话":{
-      "translations":{
-         "en":"call up",
-         "fr":"téléphoner"
-      },
-      "pinyin":"dǎdiànhuà",
-      "traditional":"打電話"
-   },
-   "买":{
-      "translations":{
-         "en":"buy",
-         "fr":"acheter"
-      },
-      "pinyin":"mǎi",
-      "traditional":"買"
-   },
-   "睡觉":{
-      "translations":{
-         "en":"sleep",
-         "fr":"dormir"
-      },
-      "pinyin":"shuìjiào",
-      "traditional":"睡覺"
-   },
-   "坐":{
-      "translations":{
-         "en":"sit",
-         "fr":"s'asseoir"
-      },
-      "pinyin":"zuò"
-   },
-   "喝":{
-      "translations":{
-         "en":"drink",
-         "fr":"boire"
-      },
-      "pinyin":"hē"
-   },
-   "吃":{
-      "translations":{
-         "en":"eat",
-         "fr":"manger"
-      },
-      "pinyin":"chī"
-   },
-   "开":{
-      "translations":{
-         "en":"open",
-         "fr":"ouvrir, conduire"
-      },
-      "pinyin":"kāi",
-      "traditional":"開"
-   },
-   "都":{
-      "translations":{
-         "en":"all",
-         "fr":"tout, tous"
-      },
-      "pinyin":"dōu"
-   },
-   "没有":{
-      "translations":{
-         "en":"no, haven't, hasn't",
-         "fr":"non, il n'y en a pas"
-      },
-      "pinyin":"méi yǒu",
-      "traditional":"沒有"
-   },
-   "不":{
-      "translations":{
-         "en":"no, negation particle”",
-         "fr":"non, particule de négation"
-      },
-      "pinyin":"bù"
-   },
-   "很":{
-      "translations":{
-         "en":"quite, very",
-         "fr":"très"
-      },
-      "pinyin":"hěn"
-   },
-   "太":{
-      "translations":{
-         "en":"too",
-         "fr":"trop"
-      },
-      "pinyin":"tài"
-   },
-   "几":{
-      "translations":{
-         "en":"a few, how many",
-         "fr":"combien (moins de 10)"
-      },
-      "pinyin":"jǐ",
-      "traditional":"幾"
-   },
-   "一点儿":{
-      "translations":{
-         "en":"a little",
-         "fr":"un peu"
-      },
-      "pinyin":"yīdiănr",
-      "traditional":"一點兒"
-   },
-   "多少":{
-      "translations":{
-         "en":"how much",
-         "fr":"combien (plus de 10)"
-      },
-      "pinyin":"duōshǎo"
-   },
-   "怎么":{
-      "translations":{
-         "en":"how",
-         "fr":"comment"
-      },
-      "pinyin":"zěnme",
-      "traditional":"怎麼"
-   },
-   "怎么样":{
-      "translations":{
-         "en":"how about",
-         "fr":"comment ça va"
-      },
-      "pinyin":"zěnmeyàng",
-      "traditional":"怎麼樣"
-   },
-   "哪":{
-      "translations":{
-         "en":"which, what",
-         "fr":"quel, quoi"
-      },
-      "pinyin":"nǎ"
-   },
-   "哪儿":{
-      "translations":{
-         "en":"where",
-         "fr":"où"
-      },
-      "pinyin":"nǎr",
-      "traditional":"哪兒"
-   },
-   "什么":{
-      "translations":{
-         "en":"what, why",
-         "fr":"quoi"
-      },
-      "pinyin":"shěnme",
-      "traditional":"什麼"
-   },
-   "谁":{
-      "translations":{
-         "en":"who",
-         "fr":"qui"
-      },
-      "pinyin":"shéi",
-      "traditional":"誰"
-   },
-   "那":{
-      "translations":{
-         "en":"there, that",
-         "fr":"ce, cet, celui-là"
-      },
-      "pinyin":"nà"
-   },
-   "这":{
-      "translations":{
-         "en":"here, this",
-         "fr":"ce, cet, cette, ces"
-      },
-      "pinyin":"zhè",
-      "traditional":"這"
-   },
-   "我":{
-      "translations":{
-         "en":"I, me",
-         "fr":"Je, moi"
-      },
-      "pinyin":"wǒ"
-   },
-   "我们":{
-      "translations":{
-         "en":"we, us (pl.)",
-         "fr":"nous"
-      },
-      "pinyin":"wǒmen",
-      "traditional":"我們"
-   },
-   "你":{
-      "translations":{
-         "en":"you",
-         "fr":"tu, toi"
-      },
-      "pinyin":"nǐ"
-   },
-   "你们":{
-      "translations":{
-         "en":"you (pl.)",
-         "fr":"vous"
-      },
-      "pinyin":"nǐmen",
-      "traditional":"你們"
-   },
-   "他":{
-      "translations":{
-         "en":"he, him",
-         "fr":"il"
-      },
-      "pinyin":"tā"
-   },
-   "她":{
-      "translations":{
-         "en":"she, her",
-         "fr":"elle"
-      },
-      "pinyin":"tā"
-   },
-   "他们":{
-      "translations":{
-         "en":"they (male+female / male, pl.)",
-         "fr":"ils"
-      },
-      "pinyin":"tāmen",
-      "traditional":"他們"
-   },
-   "她们":{
-      "translations":{
-         "en":"they (females, pl.)",
-         "fr":"elles"
-      },
-      "pinyin":"tāmen",
-      "traditional":"她們"
-   },
-   "和":{
-      "translations":{
-         "en":"and",
-         "fr":"et"
-      },
-      "pinyin":"hé"
-   },
-   "了":{
-      "translations":{
-         "en":"grammatical particle",
-         "fr":"particule grammaticale"
-      },
-      "pinyin":"le"
-   },
-   "吗":{
-      "translations":{
-         "en":"interrogative particle",
-         "fr":"particule interrogative"
-      },
-      "pinyin":"ma",
-      "traditional":"嗎"
-   },
-   "的":{
-      "translations":{
-         "en":"possession particle",
-         "fr":"particule de détermination"
-      },
-      "pinyin":"de"
-   },
-   "呢":{
-      "translations":{
-         "en":"interrogative or affirmative particle",
-         "fr":"particule affirmative ou interrogative"
-      },
-      "pinyin":"ne"
-   },
-   "在":{
-      "translations":{
-         "en":"in, at",
-         "fr":"se trouver, être quelque part"
-      },
-      "pinyin":"zài"
-   },
-   "喂":{
-      "translations":{
-         "en":"hello",
-         "fr":"allô"
-      },
-      "pinyin":"wèi"
-   }
+  "零":{
+     "translations":{
+        "en": "zero",
+        "es": "cero",
+        "fr": "zero"
+     },
+     "pinyin": "líng"
+  },
+  "一":{
+     "translations":{
+        "en": "one",
+        "es": "uno",
+        "fr": "un"
+     },
+     "pinyin": "yī"
+  },
+  "二":{
+     "translations":{
+        "en": "two",
+        "es": "dos",
+        "fr": "deux"
+     },
+     "pinyin": "èr"
+  },
+  "三":{
+     "translations":{
+        "en": "three",
+        "es": "tres",
+        "fr": "trois"
+     },
+     "pinyin": "sān"
+  },
+  "四":{
+     "translations":{
+        "en": "four",
+        "es": "cuatro",
+        "fr": "quatre"
+     },
+     "pinyin": "sì"
+  },
+  "五":{
+     "translations":{
+        "en": "five",
+        "es": "cinco",
+        "fr": "cinq"
+     },
+     "pinyin": "wǔ"
+  },
+  "六":{
+     "translations":{
+        "en": "six",
+        "es": "seis",
+        "fr": "six"
+     },
+     "pinyin": "liù"
+  },
+  "七":{
+     "translations":{
+        "en": "seven",
+        "es": "siete",
+        "fr": "sept"
+     },
+     "pinyin": "qī"
+  },
+  "八":{
+     "translations":{
+        "en": "eight",
+        "es": "ocho",
+        "fr": "huit"
+     },
+     "pinyin": "bā"
+  },
+  "九":{
+     "translations":{
+        "en": "nine",
+        "es": "nueve",
+        "fr": "neuf"
+     },
+     "pinyin": "jiǔ"
+  },
+  "十":{
+     "translations":{
+        "en": "ten",
+        "es": "diez",
+        "fr": "dix"
+     },
+     "pinyin": "shí"
+  },
+  "些":{
+     "translations":{
+        "en": "some",
+        "es": "algunos",
+        "fr": "quelques, plusieurs"
+     },
+     "pinyin": "xiē"
+  },
+  "个":{
+     "translations":{
+        "en": "one, a, an",
+        "es": "clasificador general",
+        "fr": "classificateur"
+     },
+     "pinyin": "gè",
+     "traditional": "個"
+  },
+  "块":{
+     "translations":{
+        "en": "piece",
+        "es": "trozo",
+        "fr": "morceau, classificateur"
+     },
+     "pinyin": "kuài",
+     "traditional": "塊"
+  },
+  "本":{
+     "translations":{
+        "en": "classifier for books",
+        "es": "clasificador para libro",
+        "fr": "classificateur pour les livres"
+     },
+     "pinyin": "běn"
+  },
+  "岁":{
+     "translations":{
+        "en": "year",
+        "es": "año (de edad)",
+        "fr": "âge"
+     },
+     "pinyin": "suì",
+     "traditional": "歲"
+  },
+  "茶":{
+     "translations":{
+        "en": "tea",
+        "es": "té",
+        "fr": "thé"
+     },
+     "pinyin": "chá"
+  },
+  "水果":{
+     "translations":{
+        "en": "fruit",
+        "es": "fruta",
+        "fr": "fruit"
+     },
+     "pinyin": "shuǐguǒ"
+  },
+  "苹果":{
+     "translations":{
+        "en": "apple",
+        "es": "manzana",
+        "fr": "pomme"
+     },
+     "pinyin": "píngguǒ",
+     "traditional": "蘋果"
+  },
+  "水":{
+     "translations":{
+        "en": "water",
+        "es": "agua",
+        "fr": "eau"
+     },
+     "pinyin": "shuǐ"
+  },
+  "菜":{
+     "translations":{
+        "en": "vegetable",
+        "es": "verduras, plato",
+        "fr": "légume, plat"
+     },
+     "pinyin": "cài"
+  },
+  "米饭":{
+     "translations":{
+        "en": "rice",
+        "es": "arroz cocido",
+        "fr": "riz"
+     },
+     "pinyin": "mǐfàn",
+     "traditional": "米飯"
+  },
+  "杯子":{
+     "translations":{
+        "en": "cup",
+        "es": "taza, vaso",
+        "fr": "tasse, verre"
+     },
+     "pinyin": "bēizi"
+  },
+  "家":{
+     "translations":{
+        "en": "home",
+        "es": "hogar, familia",
+        "fr": "maison, famille"
+     },
+     "pinyin": "jiā"
+  },
+  "饭店":{
+     "translations":{
+        "en": "restaurant",
+        "es": "restaurante, hotel",
+        "fr": "restaurant"
+     },
+     "pinyin": "fàndiàn",
+     "traditional": "飯店"
+  },
+  "学校":{
+     "translations":{
+        "en": "school",
+        "es": "escuela",
+        "fr": "école"
+     },
+     "pinyin": "xuéxiào",
+     "traditional": "學校"
+  },
+  "商店":{
+     "translations":{
+        "en": "store",
+        "es": "tienda",
+        "fr": "magasin"
+     },
+     "pinyin": "shāngdiàn"
+  },
+  "医院":{
+     "translations":{
+        "en": "hospital",
+        "es": "hospital",
+        "fr": "hôpital"
+     },
+     "pinyin": "yīyuàn",
+     "traditional": "醫院"
+  },
+  "火车站":{
+     "translations":{
+        "en": "train station",
+        "es": "estación de tren",
+        "fr": "gare"
+     },
+     "pinyin": "huǒchēzhàn",
+     "traditional": "火車站"
+  },
+  "上午":{
+     "translations":{
+        "en": "morning",
+        "es": "la mañana",
+        "fr": "matin"
+     },
+     "pinyin": "shàngwǔ"
+  },
+  "中午":{
+     "translations":{
+        "en": "noon",
+        "es": "mediodía",
+        "fr": "midi"
+     },
+     "pinyin": "zhōngwǔ"
+  },
+  "下午":{
+     "translations":{
+        "en": "afternoon",
+        "es": "la tarde",
+        "fr": "après-midi"
+     },
+     "pinyin": "xiàwǔ"
+  },
+  "今天":{
+     "translations":{
+        "en": "today",
+        "es": "hoy",
+        "fr": "aujourd'hui"
+     },
+     "pinyin": "jīntiān"
+  },
+  "明天":{
+     "translations":{
+        "en": "tomorrow",
+        "es": "mañana",
+        "fr": "demain"
+     },
+     "pinyin": "míngtiān"
+  },
+  "昨天":{
+     "translations":{
+        "en": "yesterday",
+        "es": "ayer",
+        "fr": "hier"
+     },
+     "pinyin": "zuòtiān"
+  },
+  "时候":{
+     "translations":{
+        "en": "time",
+        "es": "momento",
+        "fr": "moment"
+     },
+     "pinyin": "shíhóu",
+     "traditional": "時候"
+  },
+  "点":{
+     "translations":{
+        "en": "dot, spot",
+        "es": "hora en punto",
+        "fr": "point, heure"
+     },
+     "pinyin": "diǎn",
+     "traditional": "點"
+  },
+  "现在":{
+     "translations":{
+        "en": "now",
+        "es": "ahora",
+        "fr": "maintenant"
+     },
+     "pinyin": "xiànzài",
+     "traditional": "現在"
+  },
+  "分钟":{
+     "translations":{
+        "en": "minute",
+        "es": "minuto",
+        "fr": "minute"
+     },
+     "pinyin": "fēnzhōng",
+     "traditional": "分鐘"
+  },
+  "日":{
+     "translations":{
+        "en": "day",
+        "es": "día",
+        "fr": "jour"
+     },
+     "pinyin": "rì"
+  },
+  "星期":{
+     "translations":{
+        "en": "week",
+        "es": "semana",
+        "fr": "semaine"
+     },
+     "pinyin": "xīngqī"
+  },
+  "月":{
+     "translations":{
+        "en": "month, moon",
+        "es": "mes, luna",
+        "fr": "mois, lune"
+     },
+     "pinyin": "yuè"
+  },
+  "年":{
+     "translations":{
+        "en": "year",
+        "es": "año",
+        "fr": "année"
+     },
+     "pinyin": "nián"
+  },
+  "后面":{
+     "translations":{
+        "en": "behind",
+        "es": "detrás",
+        "fr": "derrière"
+     },
+     "pinyin": "hòumiàn",
+     "traditional": "後面"
+  },
+  "前面":{
+     "translations":{
+        "en": "front",
+        "es": "enfrente",
+        "fr": "devant"
+     },
+     "pinyin": "qiánmiàn"
+  },
+  "上":{
+     "translations":{
+        "en": "up",
+        "es": "encima",
+        "fr": "monter, au-dessus"
+     },
+     "pinyin": "shàng"
+  },
+  "下":{
+     "translations":{
+        "en": "down",
+        "es": "debajo",
+        "fr": "descendre, en-dessous"
+     },
+     "pinyin": "xià"
+  },
+  "里":{
+     "translations":{
+        "en": "inside",
+        "es": "dentro",
+        "fr": "à l'intérieur"
+     },
+     "pinyin": "lǐ",
+     "traditional": "裡"
+  },
+  "衣服":{
+     "translations":{
+        "en": "cloth",
+        "es": "ropa",
+        "fr": "vêtements"
+     },
+     "pinyin": "yīfu"
+  },
+  "老师":{
+     "translations":{
+        "en": "teacher",
+        "es": "profesor",
+        "fr": "professeur"
+     },
+     "pinyin": "lǎoshī",
+     "traditional": "老師"
+  },
+  "同学":{
+     "translations":{
+        "en": "shoolmate",
+        "es": "compañero de estudio",
+        "fr": "camarade"
+     },
+     "pinyin": "tóngxué",
+     "traditional": "同學"
+  },
+  "学生":{
+     "translations":{
+        "en": "student",
+        "es": "estudiante",
+        "fr": "étudiant"
+     },
+     "pinyin": "xuéshēng",
+     "traditional": "學生"
+  },
+  "医生":{
+     "translations":{
+        "en": "doctor",
+        "es": "doctor",
+        "fr": "médecin"
+     },
+     "pinyin": "yīshēng",
+     "traditional": "醫生"
+  },
+  "小姐":{
+     "translations":{
+        "en": "Miss",
+        "es": "señorita",
+        "fr": "Mademoiselle"
+     },
+     "pinyin": "xiǎojiě"
+  },
+  "先生":{
+     "translations":{
+        "en": "Sir",
+        "es": "señor",
+        "fr": "Monsieur, mari"
+     },
+     "pinyin": "xiānshēng"
+  },
+  "朋友":{
+     "translations":{
+        "en": "friend",
+        "es": "amigo",
+        "fr": "ami"
+     },
+     "pinyin": "péngyǒu"
+  },
+  "爸爸":{
+     "translations":{
+        "en": "father",
+        "es": "papá",
+        "fr": "papa"
+     },
+     "pinyin": "bàba"
+  },
+  "妈妈":{
+     "translations":{
+        "en": "mother",
+        "es": "mamá",
+        "fr": "maman"
+     },
+     "pinyin": "māma",
+     "traditional": "媽媽"
+  },
+  "儿子":{
+     "translations":{
+        "en": "son",
+        "es": "hijo",
+        "fr": "fils"
+     },
+     "pinyin": "érzi",
+     "traditional": "兒子"
+  },
+  "女儿":{
+     "translations":{
+        "en": "daughter",
+        "es": "hija",
+        "fr": "fille"
+     },
+     "pinyin": "nǚér",
+     "traditional": "女兒"
+  },
+  "汉语":{
+     "translations":{
+        "en": "mandarin Chinese",
+        "es": "idioma chino",
+        "fr": "Chinois (la langue)"
+     },
+     "pinyin": "hànyǔ",
+     "traditional": "漢語"
+  },
+  "字":{
+     "translations":{
+        "en": "character",
+        "es": "carácter",
+        "fr": "caractère"
+     },
+     "pinyin": "zì"
+  },
+  "中国":{
+     "translations":{
+        "en": "China",
+        "es": "China",
+        "fr": "Chine"
+     },
+     "pinyin": "zhōngguò",
+     "traditional": "中國"
+  },
+  "北京":{
+     "translations":{
+        "en": "Beijing",
+        "es": "Beijing",
+        "fr": "Beijing"
+     },
+     "pinyin": "běijīng"
+  },
+  "猫":{
+     "translations":{
+        "en": "cat",
+        "es": "gato",
+        "fr": "chat"
+     },
+     "pinyin": "māo",
+     "traditional": "貓"
+  },
+  "狗":{
+     "translations":{
+        "en": "dog",
+        "es": "perro",
+        "fr": "chien"
+     },
+     "pinyin": "gǒu"
+  },
+  "人":{
+     "translations":{
+        "en": "person",
+        "es": "persona",
+        "fr": "ĥomme, personne"
+     },
+     "pinyin": "rén"
+  },
+  "名字":{
+     "translations":{
+        "en": "name",
+        "es": "nombre",
+        "fr": "prénom"
+     },
+     "pinyin": "míngzi"
+  },
+  "东西":{
+     "translations":{
+        "en": "thing",
+        "es": "cosa, objeto",
+        "fr": "chose, object"
+     },
+     "pinyin": "dōngxī",
+     "traditional": "東西"
+  },
+  "书":{
+     "translations":{
+        "en": "book",
+        "es": "libro",
+        "fr": "livre"
+     },
+     "pinyin": "shū",
+     "traditional": "書"
+  },
+  "椅子":{
+     "translations":{
+        "en": "chair",
+        "es": "silla",
+        "fr": "chaise"
+     },
+     "pinyin": "yǐzi"
+  },
+  "桌子":{
+     "translations":{
+        "en": "desk",
+        "es": "mesa",
+        "fr": "table"
+     },
+     "pinyin": "zhuōzi"
+  },
+  "电脑":{
+     "translations":{
+        "en": "computer",
+        "es": "ordenador",
+        "fr": "ordinateur"
+     },
+     "pinyin": "diànnǎo",
+     "traditional": "電腦"
+  },
+  "电视":{
+     "translations":{
+        "en": "television",
+        "es": "televisión",
+        "fr": "télévision"
+     },
+     "pinyin": "diànshì",
+     "traditional": "電視"
+  },
+  "电影":{
+     "translations":{
+        "en": "movie",
+        "es": "película",
+        "fr": "film"
+     },
+     "pinyin": "diànyǐng",
+     "traditional": "電影"
+  },
+  "飞机":{
+     "translations":{
+        "en": "airplane",
+        "es": "avión",
+        "fr": "avion"
+     },
+     "pinyin": "fēijī",
+     "traditional": "飛機"
+  },
+  "出租车":{
+     "translations":{
+        "en": "taxi",
+        "es": "taxi",
+        "fr": "taxi"
+     },
+     "pinyin": "chūzūchē",
+     "traditional": "出租車"
+  },
+  "天气":{
+     "translations":{
+        "en": "weather",
+        "es": "tiempo, clima",
+        "fr": "temps, météo"
+     },
+     "pinyin": "tiānqì",
+     "traditional": "天氣"
+  },
+  "钱":{
+     "translations":{
+        "en": "money",
+        "es": "dinero",
+        "fr": "argent"
+     },
+     "pinyin": "qián",
+     "traditional": "錢"
+  },
+  "冷":{
+     "translations":{
+        "en": "cold",
+        "es": "frío",
+        "fr": "froid, avoir froid"
+     },
+     "pinyin": "lěng"
+  },
+  "热":{
+     "translations":{
+        "en": "hot",
+        "es": "calor",
+        "fr": "chaud"
+     },
+     "pinyin": "rè",
+     "traditional": "熱"
+  },
+  "好":{
+     "translations":{
+        "en": "good",
+        "es": "bien, bueno",
+        "fr": "bien"
+     },
+     "pinyin": "hǎo"
+  },
+  "号":{
+     "translations":{
+        "en": "number",
+        "es": "número",
+        "fr": "numéro"
+     },
+     "pinyin": "hào",
+     "traditional": "號"
+  },
+  "高兴":{
+     "translations":{
+        "en": "happy",
+        "es": "contento",
+        "fr": "content"
+     },
+     "pinyin": "gāoxìng",
+     "traditional": "高興"
+  },
+  "漂亮":{
+     "translations":{
+        "en": "hermoso",
+        "es": "bonito",
+        "fr": "joli"
+     },
+     "pinyin": "piàoliàng"
+  },
+  "少":{
+     "translations":{
+        "en": "few, little",
+        "es": "poco",
+        "fr": "peu"
+     },
+     "pinyin": "shǎo"
+  },
+  "多":{
+     "translations":{
+        "en": "many, much",
+        "es": "mucho",
+        "fr": "beaucoup"
+     },
+     "pinyin": "duō"
+  },
+  "小":{
+     "translations":{
+        "en": "small",
+        "es": "pequeño",
+        "fr": "petit"
+     },
+     "pinyin": "xiǎo"
+  },
+  "大":{
+     "translations":{
+        "en": "big",
+        "es": "grande",
+        "fr": "grand"
+     },
+     "pinyin": "dà"
+  },
+  "学习":{
+     "translations":{
+        "en": "study",
+        "es": "estudiar, aprender",
+        "fr": "étudier, apprendre"
+     },
+     "pinyin": "xuéxí",
+     "traditional": "學習"
+  },
+  "工作":{
+     "translations":{
+        "en": "work",
+        "es": "trabajo, trabajar",
+        "fr": "travail, travailler"
+     },
+     "pinyin": "gōngzuò"
+  },
+  "看见":{
+     "translations":{
+        "en": "see",
+        "es": "ver",
+        "fr": "voir, apercevoir"
+     },
+     "pinyin": "kànjiàn",
+     "traditional": "看見"
+  },
+  "看":{
+     "translations":{
+        "en": "look",
+        "es": "mirar",
+        "fr": "regarder"
+     },
+     "pinyin": "kàn"
+  },
+  "读":{
+     "translations":{
+        "en": "read",
+        "es": "leer",
+        "fr": "lire, étudier"
+     },
+     "pinyin": "dú",
+     "traditional": "讀"
+  },
+  "写":{
+     "translations":{
+        "en": "write",
+        "es": "escribir",
+        "fr": "écrire"
+     },
+     "pinyin": "xiě",
+     "traditional": "寫"
+  },
+  "听":{
+     "translations":{
+        "en": "listen",
+        "es": "escuchar",
+        "fr": "écouter, entendre"
+     },
+     "pinyin": "tīng",
+     "traditional": "聽"
+  },
+  "说":{
+     "translations":{
+        "en": "speak",
+        "es": "hablar",
+        "fr": "parler"
+     },
+     "pinyin": "shuō",
+     "traditional": "說"
+  },
+  "叫":{
+     "translations":{
+        "en": "call",
+        "es": "llamarse",
+        "fr": "s'appeler"
+     },
+     "pinyin": "jiào"
+  },
+  "请":{
+     "translations":{
+        "en": "please",
+        "es": "por favor, invitar",
+        "fr": "s'il vous plaït, inviter"
+     },
+     "pinyin": "qǐng",
+     "traditional": "請"
+  },
+  "不客气":{
+     "translations":{
+        "en": "you are welcome",
+        "es": "de nada",
+        "fr": "de rien"
+     },
+     "pinyin": "búkèqì",
+     "traditional": "不客氣"
+  },
+  "谢谢":{
+     "translations":{
+        "en": "thank",
+        "es": "gracias",
+        "fr": "merci"
+     },
+     "pinyin": "xièxie",
+     "traditional": "謝謝"
+  },
+  "没关系":{
+     "translations":{
+        "en": "it doesn’t matter",
+        "es": "no tiene importancia",
+        "fr": "ce n'est pas grave, peu importe"
+     },
+     "pinyin": "méiguānxì",
+     "traditional": "沒關係"
+  },
+  "对不起":{
+     "translations":{
+        "en": "sorry",
+        "es": "lo siento",
+        "fr": "désolé(e)"
+     },
+     "pinyin": "duìbùqǐ",
+     "traditional": "對不起"
+  },
+  "再见":{
+     "translations":{
+        "en": "good-bye",
+        "es": "adiós",
+        "fr": "au revoir"
+     },
+     "pinyin": "zàijiàn",
+     "traditional": "再見"
+  },
+  "做":{
+     "translations":{
+        "en": "do",
+        "es": "hacer",
+        "fr": "faire"
+     },
+     "pinyin": "zuò"
+  },
+  "是":{
+     "translations":{
+        "en": "be (am, is, are)",
+        "es": "ser",
+        "fr": "être"
+     },
+     "pinyin": "shì"
+  },
+  "有":{
+     "translations":{
+        "en": "have",
+        "es": "tener",
+        "fr": "avoir"
+     },
+     "pinyin": "yǒu"
+  },
+  "想":{
+     "translations":{
+        "en": "think, want",
+        "es": "pensar, querer",
+        "fr": "penser, vouloir"
+     },
+     "pinyin": "xiǎng"
+  },
+  "能":{
+     "translations":{
+        "en": "can, be able to",
+        "es": "poder",
+        "fr": "pouvoir"
+     },
+     "pinyin": "néng"
+  },
+  "会":{
+     "translations":{
+        "en": "know how to",
+        "es": "tener la habilidad de",
+        "fr": "savoir faire, pouvoir faire"
+     },
+     "pinyin": "huì",
+     "traditional": "會"
+  },
+  "住":{
+     "translations":{
+        "en": "live",
+        "es": "vivir",
+        "fr": "habiter"
+     },
+     "pinyin": "zhù"
+  },
+  "认识":{
+     "translations":{
+        "en": "know",
+        "es": "conocer",
+        "fr": "connaître, savoir"
+     },
+     "pinyin": "rènshi",
+     "traditional": "認識"
+  },
+  "来":{
+     "translations":{
+        "en": "come",
+        "es": "venir",
+        "fr": "venir"
+     },
+     "pinyin": "lái",
+     "traditional": "來"
+  },
+  "去":{
+     "translations":{
+        "en": "go",
+        "es": "ir",
+        "fr": "aller"
+     },
+     "pinyin": "qù"
+  },
+  "回":{
+     "translations":{
+        "en": "return",
+        "es": "volver",
+        "fr": "revenir, retourner"
+     },
+     "pinyin": "huí"
+  },
+  "下雨":{
+     "translations":{
+        "en": "rain",
+        "es": "llover",
+        "fr": "pleuvoir"
+     },
+     "pinyin": "xiàyǔ"
+  },
+  "喜欢":{
+     "translations":{
+        "en": "to like",
+        "es": "gustar",
+        "fr": "aimer, apprécier"
+     },
+     "pinyin": "xǐhuān",
+     "traditional": "喜歡"
+  },
+  "爱":{
+     "translations":{
+        "en": "love",
+        "es": "amar",
+        "fr": "aimer"
+     },
+     "pinyin": "ài",
+     "traditional": "愛"
+  },
+  "打电话":{
+     "translations":{
+        "en": "call up",
+        "es": "llamar por teléfono",
+        "fr": "téléphoner"
+     },
+     "pinyin": "dǎdiànhuà",
+     "traditional": "打電話"
+  },
+  "买":{
+     "translations":{
+        "en": "buy",
+        "es": "comprar",
+        "fr": "acheter"
+     },
+     "pinyin": "mǎi",
+     "traditional": "買"
+  },
+  "睡觉":{
+     "translations":{
+        "en": "sleep",
+        "es": "dormir",
+        "fr": "dormir"
+     },
+     "pinyin": "shuìjiào",
+     "traditional": "睡覺"
+  },
+  "坐":{
+     "translations":{
+        "en": "sit",
+        "es": "sentarse",
+        "fr": "s'asseoir"
+     },
+     "pinyin": "zuò"
+  },
+  "喝":{
+     "translations":{
+        "en": "drink",
+        "es": "beber",
+        "fr": "boire"
+     },
+     "pinyin": "hē"
+  },
+  "吃":{
+     "translations":{
+        "en": "eat",
+        "es": "comer",
+        "fr": "manger"
+     },
+     "pinyin": "chī"
+  },
+  "开":{
+     "translations":{
+        "en": "open",
+        "es": "abrir, conducir",
+        "fr": "ouvrir, conduire"
+     },
+     "pinyin": "kāi",
+     "traditional": "開"
+  },
+  "都":{
+     "translations":{
+        "en": "all",
+        "es": "todo, todos",
+        "fr": "tout, tous"
+     },
+     "pinyin": "dōu"
+  },
+  "没有":{
+     "translations":{
+        "en": "no, haven't, hasn't",
+        "es": "no tener",
+        "fr": "non, il n'y en a pas"
+     },
+     "pinyin": "méi yǒu",
+     "traditional": "沒有"
+  },
+  "不":{
+     "translations":{
+        "en": "no, negation particle”",
+        "es": "no, negación",
+        "fr": "non, particule de négation"
+     },
+     "pinyin": "bù"
+  },
+  "很":{
+     "translations":{
+        "en": "quite, very",
+        "es": "muy",
+        "fr": "très"
+     },
+     "pinyin": "hěn"
+  },
+  "太":{
+     "translations":{
+        "en": "too",
+        "es": "demasiado",
+        "fr": "trop"
+     },
+     "pinyin": "tài"
+  },
+  "几":{
+     "translations":{
+        "en": "a few, how many",
+        "es": "cuanto, unos pocos",
+        "fr": "combien (moins de 10)"
+     },
+     "pinyin": "jǐ",
+     "traditional": "幾"
+  },
+  "一点儿":{
+     "translations":{
+        "en": "a little",
+        "es": "un poco",
+        "fr": "un peu"
+     },
+     "pinyin": "yīdiănr",
+     "traditional": "一點兒"
+  },
+  "多少":{
+     "translations":{
+        "en": "how much",
+        "es": "cuánto, cuántos",
+        "fr": "combien (plus de 10)"
+     },
+     "pinyin": "duōshǎo"
+  },
+  "怎么":{
+     "translations":{
+        "en": "how",
+        "es": "cómo",
+        "fr": "comment"
+     },
+     "pinyin": "zěnme",
+     "traditional": "怎麼"
+  },
+  "怎么样":{
+     "translations":{
+        "en": "how about",
+        "es": "cómo estás",
+        "fr": "comment ça va"
+     },
+     "pinyin": "zěnmeyàng",
+     "traditional": "怎麼樣"
+  },
+  "哪":{
+     "translations":{
+        "en": "which, what",
+        "es": "cuál",
+        "fr": "quel, quoi"
+     },
+     "pinyin": "nǎ"
+  },
+  "哪儿":{
+     "translations":{
+        "en": "where",
+        "es": "dónde",
+        "fr": "où"
+     },
+     "pinyin": "nǎr",
+     "traditional": "哪兒"
+  },
+  "什么":{
+     "translations":{
+        "en": "what, why",
+        "es": "qué",
+        "fr": "quoi"
+     },
+     "pinyin": "shěnme",
+     "traditional": "什麼"
+  },
+  "谁":{
+     "translations":{
+        "en": "who",
+        "es": "quién",
+        "fr": "qui"
+     },
+     "pinyin": "shéi",
+     "traditional": "誰"
+  },
+  "那":{
+     "translations":{
+        "en": "there, that",
+        "es": "ahí, eso, esa",
+        "fr": "ce, cet, celui-là"
+     },
+     "pinyin": "nà"
+  },
+  "这":{
+     "translations":{
+        "en": "here, this",
+        "es": "aquí, esto",
+        "fr": "ce, cet, cette, ces"
+     },
+     "pinyin": "zhè",
+     "traditional": "這"
+  },
+  "我":{
+     "translations":{
+        "en": "I, me",
+        "es": "yo, mi",
+        "fr": "je, moi"
+     },
+     "pinyin": "wǒ"
+  },
+  "我们":{
+     "translations":{
+        "en": "we, us (pl.)",
+        "es": "nosotros",
+        "fr": "nous"
+     },
+     "pinyin": "wǒmen",
+     "traditional": "我們"
+  },
+  "你":{
+     "translations":{
+        "en": "you",
+        "es": "tú",
+        "fr": "tu, toi"
+     },
+     "pinyin": "nǐ"
+  },
+  "你们":{
+     "translations":{
+        "en": "you (pl.)",
+        "es": "vosotros",
+        "fr": "vous"
+     },
+     "pinyin": "nǐmen",
+     "traditional": "你們"
+  },
+  "他":{
+     "translations":{
+        "en": "he, him",
+        "es": "él",
+        "fr": "il"
+     },
+     "pinyin": "tā"
+  },
+  "她":{
+     "translations":{
+        "en": "she, her",
+        "es": "ella",
+        "fr": "elle"
+     },
+     "pinyin": "tā"
+  },
+  "他们":{
+     "translations":{
+        "en": "they (male+female / male, pl.)",
+        "es": "ellos",
+        "fr": "ils"
+     },
+     "pinyin": "tāmen",
+     "traditional": "他們"
+  },
+  "她们":{
+     "translations":{
+        "en": "they (females, pl.)",
+        "es": "ellos",
+        "fr": "elles"
+     },
+     "pinyin": "tāmen",
+     "traditional": "她們"
+  },
+  "和":{
+     "translations":{
+        "en": "and",
+        "es": "y",
+        "fr": "et"
+     },
+     "pinyin": "hé"
+  },
+  "了":{
+     "translations":{
+        "en": "grammatical particle",
+        "es": "partícula modal",
+        "fr": "particule grammaticale"
+     },
+     "pinyin": "le"
+  },
+  "吗":{
+     "translations":{
+        "en": "interrogative particle",
+        "es": "partícula para preguntas",
+        "fr": "particule interrogative"
+     },
+     "pinyin": "ma",
+     "traditional": "嗎"
+  },
+  "的":{
+     "translations":{
+        "en": "possession particle",
+        "es": "partícula estructural",
+        "fr": "particule de détermination"
+     },
+     "pinyin": "de"
+  },
+  "呢":{
+     "translations":{
+        "en": "interrogative or affirmative particle",
+        "es": "partícula para preguntar sobre opinión, afirmación",
+        "fr": "particule affirmative ou interrogative"
+     },
+     "pinyin": "ne"
+  },
+  "在":{
+     "translations":{
+        "en": "in, at",
+        "es": "estar en",
+        "fr": "se trouver, être quelque part"
+     },
+     "pinyin": "zài"
+  },
+  "喂":{
+     "translations":{
+        "en": "hello",
+        "es": "oye",
+        "fr": "allô"
+     },
+     "pinyin": "wèi"
+  }
 }
