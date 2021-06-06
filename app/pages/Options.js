@@ -13,7 +13,10 @@ import Settings from '../classes/Settings';
 import SettingLine from '../components/SettingLine';
 
 // Static data
-import { __ } from '../data/text'
+import { 
+  __, 
+  languages 
+} from '../data/text'
 
 export default class Options extends Component {
 
@@ -90,8 +93,9 @@ export default class Options extends Component {
                   this.reloadStyle()
               })}
             }>
-              <Picker.Item label="English" value="en" />
-              <Picker.Item label="Français" value="fr" />
+              { languages.map((language) => (
+                <Picker.Item label={ language.label } value={ language.code } />
+              )) }
             </Picker>
           </FieldContainer>
           

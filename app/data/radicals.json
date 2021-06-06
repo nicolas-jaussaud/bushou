@@ -3,6 +3,7 @@
     "pinyin": "yī",
     "name": {
       "en": "one",
+      "es": "uno",
       "fr": "un"
     }
   },
@@ -10,6 +11,7 @@
     "pinyin": "shù",
     "name": {
       "en": "line",
+      "es": "línea",
       "fr": "ligne"
     }
   },
@@ -17,6 +19,7 @@
     "pinyin": "diǎn",
     "name": {
       "en": "dot",
+      "es": "punto",
       "fr": "point"
     }
   },
@@ -24,6 +27,7 @@
     "pinyin": "piě",
     "name": {
       "en": "slash",
+      "es": "acuchillar",
       "fr": "oblique"
     }
   },
@@ -31,6 +35,7 @@
     "pinyin": "yǐ",
     "name": {
       "en": "second",
+      "es": "segundo",
       "fr": "second"
     }
   },
@@ -38,6 +43,7 @@
     "pinyin": "gōu",
     "name": {
       "en": "hook",
+      "es": "gancho",
       "fr": "crochet"
     }
   },
@@ -45,6 +51,7 @@
     "pinyin": "èr",
     "name": {
       "en": "two",
+      "es": "dos",
       "fr": "deux"
     }
   },
@@ -52,6 +59,7 @@
     "pinyin": "tóu",
     "name": {
       "en": "lid",
+      "es": "tapa",
       "fr": "couvercle"
     }
   },
@@ -59,6 +67,7 @@
     "pinyin": "rén",
     "name": {
       "en": "person",
+      "es": "persona",
       "fr": "homme"
     }
   },
@@ -66,6 +75,7 @@
     "pinyin": "ér",
     "name": {
       "en": "legs",
+      "es": "hijo, piernas",
       "fr": "enfant, jambes"
     }
   },
@@ -73,6 +83,7 @@
     "pinyin": "rù",
     "name": {
       "en": "enter",
+      "es": "entrar",
       "fr": "entrer"
     }
   },
@@ -80,6 +91,7 @@
     "pinyin": "bā",
     "name": {
       "en": "eight",
+      "es": "ocho",
       "fr": "huit, diviser"
     }
   },
@@ -87,6 +99,7 @@
     "pinyin": "jiǒng",
     "name": {
       "en": "down box",
+      "es": "caja hacia abajo", 
       "fr": "boîte retournée"
     }
   },
@@ -94,6 +107,7 @@
     "pinyin": "mì",    
     "name": {
       "en": "cover",
+      "es": "cubierta",
       "fr": "couverture"
     }
   },
@@ -101,6 +115,7 @@
     "pinyin": "bīng",
     "name": {
       "en": "ice",
+      "es": "hielo",
       "fr": "glace"
     }
   },
@@ -108,6 +123,7 @@
     "pinyin": "jǐ",
     "name": {
       "en": "table",
+      "es": "mesa",
       "fr": "table"
     }
   },
@@ -115,6 +131,7 @@
     "pinyin": "qǔ",
     "name": {
       "en": "open box",
+      "es": "caja abierta",
       "fr": "boîte, bouche ouverte"
     }
   },
@@ -122,6 +139,7 @@
     "pinyin": "dāo",
     "name": {
       "en": "knife",
+      "es": "cuchillo",
       "fr": "couteau"
     }
   },
@@ -129,6 +147,7 @@
     "pinyin": "lì",
     "name": {
       "en": "power",
+      "es": "energía",
       "fr": "force"
     }
   },
@@ -136,6 +155,7 @@
     "pinyin": "bāo",
     "name": {
       "en": "wrap",
+      "es": "envolver",
       "fr": "envelopper"
     }
   },
@@ -143,6 +163,7 @@
     "pinyin": "bǐ",
     "name": {
       "en": "ladle",
+      "es": "cuchara",
       "fr": "cuillère"
     }
   },
@@ -150,6 +171,7 @@
     "pinyin": "fāng",
     "name": {
       "en": "right open box",
+      "es": "caja abierta derecha",
       "fr": "boîte ouverte à droite"
     }
   },
@@ -157,6 +179,7 @@
     "pinyin": "xǐ",
     "name": {
       "en": "hiding enclosure",
+      "es": "cercado que esconde",
       "fr": "fermeture cachée"
     }
   },
@@ -164,6 +187,7 @@
     "pinyin": "shí",
     "name": {
       "en": "ten",
+      "es": "diez",
       "fr": "dix, complet"
     }
   },
@@ -171,6 +195,7 @@
     "pinyin": "bǔ",
     "name": {
       "en": "divination",
+      "es": "adivinación",
       "fr": "divination"
     }
   },
@@ -178,6 +203,7 @@
     "pinyin": "jié",
     "name": {
       "en": "seal",
+      "es": "sello",
       "fr": "sceau"
     }
   },
@@ -185,6 +211,7 @@
     "pinyin": "hàn",
     "name": {
       "en": "cliff",
+      "es": "acantilado",
       "fr": "falaise"
     }
   },
@@ -192,6 +219,7 @@
     "pinyin": "sī",
     "name": {
       "en": "private",
+      "es": "privado",
       "fr": "privé"
     }
   },
@@ -199,6 +227,7 @@
     "pinyin": "yòu",
     "name": {
       "en": "again",
+      "es": "mano derecha, de nuevo",
       "fr": "main droite, encore"
     }
   },
@@ -206,6 +235,7 @@
     "pinyin": "kǒu",
     "name": {
       "en": "mouth",
+      "es": "boca",
       "fr": "bouche"
     }
   },
@@ -213,6 +243,7 @@
     "pinyin": "wéi",
     "name": {
       "en": "enclosure",
+      "es": "cercado",
       "fr": "enclos"
     }
   },
@@ -220,6 +251,7 @@
     "pinyin": "tǔ",
     "name": {
       "en": "earth",
+      "es": "tierra",
       "fr": "terre"
     }
   },
@@ -227,6 +259,7 @@
     "pinyin": "shì",
     "name": {
       "en": "scholar",
+      "es": "erudito",
       "fr": "savant, lettré"
     }
   },	
@@ -234,6 +267,7 @@
     "pinyin": "zhī",
     "name": {
       "en": "go",
+      "es": "ir",
       "fr": "aller"
     }
   },
@@ -241,6 +275,7 @@
     "pinyin": "suī",
     "name": {
       "en": "go slowly",
+      "es": "ir despacio",
       "fr": "aller lentement"
     }
   },
@@ -248,6 +283,7 @@
     "pinyin": "xī",
     "name": {
       "en": "night",
+      "es": "noche",
       "fr": "soir"
     }
   },
@@ -255,6 +291,7 @@
     "pinyin": "dà",
     "name": {
       "en": "big",
+      "es": "grande",
       "fr": "grand, gros, très"
     }
   },
@@ -262,6 +299,7 @@
     "pinyin": "nǚ",
     "name": {
       "en": "woman",
+      "es": "mujer",
       "fr": "femme"
     }
   },
@@ -269,6 +307,7 @@
     "pinyin": "zǐ",
     "name": {
       "en": "child",
+      "es": "niño",
       "fr": "enfant, graine"
     }
   },
@@ -276,6 +315,7 @@
     "pinyin": "gài",
     "name": {
       "en": "roof",
+      "es": "techo",
       "fr": "toit"
     }
   },
@@ -283,6 +323,7 @@
     "pinyin": "cùn",
     "name": {
       "en": "inch",
+      "es": "pulgada",
       "fr": "pouce"
     }
   },
@@ -290,6 +331,7 @@
     "pinyin": "xiǎo",
     "name": {
       "en": "small",
+      "es": "pequeño",
       "fr": "petit"
     }
   },
@@ -297,13 +339,15 @@
     "pinyin": "yóu",
     "name": {
       "en": "lame",
-      "fr": "courbé"
+      "es": "tullido",
+      "fr": "boîteux"
     }
   },
   "尸": {
     "pinyin": "shī",
     "name": {
       "en": "corpse",
+      "es": "cadáver",
       "fr": "corps, cadavre"
     }
   },
@@ -311,6 +355,7 @@
     "pinyin": "chè",
     "name": {
       "en": "sprout",
+      "es": "brotar",
       "fr": "pousser"
     }
   },
@@ -318,6 +363,7 @@
     "pinyin": "shān",
     "name": {
       "en": "mountain",
+      "es": "montaña",
       "fr": "montagne"
     }
   },
@@ -325,6 +371,7 @@
     "pinyin": "chuān",
     "name": {
       "en": "river",
+      "es": "rio",
       "fr": "rivière"
     }
   },
@@ -332,6 +379,7 @@
     "pinyin": "gōng",
     "name": {
       "en": "work",
+      "es": "trabajo",
       "fr": "travail"
     }
   },
@@ -339,6 +387,7 @@
     "pinyin": "jǐ",
     "name": {
       "en": "oneself",
+      "es": "uno mismo",
       "fr": "soi-même"
     }
   },
@@ -346,6 +395,7 @@
     "pinyin": "jīn",
     "name": {
       "en": "towel",
+      "es": "turbante, bufanda",
       "fr": "turban, écharpe"
     }
   },
@@ -353,6 +403,7 @@
     "pinyin": "gān",
     "name": {
       "en": "dry",
+      "es": "secar",
       "fr": "sécher"
     }
   },	
@@ -360,6 +411,7 @@
     "pinyin": "yāo",
     "name": {
       "en": "thread",
+      "es": "hilo",
       "fr": "fil court"
     }
   },
@@ -367,6 +419,7 @@
     "pinyin": "guǎng",
     "name": {
       "en": "shelter",
+      "es": "casa sobre acantilado",
       "fr": "maison sur une falaise"
     }
   },
@@ -374,6 +427,7 @@
     "pinyin": "yǐn",
     "name": {
       "en": "stride",
+      "es": "zancada larga",
       "fr": "longue enjambée"
     }
   },
@@ -381,6 +435,7 @@
     "pinyin": "gǒng",
     "name": {
       "en": "hands joined, twenty",
+      "es": "manos unidas",
       "fr": "deux mains, vingt"
     }
   },
@@ -388,6 +443,7 @@
     "pinyin": "yì",
     "name": {
       "en": "shoot with a bow",
+      "es": "disparar",
       "fr": "tir"
     }
   },
@@ -395,6 +451,7 @@
     "pinyin": "gōng",
     "name": {
       "en": "bow",
+      "es": "arco",
       "fr": "arc"
     }
   },
@@ -402,6 +459,7 @@
     "pinyin": "jì",
     "name": {
       "en": "snout",
+      "es": "hocico",
       "fr": "groin"
     }
   },
@@ -409,6 +467,7 @@
     "pinyin": "shān",
     "name": {
       "en": "hair",
+      "es": "barba",
       "fr": "soies, poils"
     }
   },
@@ -416,6 +475,7 @@
     "pinyin": "chì",
     "name": {
       "en": "step",
+      "es": "paso",
       "fr": "pas"
     }
   },
@@ -423,6 +483,7 @@
     "pinyin": "xīn",
     "name": {
       "en": "heart",
+      "es": "corazón",
       "fr": "cœur"
     }
   },
@@ -430,6 +491,7 @@
     "pinyin": "gē",
     "name": {
       "en": "spear",
+      "es": "alabarda",
       "fr": "hallebarde"
     }
   },
@@ -437,6 +499,7 @@
     "pinyin": "hù",
     "name": {
       "en": "door, home",
+      "es": "puerta",
       "fr": "porte, maison"
     }
   },
@@ -444,6 +507,7 @@
     "pinyin": "shǒu",
     "name": {
       "en": "hand",
+      "es": "mano",
       "fr": "main"
     }
   },
@@ -451,6 +515,7 @@
     "pinyin": "zhī",
     "name": {
       "en": "branch",
+      "es": "rama",
       "fr": "branche"
     }
   },
@@ -458,6 +523,7 @@
     "pinyin": "pū",
     "name": {
       "en": "rap",
+      "es": "golpear",
       "fr": "frapper"
     }
   },
@@ -465,6 +531,7 @@
     "pinyin": "wén",
     "name": {
       "en": "script",
+      "es": "escritura",
       "fr": "écriture"
     }
   },
@@ -472,6 +539,7 @@
     "pinyin": "dǒu",
     "name": {
       "en": "dipper",
+      "es": "cucharón",
       "fr": "plongeur"
     }
   },
@@ -479,6 +547,7 @@
     "pinyin": "jīn",
     "name": {
       "en": "axe",
+      "es": "hacha",
       "fr": "hache"
     }
   },
@@ -486,6 +555,7 @@
     "pinyin": "fāng",
     "name": {
       "en": "square",
+      "es": "cuadrado",
       "fr": "carré"
     }
   },
@@ -493,6 +563,7 @@
     "pinyin": "wú",
     "name": {
       "en": "not",
+      "es": "no, nada, sin",
       "fr": "manque, ne pas"
     }
   },
@@ -500,6 +571,7 @@
     "pinyin": "rì",
     "name": {
       "en": "sun",
+      "es": "sol",
       "fr": "soleil"
     }
   },
@@ -507,6 +579,7 @@
     "pinyin": "yuē",
     "name": {
       "en": "say",
+      "es": "decir",
       "fr": "dire"
     }
   },
@@ -514,6 +587,7 @@
     "pinyin": "yuè",
     "name": {
       "en": "moon",
+      "es": "luna",
       "fr": "lune"
     }
   },
@@ -521,6 +595,7 @@
     "pinyin": "mù",
     "name": {
       "en": "tree",
+      "es": "árbol",
       "fr": "arbre"
     }
   },
@@ -528,6 +603,7 @@
     "pinyin": "qiàn",
     "name": {
       "en": "lack",
+      "es": "falta, bostezar",
       "fr": "bâillement"
     }
   },
@@ -535,6 +611,7 @@
     "pinyin": "zhǐ",
     "name": {
       "en": "stop",
+      "es": "detenerse",
       "fr": "arrêt"
     }
   },
@@ -542,6 +619,7 @@
     "pinyin": "dǎi",
     "name": {
       "en": "death",
+      "es": "muerte",
       "fr": "mort"
     }
   },
@@ -549,13 +627,15 @@
     "pinyin": "shū",
     "name": {
       "en": "weapon",
+      "es": "arma",
       "fr": "arme"
     }
   },
   "母": {
-    "pinyin": "毋",
+    "pinyin": "wú",
     "name": {
       "en": "mother",
+      "es": "no, madre",
       "fr": "ne pas faire, mère"
     }
   },
@@ -563,6 +643,7 @@
     "pinyin": "bǐ",
     "name": {
       "en": "compare",
+      "es": "comparar",
       "fr": "comparer"
     }
   },
@@ -570,6 +651,7 @@
     "pinyin": "máo",
     "name": {
       "en": "fur",
+      "es": "pelo",
       "fr": "poil"
     }
   },	
@@ -577,6 +659,7 @@
     "pinyin": "shì",
     "name": {
       "en": "clan",
+      "es": "clan",
       "fr": "clan"
     }
   },
@@ -584,6 +667,7 @@
     "pinyin": "qì",
     "name": {
       "en": "steam",
+      "es": "vapor",
       "fr": "vapeur, souffle"
     }
   },
@@ -591,6 +675,7 @@
     "pinyin": "shuǐ",
     "name": {
       "en": "water",
+      "es": "agua",
       "fr": "eau"
     }
   },
@@ -598,6 +683,7 @@
     "pinyin": "huǒ",
     "name": {
       "en": "fire",
+      "es": "fuego",
       "fr": "feu"
     }
   },
@@ -605,6 +691,7 @@
     "pinyin": "zhǎo",
     "name": {
       "en": "claw",
+      "es": "garra",
       "fr": "griffe"
     }
   },
@@ -612,13 +699,15 @@
     "pinyin": "fù",
     "name": {
       "en": "father",
+      "es": "padre",
       "fr": "père"
     }
   },
   "爻": {
     "pinyin": "yáo",
     "name": {
-      "en": "lines on a trigram",
+      "en": "lines on a trigram, double x",
+      "es": "línea de adivinación, doble x",
       "fr": "double croix"
     }
   },
@@ -626,6 +715,7 @@
     "pinyin": "qiáng",
     "name": {
       "en": "half of a tree trunk",
+      "es": "medio tronco",
       "fr": "bois fendu"
     }
   },
@@ -633,6 +723,7 @@
     "pinyin": "piàn",
     "name": {
       "en": "slice",
+      "es": "rebanada",
       "fr": "tranche"
     }
   },
@@ -640,6 +731,7 @@
     "pinyin": "yá",
     "name": {
       "en": "tooth",
+      "es": "diente",
       "fr": "croc"
     }
   },
@@ -647,6 +739,7 @@
     "pinyin": "niú",
     "name": {
       "en": "cow",
+      "es": "vaca",
       "fr": "vache"
     }
   },
@@ -654,6 +747,7 @@
     "pinyin": "quǎn",
     "name": {
       "en": "dog",
+      "es": "perro",
       "fr": "chien"
     }
   },
@@ -661,6 +755,7 @@
     "pinyin": "xuán",
     "name": {
       "en": "profound",
+      "es": "oscuro, profundo",
       "fr": "sombre, profond"
     }
   },
@@ -668,6 +763,7 @@
     "pinyin": "yù",
     "name": {
       "en": "jade",
+      "es": "jade",
       "fr": "jade"
     }
   },
@@ -675,6 +771,7 @@
     "pinyin": "guā",
     "name": {
       "en": "melon",
+      "es": "melón",
       "fr": "melon"
     }
   },
@@ -682,6 +779,7 @@
     "pinyin": "wǎ",
     "name": {
       "en": "tile",
+      "es": "baldosa",
       "fr": "tuile"
     }
   },
@@ -689,6 +787,7 @@
     "pinyin": "gān",
     "name": {
       "en": "sweet",
+      "es": "dulce",
       "fr": "doux"
     }
   },
@@ -696,6 +795,7 @@
     "pinyin": "shēng",
     "name": {
       "en": "life",
+      "es": "vida",
       "fr": "vie"
     }
   },	
@@ -703,6 +803,7 @@
     "pinyin": "yòng",
     "name": {
       "en": "use",
+      "es": "usar",
       "fr": "utiliser"
     }
   },
@@ -710,6 +811,7 @@
     "pinyin": "tián",
     "name": {
       "en": "field",
+      "es": "campo",
       "fr": "champ"
     }
   },
@@ -717,6 +819,7 @@
     "pinyin": "pǐ",
     "name": {
       "en": "cloth",
+      "es": "rollo de tela",
       "fr": "rouleau de tissu"
     }
   },
@@ -724,6 +827,7 @@
     "pinyin": "bìng",
     "name": {
       "en": "ill",
+      "es": "enfermedad",
       "fr": "maladie"
     }
   },
@@ -731,6 +835,7 @@
     "pinyin": "bō",
     "name": {
       "en": "foot steps",
+      "es": "piernas",
       "fr": "empreintes de pas"
     }
   },
@@ -738,6 +843,7 @@
     "pinyin": "bái",
     "name": {
       "en": "white",
+      "es": "blanco",
       "fr": "blanc"
     }
   },
@@ -745,6 +851,7 @@
     "pinyin": "pí",
     "name": {
       "en": "skin",
+      "es": "piel",
       "fr": "peau"
     }
   },
@@ -752,6 +859,7 @@
     "pinyin": "mǐn",
     "name": {
       "en": "dish",
+      "es": "plato",
       "fr": "plat"
     }
   },
@@ -759,6 +867,7 @@
     "pinyin": "mù",
     "name": {
       "en": "eye",
+      "es": "ojo",
       "fr": "œil"
     }
   },
@@ -766,6 +875,7 @@
     "pinyin": "máo",
     "name": {
       "en": "spear",
+      "es": "lanza",
       "fr": "lance"
     }
   },
@@ -773,6 +883,7 @@
     "pinyin": "shǐ",
     "name": {
       "en": "arrow",
+      "es": "flecha",
       "fr": "flèche"
     }
   },
@@ -780,6 +891,7 @@
     "pinyin": "shí",
     "name": {
       "en": "stone",
+      "es": "piedra",
       "fr": "pierre"
     }
   },
@@ -787,6 +899,7 @@
     "pinyin": "shì",
     "name": {
       "en": "spirit",
+      "es": "espíritu",
       "fr": "esprit"
     }
   },
@@ -794,6 +907,7 @@
     "pinyin": "róu",
     "name": {
       "en": "track",
+      "es": "pista",
       "fr": "piste"
     }
   },
@@ -801,6 +915,7 @@
     "pinyin": "hé",
     "name": {
       "en": "grain",
+      "es": "grano",
       "fr": "grain"
     }
   },
@@ -808,6 +923,7 @@
     "pinyin": "xuè",
     "name": {
       "en": "cave",
+      "es": "cueva",
       "fr": "grotte"
     }
   },
@@ -815,6 +931,7 @@
     "pinyin": "lì",
     "name": {
       "en": "stand",
+      "es": "estar de pie",
       "fr": "debout, ériger"
     }
   },
@@ -822,6 +939,7 @@
     "pinyin": "zhú",
     "name": {
       "en": "bamboo",
+      "es": "bambú",
       "fr": "bambou"
     }
   },
@@ -829,6 +947,7 @@
     "pinyin": "mǐ",
     "name": {
       "en": "rice",
+      "es": "arroz",
       "fr": "riz"
     }
   },
@@ -836,6 +955,7 @@
     "pinyin": "sī",
     "name": {
       "en": "silk",
+      "es": "seda",
       "fr": "soie"
     },
     "traditional": "糹"
@@ -844,6 +964,7 @@
     "pinyin": "fǒu",
     "name": {
       "en": "jar",
+      "es": "jarra",
       "fr": "jarre"
     }
   },
@@ -851,6 +972,7 @@
     "pinyin": "wǎng",
     "name": {
       "en": "net",
+      "es": "neto",
       "fr": "filet"
     }
   },
@@ -858,6 +980,7 @@
     "pinyin": "yáng",
     "name": {
       "en": "sheep",
+      "es": "oveja",
       "fr": "mouton"
     }
   },
@@ -865,6 +988,7 @@
     "pinyin": "yǔ",
     "name": {
       "en": "feather",
+      "es": "pluma",
       "fr": "plume"
     }
   },
@@ -872,6 +996,7 @@
     "pinyin": "lǎo",
     "name": {
       "en": "old",
+      "es": "viejo",
       "fr": "vieux"
     }
   },
@@ -879,6 +1004,7 @@
     "pinyin": "ér",
     "name": {
       "en": "and, beard",
+      "es": "y",
       "fr": "et, barbe"
     }
   },
@@ -886,6 +1012,7 @@
     "pinyin": "lěi",
     "name": {
       "en": "plow",
+      "es": "arado",
       "fr": "charrue"
     }
   },
@@ -893,6 +1020,7 @@
     "pinyin": "ěr",
     "name": {
       "en": "ear",
+      "es": "oreja",
       "fr": "oreille"
     }
   },
@@ -900,6 +1028,7 @@
     "pinyin": "yù",
     "name": {
       "en": "brush",
+      "es": "cepillo",
       "fr": "pinceau"
     }
   },
@@ -907,6 +1036,7 @@
     "pinyin": "ròu",
     "name": {
       "en": "meat",
+      "es": "carne",
       "fr": "viande"
     }
   },
@@ -914,6 +1044,7 @@
     "pinyin": "chén",
     "name": {
       "en": "minister",
+      "es": "ministro",
       "fr": "ministre"
     }
   },
@@ -921,6 +1052,7 @@
     "pinyin": "zì",
     "name": {
       "en": "oneself, nose",
+      "es": "uno mismo, nariz",
       "fr": "soi-même, nez"
     }
   },
@@ -928,6 +1060,7 @@
     "pinyin": "zhì",
     "name": {
       "en": "arrive",
+      "es": "llegar",
       "fr": "arriver"
     }
   },
@@ -935,6 +1068,7 @@
     "pinyin": "jiù",
     "name": {
       "en": "mortar",
+      "es": "mortero",
       "fr": "mortier"
     }
   },
@@ -942,6 +1076,7 @@
     "pinyin": "shé",
     "name": {
       "en": "tongue",
+      "es": "lengua",
       "fr": "langue (organe)"
     }
   },
@@ -949,6 +1084,7 @@
     "pinyin": "chuǎn",
     "name": {
       "en": "contrary",
+      "es": "opuesto",
       "fr": "opposé"
     }
   },
@@ -956,6 +1092,7 @@
     "pinyin": "zhōu",
     "name": {
       "en": "boat",
+      "es": "barco",
       "fr": "bateau"
     }
   },
@@ -963,6 +1100,7 @@
     "pinyin": "gèn",
     "name": {
       "en": "stopping",
+      "es": "parada",
       "fr": "arrêter"
     }
   },
@@ -970,6 +1108,7 @@
     "pinyin": "sè",
     "name": {
       "en": "color",
+      "es": "color",
       "fr": "couleur"
     }
   },
@@ -977,6 +1116,7 @@
     "pinyin": "cǎo",
     "name": {
       "en": "grass",
+      "es": "hierba",
       "fr": "herbe"
     }
   },
@@ -984,6 +1124,7 @@
     "pinyin": "hǔ",
     "name": {
       "en": "tiger",
+      "es": "tigre",
       "fr": "tigre"
     }
   },
@@ -991,6 +1132,7 @@
     "pinyin": "chóng",
     "name": {
       "en": "snake, insect",
+      "es": "serpiente, insecto",
       "fr": "serpent, insecte"
     }
   },	
@@ -998,6 +1140,7 @@
     "pinyin": "xuě",
     "name": {
       "en": "blood",
+      "es": "sangre",
       "fr": "sang"
     }
   },
@@ -1005,6 +1148,7 @@
     "pinyin": "xíng",
     "name": {
       "en": "walk, go, do",
+      "es": "ir, hacer",
       "fr": "marcher, aller, faire"
     }
   },
@@ -1012,6 +1156,7 @@
     "pinyin": "yī",
     "name": {
       "en": "clothes",
+      "es": "ropa",
       "fr": "vêtement"
     }
   },
@@ -1019,6 +1164,7 @@
     "pinyin": "xī",
     "name": {
       "en": "west",
+      "es": "oeste",
       "fr": "ouest"
     }
   },
@@ -1026,6 +1172,7 @@
     "pinyin": "jiàn",
     "name": {
       "en": "see",
+      "es": "ver",
       "fr": "voir"
     },
     "traditional": "見"
@@ -1034,6 +1181,7 @@
     "pinyin": "jiǎo",
     "name": {
       "en": "horn",
+      "es": "cuerno",
       "fr": "corne"
     }
   },
@@ -1041,6 +1189,7 @@
     "pinyin": "yán",
     "name": {
       "en": "speech",
+      "es": "discurso",
       "fr": "parole"
     },
     "traditional": "言"
@@ -1049,6 +1198,7 @@
     "pinyin": "gǔ",
     "name": {
       "en": "valley",
+      "es": "Valle",
       "fr": "vallée"
     }
   },
@@ -1056,6 +1206,7 @@
     "pinyin": "dòu",
     "name": {
       "en": "bean",
+      "es": "frijol",
       "fr": "haricot"
     }
   },
@@ -1063,6 +1214,7 @@
     "pinyin": "shǐ",
     "name": {
       "en": "pig",
+      "es": "cerdo",
       "fr": "porc"
     }
   },
@@ -1070,6 +1222,7 @@
     "pinyin": "zhì",
     "name": {
       "en": "cat, badger",
+      "es": "tejón",
       "fr": "chat, blaireau "
     }
   },
@@ -1077,6 +1230,7 @@
     "pinyin": "bèi",
     "name": {
       "en": "shell",
+      "es": "cáscara",
       "fr": "coquillage"
     },
     "traditional": "貝"
@@ -1085,6 +1239,7 @@
     "pinyin": "chì",
     "name": {
       "en": "red",
+      "es": "rojo",
       "fr": "rouge"
     }
   },
@@ -1092,6 +1247,7 @@
     "pinyin": "zǒu",
     "name": {
       "en": "walk, run",
+      "es": "correr",
       "fr": "marcher, courir"
     }
   },
@@ -1099,6 +1255,7 @@
     "pinyin": "zú",
     "name": {
       "en": "foot",
+      "es": "pie",
       "fr": "pied"
     }
   },
@@ -1106,6 +1263,7 @@
     "pinyin": "shēn",
     "name": {
       "en": "body",
+      "es": "cuerpo",
       "fr": "corps"
     }
   },
@@ -1113,6 +1271,7 @@
     "pinyin": "chē",
     "name": {
       "en": "cart",
+      "es": "carro",
       "fr": "charette"
     },
     "traditional": "車"
@@ -1121,6 +1280,7 @@
     "pinyin": "xīn",
     "name": {
       "en": "bitter",
+      "es": "amargo",
       "fr": "laborieux, amère"
     }
   },
@@ -1128,6 +1288,7 @@
     "pinyin": "chén",
     "name": {
       "en": "morning",
+      "es": "mañana",
       "fr": "matin"
     }
   },
@@ -1135,6 +1296,7 @@
     "pinyin": "chuò",
     "name": {
       "en": "walk",
+      "es": "caminar",
       "fr": "marche"
     }
   },
@@ -1142,6 +1304,7 @@
     "pinyin": "yì",
     "name": {
       "en": "city",
+      "es": "ciudad",
       "fr": "ville"
     }
   },
@@ -1149,6 +1312,7 @@
     "pinyin": "yǒu",
     "name": {
       "en": "wine",
+      "es": "vino",
       "fr": "vin, alcool"
     }
   },
@@ -1156,6 +1320,7 @@
     "pinyin": "biàn",
     "name": {
       "en": "distinguish",
+      "es": "distinguir",
       "fr": "distinguer"
     }
   },
@@ -1163,6 +1328,7 @@
     "pinyin": "lǐ",
     "name": {
       "en": "village",
+      "es": "pueblo",
       "fr": "village, voisinage"
     }
   },
@@ -1170,6 +1336,7 @@
     "pinyin": "jīn",
     "name": {
       "en": "metal",
+      "es": "oro",
       "fr": "métal, or"
     }
   },
@@ -1177,6 +1344,7 @@
     "pinyin": "cháng",
     "name": {
       "en": "long",
+      "es": "largo",
       "fr": "long"
     },
     "traditional": "長"
@@ -1185,6 +1353,7 @@
     "pinyin": "mén",
     "name": {
       "en": "gate",
+      "es": "puerta",
       "fr": "portail"
     },
     "traditional": "門"
@@ -1193,6 +1362,7 @@
     "pinyin": "fù",
     "name": {
       "en": "mound",
+      "es": "montículo",
       "fr": "butte"
     }
   },
@@ -1200,6 +1370,7 @@
     "pinyin": "lì",
     "name": {
       "en": "slave",
+      "es": "esclavo",
       "fr": "esclave"
     }
   },
@@ -1207,6 +1378,7 @@
     "pinyin": "zhuī",
     "name": {
       "en": "short-tailed bird",
+      "es": "pájaro de cola corta",
       "fr": "oiseau à queue courte"
     }
   },
@@ -1214,6 +1386,7 @@
     "pinyin": "yǔ",
     "name": {
       "en": "rain",
+      "es": "lluvia",
       "fr": "pluie"
     }
   },
@@ -1221,6 +1394,7 @@
     "pinyin": "qīng",
     "name": {
       "en": "green, blue",
+      "es": "verde, azul",
       "fr": "vert, bleu"
     }
   },
@@ -1228,6 +1402,7 @@
     "pinyin": "fēi",
     "name": {
       "en": "wrong",
+      "es": "mal",
       "fr": "faux"
     }
   },
@@ -1235,6 +1410,7 @@
     "pinyin": "miàn",
     "name": {
       "en": "face",
+      "es": "cara",
       "fr": "visage"
     }
   },
@@ -1242,6 +1418,7 @@
     "pinyin": "gé",
     "name": {
       "en": "leather",
+      "es": "cuero",
       "fr": "cuir"
     }
   },
@@ -1249,6 +1426,7 @@
     "pinyin": "wěi",
     "name": {
       "en": "soft leather",
+      "es": "cuero curtido",
       "fr": "cuir tanné"
     },
     "traditional": "韋"
@@ -1257,6 +1435,7 @@
     "pinyin": "jiǔ",
     "name": {
       "en": "leek",
+      "es": "puerro",
       "fr": "poireau"
     }
   },
@@ -1264,6 +1443,7 @@
     "pinyin": "yīn",
     "name": {
       "en": "sound",
+      "es": "sonido",
       "fr": "son"
     }
   },
@@ -1271,6 +1451,7 @@
     "pinyin": "yè",
     "name": {
       "en": "page",
+      "es": "hoja",
       "fr": "feuille"
     },
     "traditional": "頁"
@@ -1279,6 +1460,7 @@
     "pinyin": "fēng",
     "name": {
       "en": "wind",
+      "es": "viento",
       "fr": "vent"
     },
     "traditional": "風"
@@ -1287,6 +1469,7 @@
     "pinyin": "fēi",
     "name": {
       "en": "fly",
+      "es": "volar",
       "fr": "voler"
     },
     "traditional": "飛"
@@ -1295,6 +1478,7 @@
     "pinyin": "shí",
     "name": {
       "en": "eat",
+      "es": "comer",
       "fr": "manger"
     },
     "traditional": "飠"
@@ -1303,6 +1487,7 @@
     "pinyin": "shǒu",
     "name": {
       "en": "head",
+      "es": "cabeza",
       "fr": "tête"
     }
   },
@@ -1310,6 +1495,7 @@
     "pinyin": "xiāng",
     "name": {
       "en": "fragrant",
+      "es": "fragante",
       "fr": "parfumé"
     }
   },
@@ -1317,6 +1503,7 @@
     "pinyin": "mǎ",
     "name": {
       "en": "horse",
+      "es": "caballo",
       "fr": "cheval"
     },
     "traditional": "馬"
@@ -1325,6 +1512,7 @@
     "pinyin": "gǔ",
     "name": {
       "en": "bone",
+      "es": "hueso",
       "fr": "os"
     }
   },
@@ -1332,6 +1520,7 @@
     "pinyin": "gāo",
     "name": {
       "en": "high",
+      "es": "alto",
       "fr": "grand, haut"
     }
   },
@@ -1339,6 +1528,7 @@
     "pinyin": "biāo",
     "name": {
       "en": "long hair",
+      "es": "cabello",
       "fr": "longs cheveux"
     }
   },
@@ -1346,6 +1536,7 @@
     "pinyin": "dòu",
     "name": {
       "en": "fight",
+      "es": "lucha",
       "fr": "combat"
     }
   },
@@ -1353,6 +1544,7 @@
     "pinyin": "chàng",
     "name": {
       "en": "sacrificial wine",
+      "es": "vino sacrificial",
       "fr": "vin sacrificiel"
     }
   },
@@ -1360,6 +1552,7 @@
     "pinyin": "lì",
     "name": {
       "en": "cauldron",
+      "es": "caldero",
       "fr": "chaudron tripode"
     }
   },
@@ -1367,6 +1560,7 @@
     "pinyin": "guǐ",
     "name": {
       "en": "ghost",
+      "es": "fantasma",
       "fr": "fantôme"
     }
   },
@@ -1374,6 +1568,7 @@
     "pinyin": "yú",
     "name": {
       "en": "fish",
+      "es": "pescado",
       "fr": "poisson"
     },
     "traditional": "魚"
@@ -1382,6 +1577,7 @@
     "pinyin": "niǎo",
     "name": {
       "en": "bird",
+      "es": "pájaro",
       "fr": "oiseau"
     },
     "traditional": "鳥"
@@ -1390,6 +1586,7 @@
     "pinyin": "lǔ",
     "name": {
       "en": "salty",
+      "es": "sal",
       "fr": "sel"
     }
   },
@@ -1397,6 +1594,7 @@
     "pinyin": "lù",
     "name": {
       "en": "deer",
+      "es": "ciervo",
       "fr": "cervidé"
     }
   },
@@ -1404,6 +1602,7 @@
     "pinyin": "mài",
     "name": {
       "en": "wheat",
+      "es": "trigo",
       "fr": "froment"
     },
     "traditional": "麥"
@@ -1412,6 +1611,7 @@
     "pinyin": "má",
     "name": {
       "en": "hemp",
+      "es": "cáñamo, lino",
       "fr": "chanvre"
     }
   },
@@ -1419,6 +1619,7 @@
     "pinyin": "huáng",
     "name": {
       "en": "yellow",
+      "es": "amarillo",
       "fr": "jaune"
     }
   },
@@ -1426,6 +1627,7 @@
     "pinyin": "shǔ",
     "name": {
       "en": "millet",
+      "es": "mijo",
       "fr": "millet"
     }
   },
@@ -1433,6 +1635,7 @@
     "pinyin": "hēi",
     "name": {
       "en": "black",
+      "es": "negro",
       "fr": "noir"
     }
   },
@@ -1440,6 +1643,7 @@
     "pinyin": "zhǐ",
     "name": {
       "en": "embroidery",
+      "es": "bordado",
       "fr": "broderie"
     }
   },
@@ -1447,6 +1651,7 @@
     "pinyin": "mǐn",
     "name": {
       "en": "frog",
+      "es": "rana",
       "fr": "amphibien"
     },
     "traditional": "黽"
@@ -1455,6 +1660,7 @@
     "pinyin": "dǐng",
     "name": {
       "en": "tripod",
+      "es": "trípode",
       "fr": "tripode"
     }
   },
@@ -1462,6 +1668,7 @@
     "pinyin": "gǔ",
     "name": {
       "en": "drum",
+      "es": "tambor",
       "fr": "tambour"
     }
   },
@@ -1469,6 +1676,7 @@
     "pinyin": "shǔ",
     "name": {
       "en": "rat",
+      "es": "rata",
       "fr": "rat"
     }
   },
@@ -1476,6 +1684,7 @@
     "pinyin": "bí",
     "name": {
       "en": "nose",
+      "es": "nariz",
       "fr": "nez"
     }
   },
@@ -1483,6 +1692,7 @@
     "pinyin": "qí",
     "name": {
       "en": "even",
+      "es": "uniforme",
       "fr": "uniformément"
     },
     "traditional": "齊"
@@ -1491,6 +1701,7 @@
     "pinyin": "chǐ",
     "name": {
       "en": "tooth",
+      "es": "dientes",
       "fr": "dent"
     },
     "traditional": "齒"
@@ -1499,6 +1710,7 @@
     "pinyin": "lóng",
     "name": {
       "en": "dragon",
+      "es": "dragón",
       "fr": "dragon"
     },
     "traditional": "龍"
@@ -1507,6 +1719,7 @@
     "pinyin": "guī",
     "name": {
       "en": "turtle",
+      "es": "tortuga",
       "fr": "tortue"
     },
     "traditional": "龜"
@@ -1515,6 +1728,7 @@
     "pinyin": "yuè",
     "name": {
       "en": "flute",
+      "es": "flauta",
       "fr": "flute, pot de mesure"
     }
   }

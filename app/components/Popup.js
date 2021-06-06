@@ -7,7 +7,11 @@ import {
 } from 'react-native';
 
 import Settings from '../classes/Settings';
-import { __ } from '../data/text'
+import { getUniqID } from '../helpers/random'
+import { 
+  __, 
+  languages 
+} from '../data/text'
 
 export default class Popup extends Component {
   
@@ -34,13 +38,13 @@ export default class Popup extends Component {
       <View style={this.styles.popupBg}>
         <View style={this.styles.popup}>
 
-          <TouchableOpacity onPress={() => this.setLanguage('en')}>
-            <Text style={this.styles.popupText}>English</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => this.setLanguage('fr')}>
-            <Text style={this.styles.popupText}>Français</Text>
-          </TouchableOpacity>
+          { languages.map((language) =>(
+            <TouchableOpacity key={ getUniqID() } onPress={() => this.setLanguage(language.code)}>
+              <Text style={this.styles.popupText}>
+                { language.label }
+              </Text>
+            </TouchableOpacity>
+          )) }
           
           <Text 
             onPress={ this.props.close }

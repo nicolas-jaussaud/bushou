@@ -12,7 +12,9 @@ import Options from './app/pages/Options'
 import Custom from './app/pages/Custom'
 import Edit from './app/pages/Edit'
 
-// @see https://facebook.github.io/react-native/docs/navigation
+/**
+ * @see https://facebook.github.io/react-native/docs/navigation
+ */
 const MainNavigator = createStackNavigator({
     Loader: { screen: Loader },
     Home: { screen: Home },
