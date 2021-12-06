@@ -243,6 +243,11 @@ export const TEXT = {
     'en': 'Number of rounds',
     'es': 'Cantidad de rondas',
     'fr': 'Nombre de manche'
+  },
+  'custom_progress_beta': {
+    'en': 'Gives the possibility to create a personalized progression (currently in beta).',
+    'es': 'Tienes la posibilidad de crear una progresión personalizada (actualmente en beta).',
+    'fr': 'Donne la possibilité de créer une progression personnalisée (actuellement en beta).'
   }
 }
 
