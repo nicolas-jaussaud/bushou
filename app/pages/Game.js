@@ -10,6 +10,7 @@ import Card from '../components/Card'
 import Heart from '../components/Heart'
 import TimedCharacter from '../components/TimedCharacter'
 import ProgressBar from '../components/ProgressBar'
+import StoppedBar from '../components/StoppedBar'
 
 import Settings  from '../classes/Settings'
 import Module from '../classes/models/Module'
@@ -45,7 +46,8 @@ export default class Game extends Component {
       answer:       '',
       propositions: [],
       round:        0,
-      isData:       false
+      isData:       false,
+      timerStopped: false
     }
 
     // Avoid scope issue with methody
@@ -66,15 +68,16 @@ export default class Game extends Component {
 
     const answer = this.level.getRandomIndex()
 
-    this.setState({
-      answer:       answer,
-      lives:        this.module.get('lives'),
-      seconds:      this.module.getInitialSeconds(),
-      propositions: this.setAnswerPropositions(answer, 4),
-      rounds:       this.module.getRounds(),
-      isData:       true
-    })
-
+    this.module.beforeAnswer(answer, () =>
+      this.setState({
+        answer:       answer,
+        lives:        this.module.get('lives'),
+        seconds:      this.module.getInitialSeconds(),
+        propositions: this.setAnswerPropositions(answer, 4),
+        rounds:       this.module.getRounds(),
+        isData:       true,
+      })
+    )
     this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
   }
 
@@ -94,12 +97,15 @@ export default class Game extends Component {
     const answer = this.level.getRandomIndex()
     const propositions = this.setAnswerPropositions(answer)
 
-    this.setState({
-      answer:       answer,
-      propositions: propositions,
-      seconds:      this.module.getSecondPerRound(this.state.round + 1), 
-      round:        this.state.round + 1,
-    })
+    this.module.beforeAnswer(answer, () => 
+      this.setState({
+        answer:       answer,
+        timerStopped: false,
+        propositions: propositions,
+        seconds:      this.module.getSecondPerRound(this.state.round + 1), 
+        round:        this.state.round + 1,
+      })
+    )
   }
 
   win = async () => {
@@ -173,15 +179,28 @@ export default class Game extends Component {
       }
       
     }
+    
     return getShuffledArr(propositions)
   }
 
   /**
-   * CHeck if the answer is correct
+   * Check if the answer is correct
    */
   checkAnswer(isCorrect) {
-    isCorrect === false ? this.removeLife() : this.module.correctAnswer(this.state.answer)
-    this.newRound()
+    
+    if( isCorrect === false ) {
+      this.setState({'timerStopped': '#FF4646'})
+      this.removeLife()
+      this.newRound()
+    } 
+    else {
+      this.setState({'timerStopped': '#6EF487'})
+      this.module.correctAnswer(
+        this.state.answer,
+        this.newRound
+      )
+    }
+    
   }
 
   /**
@@ -189,8 +208,12 @@ export default class Game extends Component {
    */
   render() {
 
-    if(this.state.isData === false) return null;
-        
+    if(this.state.isData === false) {
+      return(
+        <View style={ this.styles.container }></View>
+      )
+    }  
+    
     // Display the card when we have the data
     const cards = this.state.propositions.length !== 0 ?
       this.state.propositions.map((item, i) => (
@@ -210,15 +233,28 @@ export default class Game extends Component {
       }
     }
 
-    const answer = this.state.answer ? 
-      <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
-        { this.module.getItemText(this.state.answer) }
-      </TimedCharacter> : null
+    const answer = this.state.answer && this.state.timerStopped === false 
+      ? 
+        <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
+          { this.module.getItemText(this.state.answer) }
+        </TimedCharacter> 
+      : (
+        this.state.timerStopped !== false
+        ? <Text style={[{ color: this.state.timerStopped, fontSize: 100 }]}>{ this.module.getItemText(this.state.answer) }</Text>
+        : null
+      )
 
-    const timer = this.state.answer ? 
-      <ProgressBar key={ getUniqID() } seconds={ this.state.seconds } handle={ this.checkAnswer }/> : null
 
-    return (
+    const timer = this.state.answer && this.state.timerStopped === false 
+        ? 
+          <ProgressBar key={ getUniqID() } seconds={ this.state.seconds } handle={ this.checkAnswer }/> 
+        : ( 
+          this.state.timerStopped !== false 
+            ? <StoppedBar color={ this.state.timerStopped }></StoppedBar> 
+            : null
+        )
+
+    return(
       <View style={ this.styles.container }>
         <View style={ this.styles.header }>
           <View style={ this.styles.round }>

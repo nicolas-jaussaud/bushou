@@ -178,9 +178,10 @@ export default class Module {
   /**
    * Appropriate sound when it's the correct answer
    */
-  correctAnswer = answer => {
-    this.get('answerItems') !== 'audio' && Settings.data.isAudio !== 'no' ? 
-    this.speak(answer) : ''
+  correctAnswer = (answer, callback) => {
+    this.get('targetItem') !== 'audio' && Settings.data.isAudio !== 'no'
+      ? this.speak(answer, callback)      
+      : callback()
   }
 
   getCardText = item => {
@@ -214,9 +215,7 @@ export default class Module {
     
     switch(this.get('targetItem')) {
 
-      case 'audio':
-        this.speak(item)
-        return '?';
+      case 'audio': return '?';
       case 'characters': return this.getCharacter(item)
       case 'pinyin': return data[ item ].pinyin
       
@@ -229,16 +228,26 @@ export default class Module {
     }
   }
 
+  beforeAnswer = (item, callback) => {
+    
+    if( this.get('targetItem') !== 'audio' ) {
+      callback()
+      return;
+    } 
+
+    this.speak(item, callback)
+  }
+  
   /**
    * There is some radicals which has a different name than the pronunciation, the speak
    * function will not prononce it has we want if we use the character so we we use pinyin
    * 
    * However we can't use this everywhere because speak dosen't support tones with pinyin (unfortunalty)
    */
-  speak(item) {
+  speak(item, callback) {
 
     if(this.get('data') === 'hsk1' ) {
-      speak(item)
+      speak(item, callback)
       return;
     }
 
@@ -249,8 +258,8 @@ export default class Module {
       '亅'
     ]
 
-    exceptions.includes(item)
-      ? speak( this.getData()[ item ].pinyin )
-      : speak(item)
+    return exceptions.includes(item)
+      ? speak(this.getData()[ item ].pinyin, callback)
+      : speak(item, callback)
   }
 }
