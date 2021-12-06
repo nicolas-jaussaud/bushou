@@ -165,10 +165,8 @@ export default class Home extends Component {
               primary={Settings.data.colors.primary}
             >
               <Text style={[this.styles.text, this.styles.betaText]}>
-                { Settings.data.language !== 'fr'
-                  ? 'Gives the possibility to create a personalized progression (currently in beta).'
-                  : 'Donne la possibilité de créer une progression personnalisée (actuellement en beta).' }
-                </Text>
+                { __('custom_progress_beta') }
+              </Text>
               { this.isCustomModules() ?
                 <>           
                   { Object.keys(this.state.modules.custom).map((key) => {
