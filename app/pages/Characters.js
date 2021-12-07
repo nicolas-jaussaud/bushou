@@ -11,7 +11,6 @@ import Settings from '../classes/Settings'
 import Module from '../classes/models/Module'
 import Level from '../classes/models/Level'
 
-import { speak } from '../helpers/voice'
 import { getUniqID } from '../helpers/random'
 
 // Static data
