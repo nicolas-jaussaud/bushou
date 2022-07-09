@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { 
   StyleSheet, 
   Text, 
-  View ,
-  Vibration
+  View,
+  Vibration,
+  StatusBar
 } from 'react-native'
 
 import Card from '../components/Card'
@@ -282,10 +283,11 @@ const getStyles = () => (StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: 40,
-    top: 40,
+    top: StatusBar.currentHeight ?? 40,
     left: 0,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   round: {
     height: 40,

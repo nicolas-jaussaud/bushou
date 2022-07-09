@@ -29,7 +29,7 @@ export default class Loader extends Component {
   }
 
   init = async() => {
-    const settings = await this.settings.init()
+    await this.settings.init()
     const {navigate} = this.props.navigation;
     navigate('Home')
   }

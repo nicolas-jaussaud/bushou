@@ -4,7 +4,8 @@ import {
   Text, 
   View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  StatusBar
 } from 'react-native';
 
 import Settings from '../classes/Settings'

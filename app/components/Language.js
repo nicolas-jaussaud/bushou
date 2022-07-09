@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { 
   StyleSheet,
   TouchableOpacity,
-  Image
+  Image,
+  StatusBar
 } from 'react-native';
 
 import { Asset } from 'expo-asset';
@@ -48,15 +49,17 @@ export default class DarkMode extends Component {
 }
 
 const styles = StyleSheet.create({
-  'image': {
+  image: {
     width: 30,
     marginLeft: 10,
     marginRight: 10,
     marginTop: 0,
     height: 30,
+    marginTop: (StatusBar.currentHeight ?? 0) - 25,
   },
-  'button': {
+  button: {
     flex: 1,
+    marginTop: (StatusBar.currentHeight ?? 0) - 25,
     justifyContent: 'center',
   }
 })
