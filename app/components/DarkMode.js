@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { 
   StyleSheet,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from 'react-native';
 
 import AppLoading from 'expo-app-loading'
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
+    marginTop: StatusBar.currentHeight ?? 0,
     height: 30,
   }
 })
