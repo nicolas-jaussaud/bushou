@@ -1,4 +1,6 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import 'expo-asset'
+import { AppRegistry } from 'react-native'
 
-AppRegistry.registerComponent('main',() => App);
+import App from './App'
+
+AppRegistry.registerComponent('main', () => App)
