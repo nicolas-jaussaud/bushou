@@ -9,7 +9,7 @@ import {
 import Settings from '../classes/Settings';
 import DarkMode from '../components/DarkMode'
 import Language from '../components/Language'
-import Popup from '../components/Popup'
+import Popup    from '../components/Popup'
 
 import { getModule } from '../helpers/modules'
 import { __ } from '../data/text'
@@ -17,7 +17,7 @@ import { __ } from '../data/text'
 // Dependencies
 import Carousel from 'react-native-snap-carousel';
 
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window')
+const { width: viewportWidth } = Dimensions.get('window')
 
 export default class Levels extends Component {
 
@@ -69,12 +69,17 @@ export default class Levels extends Component {
    */
   getTitle() {
 
-    if(!this.module) return '';
-    if(!this.module.isStatic) return this.module.getTitle();
+    if( ! this.module ) return '';
 
-    return this.module.get('data') === 'hsk1'
-      ? 'HSK 1 - ' + this.module.getTitle()
-      : __('radicals') + ' - ' + this.module.getTitle()
+    if( ! this.module.isStatic ) {
+      return this.module.getTitle()
+    }
+
+    switch(this.module.get('data')) {
+      case 'radicals':  return __('radicals') + ' - ' + this.module.getTitle()
+      case 'hsk1':      return 'HSK 1 - ' + this.module.getTitle()
+      case 'hsk2':      return 'HSK 2 - ' + this.module.getTitle()
+    }
   }
 
   /**

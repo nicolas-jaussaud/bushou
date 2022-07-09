@@ -111,7 +111,7 @@ export default class Custom extends Component {
   isValid = () => {
 
     if( this.state.name === '') return false
-    if( !['radicals', 'hsk1'].includes(this.state.data) ) return false
+    if( !['radicals', 'hsk1', 'hsk2'].includes(this.state.data) ) return false
 
     if( parseInt(this.state.newItems) === 0 ) return false
 
@@ -260,6 +260,7 @@ export default class Custom extends Component {
                 onValueChange={(value) => this.setState({data: value})}>
                   <Picker.Item label={ __('radicals') } value='radicals' />
                   <Picker.Item label='HSK 1' value='hsk1' />
+                  <Picker.Item label='HSK 2' value='hsk2' />
               </Picker>
             </FieldContainer>
             

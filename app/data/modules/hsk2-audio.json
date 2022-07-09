@@ -1,0 +1,13 @@
+{
+  "answerItems": "characters",
+  "data": "hsk2",
+  "isAcceleration": "yes",
+  "isUnlimited": "yes",
+  "lives": 3,
+  "maxItems": 0,
+  "name": "audio",
+  "newItems": 5,
+  "roundNumber": "100",
+  "targetItem": "audio",
+  "timeBycharacters": 3
+}

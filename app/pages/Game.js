@@ -204,6 +204,46 @@ export default class Game extends Component {
     
   }
 
+  getFormatedText(timed = true) {
+
+    let text = this.module.getItemText(this.state.answer)
+
+    /**
+     * Remove prononciation text from string if any, and display it below
+     */
+    const pronociationString = text.includes('(') && text.includes(')')
+      ? text.split('(').pop().split(')')[0]
+      : false
+
+    text = text.replace(/\(.*?\)/, '')
+    
+    if( this.state.timerStopped === false && timed === false ) {
+      return null
+    }
+
+    return(
+      <View style={ this.styles.prononciationContainer }>
+        { pronociationString !== false && 
+          <View>
+            <Text style={ timed 
+              ? this.styles.prononciation 
+              : [ this.styles.prononciation, { color: this.state.timerStopped } ] 
+            }>
+              { pronociationString }
+            </Text>
+          </View> 
+        }
+        { timed 
+          ? <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
+              { text }
+            </TimedCharacter>
+          : <Text style={[{ color: this.state.timerStopped, fontSize: 100 }]}>
+              { text }
+            </Text> }
+      </View>
+    )
+  }
+
   /**
    * Renders the page
    */
@@ -234,17 +274,9 @@ export default class Game extends Component {
       }
     }
 
-    const answer = this.state.answer && this.state.timerStopped === false 
-      ? 
-        <TimedCharacter key={ getUniqID() } seconds={this.state.seconds}>
-          { this.module.getItemText(this.state.answer) }
-        </TimedCharacter> 
-      : (
-        this.state.timerStopped !== false
-        ? <Text style={[{ color: this.state.timerStopped, fontSize: 100 }]}>{ this.module.getItemText(this.state.answer) }</Text>
-        : null
-      )
-
+    const answer = this.getFormatedText(
+      this.state.answer && this.state.timerStopped === false 
+    )
 
     const timer = this.state.answer && this.state.timerStopped === false 
         ? 
@@ -288,6 +320,22 @@ const getStyles = () => (StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  prononciation: {
+    fontSize: 30,
+    width: '100%',
+    color: Settings.data.colors.primary
+  },
+  prononciationSuccess: {
+    fontSize: 30,
+    width: '100%',
+    color: Settings.data.colors.primary
+  },
+  prononciationContainer: {
+    justifyContent: 'center',
+    position: 'absolute',
+    alignItems: 'center',
+    width: '100%'
   },
   round: {
     height: 40,
