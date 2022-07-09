@@ -1,0 +1,13 @@
+{
+  "answerItems": "pinyin",
+  "data": "hsk2",
+  "isAcceleration": "yes",
+  "isUnlimited": "yes",
+  "lives": 3,
+  "maxItems": 0,
+  "name": "pinyin",
+  "newItems": 5,
+  "roundNumber": "100",
+  "targetItem": "characters",
+  "timeBycharacters": 3
+}

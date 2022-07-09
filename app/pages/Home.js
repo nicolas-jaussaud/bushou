@@ -4,8 +4,7 @@ import {
   Text, 
   View,
   TouchableOpacity,
-  ScrollView,
-  StatusBar
+  ScrollView
 } from 'react-native';
 
 import Settings from '../classes/Settings'
@@ -73,6 +72,14 @@ export default class Home extends Component {
     this.setState({refresh: 0})
   }
 
+  getLabel(category) {
+    switch(category) {
+      case 'radicals':  return __('radicals') 
+      case 'hsk1':      return __('hsk') + ' 1'
+      case 'hsk2':      return __('hsk') + ' 2'
+    }
+  }
+
   /**
    * Renders the page
    */
@@ -110,7 +117,7 @@ export default class Home extends Component {
           <View style={this.styles.buttonContainer}>
 
           { this.isModules() ?
-            Object.keys(this.state.modules.static).map((category) => {
+            Object.keys(this.state.modules.static).map(category => {
               
               const modules = this.state.modules.static[category]
               const moduleKeys = Object.keys(this.state.modules.static[category])
@@ -118,7 +125,7 @@ export default class Home extends Component {
               return(
                 <Accordion 
                   key={ getUniqID() }
-                  label={ category === 'radicals' ? __('radicals') : __('hsk') + ' 1' } 
+                  label={ this.getLabel(category) } 
                   isOpen={ this.state.accordionOpen === category } 
                   handler={ (part) => this.setState({accordionOpen: part}) }
                   part={ category }
@@ -170,7 +177,7 @@ export default class Home extends Component {
               </Text>
               { this.isCustomModules() ?
                 <>           
-                  { Object.keys(this.state.modules.custom).map((key) => {
+                  { Object.keys(this.state.modules.custom).map(key => {
                     
                     const module = this.state.modules.custom[key]
 

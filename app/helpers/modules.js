@@ -15,6 +15,11 @@ const staticModules = {
     'hsk1',
     'hsk1-pinyin',
     'hsk1-audio',
+  ],
+  hsk2: [
+    'hsk2',
+    'hsk2-pinyin',
+    'hsk2-audio',
   ]
 }
 

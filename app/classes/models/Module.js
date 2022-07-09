@@ -1,21 +1,29 @@
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
+
+import { Logs } from 'expo'
 
 import Settings from '../Settings'
 import Level from './Level'
 import { __ } from '../../data/text'
 import { speak } from '../../helpers/voice';
 
-import HskData from '../../data/hsk1'
+import Hsk1 from '../../data/hsk1'
+import Hsk2 from '../../data/hsk2'
 import RadicalsData from '../../data/radicals'
 
 import StaticRadicals from '../../data/modules/radicals'
 import StaticRadicalsPinyin from '../../data/modules/radicals-pinyin'
 import StaticRadicalsAudio from '../../data/modules/radicals-audio'
 
-import StaticHsk from '../../data/modules/hsk1'
-import StaticHskPinyin from '../../data/modules/hsk1-pinyin'
-import StaticHskAudio from '../../data/modules/hsk1-audio'
+import StaticHsk1 from '../../data/modules/hsk1'
+import StaticHsk1Pinyin from '../../data/modules/hsk1-pinyin'
+import StaticHsk1Audio from '../../data/modules/hsk1-audio'
+
+import StaticHsk2 from '../../data/modules/hsk2'
+import StaticHsk2Pinyin from '../../data/modules/hsk2-pinyin'
+import StaticHsk2Audio from '../../data/modules/hsk2-audio'
+
+Logs.enableExpoCliLogging()
 
 export default class Module {
   
@@ -36,6 +44,9 @@ export default class Module {
       'hsk1',
       'hsk1-pinyin',
       'hsk1-audio',
+      'hsk2',
+      'hsk2-pinyin',
+      'hsk2-audio'
     ]
 
     this.isStatic = this.staticModules.includes(key) ? true : false
@@ -97,22 +108,33 @@ export default class Module {
   }
 
   getJSON() {
-
     switch(this.key) {
-      case 'radicals': return StaticRadicals;
+      
+      case 'radicals':        return StaticRadicals;
       case 'radicals-pinyin': return StaticRadicalsPinyin
-      case 'radicals-audio': return StaticRadicalsAudio
-      case 'hsk1': return StaticHsk
-      case 'hsk1-pinyin': return StaticHskPinyin
-      case 'hsk1-audio': return StaticHskAudio
+      case 'radicals-audio':  return StaticRadicalsAudio
+
+      case 'hsk1':            return StaticHsk1
+      case 'hsk1-pinyin':     return StaticHsk1Pinyin
+      case 'hsk1-audio':      return StaticHsk1Audio
+
+      case 'hsk2':            return StaticHsk2
+      case 'hsk2-pinyin':     return StaticHsk2Pinyin
+      case 'hsk2-audio':      return StaticHsk2Audio
     }
   }
 
   /**
    * Get data of the whole module and cache the result
    */
-  getData = () => (this.get('data') === 'hsk1' ? HskData : RadicalsData)
-
+  getData = () => {
+    switch(this.get('data')) {
+      case 'radicals':  return RadicalsData
+      case 'hsk1':      return Hsk1
+      case 'hsk2':      return Hsk2
+    }
+  }
+    
   /**
    * Calculate the number of levels according to the module settings
    */
@@ -152,8 +174,15 @@ export default class Module {
   getNewItems = () => (this.get('newItems') ? parseInt( this.get('newItems') ) : false)
   getTotal = () => (Math.ceil( this.getCharacterNumber() / parseInt(this.get('newItems') )))
   getLevelNumber = () => (Math.ceil( this.getCharacterNumber() / this.getNewItems() ))
-  getCharacterNumber = () => (this.get('data') === 'radicals' ? 214 : 156)
   
+  getCharacterNumber = () => {
+    switch(this.get('data')) {
+       case 'radicals': return 214
+       case 'hsk1':     return 158
+       case 'hsk2':     return 150
+    }
+  }
+
   getRounds = () => (this.get('roundNumber') ? parseInt(this.get('roundNumber')) : 100)
   
   async getProgress(forceReload = false) {
@@ -192,7 +221,7 @@ export default class Module {
       case 'pinyin': return item.data.pinyin
       
       case 'translation': 
-        return this.get('data') === 'hsk1' 
+        return this.get('data') !== 'radicals' 
           ? item.data.translations[ Settings.data.language ]
           : item.data.name[ Settings.data.language ]
       
@@ -220,7 +249,7 @@ export default class Module {
       case 'pinyin': return data[ item ].pinyin
       
       case 'translation': 
-        return this.get('data') === 'hsk1' 
+        return this.get('data') !== 'radicals' 
           ? data[ item ].translations[ Settings.data.language ]
           : data[ item ].name[ Settings.data.language ]
       
@@ -246,7 +275,7 @@ export default class Module {
    */
   speak(item, callback) {
 
-    if(this.get('data') === 'hsk1' ) {
+    if(this.get('data') !== 'radicals' ) {
       speak(item, callback)
       return;
     }

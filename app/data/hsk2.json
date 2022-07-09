@@ -1,0 +1,1263 @@
+{
+  "吧":{
+      "translations":{
+          "en": "indicating suggestion",
+          "es": "partícula interrogativa",
+          "fr": "particule interrogative"
+      },
+      "pinyin": "ba"
+  },
+  "白":{
+      "translations":{
+          "en": "white, bright, pure",
+          "es": "blanco, claro, puro",
+          "fr": "blanc, clair, pure"
+      },
+      "pinyin": "bái"
+  },
+  "百":{
+      "translations":{
+          "en": "hundred, 100",
+          "es": "cien, 100",
+          "fr": "cent, 100"
+      },
+      "pinyin": "bǎi"
+  },
+  "帮助":{
+      "translations":{
+          "en": "help, assistance",
+          "es": "ayuda, asistencia",
+          "fr": "aide, assistance"
+      },
+      "pinyin": "bāng zhù",
+      "traditional": "幫助"
+  },
+  "报纸":{
+      "translations":{
+          "en": "newspaper",
+          "es": "periódico",
+          "fr": "journal"
+      },
+      "pinyin": "bào zhǐ",
+      "traditional": "報紙"
+  },
+  "比":{
+      "translations":{
+          "en": "than, used for comparison",
+          "es": "comparar, utilizado para comparaciones",
+          "fr": "comparer, par rapport à"
+      },
+      "pinyin": "bǐ"
+  },
+  "别":{
+      "translations":{
+          "en": "to leave, other, don't",
+          "es": "partícula negativa, salir, otra",
+          "fr": "ne pas, partir, autre"
+      },
+      "pinyin": "bié",
+      "traditional": "別"
+  },
+  "长 (cháng)":{
+      "translations":{
+          "en": "length, long",
+          "es": "longitud, largo",
+          "fr": "longueur, long"
+      },
+      "pinyin": "cháng",
+      "traditional": "長"
+  },
+  "长 (zhǎng)":{
+      "translations":{
+          "en": "chief, elder, to grow",
+          "es": "jefe, de mayor edad, crecer",
+          "fr": "chef, ainé, grandir"
+      },
+      "pinyin": "zhǎng",
+      "traditional": "長"
+  },
+  "唱歌":{
+      "translations":{
+          "en": "to sing",
+          "es": "cantar",
+          "fr": "chanter"
+      },
+      "pinyin": "chàng gē"
+  },
+  "出":{
+      "translations":{
+          "en": "to go out, to happen",
+          "es": "ir, salir",
+          "fr": "sortir"
+      },
+      "pinyin": "chū"
+  },
+  "穿":{
+      "translations":{
+          "en": "to wear, to put on, to dress",
+          "es": "llevar puesto, vestirse",
+          "fr": "porter, mettre des habits"
+      },
+      "pinyin": "chuān"
+  },
+  "次":{
+      "translations":{
+          "en": "number of times, order",
+          "es": "numero de veces, orden",
+          "fr": "nombre de fois, ordre"
+      },
+      "pinyin": "cì"
+  },
+  "从":{
+      "translations":{
+          "en": "from, since",
+          "es": "a partir de, desde",
+          "fr": "(à partir) de, depuis"
+      },
+      "pinyin": "cóng",
+      "traditional": "從"
+  },
+  "错":{
+      "translations":{
+          "en": "mistake, error, wrong",
+          "es": "error, falta",
+          "fr": "faux, erreur"
+      },
+      "pinyin": "cuò",
+      "traditional": "錯"
+  },
+  "大家":{
+      "translations":{
+          "en": "everybody, all",
+          "es": "todos",
+          "fr": "tout le monde, tous"
+      },
+      "pinyin": "dà jiā"
+  },
+  "打篮球":{
+      "translations":{
+          "en": "to play basketball",
+          "es": "jugar al baloncesto",
+          "fr": "jouer au basketball"
+      },
+      "pinyin": "dǎ lán qiú",
+      "traditional": "打籃球"
+  },
+  "但是":{
+      "translations":{
+          "en": "but, however",
+          "es": "pero, sin embargo",
+          "fr": "mais, cependant"
+      },
+      "pinyin": "dàn shì"
+  },
+  "到":{
+      "translations":{
+          "en": "to arrive, to reach, to, until",
+          "es": "llegar, alcanzar, hasta",
+          "fr": "arriver, atteindre, jusqu'à"
+      },
+      "pinyin": "dào"
+  },
+  "得 (de)":{
+      "translations":{
+          "en": "particle indicating effect, degree, possibility",
+          "es": "partícula para expresar posibilidad o capacidad",
+          "fr": "particule pour indiquer un résultat, une possibilité"
+      },
+      "pinyin": "de"
+  },
+  "得 (dé)":{
+      "translations":{
+          "en": "to obtain, to get, to gain",
+          "es": "obtener, conseguir",
+          "fr": "acquérir, gagner"
+      },
+      "pinyin": "dé"
+  },
+  "得 (děi)":{
+      "translations":{
+          "en": "to have to, to must, to need to",
+          "es": "necesitar, tener que, haber que",
+          "fr": "devoir, falloir, nécessiter"
+      },
+      "pinyin": "děi"
+  },
+  "等":{
+      "translations":{
+          "en": "to wait, rank, equal to",
+          "es": "esperar, grado, igual",
+          "fr": "attendre, échelon, être égal à"
+      },
+      "pinyin": "děng"
+  },
+  "弟弟":{
+      "translations":{
+          "en": "younger brother",
+          "es": "hermano menor",
+          "fr": "petit frère"
+      },
+      "pinyin": "dì di"
+  },
+  "第一":{
+      "translations":{
+          "en": "first, number one",
+          "es": "primero, número uno",
+          "fr": "premier, numéro 1"
+      },
+      "pinyin": "dì yī"
+  },
+  "懂":{
+      "translations":{
+          "en": "to understand, to know",
+          "es": "entender, saber",
+          "fr": "comprendre, savoir"
+      },
+      "pinyin": "dǒng"
+  },
+  "对":{
+      "translations":{
+          "en": "right, correct, pair",
+          "es": "correcto, par",
+          "fr": "correct, juste, paire"
+      },
+      "pinyin": "duì",
+      "traditional": "對"
+  },
+  "房间":{
+      "translations":{
+          "en": "room",
+          "es": "habitación, cuarto",
+          "fr": "chambre, salle, pièce"
+      },
+      "pinyin": "fáng jiān",
+      "traditional": "房間"
+  },
+  "非常":{
+      "translations":{
+          "en": "very, extraordinary",
+          "es": "muy, extraordinario",
+          "fr": "très, extraordinaire"
+      },
+      "pinyin": "fēi cháng"
+  },
+  "服务员":{
+      "translations":{
+          "en": "waiter, waitress",
+          "es": "camarero, camarera",
+          "fr": "serveur, serveuse"
+      },
+      "pinyin": "fú wù yuán",
+      "traditional": "服務員"
+  },
+  "高":{
+      "translations":{
+          "en": "high, tall",
+          "es": "alto",
+          "fr": "haut, grand"
+      },
+      "pinyin": "gāo"
+  },
+  "告诉":{
+      "translations":{
+          "en": "to tell, to inform",
+          "es": "decir, informar",
+          "fr": "dire, informer"
+      },
+      "pinyin": "gào sù",
+      "traditional": "告訴"
+  },
+  "哥哥":{
+      "translations":{
+          "en": "older brother",
+          "es": "hermano mayor",
+          "fr": "grand frère"
+      },
+      "pinyin": "gēge"
+  },
+  "给":{
+      "translations":{
+          "en": "to, for, to give",
+          "es": "para, dar, ofrecer",
+          "fr": "pour, donner, offrir"
+      },
+      "pinyin": "gěi",
+      "traditional": "給"
+  },
+  "公共汽车":{
+      "translations":{
+          "en": "bus",
+          "es": "autobús",
+          "fr": "autobus, bus"
+      },
+      "pinyin": "gōng gòng qì chē",
+      "traditional": "公共汽車"
+  },
+  "公司":{
+      "translations":{
+          "en": "company",
+          "es": "compañía, empresa",
+          "fr": "compagnie, entreprise"
+      },
+      "pinyin": "gōng sī"
+  },
+  "贵":{
+      "translations":{
+          "en": "expensive, costly",
+          "es": "caro, costoso",
+          "fr": "précieux, cher"
+      },
+      "pinyin": "guì",
+      "traditional": "貴"
+  },
+  "过":{
+      "translations":{
+          "en": "to cross, to pass time",
+          "es": "cruzar, pasar tiempo",
+          "fr": "traverser, passer du temps"
+      },
+      "pinyin": "guò",
+      "traditional": "過"
+  },
+  "还 (hái)":{
+      "translations":{
+          "en": "still, also, else, in addition",
+          "es": "todavía, aún, además",
+          "fr": "encore, de plus, également"
+      },
+      "pinyin": "hái",
+      "traditional": "還"
+  },
+  "还 (huán)":{
+      "translations":{
+          "en": "to pay back, to return",
+          "es": "restituir, devolver",
+          "fr": "retourner, rendre, rembourser"
+      },
+      "pinyin": "huán",
+      "traditional": "還"
+  },
+  "孩子":{
+      "translations":{
+          "en": "child",
+          "es": "niño, hijo",
+          "fr": "enfant"
+      },
+      "pinyin": "hái zi"
+  },
+  "号":{
+      "translations":{
+          "en": "number, day of month",
+          "es": "número, día",
+          "fr": "numéro, jour du mois"
+      },
+      "pinyin": "hào",
+      "traditional": "號"
+  },
+  "好吃":{
+      "translations":{
+          "en": "tasty, delicious",
+          "es": "rica, buena (comida)",
+          "fr": "bon (nourriture)"
+      },
+      "pinyin": "hǎo chī"
+  },
+  "黑":{
+      "translations":{
+          "en": "black, dark",
+          "es": "negro, oscuro",
+          "fr": "noir, sombre"
+      },
+      "pinyin": "hēi"
+  },
+  "红":{
+      "translations":{
+          "en": "red, popular, dividend",
+          "es": "rojo, exitoso, dividendo",
+          "fr": "rouge, succès, dividende"
+      },
+      "pinyin": "hóng",
+      "traditional": "紅"
+  },
+  "机场":{
+      "translations":{
+          "en": "airport",
+          "es": "aeropuerto",
+          "fr": "aéroport"
+      },
+      "pinyin": "jī chǎng",
+      "traditional": "機場"
+  },
+  "鸡蛋":{
+      "translations":{
+          "en": "chicken egg",
+          "es": "huevo de gallina",
+          "fr": "œuf de poule"
+      },
+      "pinyin": "jī dàn",
+      "traditional": "雞蛋"
+  },
+  "件":{
+      "translations":{
+          "en": "component, item, classifier",
+          "es": "pieza, artículo, clasificador",
+          "fr": "pièce, document, classificateur"
+      },
+      "pinyin": "jiàn"
+  },
+  "教室":{
+      "translations":{
+          "en": "classroom",
+          "es": "clase, aula",
+          "fr": "salle de classe"
+      },
+      "pinyin": "jiào shì"
+  },
+  "姐姐":{
+      "translations":{
+          "en": "older sister",
+          "es": "hermana mayor",
+          "fr": "grande sœur"
+      },
+      "pinyin": "jiě jie"
+  },
+  "介绍":{
+      "translations":{
+          "en": "to introduce, to recommend",
+          "es": "presentar, introducir, recomendar",
+          "fr": "présenter, introduire, recommander"
+      },
+      "pinyin": "jiè shào",
+      "traditional": "介紹"
+  },
+  "进":{
+      "translations":{
+          "en": "to advance, to enter",
+          "es": "avanzar, entrar",
+          "fr": "avancer, entrer"
+      },
+      "pinyin": "jìn",
+      "traditional": "進"
+  },
+  "近":{
+      "translations":{
+          "en": "near, close",
+          "es": "cerca",
+          "fr": "proche, près de"
+      },
+      "pinyin": "jìn"
+  },
+  "就":{
+      "translations":{
+          "en": "only, already, as soon as, right away",
+          "es": "entonces, según, ya, en cuanto",
+          "fr": "déjà, aussitôt, alors"
+      },
+      "pinyin": "jiù"
+  },
+  "觉得":{
+      "translations":{
+          "en": "to think, to feel",
+          "es": "parecer, sentirse, pensar",
+          "fr": "ressentir, penser"
+      },
+      "pinyin": "jué de",
+      "traditional": "覺得"
+  },
+  "咖啡":{
+      "translations":{
+          "en": "coffee",
+          "es": "café",
+          "fr": "café"
+      },
+      "pinyin": "kā fēi"
+  },
+  "开始":{
+      "translations":{
+          "en": "beginning, to begin",
+          "es": "empezar, comenzar, comienzo",
+          "fr": "début, commencer"
+      },
+      "pinyin": "kāi shǐ",
+      "traditional": "開始"
+  },
+  "考试":{
+      "translations":{
+          "en": "exam, test",
+          "es": "examen, prueba, test",
+          "fr": "examen, épreuve"
+      },
+      "pinyin": "kǎo shì",
+      "traditional": "考試"
+  },
+  "课":{
+      "translations":{
+          "en": "class, lesson, course",
+          "es": "lección, clase",
+          "fr": "leçon, cours"
+      },
+      "pinyin": "kè",
+      "traditional": "課"
+  },
+  "可能":{
+      "translations":{
+          "en": "might, maybe, possible",
+          "es": "posible, probable",
+          "fr": "peut-être, possible, probable"
+      },
+      "pinyin": "kě néng"
+  },
+  "可以":{
+      "translations":{
+          "en": "can, may, able to",
+          "es": "poder, ser posible, capaz de",
+          "fr": "être capable de, pouvoir, être possible"
+      },
+      "pinyin": "kě yǐ"
+  },
+  "快":{
+      "translations":{
+          "en": "quick, rapid, soon",
+          "es": "rápido, veloz",
+          "fr": "rapide, vite"
+      },
+      "pinyin": "kuài"
+  },
+  "快乐":{
+      "translations":{
+          "en": "happy, merry",
+          "es": "feliz, alegre, jubiloso",
+          "fr": "joyeux, gai, heureux"
+      },
+      "pinyin": "kuài lè",
+      "traditional": "快樂"
+  },
+  "累 (lèi)":{
+      "translations":{
+          "en": "tired, weary",
+          "es": "cansado, fatigado",
+          "fr": "fatigué, épuisé"
+      },
+      "pinyin": "lèi"
+  },
+  "累 (lěi)":{
+      "translations":{
+          "en": "to accumulate, continuous, repeated",
+          "es": "acumular, continuo, repetido",
+          "fr": "accumuler, continu, souvent"
+      },
+      "pinyin": "lěi"
+  },
+  "离":{
+      "translations":{
+          "en": "to leave, to be away from, to part from",
+          "es": "separarse, salir, a distancia de",
+          "fr": "quitter, se séparer, distant de"
+      },
+      "pinyin": "lí",
+      "traditional": "離"
+  },
+  "两":{
+      "translations":{
+          "en": "two, some, a few",
+          "es": "dos, pocos, unos",
+          "fr": "deux, quelques"
+      },
+      "pinyin": "liǎng",
+      "traditional": "兩"
+  },
+  "路":{
+      "translations":{
+          "en": "road, path, route",
+          "es": "camino, ruta, vía",
+          "fr": "chemin, route, trajet"
+      },
+      "pinyin": "lù"
+  },
+  "旅游":{
+      "translations":{
+          "en": "trip, journey, travel",
+          "es": "viajar, viaje, turismo",
+          "fr": "voyager, voyage, tourisme"
+      },
+      "pinyin": "lǚ yóu",
+      "traditional": "旅遊"
+  },
+  "卖":{
+      "translations":{
+          "en": "to sell",
+          "es": "vender",
+          "fr": "vendre"
+      },
+      "pinyin": "mài",
+      "traditional": "賣"
+  },
+  "慢":{
+      "translations":{
+          "en": "slow",
+          "es": "lento",
+          "fr": "lent, lentement"
+      },
+      "pinyin": "màn"
+  },
+  "忙":{
+      "translations":{
+          "en": "busy, to rush",
+          "es": "ocupado, atareado, apresurar",
+          "fr": "occupé, se presser"
+      },
+      "pinyin": "máng"
+  },
+  "每":{
+      "translations":{
+          "en": "each, every",
+          "es": "cada, todos",
+          "fr": "chaque, chacun, tous"
+      },
+      "pinyin": "měi"
+  },
+  "妹妹":{
+      "translations":{
+          "en": "younger sister",
+          "es": "hermana menor",
+          "fr": "petite sœur"
+      },
+      "pinyin": "mèi mei"
+  },
+  "门":{
+      "translations":{
+          "en": "gate, door",
+          "es": "puerta, entrada",
+          "fr": "porte, entrée"
+      },
+      "pinyin": "mén",
+      "traditional": "門"
+  },
+  "男":{
+      "translations":{
+          "en": "man, male",
+          "es": "hombre",
+          "fr": "homme, masculin"
+      },
+      "pinyin": "nán"
+  },
+  "您":{
+      "translations":{
+          "en": "you (singular, polite)",
+          "es": "usted",
+          "fr": "vous (singulier, respectueux)"
+      },
+      "pinyin": "nín"
+  },
+  "牛奶":{
+      "translations":{
+          "en": "cow milk",
+          "es": "leche de vaca",
+          "fr": "lait de vache"
+      },
+      "pinyin": "niú nǎi"
+  },
+  "女":{
+      "translations":{
+          "en": "women, female ",
+          "es": "mujer",
+          "fr": "femme, féminin"
+      },
+      "pinyin": "nǚ"
+  },
+  "旁边":{
+      "translations":{
+          "en": "lateral, side, beside",
+          "es": "lado, costado, borde",
+          "fr": "latéral, côté, à côté, tout près"
+      },
+      "pinyin": "páng biān",
+      "traditional": "旁邊"
+  },
+  "跑步":{
+      "translations":{
+          "en": "to run, to jog",
+          "es": "correr",
+          "fr": "courir, faire du jogging"
+      },
+      "pinyin": "pǎo bù"
+  },
+  "便宜":{
+      "translations":{
+          "en": "cheap, inexpensive",
+          "es": "barato",
+          "fr": "bon marché, pas cher"
+      },
+      "pinyin": "pián yi"
+  },
+  "票":{
+      "translations":{
+          "en": "ticket, ballot, banknote",
+          "es": "billete, entrada, pasaje",
+          "fr": "ticket, billet, bulletin de vote"
+      },
+      "pinyin": "piào"
+  },
+  "起床":{
+      "translations":{
+          "en": "to get up from bed",
+          "es": "levantarse de la cama",
+          "fr": "se réveiller, sortir du lit"
+      },
+      "pinyin": "qǐ chuáng"
+  },
+  "妻子":{
+      "translations":{
+          "en": "wife",
+          "es": "esposa",
+          "fr": "femme, épouse"
+      },
+      "pinyin": "qī zi"
+  },
+  "千":{
+      "translations":{
+          "en": "thousand, 1000",
+          "es": "mil, 1000",
+          "fr": "mille, 1000"
+      },
+      "pinyin": "qiān"
+  },
+  "晴":{
+      "translations":{
+          "en": "clear, sunny",
+          "es": "despejado, claro, sereno",
+          "fr": "beau temps, clair"
+      },
+      "pinyin": "qíng"
+  },
+  "去年":{
+      "translations":{
+          "en": "last year",
+          "es": "año pasado",
+          "fr": "année dernière"
+      },
+      "pinyin": "qù nián"
+  },
+  "让":{
+      "translations":{
+          "en": "to permit, to let sb do sth",
+          "es": "ceder, dejar, permitir",
+          "fr": "céder, autoriser, permettre"
+      },
+      "pinyin": "ràng",
+      "traditional": "讓"
+  },
+  "上班":{
+      "translations":{
+          "en": "to go to work, to start working",
+          "es": "ir al trabajo",
+          "fr": "aller au travail"
+      },
+      "pinyin": "shàng bān"
+  },
+  "身体":{
+      "translations":{
+          "en": "body, health",
+          "es": "cuerpo, salud",
+          "fr": "corps, santé"
+      },
+      "pinyin": "shēn tǐ",
+      "traditional": "身體"
+  },
+  "生病":{
+      "translations":{
+          "en": "to fall ill",
+          "es": "caer enfermo",
+          "fr": "tomber malade"
+      },
+      "pinyin": "shēng bìng"
+  },
+  "生日":{
+      "translations":{
+          "en": "birthday",
+          "es": "cumpleaños",
+          "fr": "anniversaire"
+      },
+      "pinyin": "shēng rì"
+  },
+  "时间":{
+      "translations":{
+          "en": "time, period",
+          "es": "tiempo",
+          "fr": "temps, durée, période"
+      },
+      "pinyin": "shí jiān",
+      "traditional": "時間"
+  },
+  "事情":{
+      "translations":{
+          "en": "thing, affair, matter",
+          "es": "cosa, asunto, cuestión",
+          "fr": "affaire, chose, besogne"
+      },
+      "pinyin": "shì qíng"
+  },
+  "手表":{
+      "translations":{
+          "en": "wristwatch",
+          "es": "reloj de pulsera",
+          "fr": "montre"
+      },
+      "pinyin": "shǒu biǎo",
+      "traditional": "手錶"
+  },
+  "手机":{
+      "translations":{
+          "en": "cellphone, mobile",
+          "es": "teléfono móvil",
+          "fr": "téléphone portable"
+      },
+      "pinyin": "shǒu jī",
+      "traditional": "手機"
+  },
+  "送":{
+      "translations":{
+          "en": "to deliver, to give, to send",
+          "es": "enviar, mandar, regalar",
+          "fr": "envoyer, livrer, offrir"
+      },
+      "pinyin": "sòng"
+  },
+  "所以":{
+      "translations":{
+          "en": "therefore, so, as a result",
+          "es": "por eso, porqué, por consiguiente",
+          "fr": "par conséquent, c'est pourquoi, ainsi"
+      },
+      "pinyin": "suǒ yǐ"
+  },
+  "它":{
+      "translations":{
+          "en": "it",
+          "es": "él, ello, lo, la (objeto)",
+          "fr": "il, elle, lui (objet)"
+      },
+      "pinyin": "tā"
+  },
+  "题":{
+      "translations":{
+          "en": "topic, problem, to inscribe",
+          "es": "tema, problema, inscribir",
+          "fr": "sujet, inscrire, question"
+      },
+      "pinyin": "tí",
+      "traditional": "題"
+  },
+  "踢足球":{
+      "translations":{
+          "en": "play football",
+          "es": "jugar al fútbol",
+          "fr": "jouer au football"
+      },
+      "pinyin": "tī zú qiú"
+  },
+  "跳舞":{
+      "translations":{
+          "en": "to dance",
+          "es": "bailar",
+          "fr": "danser"
+      },
+      "pinyin": "tiào wǔ"
+  },
+  "外":{
+      "translations":{
+          "en": "foreign, external, outside",
+          "es": "exterior, afuera, otro",
+          "fr": "extérieur, étranger"
+      },
+      "pinyin": "wài"
+  },
+  "完":{
+      "translations":{
+          "en": "to finish, to be over, complete",
+          "es": "terminar, acabar, completo",
+          "fr": "terminer, finir, complet"
+      },
+      "pinyin": "wán"
+  },
+  "玩":{
+      "translations":{
+          "en": "to play, to have fun",
+          "es": "jugar, divertirse",
+          "fr": "jouer, s'amuser"
+      },
+      "pinyin": "wán"
+  },
+  "晚上":{
+      "translations":{
+          "en": "evening, night",
+          "es": "noche, por la noche",
+          "fr": "nuit, soir"
+      },
+      "pinyin": "wǎn shang"
+  },
+  "为什么":{
+      "translations":{
+          "en": "why",
+          "es": "qué",
+          "fr": "pourquoi"
+      },
+      "pinyin": "wèi shén me",
+      "traditional": "為什麼"
+  },
+  "问":{
+      "translations":{
+          "en": "to ask, to inquire",
+          "es": "preguntar, interrogar",
+          "fr": "demander, questionner"
+      },
+      "pinyin": "wèn",
+      "traditional": "問"
+  },
+  "问题":{
+    "translations":{
+        "en": "problem, question",
+        "es": "cuestión, problema",
+        "fr": "question, problème"
+    },
+    "pinyin": "wèn tí",
+    "traditional": "問題"
+  },
+  "洗":{
+    "translations":{
+        "en": "to wash",
+        "es": "lavar, limpiar",
+        "fr": "laver, nettoyer"
+    },
+    "pinyin": "xǐ"
+  },
+  "西瓜":{
+    "translations":{
+        "en": "watermelon",
+        "es": "sandía",
+        "fr": "pastèque"
+    },
+    "pinyin": "xī guā"
+  },
+  "希望":{
+    "translations":{
+        "en": "hope, to hope, to wish",
+        "es": "esperar, desear, esperanza",
+        "fr": "espérer, désirer, espoir"
+    },
+    "pinyin": "xī wàng"
+  },
+  "笑":{
+    "translations":{
+        "en": "to smile, to laugh",
+        "es": "reír, sonreír",
+        "fr": "rire, sourire"
+    },
+    "pinyin": "xiào",
+    "traditional": "咲"
+  },
+  "小时":{
+    "translations":{
+        "en": "hour",
+        "es": "hora",
+        "fr": "heure"
+    },
+    "pinyin": "xiǎo shí",
+    "traditional": "小時"
+  },
+  "新":{
+    "translations":{
+        "en": "new",
+        "es": "nuevo",
+        "fr": "nouveau, neuf"
+    },
+    "pinyin": "xīn"
+  },
+  "姓":{
+    "translations":{
+        "en": "family name",
+        "es": "apellido",
+        "fr": "nom de famille"
+    },
+    "pinyin": "xìng"
+  },
+  "休息":{
+    "translations":{
+        "en": "to rest",
+        "es": "descansar",
+        "fr": "se reposer"
+    },
+    "pinyin": "xiū xi"
+  },
+  "雪":{
+    "translations":{
+        "en": "snow",
+        "es": "nieve",
+        "fr": "neige"
+    },
+    "pinyin": "xuě"
+  },
+  "眼睛":{
+    "translations":{
+        "en": "eye",
+        "es": "ojos",
+        "fr": "œil, yeux"
+    },
+    "pinyin": "yǎn jing"
+  },
+  "颜色":{
+    "translations":{
+        "en": "color, appearance",
+        "es": "color, aspecto",
+        "fr": "couleur, apparence"
+    },
+    "pinyin": "yán sè",
+    "traditional": "顏色"
+  },
+  "羊肉":{
+    "translations":{
+        "en": "lamb, mutton",
+        "es": "carne de carnero",
+        "fr": "viande d'agneau"
+    },
+    "pinyin": "yáng ròu"
+  },
+  "药":{
+    "translations":{
+        "en": "medicine, drug, to poison",
+        "es": "medicina, envenenar",
+        "fr": "médicament, empoisonner"
+    },
+    "pinyin": "yào",
+    "traditional": "藥"
+  },
+  "要 (yào)":{
+    "translations":{
+        "en": "important, to want, to ask for",
+        "es": "importante, querer, pedir",
+        "fr": "important, vouloir, demander"
+    },
+    "pinyin": "yào"
+  },
+"要 (yāo)":{
+    "translations":{
+        "en": "to demand, to request",
+        "es": "pedir, exigir",
+        "fr": "demander, exiger"
+    },
+    "pinyin": "yāo"
+  },
+  "也":{
+    "translations":{
+        "en": "also, too",
+        "es": "también, tampoco",
+        "fr": "aussi, également"
+    },
+    "pinyin": "yě"
+  },
+  "已经":{
+    "translations":{
+        "en": "already",
+        "es": "ya",
+        "fr": "déjà"
+    },
+    "pinyin": "yǐ jīng",
+    "traditional": "已經"
+  },
+  "一起":{
+    "translations":{
+        "en": "together, with",
+        "es": "juntos con, en compaña",
+        "fr": "ensemble, avec"
+    },
+    "pinyin": "yì qǐ"
+  },
+  "意思":{
+    "translations":{
+        "en": "meaning, opinion, idea",
+        "es": "significado, sentido, idea",
+        "fr": "sens, opinion, signification"
+    },
+    "pinyin": "yì si"
+  },
+  "阴":{
+    "translations":{
+        "en": "cloudy, overcast, shady",
+        "es": "nublado, sombra, encapotado",
+        "fr": "ombre, nuageux, sombre"
+    },
+    "pinyin": "yīn",
+    "traditional": "陰"
+  },
+  "因为":{
+    "translations":{
+        "en": "because",
+        "es": "como, porque, a causa de",
+        "fr": "car, parce que, à cause de"
+    },
+    "pinyin": "yīn wèi",
+    "traditional": "因為"
+  },
+  "右边":{
+    "translations":{
+        "en": "right, right side",
+        "es": "derecha, a la derecha",
+        "fr": "droite, côté droit"
+    },
+    "pinyin": "yòu bian",
+    "traditional": "右邊"
+  },
+  "游泳":{
+    "translations":{
+        "en": "swimming, to swim",
+        "es": "natación, nadar",
+        "fr": "natation, nager"
+    },
+    "pinyin": "yóu yǒng"
+  },
+  "鱼":{
+    "translations":{
+        "en": "fish",
+        "es": "pez, pescado",
+        "fr": "poisson"
+    },
+    "pinyin": "yú",
+    "traditional": "魚"
+  },
+  "远":{
+    "translations":{
+        "en": "far, distant, remote",
+        "es": "lejos, distante, remoto",
+        "fr": "éloigné, loin"
+    },
+    "pinyin": "yuǎn",
+    "traditional": "遠"
+  },
+  "运动":{
+    "translations":{
+        "en": "sports, movement, to move",
+        "es": "deporte, ejercicio, moción",
+        "fr": "sport, mouvement, bouger"
+    },
+    "pinyin": "yùn dòng",
+    "traditional": "運動"
+  },
+  "再":{
+    "translations":{
+        "en": "again, once more, then",
+        "es": "otra vez, de nuevo, después",
+        "fr": "de nouveau, encore, puis"
+    },
+    "pinyin": "zài"
+  },
+  "早上":{
+    "translations":{
+        "en": "morning",
+        "es": "por la mañana",
+        "fr": "matin, matinée"
+    },
+    "pinyin": "zǎo shang"
+  },
+  "丈夫":{
+    "translations":{
+        "en": "husband",
+        "es": "marido, esposo",
+        "fr": "mari, époux"
+    },
+    "pinyin": "zhàng fu"
+  },
+  "找":{
+    "translations":{
+        "en": "to look for, to seek",
+        "es": "buscar, ir por",
+        "fr": "chercher, rechercher"
+    },
+    "pinyin": "zhǎo"
+  },
+  "着 (zháo)":{
+    "translations":{
+        "en": "to touch, contact, to burn",
+        "es": "tocar, sentir, arder",
+        "fr": "toucher, atteindre, bruler"
+    },
+    "pinyin": "zháo",
+    "traditional": "著"
+  },
+  "着 (zhe)":{
+    "translations":{
+        "en": "indicating action in progress",
+        "es": "indica una acción en curso",
+        "fr": "indique le déroulement d'une action"
+    },
+    "pinyin": "zhe",
+    "traditional": "著"
+  },
+  "着 (zhuó)":{
+    "translations":{
+        "en": "to wear clothes",
+        "es": "vestirse",
+        "fr": "porter des vêtements"
+    },
+    "pinyin": "zhuó",
+    "traditional": "著"
+  },
+  "真":{
+    "translations":{
+        "en": "real, true, genuine",
+        "es": "verdadero, auténtico, de veras",
+        "fr": "vraiment, vrai, véritable"
+    },
+    "pinyin": "zhēn"
+  },
+  "正在":{
+    "translations":{
+        "en": "in the middle of doing something",
+        "es": "en curso de",
+        "fr": "en train de "
+    },
+    "pinyin": "zhèng zài"
+  },
+  "知道":{
+    "translations":{
+        "en": "to know",
+        "es": "saber, conocer",
+        "fr": "savoir"
+    },
+    "pinyin": "zhī dào"
+  },
+  "准备":{
+    "translations":{
+        "en": "to prepare, to be about to",
+        "es": "preparar, planear",
+        "fr": "préparer, s'apprêter à"
+    },
+    "pinyin": "zhǔn bèi",
+    "traditional": "準備"
+  },
+  "走":{
+    "translations":{
+        "en": "to walk, to leave, to visit",
+        "es": "caminar, andar, visitar",
+        "fr": "marcher, partir, visiter"
+    },
+    "pinyin": "zǒu"
+  },
+  "最":{
+    "translations":{
+        "en": "most, the most",
+        "es": "el más, el mejor",
+        "fr": "le plus"
+    },
+    "pinyin": "zuì",
+    "traditional": "㝡"
+  },
+  "左边":{
+    "translations":{
+        "en": "left, left side",
+        "es": "izquierda, a la izquierda",
+        "fr": "gauche, côté gauche"
+    },
+    "pinyin": "zuǒ bian",
+    "traditional": "左邊"
+  }
+}

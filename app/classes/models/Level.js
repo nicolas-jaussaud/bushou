@@ -1,8 +1,6 @@
 import Settings from '../Settings'
 import { __ } from '../../data/text'
-import { Logs } from 'expo'
 
-Logs.enableExpoCliLogging()
 export default class Level {
 
   constructor(number, module) {
