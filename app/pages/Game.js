@@ -152,17 +152,18 @@ export default class Game extends Component {
   setAnswerPropositions(answer, number = 4) {
 
     // First we add the right answer to the proposition
-    const propositions = []
-    propositions.push({
-      'isCorrect': true,
-      'translation': this.getName(answer),
-      'data': { ...this.data[answer], 'character': answer},
-    })
+    const propositions = [
+      {
+        'isCorrect': true,
+        'translation': this.getName(answer),
+        'data': { ...this.data[answer], 'character': answer},
+      }
+    ]
     
     // Then we set the wrong answer
     for (let i = 0; i < number - 1; i++) {
       
-      const data = getRandomProperty(this.data, answer)
+      const data = getRandomProperty(this.data, propositions)
       
       // Bad temporary way to handle this case
       if(data === false) {
