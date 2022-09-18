@@ -1,15 +1,50 @@
-export const getRandomProperty = (obj, answer = false) => {
+export const getRandomProperty = (obj, excludes = []) => {
   
-  let keys = Object.keys(obj)
+  const keys = Object.keys(obj)
 
-  // If we need to make an excepetion for one answer
-  if(answer !== false) keys.splice(keys.indexOf(answer), 1)
-  
+  // Avoid duplicate propositions
+  for( let i = 0; i < excludes.length; i++ ) {
+    
+    if( ! excludes[i] ) continue
+    if( ! excludes[i].data ) continue
+    if( ! excludes[i].data.character ) continue
+
+    keys.splice(keys.indexOf(excludes[i].data.character), 1)        
+  } 
+
   // Can happen if only one item in the level
-  if(keys.length === 0) return false;
+  if( keys.length === 0 ) return false;
+
+  const excludedPinyins = excludes.map(item => {
+
+    if( ! item ) return ''
+    if( ! item.data ) return ''
+    if( ! item.data.pinyin ) return ''
+
+    return item.data.pinyin
+  })
+
+  let isValidIndex, index = false
+
+  // To avoid confusion, we don't use pinyin that are too similar
+  while( ! isValidIndex ) {
+
+    isValidIndex = true
+    index = keys.length * Math.random() << 0
+
+    const currentPinyin = obj[keys[index]].pinyin
+
+    excludedPinyins.map(pinyin => {
+
+      if( pinyin.length !== currentPinyin.length ) return
+      if( Array.from(pinyin)[0] !== Array.from(currentPinyin)[0] ) return
+
+      isValidIndex = false
+    })
+
+  }
   
-  let index = keys.length * Math.random() << 0
-  let response = obj[keys[index]]
+  const response = obj[keys[index]]
 
   // Add the caracter (the key in the object) in the response
   response.character = keys[index]
