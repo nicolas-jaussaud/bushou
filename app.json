@@ -2,7 +2,7 @@
   "name": "Bushou",
   "displayName": "Bùshŏu",
   "expo": {
-    "sdkVersion": "45.0.0",
+    "sdkVersion": "49.0.0",
     "assetBundlePatterns": [
       "./app/assets/img/*"
     ],
