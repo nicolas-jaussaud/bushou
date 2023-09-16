@@ -1,64 +1,70 @@
-import React, { Component } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback 
+} from 'react'
+
 import { 
   StyleSheet,
   Image,
   View
-} from 'react-native';
+} from 'react-native'
 
-import AppLoading from 'expo-app-loading'
-import { Asset } from 'expo-asset';
+import * as SplashScreen from 'expo-splash-screen'
+import { Asset } from 'expo-asset'
 
 import Settings from '../classes/Settings'
 
-export default class Heart extends Component {
-  
-  /**
-   * Constructs a new instance.
-   */
-  constructor(props) {
-    super(props)
-    this.state = { isReady: false };
-  }
+/**
+ * We need to wait for assets to be loaded before attempting to use them
+ * @see https://docs.expo.dev/versions/latest/sdk/splash-screen/
+ */
+SplashScreen.preventAutoHideAsync()
+
+const Heart = () => {
+
+  const [ready, isReady] = useState(false)
+
+  useEffect(() => {
+    (async () => {
+      try {
+        return Settings.data.theme === 'dark'
+          ? Asset.loadAsync( [require('../assets/img/heart-white.png') ])
+          : Asset.loadAsync([ require('../assets/img/heart.png') ])
+      } catch (e) {
+        console.warn(e)
+      } finally {
+        isReady(true)
+      }
+    })()
+  }, [])
 
   /**
-   * @see https://stackoverflow.com/a/51821784/10491705
+   * Avoid getting stuck on initial splash-screen
+   * @see https://docs.expo.dev/versions/latest/sdk/splash-screen/#usage
    */
-  async _cacheResourcesAsync() {
-    // Can't use variable into require
-    if( Settings.data.theme === 'dark' ) {
-      return Asset.loadAsync([require('../assets/img/heart-white.png')]);
-    }
-    return Asset.loadAsync([require('../assets/img/heart.png')]);
-  }
+  const onLayoutRootView = useCallback(async () => {
+    if( ready ) await SplashScreen.hideAsync()
+  }, [ready])
 
-  /**
-   * Renders the page
-   */
-  render() {
-    if(!this.state.isReady) {
-      return(
-        <AppLoading
-          startAsync={() => this._cacheResourcesAsync()}
-          onFinish={() => this.setState({ isReady: true })}
-          onError={console.warn}
-        />
-      )
-    }
+  if( ready === false ) return null;
 
-    return(
-      <View>
-        <Image
-          style={styles.image}
-          source={Settings.data.theme === 'dark' ? require('../assets/img/heart-white.png') : require('../assets/img/heart.png')}
-        />
-      </View>
-    )
-   }
-
+  return(
+    <View onLayout={ onLayoutRootView }>
+      <Image
+        style={ styles.image }
+        source={
+          Settings.data.theme === 'dark' 
+            ? require('../assets/img/heart-white.png') 
+            : require('../assets/img/heart.png')
+        }
+      />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  'image': {
+  image: {
     width: 30,
     paddingLeft: 10,
     paddingRight: 10,
@@ -66,3 +72,5 @@ const styles = StyleSheet.create({
     height: 30
   }
 })
+
+export default Heart
