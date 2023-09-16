@@ -1,68 +1,77 @@
-import React, { Component } from 'react';
+import React, { 
+  useState,
+  useEffect,
+  useCallback
+} from 'react'
+
 import { 
   StyleSheet,
   Image,
   TouchableOpacity,
   StatusBar
-} from 'react-native';
+} from 'react-native'
 
-import AppLoading from 'expo-app-loading'
+import * as SplashScreen from 'expo-splash-screen'
 import { Asset } from 'expo-asset'
 
 import Settings from '../classes/Settings'
 
-export default class DarkMode extends Component {
-  
-  /**
-   * Constructs a new instance.
-   */
-  constructor(props) {
-    super(props)
-    this.state = { isReady: false }
+/**
+ * We need to wait for assets to be loaded before attempting to use them
+ * @see https://docs.expo.dev/versions/latest/sdk/splash-screen/
+ */
+SplashScreen.preventAutoHideAsync()
 
-    this.changeTheme = this.changeTheme.bind(this)
+const DarkMode = props => {
+
+  const [ready, isReady] = useState(false)
+
+  useEffect(() => {
+    (async () => {
+      try {
+        return Asset.loadAsync([ 
+          Settings.data.theme === 'dark'
+            ? require('../assets/img/sun.png')
+            : require('../assets/img/moon.png')
+        ])
+      } catch (e) {
+        console.warn(e)
+      } finally {
+        isReady(true)
+      }
+    })()
+  }, [])
+
+  /**
+   * Avoid getting stuck on initial splash-screen
+   * @see https://docs.expo.dev/versions/latest/sdk/splash-screen/#usage
+   */
+  const onLayoutRootView = useCallback(async () => {
+    if( ready ) await SplashScreen.hideAsync()
+  }, [ready])
+
+  const changeTheme = () => {
+    Settings.set(
+      'theme', 
+      Settings.data.theme === 'dark' ? 'light' : 'dark', 
+      props.handler
+    ) 
   }
 
-  /**
-   * @see https://stackoverflow.com/a/51821784/10491705
-   */
-  async _cacheResourcesAsync() {
-    // Can't use variable into require
-    if(Settings.data.theme === 'dark') {
-      return Asset.loadAsync([require('../assets/img/sun.png')]);
-    }
-    return Asset.loadAsync([require('../assets/img/moon.png')]);
-  }
+  if( ready === false ) return null;
 
-  changeTheme() {
-    Settings.set('theme', Settings.data.theme === 'dark' ? 'light' : 'dark', this.props.handler) 
-  }
-
-  /**
-   * Renders the page
-   */
-  render() {
-
-    if(!this.state.isReady) {
-      return(
-        <AppLoading
-          startAsync={() => this._cacheResourcesAsync()}
-          onFinish={() => this.setState({isReady: true})}
-          onError={console.warn}
-        />
-      )
-    }
-
-    return(
-      <TouchableOpacity onPress={this.changeTheme}>
-        <Image
-          style={styles.image}
-          source={Settings.data.theme === 'dark' ? require('../assets/img/sun.png') : require('../assets/img/moon.png')}
-        />
-      </TouchableOpacity>
-    )
-   }
-
+  return(
+    <TouchableOpacity onPress={ changeTheme } onLayout={ onLayoutRootView }>
+      <Image
+        style={ styles.image }
+        source={ 
+          Settings.data.theme === 'dark' 
+            ? require('../assets/img/sun.png') 
+            : require('../assets/img/moon.png')
+        }
+      />
+    </TouchableOpacity>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -75,3 +84,5 @@ const styles = StyleSheet.create({
     height: 30,
   }
 })
+
+export default DarkMode
