@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
+import { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
   View,
+  FlatList,
   Dimensions
 } from 'react-native';
 
@@ -14,19 +15,11 @@ import Popup    from '../components/Popup'
 import { getModule } from '../helpers/modules'
 import { __ } from '../data/text'
 
-// Dependencies
-import Carousel from 'react-native-snap-carousel';
-
 const { width: viewportWidth } = Dimensions.get('window')
+const ITEM_WIDTH = Math.round(viewportWidth * 0.75)
+const SIDE_PADDING = Math.round((viewportWidth - ITEM_WIDTH) / 2)
 
 export default class Levels extends Component {
-
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
 
   constructor(props) {
     super(props)
@@ -36,15 +29,13 @@ export default class Levels extends Component {
       popup: false
     }
 
-    // Need a function for support settings
     this.styles = getStyles()
-    
     this.getProgress = this.getProgress.bind(this)
   }
 
   async init() {
 
-    this.key = this.props.navigation.state.params.key
+    this.key = this.props.route.params.key
     this.styles = getStyles()
 
     this.module = await getModule(this.key)
@@ -54,7 +45,8 @@ export default class Levels extends Component {
   }
 
   componentDidMount() {
-    this.props.navigation.addListener('didFocus', () => {
+    this.init()
+    this.props.navigation.addListener('focus', () => {
       this.setState({
         progress: false,
         levels: false
@@ -64,9 +56,6 @@ export default class Levels extends Component {
 
   getProgress = async () => (this.setState({progress: await this.module.getProgress(true)}))
 
-  /**
-   * We need to add "Hsk" and "Radicals" for static HSK modules
-   */
   getTitle() {
 
     if( ! this.module ) return '';
@@ -82,25 +71,29 @@ export default class Levels extends Component {
     }
   }
 
-  /**
-   * Renders the page
-   */
   render() {
 
-    // Show the progress only when we load the progress number
     const levels = this.state.levels !== false && this.state.progress !== false ?
-      <Carousel
-        layout='default'
-        ref={ c => this._carousel = c }
+      <FlatList
+        horizontal
         data={ this.state.levels }
         renderItem={ this._renderItem }
-        sliderWidth={ viewportWidth }
-        itemWidth={ viewportWidth / 1.33 }
-        firstItem={ Settings.data.isProgress !== 'no' ? this.state.progress : false }
+        keyExtractor={ (_, i) => i.toString() }
+        showsHorizontalScrollIndicator={ false }
+        snapToInterval={ ITEM_WIDTH }
+        decelerationRate="fast"
+        contentContainerStyle={{ paddingHorizontal: SIDE_PADDING }}
+        getItemLayout={ (_, index) => ({
+          length: ITEM_WIDTH,
+          offset: ITEM_WIDTH * index,
+          index,
+        })}
+        initialScrollIndex={ Settings.data.isProgress !== 'no' ? this.state.progress : 0 }
+        onScrollToIndexFailed={ () => {} }
       /> : null
-    
-    const popup = this.state.popup !== false ? 
-      <Popup change={ () => this.init() } close={ () => this.setState({'popup': false}) }/> : 
+
+    const popup = this.state.popup !== false ?
+      <Popup change={ () => this.init() } close={ () => this.setState({'popup': false}) }/> :
       false
 
     return (
@@ -128,31 +121,33 @@ export default class Levels extends Component {
   }
 
   _renderItem = ({item}) => {
-    
+
     const level = item
     const { navigate } = this.props.navigation
-    
-    const isLocked = Settings.data.isProgress !== 'no' 
-      ? (this.state.progress + 1) < parseInt(level.number) 
+
+    const isLocked = Settings.data.isProgress !== 'no'
+      ? (this.state.progress + 1) < parseInt(level.number)
       : false
-    const textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary 
-    
+    const textStyle = isLocked ? Settings.data.colors.background : Settings.data.colors.primary
+
     return(
-      <View style={ !isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked }>
-        <Text style={ [this.styles.carouselTitle, {color: textStyle}] }>
-          { level.getTitle() }
-        </Text>
-        <Text style={ [{color: textStyle}] }>
-          { __('words_number') }: { level.getCharacterNumber() }
-        </Text>
-        <Text 
-          style={[this.styles.instructions, {color: textStyle}] } onPress={
-            () => !isLocked ? navigate('Characters', {
-              module: this.module.key,
-              level: level.number,
-        }) : ''}>
-          { !isLocked ? __('start') : __('locked') }
-        </Text>
+      <View style={{ width: ITEM_WIDTH, paddingHorizontal: 5 }}>
+        <View style={ !isLocked ? this.styles.carouselItem : this.styles.carouselItemLocked }>
+          <Text style={ [this.styles.carouselTitle, {color: textStyle}] }>
+            { level.getTitle() }
+          </Text>
+          <Text style={ [{color: textStyle}] }>
+            { __('words_number') }: { level.getCharacterNumber() }
+          </Text>
+          <Text
+            style={[this.styles.instructions, {color: textStyle}] } onPress={
+              () => !isLocked ? navigate('Characters', {
+                module: this.module.key,
+                level: level.number,
+          }) : ''}>
+            { !isLocked ? __('start') : __('locked') }
+          </Text>
+        </View>
       </View>
     );
   }
@@ -193,7 +188,6 @@ const getStyles = () => (StyleSheet.create({
     marginBottom: 5,
     padding: 10,
     borderColor: Settings.data.colors.primary,
-    color: Settings.data.colors.primary,
     borderWidth: 1,
     width: '66%'
   },
@@ -206,7 +200,6 @@ const getStyles = () => (StyleSheet.create({
     height: '100%',
     borderWidth: 1,
     borderColor: Settings.data.colors.primary,
-    color: Settings.data.colors.primary,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
@@ -214,7 +207,6 @@ const getStyles = () => (StyleSheet.create({
     height: '100%',
     borderWidth: 1,
     borderColor: Settings.data.colors.background,
-    color: Settings.data.colors.background,
     backgroundColor: Settings.data.colors.primary,
     justifyContent: 'space-around',
     alignItems: 'center',

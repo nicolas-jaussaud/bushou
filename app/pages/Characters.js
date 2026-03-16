@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {  
   StyleSheet, 
   Text, 
@@ -18,13 +18,6 @@ import { __ } from '../data/text'
 
 export default class Characters extends Component {
 
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -32,20 +25,21 @@ export default class Characters extends Component {
       data: []
     }
 
-    // Need a function for support settings
     this.styles = getStyles()
-    this.navData = this.props.navigation.state.params
+    this.navData = this.props.route.params
 
     this.getCharacter = this.getCharacter.bind(this)
     this.getName      = this.getName.bind(this)
   }
 
-  async componentDidMount() { 
-    
+  async componentDidMount() {
+
     this.module = await new Module(this.navData.module)
     this.level  = new Level(this.navData.level, this.module)
 
-    this.props.navigation.addListener('didFocus', async () => {
+    this.setState({data: await this.level.getCharacters()})
+
+    this.props.navigation.addListener('focus', async () => {
       this.setState({data: await this.level.getCharacters()})
       this.styles = getStyles()
     })

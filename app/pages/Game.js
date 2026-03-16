@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
+import { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
   View,
   Vibration,
   StatusBar
@@ -26,22 +26,11 @@ import {
 
 export default class Game extends Component {
 
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
-
-  /**
-   * Constructs a new instance.
-   */
   constructor(props) {
     super(props)
 
-    // Needed for allowing settings into styles 
     this.styles   = getStyles()
-    this.navData  = this.props.navigation.state.params
+    this.navData  = this.props.route.params
 
     this.state = {
       answer:       '',
@@ -79,7 +68,7 @@ export default class Game extends Component {
         isData:       true,
       })
     )
-    this.props.navigation.addListener('didFocus', () => this.styles = getStyles())
+    this.props.navigation.addListener('focus', () => this.styles = getStyles())
   }
 
   /**

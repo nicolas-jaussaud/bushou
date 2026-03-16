@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {  
   StyleSheet, 
   Text, 
@@ -20,13 +20,6 @@ import {
 
 export default class Options extends Component {
 
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -41,7 +34,7 @@ export default class Options extends Component {
   }
 
   componentDidMount() { 
-    this.props.navigation.addListener('didFocus', () => this.reloadStyle())
+    this.props.navigation.addListener('focus', () => this.reloadStyle())
   }
 
   /**
@@ -190,8 +183,7 @@ const getStyles = () => (StyleSheet.create({
   select: {
     transform: [
       {scale: 0.9}, 
-      {translate: [23,0]
-    }], 
+      {translateX: 23}], 
     height: 30, 
     width: 130
   } 

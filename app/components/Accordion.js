@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import { 
   StyleSheet, 
   Text,
@@ -22,7 +22,7 @@ export default class Accordion extends Component {
   }
 
   componentDidMount() { 
-    this.props.navigation.addListener('didFocus', () => {
+    this.props.navigation.addListener('focus', () => {
       this.reloadStyle()
     })
   }

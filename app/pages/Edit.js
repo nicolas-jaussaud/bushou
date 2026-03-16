@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {  
   StyleSheet, 
   Text, 
@@ -18,13 +18,6 @@ import { __ } from '../data/text'
 
 export default class Edit extends Component {
 
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -38,7 +31,10 @@ export default class Edit extends Component {
   }
 
   async componentDidMount() {
-    this.props.navigation.addListener('didFocus', async () => {
+    const module = await getModules()
+    this.setState({modules: module.custom})
+
+    this.props.navigation.addListener('focus', async () => {
       const module = await getModules()
       this.setState({modules: module.custom})
       this.styles = getStyles()

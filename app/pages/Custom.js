@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {  
   StyleSheet, 
   Text, 
@@ -22,13 +22,6 @@ import { getUniqID } from '../helpers/random';
 import { __ } from '../data/text'
 
 export default class Custom extends Component {
-
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
 
   constructor(props) {
     super(props)
@@ -68,7 +61,7 @@ export default class Custom extends Component {
   }
 
   componentDidMount() { 
-    this.props.navigation.addListener('didFocus', () => this.reloadStyle())
+    this.props.navigation.addListener('focus', () => this.reloadStyle())
   }
 
   /**
@@ -355,8 +348,7 @@ const getStyles = () => (StyleSheet.create({
   select: {
     transform: [
       {scale: 0.9}, 
-      {translate: [23,0]
-    }], 
+      {translateX: 23}], 
     height: 30, 
     width: 130
   },

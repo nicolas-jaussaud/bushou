@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
+import { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
   View
 } from 'react-native';
 
 import Settings  from '../classes/Settings';
 
 export default class Loader extends Component {
-
-  /**
-   * Navigation options (hide the top bar)
-   */
-  static navigationOptions = {
-    headerShown: false,
-  }
 
   constructor(props) {
     super(props)
@@ -24,8 +17,8 @@ export default class Loader extends Component {
     this.init()
   }
 
-  componentDidMount() { 
-    this.props.navigation.addListener('didFocus', () => this.init())
+  componentDidMount() {
+    this.props.navigation.addListener('focus', () => this.init())
   }
 
   init = async() => {
@@ -34,9 +27,6 @@ export default class Loader extends Component {
     navigate('Home')
   }
 
-  /**
-   * Renders the page
-   */
   render() {
 
     return (

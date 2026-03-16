@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {
   StyleSheet, 
   Text, 
@@ -26,10 +26,6 @@ export default class Home extends Component {
   /**
    * Navigation options (hide the top bar)
    */
-  static navigationOptions = {
-    headerShown: false,
-  }
-
   constructor(props) {
     super(props)
 
@@ -48,7 +44,7 @@ export default class Home extends Component {
 
   componentDidMount() { 
     this.getData()
-    this.props.navigation.addListener('didFocus', () => {
+    this.props.navigation.addListener('focus', () => {
       this.getData()
       this.reloadStyle()
     })

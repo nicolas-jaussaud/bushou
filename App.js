@@ -1,8 +1,6 @@
-// Navigation
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-// Pages
 import Loader from './app/pages/Loader'
 import Home from './app/pages/Home'
 import Game from './app/pages/Game'
@@ -12,23 +10,24 @@ import Options from './app/pages/Options'
 import Custom from './app/pages/Custom'
 import Edit from './app/pages/Edit'
 
-/**
- * @see https://facebook.github.io/react-native/docs/navigation
- */
-const MainNavigator = createStackNavigator({
-    Loader: { screen: Loader },
-    Home: { screen: Home },
-    Levels: { screen: Levels },
-    Game: { screen: Game },
-    Characters: { screen: Characters },
-    Options: { screen: Options }, 
-    Custom: { screen: Custom }, 
-    Edit: { screen: Edit }, 
-  },{
-    initialRouteName: 'Loader'
-  }
-);
+const Stack = createNativeStackNavigator()
 
-const App = createAppContainer( MainNavigator )
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="Loader"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="Loader" component={Loader} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Levels" component={Levels} />
+      <Stack.Screen name="Game" component={Game} />
+      <Stack.Screen name="Characters" component={Characters} />
+      <Stack.Screen name="Options" component={Options} />
+      <Stack.Screen name="Custom" component={Custom} />
+      <Stack.Screen name="Edit" component={Edit} />
+    </Stack.Navigator>
+  </NavigationContainer>
+)
 
-export default App;
+export default App
