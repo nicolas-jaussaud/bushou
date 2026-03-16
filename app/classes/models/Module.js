@@ -1,7 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-import { Logs } from 'expo'
-
 import Settings from '../Settings'
 import Level from './Level'
 import { __ } from '../../data/text'
@@ -22,8 +20,6 @@ import StaticHsk1Audio from '../../data/modules/hsk1-audio'
 import StaticHsk2 from '../../data/modules/hsk2'
 import StaticHsk2Pinyin from '../../data/modules/hsk2-pinyin'
 import StaticHsk2Audio from '../../data/modules/hsk2-audio'
-
-Logs.enableExpoCliLogging()
 
 export default class Module {
   
