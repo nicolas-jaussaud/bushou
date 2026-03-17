@@ -99,12 +99,14 @@ export default class Game extends Component {
   }
 
   win = async () => {
-
-    const { navigate } = this.props.navigation
-    
-    // Param is callback to after save 
     this.level.completeLevel(() => {
-      navigate('Levels', { key: this.module.key })
+      this.props.navigation.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' },
+          { name: 'Levels', params: { key: this.module.key } }
+        ]
+      })
     })
   }
 
@@ -117,7 +119,7 @@ export default class Game extends Component {
   getCharacter(item) {
 
     if(Settings.data.characters !== 'traditional') return item;
-    
+
     return 'traditional' in this.data[item] ? this.data[item].traditional : item
   }
 
@@ -127,12 +129,17 @@ export default class Game extends Component {
   removeLife() {
 
     if(Settings.data.isVibrations !== 'no') Vibration.vibrate();
-    
+
     if(this.state.lives === 0) {
-      const { navigate } = this.props.navigation
-      navigate('Levels', { key: this.module.key })
+      this.props.navigation.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' },
+          { name: 'Levels', params: { key: this.module.key } }
+        ],
+      })
     } 
-    
+
     let lives = this.state.lives
     lives--
     this.setState({'lives': lives})
@@ -178,12 +185,12 @@ export default class Game extends Component {
    * Check if the answer is correct
    */
   checkAnswer(isCorrect) {
-    
+
     if( isCorrect === false ) {
       this.setState({'timerStopped': '#FF4646'})
       this.removeLife()
       this.newRound()
-    } 
+    }
     else {
       this.setState({'timerStopped': '#6EF487'})
       this.module.correctAnswer(
@@ -191,7 +198,6 @@ export default class Game extends Component {
         this.newRound
       )
     }
-    
   }
 
   getFormatedText(timed = true) {
@@ -206,7 +212,7 @@ export default class Game extends Component {
       : false
 
     text = text.replace(/\(.*?\)/, '')
-    
+
     if( this.state.timerStopped === false && timed === false ) {
       return null
     }
@@ -243,8 +249,8 @@ export default class Game extends Component {
       return(
         <View style={ this.styles.container }></View>
       )
-    }  
-    
+    }
+
     // Display the card when we have the data
     const cards = this.state.propositions.length !== 0 ?
       this.state.propositions.map((item, i) => (
