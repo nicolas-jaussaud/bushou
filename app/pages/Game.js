@@ -185,11 +185,11 @@ export default class Game extends Component {
    * Check if the answer is correct
    */
   checkAnswer(isCorrect) {
-
-    if( isCorrect === false ) {
+    if( this.state.timerStopped !== false ) return;
+    else if( isCorrect === false ) {
       this.setState({'timerStopped': '#FF4646'})
       this.removeLife()
-      this.newRound()
+      setTimeout(this.newRound, 300)
     }
     else {
       this.setState({'timerStopped': '#6EF487'})
