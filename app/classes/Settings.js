@@ -34,7 +34,7 @@ export default class Settings {
 
     if(Settings.data.theme === 'dark') {
       Settings.data.colors.primary = background ? background : DEFAULT.colors.background
-      Settings.data.colors.background = primary ? primary : DEFAULT.colors.primary
+      Settings.data.colors.background = '#000000'
     }
 
     // Color icon in the notification bar
