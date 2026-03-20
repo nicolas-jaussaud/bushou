@@ -248,6 +248,26 @@ export const TEXT = {
     'en': 'Gives the possibility to create a personalized progression (currently in beta).',
     'es': 'Tienes la posibilidad de crear una progresión personalizada (actualmente en beta).',
     'fr': 'Donne la possibilité de créer une progression personnalisée (actuellement en beta).'
+  },
+  'voice_not_installed': {
+    'en': 'Chinese voice not installed',
+    'es': 'Voz china no instalada',
+    'fr': 'Voix chinoise non installée'
+  },
+  'voice_not_installed_message': {
+    'en': 'This app requires a Chinese text-to-speech voice. Would you like to install it now?',
+    'es': 'Esta aplicación necesita una voz china de texto a voz. ¿Deseas instalarla ahora?',
+    'fr': 'Cette application nécessite une voix chinoise. Voulez-vous l\'installer maintenant ?'
+  },
+  'ignore': {
+    'en': 'Ignore',
+    'es': 'Ignorar',
+    'fr': 'Ignorer'
+  },
+  'open_settings': {
+    'en': 'Open Settings',
+    'es': 'Abrir ajustes',
+    'fr': 'Ouvrir les paramètres'
   }
 }
 
