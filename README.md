@@ -2,15 +2,13 @@
 
 ## Project
 
-React native mini-game for learning Chinese radicals.
+React native mini-game to memorize radicals, HSK1 and HSK2 characters:
 
-The app can be downloaded [here](https://play.google.com/store/apps/details?id=com.surfzilla.bushou).
+[![Video title](https://img.youtube.com/vi/3ltDfXuEjQQ/hqdefault.jpg)](https://www.youtube.com/watch?v=3ltDfXuEjQQ)
 
-If you want to see planned features, here is the [Trello board](https://trello.com/b/4Ox5N6eP/bushou).
+The app can be installed from the playstore [here](https://play.google.com/store/apps/details?id=com.surfzilla.bushou), or by downloading the apk from the [releases page](https://github.com/nicolas-jaussaud/bushou/releases).
 
 ## Data
 
-**Radicals:** https://github.com/nicolas-jaussaud/chinese-radicals/ 
-
-**HSK1:** https://github.com/nicolas-jaussaud/hsk-words
-
+- **Radicals:** https://github.com/nicolas-jaussaud/chinese-radicals/
+- **HSK1 and HSK2:** https://github.com/nicolas-jaussaud/hsk-words

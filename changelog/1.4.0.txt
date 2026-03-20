@@ -1,0 +1,27 @@
+<en-IN>
+- True black dark mode (AMOLED friendly)
+- Improved text-to-speech voice detection
+- Better answer generation (avoids similar pinyin and repeated wrong answers)
+- Fixed double tap on answers
+- Updated radicals data
+- Fixed header icon position
+- General performance improvements
+</en-IN>
+<es-419>
+- Modo oscuro negro puro (compatible con pantallas AMOLED)
+- Mejor detección de voces de texto a voz
+- Mejores respuestas generadas (evita pinyin similar y respuestas incorrectas repetidas)
+- Corrección del doble toque en las respuestas
+- Datos de radicales actualizados
+- Corrección de la posición del icono del encabezado
+- Mejoras generales de rendimiento
+</es-419>
+<fr-FR>
+- Mode sombre noir pur (compatible écrans AMOLED)
+- Meilleure détection des voix de synthèse vocale
+- Meilleures propositions de réponses (évite les pinyin similaires et les mauvaises réponses répétées)
+- Correction du double appui sur les réponses
+- Mise à jour des données des radicaux
+- Correction de la position de l'icône dans l'en-tête
+- Améliorations générales de performance
+</fr-FR>
