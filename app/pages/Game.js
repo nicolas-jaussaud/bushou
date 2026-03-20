@@ -315,7 +315,8 @@ const getStyles = () => (StyleSheet.create({
     left: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingHorizontal: 10,
   },
   prononciation: {
     fontSize: 30,
@@ -334,17 +335,13 @@ const getStyles = () => (StyleSheet.create({
     width: '100%'
   },
   round: {
+    flexDirection: 'row',
     height: 40,
   },
   lives: {
     flexDirection: 'row-reverse',
     flexWrap: 'wrap',
     maxWidth: '60%'
-  },
-  round: {
-    flexDirection: 'row-reverse',
-    flexWrap: 'nowrap',
-    marginLeft: 50
   },
   container: {
     flex: 1,

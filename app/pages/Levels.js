@@ -174,7 +174,8 @@ const getStyles = () => (StyleSheet.create({
     top: 10,
     left: 0,
     height: 80,
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingRight: 15,
   },
   welcome: {
     fontSize: 20,
