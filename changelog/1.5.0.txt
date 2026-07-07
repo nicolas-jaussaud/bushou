@@ -1,0 +1,15 @@
+<en-IN>
+- Update to new version of HSK 1 and 2
+- Hide legacy HSK levels for new users
+- Upgrade to expo 57
+</en-IN>
+<es-419>
+- Actualización a la nueva versión de HSK 1 y 2
+- Los niveles HSK antiguos quedan ocultos para los nuevos usuarios
+- Actualización a Expo 57
+</es-419>
+<fr-FR>
+- Mise à jour vers la nouvelle version du HSK 1 et 2
+- Anciens niveaux HSK masqués pour les nouveaux utilisateurs
+- Mise à jour vers Expo 57
+</fr-FR>

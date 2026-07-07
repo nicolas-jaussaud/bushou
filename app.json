@@ -2,7 +2,7 @@
   "expo": {
     "name": "Bushou",
     "slug": "bushou",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "orientation": "portrait",
     "icon": "./bushou.png",
     "assetBundlePatterns": [
@@ -13,7 +13,7 @@
     ],
     "android": {
       "package": "com.surfzilla.bushou",
-      "versionCode": 20,
+      "versionCode": 21,
       "permissions": [
         "VIBRATE"
       ]
