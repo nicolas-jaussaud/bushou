@@ -16,7 +16,17 @@ export default class Settings {
     const isProgress    = await Settings.get('is-progression')
     const isVibrations  = await Settings.get('is-vibrations')
     const isAudio       = await Settings.get('is-audio')
+    const isLegacyHsk   = await Settings.get('display-legacy-hsk')
     const customLevels  = await Settings.get('custom-levels')
+
+    /**
+     * When the setting was never saved, legacy HSK levels are displayed only for
+     * users that already have progress on them
+     */
+    const hasLegacyProgress = async () => (
+         (await Settings.get('progress-hsk1')) !== null
+      || (await Settings.get('progress-hsk2')) !== null
+    )
 
     Settings.data = {
       'language': language ? language : DEFAULT.language,
@@ -29,6 +39,7 @@ export default class Settings {
       'isProgress': isProgress ? isProgress : DEFAULT.isProgress,
       'isVibrations': isVibrations ? isVibrations : DEFAULT.isVibrations,
       'isAudio': isAudio ? isAudio : DEFAULT.isAudio,
+      'isLegacyHsk': isLegacyHsk ? isLegacyHsk : (await hasLegacyProgress() ? 'yes' : DEFAULT.isLegacyHsk),
       'customLevels': customLevels ? customLevels.split(',') : DEFAULT.customLevels
     }
 

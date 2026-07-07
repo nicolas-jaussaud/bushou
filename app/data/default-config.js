@@ -9,5 +9,6 @@ export const DEFAULT = {
   'isProgress': 'yes',
   'isVibrations': 'yes',
   'isAudio': 'yes',
+  'isLegacyHsk': 'no',
   'customLevels': []
 }

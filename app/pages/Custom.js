@@ -8,7 +8,7 @@ import {
   ScrollView
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import FieldContainer from '../components/FieldContainer';
 import SectionTitle from '../components/SectionTitle';
@@ -26,17 +26,17 @@ export default class Custom extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
-      newItems: '10',
-      maxItems: '10',
-      data: 'radicals',
-      lives: 3,
-      isAcceleration: 'yes',
-      isUnlimited: 'yes',
-      timeByCharacters: '1',
-      targetItem: 'characters',
-      answerItems: 'translation',
-      roundNumber: '100'
+      name              : '',
+      newItems          : '10',
+      maxItems          : '10',
+      data              : 'radicals',
+      lives             : 3,
+      isAcceleration    : 'yes',
+      isUnlimited       : 'yes',
+      timeByCharacters  : '1',
+      targetItem        : 'characters',
+      answerItems       : 'translation',
+      roundNumber       : '100'
     }
 
     // Need a function for support settings
@@ -104,7 +104,15 @@ export default class Custom extends Component {
   isValid = () => {
 
     if( this.state.name === '') return false
-    if( !['radicals', 'hsk1', 'hsk2'].includes(this.state.data) ) return false
+    if (
+      ! [
+        'radicals',
+        'hsk1',
+        'hsk2',
+        'hsk1-2026',
+        'hsk2-2026'
+      ].includes(this.state.data)
+    ) return false
 
     if( parseInt(this.state.newItems) === 0 ) return false
 
@@ -252,8 +260,10 @@ export default class Custom extends Component {
                 itemStyle={[this.styles.text, {width: '75%'}]}
                 onValueChange={(value) => this.setState({data: value})}>
                   <Picker.Item label={ __('radicals') } value='radicals' />
-                  <Picker.Item label='HSK 1' value='hsk1' />
-                  <Picker.Item label='HSK 2' value='hsk2' />
+                  <Picker.Item label='HSK 1' value='hsk1-2026' />
+                  <Picker.Item label='HSK 2' value='hsk2-2026' />
+                  <Picker.Item label={ 'HSK 1 (' + __('legacy') + ')' } value='hsk1' />
+                  <Picker.Item label={ 'HSK 2 (' + __('legacy') + ')' } value='hsk2' />
               </Picker>
             </FieldContainer>
             
@@ -308,7 +318,7 @@ export default class Custom extends Component {
                 </Text>
               </View>
             }
-          </View>        
+          </View>
         </View>
       </View>
     );

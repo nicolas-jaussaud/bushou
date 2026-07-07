@@ -74,7 +74,7 @@ export default class Options extends Component {
               }}  
             />
           </FieldContainer>
-          
+
           <FieldContainer label={ __('language') } primary={ Settings.data.colors.primary }>
             <Picker
               selectedValue={ this.state.language }
@@ -105,7 +105,20 @@ export default class Options extends Component {
               <Picker.Item label={ __('traditional') } value="traditional" />
             </Picker>
           </FieldContainer>
-          
+
+          <FieldContainer label={ __('display_legacy_hsk') } primary={ Settings.data.colors.primary }>
+            <SettingLine
+              name={ 'display-legacy-hsk' }
+              enableValue={ 'yes' }
+              disableValue={ 'no' }
+              default={ Settings.data.isLegacyHsk }
+              handle={ () => {
+                this.reloadStyle()
+                this.setState({'refresh':0})
+              } }
+            />
+          </FieldContainer>
+
           <SectionTitle text={ __('game') } primary={ Settings.data.colors.primary }/>
 
           <FieldContainer label={ __('progression') } primary={ Settings.data.colors.primary }>

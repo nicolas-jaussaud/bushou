@@ -70,9 +70,11 @@ export default class Home extends Component {
 
   getLabel(category) {
     switch(category) {
-      case 'radicals':  return __('radicals') 
-      case 'hsk1':      return __('hsk') + ' 1'
-      case 'hsk2':      return __('hsk') + ' 2'
+      case 'radicals':  return __('radicals')
+      case 'hsk1':      return __('hsk') + ' 1 (' + __('legacy') + ')'
+      case 'hsk2':      return __('hsk') + ' 2 (' + __('legacy') + ')'
+      case 'hsk1-2026': return __('hsk') + ' 1'
+      case 'hsk2-2026': return __('hsk') + ' 2'
     }
   }
 

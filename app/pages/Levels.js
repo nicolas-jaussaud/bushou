@@ -66,8 +66,10 @@ export default class Levels extends Component {
 
     switch(this.module.get('data')) {
       case 'radicals':  return __('radicals') + ' - ' + this.module.getTitle()
-      case 'hsk1':      return 'HSK 1 - ' + this.module.getTitle()
-      case 'hsk2':      return 'HSK 2 - ' + this.module.getTitle()
+      case 'hsk1':      return 'HSK 1 (' + __('legacy') + ') - ' + this.module.getTitle()
+      case 'hsk2':      return 'HSK 2 (' + __('legacy') + ') - ' + this.module.getTitle()
+      case 'hsk1-2026': return 'HSK 1 - ' + this.module.getTitle()
+      case 'hsk2-2026': return 'HSK 2 - ' + this.module.getTitle()
     }
   }
 

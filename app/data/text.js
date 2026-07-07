@@ -4,10 +4,12 @@ export const languages = [
   {
     code: 'en', 
     label: 'English'
-  },{
+  },
+  {
     code: 'es', 
     label: 'Español'
-  },{
+  },
+  {
     code: 'fr', 
     label: 'Français'
   }
@@ -53,6 +55,16 @@ export const TEXT = {
     'en': 'HSK',
     'es': 'HSK',
     'fr': 'HSK'
+  },
+  'legacy': {
+    'en': 'legacy',
+    'es': 'antiguo',
+    'fr': 'ancien'
+  },
+  'display_legacy_hsk': {
+    'en': 'Legacy HSK levels',
+    'es': 'Niveles HSK antiguos',
+    'fr': 'Anciens niveaux HSK'
   },
   'words_number': {
     'en': 'Number of words',

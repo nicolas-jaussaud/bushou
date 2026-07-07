@@ -7,6 +7,8 @@ import { speak } from '../../helpers/voice';
 
 import Hsk1 from '../../data/hsk1'
 import Hsk2 from '../../data/hsk2'
+import Hsk12026 from '../../data/hsk1-2026'
+import Hsk22026 from '../../data/hsk2-2026'
 import RadicalsData from '../../data/radicals'
 
 import StaticRadicals from '../../data/modules/radicals'
@@ -20,6 +22,14 @@ import StaticHsk1Audio from '../../data/modules/hsk1-audio'
 import StaticHsk2 from '../../data/modules/hsk2'
 import StaticHsk2Pinyin from '../../data/modules/hsk2-pinyin'
 import StaticHsk2Audio from '../../data/modules/hsk2-audio'
+
+import StaticHsk12026 from '../../data/modules/hsk1-2026'
+import StaticHsk12026Pinyin from '../../data/modules/hsk1-2026-pinyin'
+import StaticHsk12026Audio from '../../data/modules/hsk1-2026-audio'
+
+import StaticHsk22026 from '../../data/modules/hsk2-2026'
+import StaticHsk22026Pinyin from '../../data/modules/hsk2-2026-pinyin'
+import StaticHsk22026Audio from '../../data/modules/hsk2-2026-audio'
 
 export default class Module {
   
@@ -37,12 +47,22 @@ export default class Module {
       'radicals',
       'radicals-pinyin',
       'radicals-audio',
+
       'hsk1',
       'hsk1-pinyin',
       'hsk1-audio',
+
       'hsk2',
       'hsk2-pinyin',
-      'hsk2-audio'
+      'hsk2-audio',
+
+      'hsk1-2026',
+      'hsk1-2026-pinyin',
+      'hsk1-2026-audio',
+
+      'hsk2-2026',
+      'hsk2-2026-pinyin',
+      'hsk2-2026-audio'
     ]
 
     this.isStatic = this.staticModules.includes(key) ? true : false
@@ -106,17 +126,25 @@ export default class Module {
   getJSON() {
     switch(this.key) {
       
-      case 'radicals':        return StaticRadicals;
-      case 'radicals-pinyin': return StaticRadicalsPinyin
-      case 'radicals-audio':  return StaticRadicalsAudio
+      case 'radicals':          return StaticRadicals;
+      case 'radicals-pinyin':   return StaticRadicalsPinyin
+      case 'radicals-audio':    return StaticRadicalsAudio
 
-      case 'hsk1':            return StaticHsk1
-      case 'hsk1-pinyin':     return StaticHsk1Pinyin
-      case 'hsk1-audio':      return StaticHsk1Audio
+      case 'hsk1':              return StaticHsk1
+      case 'hsk1-pinyin':       return StaticHsk1Pinyin
+      case 'hsk1-audio':        return StaticHsk1Audio
 
-      case 'hsk2':            return StaticHsk2
-      case 'hsk2-pinyin':     return StaticHsk2Pinyin
-      case 'hsk2-audio':      return StaticHsk2Audio
+      case 'hsk2':              return StaticHsk2
+      case 'hsk2-pinyin':       return StaticHsk2Pinyin
+      case 'hsk2-audio':        return StaticHsk2Audio
+
+      case 'hsk1-2026':         return StaticHsk12026
+      case 'hsk1-2026-pinyin':  return StaticHsk12026Pinyin
+      case 'hsk1-2026-audio':   return StaticHsk12026Audio
+
+      case 'hsk2-2026':         return StaticHsk22026
+      case 'hsk2-2026-pinyin':  return StaticHsk22026Pinyin
+      case 'hsk2-2026-audio':   return StaticHsk22026Audio
     }
   }
 
@@ -128,6 +156,8 @@ export default class Module {
       case 'radicals':  return RadicalsData
       case 'hsk1':      return Hsk1
       case 'hsk2':      return Hsk2
+      case 'hsk1-2026': return Hsk12026
+      case 'hsk2-2026': return Hsk22026
     }
   }
     
@@ -173,9 +203,11 @@ export default class Module {
   
   getCharacterNumber = () => {
     switch(this.get('data')) {
-       case 'radicals': return 214
-       case 'hsk1':     return 158
-       case 'hsk2':     return 150
+       case 'radicals':  return 214
+       case 'hsk1':      return 158
+       case 'hsk2':      return 150
+       case 'hsk1-2026': return 301
+       case 'hsk2-2026': return 203
     }
   }
 
