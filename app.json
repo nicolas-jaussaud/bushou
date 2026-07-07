@@ -5,11 +5,6 @@
     "version": "1.4.0",
     "orientation": "portrait",
     "icon": "./bushou.png",
-    "splash": {
-      "image": "./bushou.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#FFFFFF"
-    },
     "assetBundlePatterns": [
       "./app/assets/img/*"
     ],
@@ -24,7 +19,16 @@
       ]
     },
     "plugins": [
-      "expo-asset"
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./bushou.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#FFFFFF"
+        }
+      ],
+      "expo-status-bar"
     ],
     "extra": {
       "eas": {
